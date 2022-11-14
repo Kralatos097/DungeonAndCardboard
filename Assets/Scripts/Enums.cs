@@ -19,6 +19,23 @@ public enum RoomEffect
     Loot,
 }
 
+public enum LootEffect
+{
+    Trap,
+    Ambush,
+    Stuff,
+    Consumable,
+    Nothing,
+    Default,
+}
+
+public enum TreasureEffect
+{
+    Stuff,
+    Consumable,
+    Default,
+}
+
 public enum Action
 {
     Default,

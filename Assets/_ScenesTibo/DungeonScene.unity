@@ -833,6 +833,7 @@ GameObject:
   - component: {fileID: 1829757908}
   - component: {fileID: 1829757907}
   - component: {fileID: 1829757906}
+  - component: {fileID: 1829757909}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -920,6 +921,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829757904}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1829757909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829757904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebeb7b109893ef4448d203a2bad8d927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!1 &1943718308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,6 +1025,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 878841408}
     m_Modifications:
+    - target: {fileID: 4362586968786532356, guid: b7c38e69a3e50e242a54ad87b9dab84b, type: 3}
+      propertyPath: emptied
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4362586968786532356, guid: b7c38e69a3e50e242a54ad87b9dab84b, type: 3}
       propertyPath: roomType
       value: 5
