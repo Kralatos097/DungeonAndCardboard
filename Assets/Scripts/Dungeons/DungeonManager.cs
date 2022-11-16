@@ -112,41 +112,51 @@ public class DungeonManager : MonoBehaviour
     
     private void AssignPlayerInfo()
     {
-        WarriorInfo.MaxHp = warriorCard.maxHp;
-        WarriorInfo.CurrentHp = warriorCard.maxHp;
-        WarriorInfo.Init = warriorCard.initiative;
-        WarriorInfo.Movement = warriorCard.movement;
-        WarriorInfo.ActiveOne = warriorCard.activeOne;
-        WarriorInfo.ActiveTwo = warriorCard.activeTwo;
-        WarriorInfo.Passive = warriorCard.passive;
-        WarriorInfo.Consumable = warriorCard.consumable;
-        
-        ThiefInfo.MaxHp = thiefCard.maxHp;
-        ThiefInfo.CurrentHp = thiefCard.maxHp;
-        ThiefInfo.Init = thiefCard.initiative;
-        ThiefInfo.Movement = thiefCard.movement;
-        ThiefInfo.ActiveOne = thiefCard.activeOne;
-        ThiefInfo.ActiveTwo = thiefCard.activeTwo;
-        ThiefInfo.Passive = thiefCard.passive;
-        ThiefInfo.Consumable = thiefCard.consumable;
-        
-        ClericInfo.MaxHp = clericCard.maxHp;
-        ClericInfo.CurrentHp = clericCard.maxHp;
-        ClericInfo.Init = clericCard.initiative;
-        ClericInfo.Movement = clericCard.movement;
-        ClericInfo.ActiveOne = clericCard.activeOne;
-        ClericInfo.ActiveTwo = clericCard.activeTwo;
-        ClericInfo.Passive = clericCard.passive;
-        ClericInfo.Consumable = clericCard.consumable;
-        
-        WizardInfo.MaxHp = wizardCard.maxHp;
-        WizardInfo.CurrentHp = wizardCard.maxHp;
-        WizardInfo.Init = wizardCard.initiative;
-        WizardInfo.Movement = wizardCard.movement;
-        WizardInfo.ActiveOne = wizardCard.activeOne;
-        WizardInfo.ActiveTwo = wizardCard.activeTwo;
-        WizardInfo.Passive = wizardCard.passive;
-        WizardInfo.Consumable = wizardCard.consumable;
+        if (warriorCard != null)
+        {
+            WarriorInfo.MaxHp = warriorCard.maxHp;
+            WarriorInfo.CurrentHp = warriorCard.maxHp;
+            WarriorInfo.Init = warriorCard.initiative;
+            WarriorInfo.Movement = warriorCard.movement;
+            WarriorInfo.ActiveOne = warriorCard.activeOne;
+            WarriorInfo.ActiveTwo = warriorCard.activeTwo;
+            WarriorInfo.Passive = warriorCard.passive;
+            WarriorInfo.Consumable = warriorCard.consumable;
+        }
+        if (thiefCard != null)
+        {
+            ThiefInfo.MaxHp = thiefCard.maxHp;
+            ThiefInfo.CurrentHp = thiefCard.maxHp;
+            ThiefInfo.Init = thiefCard.initiative;
+            ThiefInfo.Movement = thiefCard.movement;
+            ThiefInfo.ActiveOne = thiefCard.activeOne;
+            ThiefInfo.ActiveTwo = thiefCard.activeTwo;
+            ThiefInfo.Passive = thiefCard.passive;
+            ThiefInfo.Consumable = thiefCard.consumable;
+        }
+        if (clericCard != null)
+        {
+            ClericInfo.MaxHp = clericCard.maxHp;
+            ClericInfo.CurrentHp = clericCard.maxHp;
+            ClericInfo.Init = clericCard.initiative;
+            ClericInfo.Movement = clericCard.movement;
+            ClericInfo.ActiveOne = clericCard.activeOne;
+            ClericInfo.ActiveTwo = clericCard.activeTwo;
+            ClericInfo.Passive = clericCard.passive;
+            ClericInfo.Consumable = clericCard.consumable;
+        }
+
+        if (wizardCard != null)
+        {
+            WizardInfo.MaxHp = wizardCard.maxHp;
+            WizardInfo.CurrentHp = wizardCard.maxHp;
+            WizardInfo.Init = wizardCard.initiative;
+            WizardInfo.Movement = wizardCard.movement;
+            WizardInfo.ActiveOne = wizardCard.activeOne;
+            WizardInfo.ActiveTwo = wizardCard.activeTwo;
+            WizardInfo.Passive = wizardCard.passive;
+            WizardInfo.Consumable = wizardCard.consumable;
+        }
     }
 
     private void LaunchRoomType(RoomType roomType)
@@ -155,6 +165,7 @@ public class DungeonManager : MonoBehaviour
         {
             case RoomType.Normal:
                 //todo: loot ui
+                DungeonUiManager.DisplayLootActionSelectorUI();
                 break;
             case RoomType.Boss:
                 LaunchRoomEffect(RoomEffect.Boss);

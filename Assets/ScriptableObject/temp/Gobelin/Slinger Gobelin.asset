@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b7073100556f54a9ea8edc87d0de51, type: 3}
+  m_Name: Slinger Gobelin
+  m_EditorClassIdentifier: 
+  MaxHp: 4
+  Initiative: 1
+  Movement: 2
+  equipmentOne: {fileID: 11400000, guid: 8466baaa9d8a8a049bea2c8aa1f852aa, type: 2}
+  equipmentTwo: {fileID: 0}
+  passif: {fileID: 0}
+  consumable: {fileID: 0}
