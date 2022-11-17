@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64b7073100556f54a9ea8edc87d0de51, type: 3}
-  m_Name: Thief
+  m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
+  m_Name: BlindClaymore
   m_EditorClassIdentifier: 
-  MaxHp: 9
-  Initiative: 4
-  Movement: 3
-  equipmentOne: {fileID: 11400000, guid: c16a0fffe3333c84493f35f3a3e0f82c, type: 2}
-  equipmentTwo: {fileID: 0}
-  passif: {fileID: 0}
-  consumable: {fileID: 0}
+  stuffName: 
+  logo: {fileID: 21300000, guid: 95680b558e93b294699db57d97bb3a9c, type: 3}
+  description: 
+  range: 0
+  cd: 0
+  activeEffectList:
+  - activeType: 8
+    value: 20
+    target: 1

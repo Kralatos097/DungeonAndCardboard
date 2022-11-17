@@ -72,15 +72,15 @@ public class DungeonTile : MonoBehaviour
 
         switch (roomType)
         {
+            case RoomType.FirstRoom:
             case RoomType.Normal:
+            case RoomType.Fighting:
                 break;
             case RoomType.Boss:
                 ChangeSprite(bossRoomSprite);
                 break;
             case RoomType.Treasure:
                 ChangeSprite(treasureRoomSprite);
-                break;
-            case RoomType.Fighting:
                 break;
             case RoomType.Starting:
                 ChangeSprite(startingRoomSprite);

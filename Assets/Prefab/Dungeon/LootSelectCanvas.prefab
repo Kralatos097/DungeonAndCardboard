@@ -259,7 +259,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UiManagerDj, Assembly-CSharp
-        m_MethodName: LootSelected
+        m_MethodName: LaunchLootButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -734,7 +734,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UiManagerDj, Assembly-CSharp
-        m_MethodName: RestSelected
+        m_MethodName: LaunchRestButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,11 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class DungeonUiManager : MonoBehaviour
 {
     private bool inChoice = false;
+    private Stuff _newStuff;
+
+    [SerializeField] private Sprite emptyIcon;
     
     [Header("ArtworksPanel")]
     [SerializeField] private GameObject bossPanel;
@@ -44,8 +50,10 @@ public class DungeonUiManager : MonoBehaviour
     public static RoomArtworkUi ResetLootActionSelectorUI;
     
     public delegate void StuffChoiceUi(Stuff newStuff);
-    public static StuffChoiceUi StuffChoice;
-    
+    public static StuffChoiceUi StuffChoiceAction;
+    private Perso _charaSelected;
+    private Stuff _changedStuff;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -84,6 +92,8 @@ public class DungeonUiManager : MonoBehaviour
         DisplayLootActionSelectorUI += DisplayLootActionSelector;
 
         ResetLootActionSelectorUI += ResetLootActionSelector;
+        
+        StuffChoiceAction = StuffChoice;
     }
     
     private void DisplayTrapArtwork()
@@ -163,5 +173,245 @@ public class DungeonUiManager : MonoBehaviour
     private void ResetLootActionSelector()
     {
         lootSelectCanvas.SetActive(false);
+    }
+    
+    private void StuffChoice(Stuff stuff)
+    {
+        _newStuff = stuff;
+        stuffCharaSelectPanel.SetActive(true);
+        stuffCharaSelectPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff.logo;
+    }
+    
+    public void CharaSelect(int nb)
+    {
+        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = _newStuff.logo;
+        ChoiceButtonInteract();
+        switch(nb)
+        {
+            case 0: //Warrior
+                _charaSelected = Perso.Warrior;
+                EquipChoiceIconChange(WarriorInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).gameObject);
+                EquipChoiceIconChange(WarriorInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject);
+                EquipChoiceIconChange(WarriorInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject);
+                EquipChoiceIconChange(WarriorInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject);
+                break;
+            
+            case 1: //Thief
+                _charaSelected = Perso.Thief;
+                EquipChoiceIconChange(ThiefInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).gameObject);
+                EquipChoiceIconChange(ThiefInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject);
+                EquipChoiceIconChange(ThiefInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject);
+                EquipChoiceIconChange(ThiefInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject);
+                break;
+            
+            case 2: //Cleric
+                _charaSelected = Perso.Cleric;
+                EquipChoiceIconChange(ClericInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).gameObject);
+                EquipChoiceIconChange(ClericInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject);
+                EquipChoiceIconChange(ClericInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject);
+                EquipChoiceIconChange(ClericInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject);
+                break;
+            
+            case 3: //Wizard
+                _charaSelected = Perso.Wizard;
+                EquipChoiceIconChange(WizardInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).gameObject);
+                EquipChoiceIconChange(WizardInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject);
+                EquipChoiceIconChange(WizardInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject);
+                EquipChoiceIconChange(WizardInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject);
+                break;
+            
+            default:
+                break;
+        }
+        stuffCharaSelectPanel.SetActive(false);
+        stuffReplaceSelectPanel.SetActive(true);
+    }
+
+    private void EquipChoiceIconChange(Stuff stuff, GameObject Go)
+    {
+        if (stuff != null)
+        {
+            Go.GetComponent<Image>().sprite = stuff.logo;
+        }
+        else
+        {
+            Go.GetComponent<Image>().sprite = emptyIcon;
+        }
+    }
+
+    private void ChoiceButtonInteract()
+    {
+        if(_newStuff.GetType() == typeof(Consumable))
+        {
+            stuffIconPanel.transform.GetChild(1).gameObject.GetComponent<Button>().interactable = false;
+            stuffIconPanel.transform.GetChild(2).gameObject.GetComponent<Button>().interactable = false;
+            stuffIconPanel.transform.GetChild(3).gameObject.GetComponent<Button>().interactable = false;
+            stuffIconPanel.transform.GetChild(4).gameObject.GetComponent<Button>().interactable = true;
+        }
+        else if(_newStuff.GetType() == typeof(Passive))
+        {
+            stuffIconPanel.transform.GetChild(1).gameObject.GetComponent<Button>().interactable = false;
+            stuffIconPanel.transform.GetChild(2).gameObject.GetComponent<Button>().interactable = false;
+            stuffIconPanel.transform.GetChild(3).gameObject.GetComponent<Button>().interactable = true;
+            stuffIconPanel.transform.GetChild(4).gameObject.GetComponent<Button>().interactable = false;
+        }
+        else if(_newStuff.GetType() == typeof(Active))
+        {
+            stuffIconPanel.transform.GetChild(1).gameObject.GetComponent<Button>().interactable = true;
+            stuffIconPanel.transform.GetChild(2).gameObject.GetComponent<Button>().interactable = true;
+            stuffIconPanel.transform.GetChild(3).gameObject.GetComponent<Button>().interactable = false;
+            stuffIconPanel.transform.GetChild(4).gameObject.GetComponent<Button>().interactable = false;
+        }
+    }
+
+    public void ChangeEquipOneButton()
+    {
+        Stuff stuff = null;
+        _changedStuff = _newStuff;
+        switch (_charaSelected)
+        {
+            case Perso.Warrior:
+                stuff = WarriorInfo.ActiveOne;
+                WarriorInfo.ActiveOne = (Active)_newStuff;
+                break;
+            case Perso.Thief:
+                stuff = ThiefInfo.ActiveOne;
+                ThiefInfo.ActiveOne = (Active)_newStuff;
+                break;
+            case Perso.Cleric:
+                stuff = ClericInfo.ActiveOne;
+                ClericInfo.ActiveOne = (Active)_newStuff;
+                break;
+            case Perso.Wizard:
+                stuff = WizardInfo.ActiveOne;
+                WizardInfo.ActiveOne = (Active)_newStuff;
+                break;
+            case Perso.Default:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+
+        GameObject buttonClicked = EventSystem.current.currentSelectedGameObject;
+        
+        buttonClicked.GetComponent<Button>().image.sprite = _newStuff != null ? _newStuff.logo : emptyIcon;
+        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff != null ? stuff.logo : emptyIcon;
+
+        _newStuff = stuff;
+    }
+    
+    public void ChangeEquipTwoButton()
+    {
+        Stuff stuff = null;
+        _changedStuff = _newStuff;
+        switch (_charaSelected)
+        {
+            case Perso.Warrior:
+                stuff = WarriorInfo.ActiveTwo;
+                WarriorInfo.ActiveTwo = (Active)_newStuff;
+                break;
+            case Perso.Thief:
+                stuff = ThiefInfo.ActiveTwo;
+                ThiefInfo.ActiveTwo = (Active)_newStuff;
+                break;
+            case Perso.Cleric:
+                stuff = ClericInfo.ActiveTwo;
+                ClericInfo.ActiveTwo = (Active)_newStuff;
+                break;
+            case Perso.Wizard:
+                stuff = WizardInfo.ActiveTwo;
+                WizardInfo.ActiveTwo = (Active)_newStuff;
+                break;
+            case Perso.Default:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+        
+        GameObject buttonClicked = EventSystem.current.currentSelectedGameObject;
+        
+        buttonClicked.GetComponent<Button>().image.sprite = _newStuff != null ? _newStuff.logo : emptyIcon;
+        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff != null ? stuff.logo : emptyIcon;
+
+        _newStuff = stuff;
+    }
+    
+    public void ChangePassifButton()
+    {
+        Stuff stuff = null;
+        _changedStuff = _newStuff;
+        switch (_charaSelected)
+        {
+            case Perso.Warrior:
+                stuff = WarriorInfo.Passive;
+                WarriorInfo.Passive = (Passive)_newStuff;
+                break;
+            case Perso.Thief:
+                stuff = ThiefInfo.Passive;
+                ThiefInfo.Passive = (Passive)_newStuff;
+                break;
+            case Perso.Cleric:
+                stuff = ClericInfo.Passive;
+                ClericInfo.Passive = (Passive)_newStuff;
+                break;
+            case Perso.Wizard:
+                stuff = WizardInfo.Passive;
+                WizardInfo.Passive = (Passive)_newStuff;
+                break;
+            case Perso.Default:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+        
+        GameObject buttonClicked = EventSystem.current.currentSelectedGameObject;
+        
+        buttonClicked.GetComponent<Button>().image.sprite = _newStuff != null ? _newStuff.logo : emptyIcon;
+        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff != null ? stuff.logo : emptyIcon;
+
+        _newStuff = stuff;
+    }
+    
+    public void ChangeConsumableButton()
+    {
+        Stuff stuff = null;
+        _changedStuff = _newStuff;
+        switch (_charaSelected)
+        {
+            case Perso.Warrior:
+                stuff = WarriorInfo.Consumable;
+                WarriorInfo.Consumable = (Consumable)_newStuff;
+                break;
+            case Perso.Thief:
+                stuff = ThiefInfo.Consumable;
+                ThiefInfo.Consumable = (Consumable)_newStuff;
+                break;
+            case Perso.Cleric:
+                stuff = ClericInfo.Consumable;
+                ClericInfo.Consumable = (Consumable)_newStuff;
+                break;
+            case Perso.Wizard:
+                stuff = WizardInfo.Consumable;
+                WizardInfo.Consumable = (Consumable)_newStuff;
+                break;
+            case Perso.Default:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+        
+        GameObject buttonClicked = EventSystem.current.currentSelectedGameObject;
+
+        buttonClicked.GetComponent<Button>().image.sprite = _newStuff != null ? _newStuff.logo : emptyIcon;
+        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff != null ? stuff.logo : emptyIcon;
+
+        _newStuff = stuff;
+    }
+
+    public void EndStuffChange()
+    {
+        stuffReplaceSelectPanel.SetActive(false);
+        
+        inChoice = false;
     }
 }

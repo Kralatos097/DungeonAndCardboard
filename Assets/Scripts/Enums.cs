@@ -75,12 +75,23 @@ public enum ActiveType
 {
     Damage,
     Heal,
-    Status,
+    Burn,
+    Stun,
+    Freeze,
+    Poison,
+    Armor,
+    Cure,
+    CritOnly,
+    NoMiss,
+    Splash,
+    TwoHit,
+    ThreeHit,
 }
 
 public enum ActiveTarget
 {
-    Self,
-    Other,
-    Tile,
+    SelfOnly,
+    OthersOnly,
+    Everyone,
+    Tiles,
 }

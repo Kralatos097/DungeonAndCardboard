@@ -172,15 +172,16 @@ public class DungeonManager : MonoBehaviour
                 break;
             case RoomType.Treasure:
                 //todo: loot ui
+                DungeonUiManager.DisplayLootActionSelectorUI();
                 break;
             case RoomType.Fighting:
                 LaunchRoomEffect(RoomEffect.Fight);
                 break;
             case RoomType.FirstRoom:
-                LaunchRoomEffect(RoomEffect.Treasure);
+                DungeonUiManager.DisplayLootActionSelectorUI();
                 break;
             case RoomType.Starting:
-                //DungeonUiManager.ResetArtworkUi();
+                DungeonUiManager.ResetArtworkUi();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(null);
@@ -189,6 +190,7 @@ public class DungeonManager : MonoBehaviour
     
     private void LaunchRoomEffect(RoomEffect roomEffect)
     {
+        DungeonUiManager.ResetLootActionSelectorUI();
         currentTile.emptied = true;
         _roomEffect = roomEffect;
         switch(roomEffect)
@@ -314,7 +316,7 @@ public class DungeonManager : MonoBehaviour
             newStuff = PickStuff();
             treasureEffect = TreasureEffect.Stuff;
         }
-        DungeonUiManager.StuffChoice(newStuff);
+        //DungeonUiManager.StuffChoiceAction(newStuff);
     }
     
     private void LaunchTrap()
@@ -392,17 +394,29 @@ public class DungeonManager : MonoBehaviour
     private void StuffSelection()
     {
         Stuff stuff = PickStuff();
-        DungeonUiManager.StuffChoice(stuff);
+        DungeonUiManager.StuffChoiceAction(stuff);
     }
     
     private void ConsumableSelection()
     {
         Stuff stuff = PickConsumable();
-        DungeonUiManager.StuffChoice(stuff);
+        DungeonUiManager.StuffChoiceAction(stuff);
     }
 
     public static string GetDungeonSceneName()
     {
         return _dungeonSceneName;
+    }
+
+    public void LaunchLootButton()
+    {
+        LaunchRoomEffectAction(currentTile.GetComponent<DungeonTile>().roomType == RoomType.Normal
+            ? RoomEffect.Loot
+            : RoomEffect.Treasure);
+    }
+
+    public void LaunchRestButton()
+    {
+        LaunchRoomEffectAction(RoomEffect.Rest);
     }
 }
