@@ -14,13 +14,13 @@ public class DungeonMovement : MonoBehaviour
     private void Start()
     {
         target = transform.position;
-        DungeonManager.currentTile = GetCurrentTile();
+        DungeonManager.CurrentTile = GetCurrentTile();
         canMove = true;
     }
 
     private void Update()
     {
-        if(canMove/* && !DungeonUiManager.ArtworkShown && !DungeonUiManager.InChoice*/)
+        if(canMove/* && !DungeonUiManager.ArtworkShown*/ && !DungeonUiManager.inChoice)
         {
             CheckMove();
         }
@@ -31,8 +31,8 @@ public class DungeonMovement : MonoBehaviour
         }
         else
         { 
-            if(!DungeonManager.currentTile.emptied)
-                DungeonManager.LaunchRoomTypeAction(DungeonManager.currentTile.roomType);
+            if(!DungeonManager.CurrentTile.emptied)
+                DungeonManager.LaunchRoomTypeAction(DungeonManager.CurrentTile.roomType);
             canMove = true;
         }
         if(transform.position != target)
@@ -70,10 +70,10 @@ public class DungeonMovement : MonoBehaviour
 
                     if (t.selectable)
                     {
-                        DungeonManager.currentTile.current = false;
+                        DungeonManager.CurrentTile.current = false;
                         target = new Vector3(t.transform.position.x, transform.position.y, t.transform.position.z);
                         t.current = true;
-                        DungeonManager.currentTile = t;
+                        DungeonManager.CurrentTile = t;
                     }
                 }
             }

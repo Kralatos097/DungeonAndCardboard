@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 
 public class DungeonUiManager : MonoBehaviour
 {
-    private bool inChoice = false;
+    public static bool inChoice = false;
     private Stuff _newStuff;
 
     [SerializeField] private Sprite emptyIcon;
@@ -45,6 +46,8 @@ public class DungeonUiManager : MonoBehaviour
     public static RoomArtworkUi LootNothingUi;
     public static RoomArtworkUi LootTrapUi;
     public static RoomArtworkUi ResetArtworkUi;
+    
+    public static RoomArtworkUi PlayerInfoUi;
 
     public static RoomArtworkUi DisplayLootActionSelectorUI;
     public static RoomArtworkUi ResetLootActionSelectorUI;
@@ -53,6 +56,11 @@ public class DungeonUiManager : MonoBehaviour
     public static StuffChoiceUi StuffChoiceAction;
     private Perso _charaSelected;
     private Stuff _changedStuff;
+
+    private void Awake()
+    {
+        PlayerInfoUi = SetUiPlayerInfo;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -146,7 +154,7 @@ public class DungeonUiManager : MonoBehaviour
         treasureConsumablePanel.SetActive(true);
     }
 
-    private void InChoiceChange()
+    public static void InChoiceChange()
     {
         inChoice = !inChoice;
     }
@@ -219,7 +227,6 @@ public class DungeonUiManager : MonoBehaviour
                 EquipChoiceIconChange(WizardInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject);
                 EquipChoiceIconChange(WizardInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject);
                 break;
-            
             default:
                 break;
         }
@@ -413,5 +420,80 @@ public class DungeonUiManager : MonoBehaviour
         stuffReplaceSelectPanel.SetActive(false);
         
         inChoice = false;
+    }
+    
+    private void SetUiPlayerInfo()
+    {
+        //Warrior
+        Transform playerPanel = playerInfoPanel.GetChild(0);
+        if (WarriorInfo.MaxHp > 0)
+        {
+            playerPanel.GetChild(1).GetChild(0).GetComponent<Image>().fillAmount =
+                WarriorInfo.CurrentHp / (float)WarriorInfo.MaxHp;
+            playerPanel.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = WarriorInfo.CurrentHp.ToString();
+
+            if (WarriorInfo.Passive == null)
+            {
+                playerPanel.transform.Find("PassifImg").gameObject.SetActive(false);
+            }
+            else
+                playerPanel.transform.Find("PassifImg").GetComponent<Image>().sprite = WarriorInfo.Passive.logo;
+        }
+        else
+            playerPanel.gameObject.SetActive(false);
+
+        //Thief
+        playerPanel = playerInfoPanel.GetChild(1);
+        if (ThiefInfo.MaxHp > 0)
+        {
+            playerPanel.GetChild(1).GetChild(0).GetComponent<Image>().fillAmount =
+                ThiefInfo.CurrentHp / (float)ThiefInfo.MaxHp;
+            playerPanel.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = ThiefInfo.CurrentHp.ToString();
+
+            if (ThiefInfo.Passive == null)
+            {
+                playerPanel.transform.Find("PassifImg").gameObject.SetActive(false);
+            }
+            else
+                playerPanel.transform.Find("PassifImg").GetComponent<Image>().sprite = ThiefInfo.Passive.logo;
+        }
+        else
+            playerPanel.gameObject.SetActive(false);
+
+        //Cleric
+        playerPanel = playerInfoPanel.GetChild(2);
+        if (ClericInfo.MaxHp > 0)
+        {
+            playerPanel.GetChild(1).GetChild(0).GetComponent<Image>().fillAmount =
+                ClericInfo.CurrentHp / (float)ClericInfo.MaxHp;
+            playerPanel.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = ClericInfo.CurrentHp.ToString();
+
+            if (ClericInfo.Passive == null)
+            {
+                playerPanel.transform.Find("PassifImg").gameObject.SetActive(false);
+            }
+            else
+                playerPanel.transform.Find("PassifImg").GetComponent<Image>().sprite = ClericInfo.Passive.logo;
+        }
+        else
+            playerPanel.gameObject.SetActive(false);
+
+        //Wizard
+        playerPanel = playerInfoPanel.GetChild(3);
+        if (WizardInfo.MaxHp > 0)
+        {
+            playerPanel.GetChild(1).GetChild(0).GetComponent<Image>().fillAmount =
+                WizardInfo.CurrentHp / (float)WizardInfo.MaxHp;
+            playerPanel.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = WizardInfo.CurrentHp.ToString();
+
+            if (WizardInfo.Passive == null)
+            {
+                playerPanel.transform.Find("PassifImg").gameObject.SetActive(false);
+            }
+            else
+                playerPanel.transform.Find("PassifImg").GetComponent<Image>().sprite = WizardInfo.Passive.logo;
+        }
+        else
+            playerPanel.gameObject.SetActive(false);
     }
 }

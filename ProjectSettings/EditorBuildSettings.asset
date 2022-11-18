@@ -6,6 +6,33 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_ScenesTibo/temp/MainMenu.unity
+    guid: 3da0cb404a1ce2e43971efbf6ec46c9e
+  - enabled: 1
     path: Assets/_MainScenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/_ScenesTibo/temp/VictoryScene.unity
+    guid: b1a6897996fc7ad40ad6644282257fc1
+  - enabled: 1
+    path: Assets/_ScenesTibo/temp/DefeatScene.unity
+    guid: 5f380e46323a8af45b9fdcf65e87fe5b
+  - enabled: 1
+    path: Assets/_ScenesTibo/temp/Test/TestDeplacement 1.unity
+    guid: c926119de5242764196406c7548fc5f8
+  - enabled: 1
+    path: Assets/_ScenesTibo/temp/Test/TestDeplacement 2.unity
+    guid: 4874ff54778795347ad09eb7479be829
+  - enabled: 1
+    path: Assets/_ScenesTibo/temp/Test/TestDeplacement 3.unity
+    guid: b75086384c4410e4ba88535aaf404de4
+  - enabled: 1
+    path: Assets/_ScenesTibo/temp/Test/TestDeplacement 4.unity
+    guid: d146fa28a7b627d408d632734b3ea2a9
+  - enabled: 1
+    path: Assets/_ScenesTibo/temp/Test/TestDeplacement 5.unity
+    guid: 195c6fa72d76c2649aac67ea482775f3
+  - enabled: 1
+    path: Assets/_ScenesTibo/temp/TestDeplacement.unity
+    guid: 43d60deb859649f4f9e16fd37dddafde
   m_configObjects: {}

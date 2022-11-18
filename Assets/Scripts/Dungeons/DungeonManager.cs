@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class DungeonManager : MonoBehaviour
@@ -12,10 +13,10 @@ public class DungeonManager : MonoBehaviour
 
     private static string _dungeonSceneName;
     
-    private GameObject gameContainer;
-    public static DungeonTile currentTile;
+    private GameObject _sceneContainer;
+    public static DungeonTile CurrentTile;
     
-    private  string bossScene;
+    [SerializeField] private string bossScene;
     
     [Header("Players Card")]
     [SerializeField] private PlayerBaseInfo warriorCard;
@@ -44,13 +45,15 @@ public class DungeonManager : MonoBehaviour
         LaunchRoomEffectAction = LaunchRoomEffect;
         LaunchRoomTypeAction = LaunchRoomType;
         
-        gameContainer = GameObject.Find("GameContainer");
+        _sceneContainer = GameObject.Find("SceneContainer");
         
         AssignPlayerInfo();
+        DungeonUiManager.PlayerInfoUi();
     }
     
     void Update()
     {
+        DungeonUiManager.PlayerInfoUi();
         if (Input.GetMouseButtonDown(0) && artworkShown)
         {
             DungeonUiManager.ResetArtworkUi();
@@ -59,12 +62,15 @@ public class DungeonManager : MonoBehaviour
             {
                 case RoomEffect.Boss:
                     LaunchBoss();
+                    DungeonUiManager.InChoiceChange();
                     break;
                 case RoomEffect.Fight:
                     LaunchFight();
+                    DungeonUiManager.InChoiceChange();
                     break;
                 case RoomEffect.Rest:
                     LaunchRest();
+                    DungeonUiManager.InChoiceChange();
                     break;
                 case RoomEffect.Treasure:
                     switch (treasureEffect)
@@ -85,9 +91,11 @@ public class DungeonManager : MonoBehaviour
                     {
                         case LootEffect.Trap:
                             LaunchTrap();
+                            DungeonUiManager.InChoiceChange();
                             break;
                         case LootEffect.Ambush:
                             LaunchAmbush();
+                            DungeonUiManager.InChoiceChange();
                             break;
                         case LootEffect.Stuff:
                             StuffSelection();
@@ -96,6 +104,7 @@ public class DungeonManager : MonoBehaviour
                             ConsumableSelection();
                             break;
                         case LootEffect.Nothing:
+                            DungeonUiManager.InChoiceChange();
                             break;
                         case LootEffect.Default:
                         default:
@@ -106,7 +115,6 @@ public class DungeonManager : MonoBehaviour
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            //todo: autoriser movement
         }
     }
     
@@ -191,20 +199,23 @@ public class DungeonManager : MonoBehaviour
     private void LaunchRoomEffect(RoomEffect roomEffect)
     {
         DungeonUiManager.ResetLootActionSelectorUI();
-        currentTile.emptied = true;
+        CurrentTile.emptied = true;
         _roomEffect = roomEffect;
         switch(roomEffect)
         {
             case RoomEffect.Boss:
+                artworkShown = true;
                 DungeonUiManager.BossUi();
                 break;
             case RoomEffect.Treasure:
                 LaunchTreasure();
                 break;
             case RoomEffect.Fight:
+                artworkShown = true;
                 DungeonUiManager.FightUi();
                 break;
             case RoomEffect.Rest:
+                artworkShown = true;
                 DungeonUiManager.RestUi();
                 break;
             case RoomEffect.Loot:
@@ -223,7 +234,7 @@ public class DungeonManager : MonoBehaviour
         Debug.Log(scene);
         fightingSceneList.Remove(scene);
         Debug.Log(fightingSceneList.Count);
-        gameContainer.SetActive(false);
+        _sceneContainer.SetActive(false);
         AsyncOperation op = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
         op.completed += operation =>
         {
@@ -238,7 +249,7 @@ public class DungeonManager : MonoBehaviour
         Debug.Log(scene);
         fightingSceneList.Remove(scene);
         Debug.Log(fightingSceneList.Count);
-        gameContainer.SetActive(false);
+        _sceneContainer.SetActive(false);
         AsyncOperation op = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
         op.completed += operation =>
         {
@@ -410,7 +421,7 @@ public class DungeonManager : MonoBehaviour
 
     public void LaunchLootButton()
     {
-        LaunchRoomEffectAction(currentTile.GetComponent<DungeonTile>().roomType == RoomType.Normal
+        LaunchRoomEffectAction(CurrentTile.GetComponent<DungeonTile>().roomType == RoomType.Normal
             ? RoomEffect.Loot
             : RoomEffect.Treasure);
     }
@@ -419,4 +430,11 @@ public class DungeonManager : MonoBehaviour
     {
         LaunchRoomEffectAction(RoomEffect.Rest);
     }
+
+    [ContextMenu("Trap")]
+    public void TestTrapUnits()
+    {
+        LaunchTrap();
+    }
+    
 }
