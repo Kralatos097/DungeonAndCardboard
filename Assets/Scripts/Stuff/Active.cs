@@ -35,4 +35,14 @@ public class Active : Stuff
     {
         //todo
     }
+
+    public int GetCd()
+    {
+        return cd;
+    }
+
+    public int GetAtkRange()
+    {
+        return range;
+    }
 }

@@ -34,6 +34,8 @@ public class DungeonManager : MonoBehaviour
     private RoomEffect _roomEffect;
     private LootEffect lootEffect = LootEffect.Default;
     private TreasureEffect treasureEffect = TreasureEffect.Default;
+
+    public static Action<bool> SceneContainerSwitch;
     
     private void Awake()
     {
