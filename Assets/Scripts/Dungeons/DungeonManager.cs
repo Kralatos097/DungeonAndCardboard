@@ -48,11 +48,17 @@ public class DungeonManager : MonoBehaviour
         LaunchRoomTypeAction = LaunchRoomType;
         
         _sceneContainer = GameObject.Find("SceneContainer");
+        SceneContainerSwitch = SceneContainerSwitchFunc;
         
         AssignPlayerInfo();
         DungeonUiManager.PlayerInfoUi();
     }
-    
+
+    private void SceneContainerSwitchFunc(bool obj)
+    {
+        _sceneContainer.SetActive(obj);
+    }
+
     void Update()
     {
         DungeonUiManager.PlayerInfoUi();

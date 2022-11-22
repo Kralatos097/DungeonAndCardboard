@@ -129,7 +129,7 @@ public class TurnManager : MonoBehaviour
     
     static void StartTurn()
     {
-        if (ArePlayersAlive() && AreEnnemisAlive())
+        if (ArePlayersAlive() && AreEnemysAlive())
         {
             while(!turnOrder.Peek().GetComponent<CombatStat>().isAlive)
             {
@@ -245,15 +245,15 @@ public class TurnManager : MonoBehaviour
         return false;
     }
     
-    private static bool AreEnnemisAlive()
+    private static bool AreEnemysAlive()
     {
         foreach (TacticsMovement unit in turnOrder)
         {
-            /*if (unit.gameObject.CompareTag("Ennemi") && !unit.gameObject.GetComponent<CombatStat>().isAlive)
+            /*if (unit.gameObject.CompareTag("Enemy") && !unit.gameObject.GetComponent<CombatStat>().isAlive)
             {
                 turnOrder.Dequeue();
             }*/
-            if (unit.gameObject.CompareTag("Ennemi") && unit.gameObject.GetComponent<CombatStat>().isAlive)
+            if (unit.gameObject.CompareTag("Enemy") && unit.gameObject.GetComponent<CombatStat>().isAlive)
             {
                 return true;
             }

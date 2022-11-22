@@ -10,5 +10,5 @@ public class ActiveEffect
 {
     public ActiveType activeType;
     public int value;
-    public ActiveTarget target;
+    public bool onSelf;
 }

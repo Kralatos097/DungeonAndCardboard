@@ -266,7 +266,7 @@ public class PlayerMovement : TacticsMovement
 
                     bool passAtk = false;
                     GameObject TargetGO = t.GetGameObjectOnTop();
-                    if(TargetGO != null) passAtk = (TargetGO.CompareTag("Ennemi")||TargetGO.CompareTag("Player"));
+                    if(TargetGO != null) passAtk = (TargetGO.CompareTag("Enemy")||TargetGO.CompareTag("Player"));
 
                     if (t.selectable && passAtk)
                     {
@@ -288,7 +288,7 @@ public class PlayerMovement : TacticsMovement
                                 throw new ArgumentOutOfRangeException();
                         }
                         
-                        Attack(TargetGO.GetComponent<GameObject>(), equip);
+                        Attack(TargetGO, equip);
                     }
                 }
                 //todo: else pour si on click sur la figurine

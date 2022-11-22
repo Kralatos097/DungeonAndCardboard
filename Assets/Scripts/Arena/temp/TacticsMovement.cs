@@ -420,32 +420,32 @@ public class TacticsMovement : MonoBehaviour
         }
     }
 
-    protected void Attack(GameObject combatStat, int equip)
+    protected void Attack(GameObject target, int equip)
     {
         RemoveSelectableTile();
 
         switch (equip)
         {
             case 1:
-                equipmentOne.Effect(combatStat);
-                combatStat.gameObject.GetComponent<TacticsMovement>().DamageClign();
+                equipmentOne.Effect(target);
+                target.gameObject.GetComponent<TacticsMovement>().DamageClign();
                 EquiOneCD = equipmentOne.GetCd();
                 break;
             case 2:
-                equipmentTwo.Effect(combatStat);
-                combatStat.gameObject.GetComponent<TacticsMovement>().DamageClign();
+                equipmentTwo.Effect(target);
+                target.gameObject.GetComponent<TacticsMovement>().DamageClign();
                 EquiTwoCD = equipmentTwo.GetCd();
                 break;
             case 3:
-                consummable.Effect(combatStat);
-                combatStat.gameObject.GetComponent<TacticsMovement>().DamageClign();
+                consummable.Effect(target);
+                target.gameObject.GetComponent<TacticsMovement>().DamageClign();
                 consummable = null;
                 break;
             default:
                 break;
         }
 
-        Debug.Log("ATTACKING " + combatStat.gameObject.name + "!\n Now has : " + combatStat.GetComponent<CombatStat>().currHp + " HP!");
+        Debug.Log("ATTACKING " + target.gameObject.name + "!\n Now has : " + target.GetComponent<CombatStat>().currHp + " HP!");
         EndOfAttack();
     }
 

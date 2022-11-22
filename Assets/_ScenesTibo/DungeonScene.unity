@@ -531,17 +531,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0053d01daba30a4a99ef3addc28eb88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossScene: TestDeplacement
+  bossScene: Fight
   warriorCard: {fileID: 11400000, guid: ccb22e06a8753654eb5c17e944da9f66, type: 2}
   thiefCard: {fileID: 11400000, guid: ccb22e06a8753654eb5c17e944da9f66, type: 2}
   clericCard: {fileID: 11400000, guid: ccb22e06a8753654eb5c17e944da9f66, type: 2}
   wizardCard: {fileID: 11400000, guid: ccb22e06a8753654eb5c17e944da9f66, type: 2}
   fightingSceneList:
-  - TestDeplacement 5
-  - TestDeplacement 4
-  - TestDeplacement 3
-  - TestDeplacement 2
-  - TestDeplacement 1
+  - Fight 2
+  - Fight 1
   ambushedSceneList:
   - TestDeplacement 5
   - TestDeplacement 4
