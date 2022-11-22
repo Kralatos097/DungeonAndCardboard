@@ -11,8 +11,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private List<Sprite> Sprite = new List<Sprite>();
 
     private int DialogueAvancement;
+    
+    [Header("Assign some things")]
     [SerializeField] private Animator FadeSprite;
-
+    [SerializeField] private string SceneToLoad;
     [SerializeField] private TextMeshProUGUI TextDisplay;
     [SerializeField] private Image SpriteDisplay;
 
@@ -24,16 +26,23 @@ public class DialogueManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0)) AnimStart();
-
-        if (DialogueAvancement >= Dialogue.Count) SceneManager.LoadScene("Jeu Test");
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (DialogueAvancement >= Dialogue.Count-1) SceneManager.LoadScene(SceneToLoad);
+            else
+            {
+                if (Sprite[DialogueAvancement] == Sprite[DialogueAvancement + 1]) NextOption();
+                else AnimStart();
+            }
+        }
     }
 
     public void AnimStart()
     {
         FadeSprite.SetBool("Fade",true);
-
+        //L'animation contient un event qui lance NextOption()
     }
+    
     public void NextOption()
     {
         DialogueAvancement += 1;
@@ -44,5 +53,6 @@ public class DialogueManager : MonoBehaviour
     public void CanClickNow()
     {
         FadeSprite.SetBool("Fade",false);
+        //Pour ne pas cliquer trop vite
     }
 }
