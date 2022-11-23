@@ -9,4 +9,14 @@ public class Passive : Stuff
     {
         throw new System.NotImplementedException();
     }
+
+    public override void Effect(GameObject user, int touchStatus)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Effect(GameObject user, GameObject target, int hit)
+    {
+        throw new System.NotImplementedException();
+    }
 }

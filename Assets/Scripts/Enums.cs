@@ -81,8 +81,6 @@ public enum ActiveType
     Poison,
     Armor,
     Cure,
-    CritOnly,
-    NoMiss,
     Splash,
     TwoHit,
     ThreeHit,

@@ -17,11 +17,11 @@ public class NPCMove : TacticsMovement
 
     protected override void GetUnitInfo()
     {
-        CombatStat _combatStat = gameObject.GetComponent<CombatStat>();
+        CombatStat combatStat = gameObject.GetComponent<CombatStat>();
         
-        _combatStat.MaxHp = UnitInfo.maxHp;
-        _combatStat.currHp = UnitInfo.maxHp;
-        _combatStat.initiative = UnitInfo.initiative;
+        combatStat.MaxHp = UnitInfo.maxHp;
+        combatStat.currHp = UnitInfo.maxHp;
+        combatStat.initiative = UnitInfo.initiative;
 
         move = UnitInfo.movement;
         equipmentOne = UnitInfo.activeOne;

@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class TacticsMovement : MonoBehaviour
 {
@@ -423,21 +424,22 @@ public class TacticsMovement : MonoBehaviour
     protected void Attack(GameObject target, int equip)
     {
         RemoveSelectableTile();
-
+        int hit = GetHitChance();
+        
         switch (equip)
         {
             case 1:
-                equipmentOne.Effect(target);
+                equipmentOne.Effect(gameObject, target, hit);
                 target.gameObject.GetComponent<TacticsMovement>().DamageClign();
                 EquiOneCD = equipmentOne.GetCd();
                 break;
             case 2:
-                equipmentTwo.Effect(target);
+                equipmentTwo.Effect(gameObject, target, hit);
                 target.gameObject.GetComponent<TacticsMovement>().DamageClign();
                 EquiTwoCD = equipmentTwo.GetCd();
                 break;
             case 3:
-                consummable.Effect(target);
+                consummable.Effect(gameObject, target, hit);
                 target.gameObject.GetComponent<TacticsMovement>().DamageClign();
                 consummable = null;
                 break;
@@ -447,6 +449,18 @@ public class TacticsMovement : MonoBehaviour
 
         Debug.Log("ATTACKING " + target.gameObject.name + "!\n Now has : " + target.GetComponent<CombatStat>().currHp + " HP!");
         EndOfAttack();
+    }
+    
+    //return 0 for a miss, 1 for a hit, 2 for a critical
+    public int GetHitChance()
+    {
+        int nb = Random.Range(1,7);
+        return nb switch
+        {
+            1 => 0,
+            6 => 2,
+            _ => 1
+        };
     }
 
     protected virtual void EndOfAttack()
@@ -509,7 +523,7 @@ public class TacticsMovement : MonoBehaviour
         _unitMat.color = _changeColor;
     }
 
-    public Passive GetPassif()
+    public Passive GetPassive()
     {
         return passif;
     }

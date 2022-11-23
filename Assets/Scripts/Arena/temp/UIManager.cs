@@ -283,12 +283,12 @@ public class UIManager : MonoBehaviour
             t.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = "" + combatStat.currHp;
             t.transform.GetChild(1).Find("FillHpImg").GetComponent<Image>().fillAmount =
                 (combatStat.currHp / (float)combatStat.MaxHp);
-            if (playerMovement.GetPassif() == null)
+            if (playerMovement.GetPassive() == null)
             {
                 t.transform.Find("PassifImg").gameObject.SetActive(false);
             }
             else
-                t.transform.Find("PassifImg").GetComponent<Image>().sprite = playerMovement.GetPassif().logo;
+                t.transform.Find("PassifImg").GetComponent<Image>().sprite = playerMovement.GetPassive().logo;
         }
         else
         {
@@ -306,12 +306,12 @@ public class UIManager : MonoBehaviour
             t.Value.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = "" + t.Key.GetComponent<CombatStat>().currHp;
             t.Value.transform.GetChild(1).Find("FillHpImg").GetComponent<Image>().fillAmount =
                 (t.Key.GetComponent<CombatStat>().currHp / (float)t.Key.GetComponent<CombatStat>().MaxHp);
-            if (t.Key.GetComponent<PlayerMovement>().GetPassif() == null)
+            if (t.Key.GetComponent<PlayerMovement>().GetPassive() == null)
             {
                 t.Value.transform.Find("PassifImg").gameObject.SetActive(false);
             }
             else
-                t.Value.transform.Find("PassifImg").GetComponent<Image>().sprite = t.Key.GetComponent<PlayerMovement>().GetPassif().logo;
+                t.Value.transform.Find("PassifImg").GetComponent<Image>().sprite = t.Key.GetComponent<PlayerMovement>().GetPassive().logo;
 
             int armor = t.Key.GetComponent<CombatStat>().armor;
             if(armor > 0)

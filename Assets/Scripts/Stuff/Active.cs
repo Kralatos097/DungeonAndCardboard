@@ -9,14 +9,14 @@ public class Active : Stuff
 {
     [SerializeField] private int range;
     [SerializeField] private int cd;
-    [SerializeField] private ActiveTarget target;
+    [SerializeField] private ActiveTarget clickTarget;
     
     //[SerializeField] private ActiveTarget activeTarget;
 
     [Header("Effects")]
     [SerializeField] private List<ActiveEffect> activeEffectList;
     
-    public override void Effect(GameObject user)
+    /*public override void Effect(GameObject user)
     {
         foreach(ActiveEffect activeEffect in activeEffectList)
         {
@@ -70,11 +70,232 @@ public class Active : Stuff
                     throw new ArgumentOutOfRangeException();
             }
         }
+    }*/
+
+    public override void Effect(GameObject user)
+    {
+        throw new NotImplementedException();
     }
 
-    private void DamageSelf(GameObject user)
+    public override void Effect(GameObject user, int touchStatus)
     {
-        //todo
+        throw new NotImplementedException();
+    }
+
+    public override void Effect(GameObject user, GameObject target, int hitParam)
+    {
+        GameObject targetf;
+        int hit;
+        
+        foreach(ActiveEffect activeEffect in activeEffectList)
+        {
+            targetf = activeEffect.onSelf ? user : target;
+            if (activeEffect.noMiss && hitParam == 0) hit = 1;
+            else if (activeEffect.critOnly && hitParam != 2) hit = 0;
+            else hit = hitParam;
+
+                switch(activeEffect.activeType)
+            {
+                case ActiveType.Damage:
+                    Damage(targetf,activeEffect, hit);
+                    break;
+                case ActiveType.Heal:
+                    Heal(targetf,activeEffect, hit);
+                    break;
+                case ActiveType.Burn:
+                    Burn(targetf,activeEffect, hit);
+                    break;
+                case ActiveType.Stun:
+                    Stun(targetf,activeEffect, hit);
+                    break;
+                case ActiveType.Freeze:
+                    Freeze(targetf,activeEffect, hit);
+                    break;
+                case ActiveType.Poison:
+                    Poison(targetf,activeEffect, hit);
+                    break;
+                case ActiveType.Armor:
+                    Armor(targetf,activeEffect, hit);
+                    break;
+                case ActiveType.Cure:
+                    Cure(targetf, hit);
+                    break;
+                case ActiveType.Splash:
+                    //todo
+                    break;
+                case ActiveType.TwoHit:
+                    //todo
+                    break;
+                case ActiveType.ThreeHit:
+                    //todo
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+    }
+
+
+    private void Damage(GameObject user, ActiveEffect activeEffect, int hit)
+    {
+        switch(hit)
+        {
+            case 0:
+                AtkMiss();
+                break;
+            case 1:
+                AtkHit();
+                break;
+            case 2:
+                AtkCritical();
+                break;
+        }
+        user.GetComponent<CombatStat>().currHp -= hit * activeEffect.value;
+    }
+    
+    private void Heal(GameObject user, ActiveEffect activeEffect, int hit)
+    {
+        switch(hit)
+        {
+            case 0:
+                AtkMiss();
+                break;
+            case 1:
+                AtkHit();
+                break;
+            case 2:
+                AtkCritical();
+                break;
+        }
+        user.GetComponent<CombatStat>().currHp += hit*activeEffect.value;
+    }
+
+    private void Burn(GameObject user, ActiveEffect activeEffect, int hit)
+    {
+        switch(hit)
+        {
+            case 0:
+                AtkMiss();
+                break;
+            case 1:
+                AtkHit();
+                user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Burn;
+                user.GetComponent<CombatStat>().statusValue = activeEffect.value;
+                break;
+            case 2:
+                AtkCritical();
+                user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Burn;
+                user.GetComponent<CombatStat>().statusValue = activeEffect.value*2;
+                break;
+        }
+    }
+    
+    private void Freeze(GameObject user, ActiveEffect activeEffect, int hit)
+    {
+        switch(hit)
+        {
+            case 0:
+                AtkMiss();
+                break;
+            case 1:
+                AtkHit();
+                user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Freeze;
+                user.GetComponent<CombatStat>().statusValue = activeEffect.value;
+                break;
+            case 2:
+                AtkCritical();
+                user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Freeze;
+                user.GetComponent<CombatStat>().statusValue = activeEffect.value*2;
+                break;
+        }
+    }
+    
+    private void Poison(GameObject user, ActiveEffect activeEffect, int hit)
+    {
+        switch(hit)
+        {
+            case 0:
+                AtkMiss();
+                break;
+            case 1:
+                AtkHit();
+                user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Poison;
+                user.GetComponent<CombatStat>().statusValue = activeEffect.value;
+                break;
+            case 2:
+                AtkCritical();
+                user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Poison;
+                user.GetComponent<CombatStat>().statusValue = activeEffect.value*2;
+                break;
+        }
+    }
+    
+    private void Stun(GameObject user, ActiveEffect activeEffect, int hit)
+    {
+        switch(hit)
+        {
+            case 0:
+                AtkMiss();
+                break;
+            case 1:
+                AtkHit();
+                user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Stun;
+                user.GetComponent<CombatStat>().statusValue = activeEffect.value;
+                break;
+            case 2:
+                AtkCritical();
+                user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Stun;
+                user.GetComponent<CombatStat>().statusValue = activeEffect.value*2;
+                break;
+        }
+    }
+    
+    private void Armor(GameObject user, ActiveEffect activeEffect, int hit)
+    {
+        switch(hit)
+        {
+            case 0:
+                AtkMiss();
+                break;
+            case 1:
+                AtkHit();
+                user.GetComponent<CombatStat>().armor = activeEffect.value;
+                break;
+            case 2:
+                AtkCritical();
+                user.GetComponent<CombatStat>().armor = activeEffect.value*2;
+                break;
+        }
+    }
+
+    private void Cure(GameObject user, int hit)
+    {
+        switch(hit)
+        {
+            case 0:
+                AtkMiss();
+                break;
+            case 1 or 2:
+                AtkHit();
+                user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Nothing;
+                user.GetComponent<CombatStat>().statusValue = 0;
+                break;
+        }
+    }
+
+    private void AtkMiss()
+    {
+        
+    }
+
+    private void AtkHit()
+    {
+        
+    }
+
+    private void AtkCritical()
+    {
+        
     }
 
     public int GetCd()
