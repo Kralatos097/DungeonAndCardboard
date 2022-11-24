@@ -180,12 +180,12 @@ public class Active : Stuff
             case 1:
                 AtkHit();
                 user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Burn;
-                user.GetComponent<CombatStat>().statusValue = activeEffect.value;
+                user.GetComponent<CombatStat>().StatusValue = activeEffect.value;
                 break;
             case 2:
                 AtkCritical();
                 user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Burn;
-                user.GetComponent<CombatStat>().statusValue = activeEffect.value*2;
+                user.GetComponent<CombatStat>().StatusValue = activeEffect.value*2;
                 break;
         }
     }
@@ -200,12 +200,12 @@ public class Active : Stuff
             case 1:
                 AtkHit();
                 user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Freeze;
-                user.GetComponent<CombatStat>().statusValue = activeEffect.value;
+                user.GetComponent<CombatStat>().StatusValue = activeEffect.value;
                 break;
             case 2:
                 AtkCritical();
                 user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Freeze;
-                user.GetComponent<CombatStat>().statusValue = activeEffect.value*2;
+                user.GetComponent<CombatStat>().StatusValue = activeEffect.value*2;
                 break;
         }
     }
@@ -220,12 +220,12 @@ public class Active : Stuff
             case 1:
                 AtkHit();
                 user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Poison;
-                user.GetComponent<CombatStat>().statusValue = activeEffect.value;
+                user.GetComponent<CombatStat>().StatusValue = activeEffect.value;
                 break;
             case 2:
                 AtkCritical();
                 user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Poison;
-                user.GetComponent<CombatStat>().statusValue = activeEffect.value*2;
+                user.GetComponent<CombatStat>().StatusValue = activeEffect.value*2;
                 break;
         }
     }
@@ -240,12 +240,12 @@ public class Active : Stuff
             case 1:
                 AtkHit();
                 user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Stun;
-                user.GetComponent<CombatStat>().statusValue = activeEffect.value;
+                user.GetComponent<CombatStat>().StatusValue = activeEffect.value;
                 break;
             case 2:
                 AtkCritical();
                 user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Stun;
-                user.GetComponent<CombatStat>().statusValue = activeEffect.value*2;
+                user.GetComponent<CombatStat>().StatusValue = activeEffect.value*2;
                 break;
         }
     }
@@ -277,8 +277,7 @@ public class Active : Stuff
                 break;
             case 1 or 2:
                 AtkHit();
-                user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Nothing;
-                user.GetComponent<CombatStat>().statusValue = 0;
+                user.GetComponent<CombatStat>().ResetStatus();
                 break;
         }
     }

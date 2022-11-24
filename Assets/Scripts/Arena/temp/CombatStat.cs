@@ -17,7 +17,19 @@ public class CombatStat : MonoBehaviour
         get => _currHp ;
         set
         {
-            _currHp = value;
+            if (armor > 0)
+            {
+                armor -= value;
+                if(armor < 0)
+                {
+                    _currHp = armor * -1;
+                    armor = 0;
+                }
+            }
+            else
+            {
+                _currHp = value;
+            }
             if(_currHp <= 0)
             {
                 _currHp = 0;
@@ -28,16 +40,28 @@ public class CombatStat : MonoBehaviour
             {
                 _currHp = MaxHp;
             }
-            /*if(_currHp > 0)
+            if(_currHp > 0)
             {
                 isAlive = true;
-            }*/
+            }
         }
     }
 
     [HideInInspector] public int armor = 0;
     [HideInInspector] public StatusEffect StatusEffect = StatusEffect.Nothing;
-    [HideInInspector] public int statusValue = 0;
+    private int statusValue = 0;
+    public int StatusValue
+    {
+        get => statusValue;
+        set
+        {
+            statusValue = value;
+            if(statusValue <= 0)
+            {
+                StatusEffect = StatusEffect.Nothing;
+            }
+        }
+    }
 
     [HideInInspector] public int currInit;
 
@@ -55,9 +79,39 @@ public class CombatStat : MonoBehaviour
         transform.position = new Vector3(-100, -100, -100);
     }
 
-    [ContextMenu("KillUnit")]
+    [ContextMenu("Kill Unit")]
     public void KillUnit()
     {
         currHp -= 100;
+    }
+
+    public void TakeDamage(int value)
+    {
+        currHp-=value;
+    }
+
+    public void Poison()
+    {
+        TakeDamage(1);
+        StatusValue--;
+    }
+    
+    public void Burn()
+    {
+        TakeDamage(StatusValue);
+        StatusValue = 0;
+    }
+    
+    public void ResetStatus()
+    {
+        StatusEffect = StatusEffect.Nothing;
+        statusValue = 0;
+    }
+    
+    [ContextMenu("Burn Unit")]
+    public void BurnTest()
+    {
+        StatusEffect = StatusEffect.Burn;
+        statusValue = 2;
     }
 }

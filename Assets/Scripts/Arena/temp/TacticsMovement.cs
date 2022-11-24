@@ -22,6 +22,7 @@ public class TacticsMovement : MonoBehaviour
 
     protected bool moving = false;
     protected bool attacking = false;
+    protected int baseMove = 3;
     protected int move = 3;
     public float moveSpeed = 2;
     
@@ -526,5 +527,10 @@ public class TacticsMovement : MonoBehaviour
     public Passive GetPassive()
     {
         return passif;
+    }
+
+    public void ChangeMove(int value)
+    {
+        move = baseMove - value;
     }
 }

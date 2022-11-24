@@ -33,7 +33,7 @@ public class PlayerMovement : TacticsMovement
                 _combatStat.currHp = WarriorInfo.CurrentHp;
                 _combatStat.initiative = WarriorInfo.Init;
 
-                move = WarriorInfo.Movement;
+                baseMove = WarriorInfo.Movement;
                 equipmentOne = WarriorInfo.ActiveOne;
                 equipmentTwo = WarriorInfo.ActiveTwo;
                 passif = WarriorInfo.Passive;
@@ -44,7 +44,7 @@ public class PlayerMovement : TacticsMovement
                 _combatStat.currHp = ThiefInfo.CurrentHp;
                 _combatStat.initiative = ThiefInfo.Init;
 
-                move = ThiefInfo.Movement;
+                baseMove = ThiefInfo.Movement;
                 equipmentOne = ThiefInfo.ActiveOne;
                 equipmentTwo = ThiefInfo.ActiveTwo;
                 passif = ThiefInfo.Passive;
@@ -55,7 +55,7 @@ public class PlayerMovement : TacticsMovement
                 _combatStat.currHp = ClericInfo.CurrentHp;
                 _combatStat.initiative = ClericInfo.Init;
 
-                move = ClericInfo.Movement;
+                baseMove = ClericInfo.Movement;
                 equipmentOne = ClericInfo.ActiveOne;
                 equipmentTwo = ClericInfo.ActiveTwo;
                 passif = ClericInfo.Passive;
@@ -66,7 +66,7 @@ public class PlayerMovement : TacticsMovement
                 _combatStat.currHp = WizardInfo.CurrentHp;
                 _combatStat.initiative = WizardInfo.Init;
 
-                move = WizardInfo.Movement;
+                baseMove = WizardInfo.Movement;
                 equipmentOne = WizardInfo.ActiveOne;
                 equipmentTwo = WizardInfo.ActiveTwo;
                 passif = WizardInfo.Passive;
@@ -77,7 +77,7 @@ public class PlayerMovement : TacticsMovement
                 _combatStat.currHp = UnitInfo.maxHp;
                 _combatStat.initiative = UnitInfo.initiative;
 
-                move = UnitInfo.movement;
+                baseMove = UnitInfo.movement;
                 equipmentOne = UnitInfo.activeOne;
                 equipmentTwo = UnitInfo.activeTwo;
                 passif = UnitInfo.passive;

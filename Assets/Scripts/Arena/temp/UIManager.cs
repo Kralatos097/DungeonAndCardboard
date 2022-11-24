@@ -62,6 +62,7 @@ public class UIManager : MonoBehaviour
         }
         
         UpdateHpUi();
+        
             
         if (Input.GetMouseButtonUp(1))//On release right click
         {
@@ -113,8 +114,12 @@ public class UIManager : MonoBehaviour
         _actionSelectorShown = true;
         ActionSelectorPanel.SetActive(true);
         
-        /*MoveButton.interactable = !alreadyMoved;*/
         MoveButton.GetComponentInChildren<TextMeshProUGUI>().text = alreadyMoved ? "Return" : "Move";
+
+        if(TurnManager.GetCurrentPlayerD().GetComponent<CombatStat>().StatusEffect == StatusEffect.Stun)
+            ActionSelectorPanel.transform.Find("AttackButton").GetComponent<Button>().interactable = false;
+        else
+            ActionSelectorPanel.transform.Find("AttackButton").GetComponent<Button>().interactable = true;
     }
 
     public void HideActionSelector()
@@ -349,7 +354,7 @@ public class UIManager : MonoBehaviour
                 
                 t.Value.transform.Find("StatusImg").gameObject.SetActive(true);
                 t.Value.transform.Find("StatusImg").GetComponentInChildren<TextMeshProUGUI>().text =
-                    t.Key.GetComponent<CombatStat>().statusValue.ToString();
+                    t.Key.GetComponent<CombatStat>().StatusValue.ToString();
             }
             else
             {

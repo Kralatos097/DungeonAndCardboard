@@ -19,6 +19,10 @@ public class TurnManager : MonoBehaviour
     private static bool _combatEnded = false;
     private static bool _isDefeat = false;
 
+    public delegate GameObject TurnManagerDelegate();
+    public static TurnManagerDelegate GetCurrentPlayerD;
+
+
     private void Awake()
     {
         _unitsList.Clear();
@@ -31,6 +35,7 @@ public class TurnManager : MonoBehaviour
         Invoke(nameof(LateStart), 1);
         _combatEnded = false;
         _combatEndCanvas = CombatEndCanvas;
+        GetCurrentPlayerD = GetCurrentPlayer;
     }
     
     private void LateStart()
@@ -134,12 +139,33 @@ public class TurnManager : MonoBehaviour
             while(!turnOrder.Peek().GetComponent<CombatStat>().isAlive)
             {
                 TacticsMovement DeadUnit = turnOrder.Dequeue();
-                Debug.Log("Dead");
                 Destroy(DeadUnit.gameObject);
             }
             Debug.Log("Turn of : " + turnOrder.Peek().name);
-            
-            turnOrder.Peek().BeginTurn();
+
+            if(turnOrder.Peek().GetComponent<CombatStat>().StatusEffect == StatusEffect.Poison)
+            {
+                turnOrder.Peek().GetComponent<CombatStat>().Poison();
+                if(!turnOrder.Peek().GetComponent<CombatStat>().isAlive)
+                {
+                    TacticsMovement DeadUnit = turnOrder.Dequeue();
+                    Destroy(DeadUnit.gameObject);
+                    if(!ArePlayersAlive() && !AreEnemysAlive())
+                    {
+                        EndCombat(ArePlayersAlive());
+                    }
+                }
+                else turnOrder.Peek().BeginTurn();
+            }
+            else if(turnOrder.Peek().GetComponent<CombatStat>().StatusEffect == StatusEffect.Freeze)
+            {
+                turnOrder.Peek().GetComponent<TacticsMovement>().ChangeMove(turnOrder.Peek().GetComponent<CombatStat>().StatusValue);
+            }
+            else
+            {
+                turnOrder.Peek().GetComponent<TacticsMovement>().ChangeMove(0);
+                turnOrder.Peek().BeginTurn();
+            }
         }
         else
         {
@@ -150,6 +176,21 @@ public class TurnManager : MonoBehaviour
     public static void EndTurn()
     {
         TacticsMovement unit = turnOrder.Dequeue();
+
+        if(unit.GetComponent<CombatStat>().StatusEffect == StatusEffect.Burn)
+        {
+            unit.GetComponent<CombatStat>().Burn();
+            if(!unit.GetComponent<CombatStat>().isAlive)
+            {
+                TacticsMovement.PlayersTurn = false;
+                StartTurn();
+            }
+        }
+        else if (unit.GetComponent<CombatStat>().StatusEffect == StatusEffect.Freeze)
+        {
+            unit.GetComponent<CombatStat>().ResetStatus();
+        }
+
         unit.EndTurn();
         unit.EquipCDMinus(1);
         turnOrder.Enqueue(unit);
@@ -259,5 +300,10 @@ public class TurnManager : MonoBehaviour
             }
         }
         return false;
+    }
+
+    private GameObject GetCurrentPlayer()
+    {
+        return turnOrder.Peek().gameObject;
     }
 }

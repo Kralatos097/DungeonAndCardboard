@@ -23,7 +23,7 @@ public class NPCMove : TacticsMovement
         combatStat.currHp = UnitInfo.maxHp;
         combatStat.initiative = UnitInfo.initiative;
 
-        move = UnitInfo.movement;
+        baseMove = UnitInfo.movement;
         equipmentOne = UnitInfo.activeOne;
         equipmentTwo = UnitInfo.activeTwo;
         passif = UnitInfo.passive;
