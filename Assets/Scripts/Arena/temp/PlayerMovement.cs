@@ -30,7 +30,7 @@ public class PlayerMovement : TacticsMovement
         {
             case Perso.Warrior:
                 _combatStat.MaxHp = WarriorInfo.MaxHp;
-                _combatStat.currHp = WarriorInfo.CurrentHp;
+                _combatStat.CurrHp = WarriorInfo.CurrentHp;
                 _combatStat.initiative = WarriorInfo.Init;
 
                 baseMove = WarriorInfo.Movement;
@@ -41,7 +41,7 @@ public class PlayerMovement : TacticsMovement
                 break;
             case Perso.Thief:
                 _combatStat.MaxHp = ThiefInfo.MaxHp;
-                _combatStat.currHp = ThiefInfo.CurrentHp;
+                _combatStat.CurrHp = ThiefInfo.CurrentHp;
                 _combatStat.initiative = ThiefInfo.Init;
 
                 baseMove = ThiefInfo.Movement;
@@ -52,7 +52,7 @@ public class PlayerMovement : TacticsMovement
                 break;
             case Perso.Cleric:
                 _combatStat.MaxHp = ClericInfo.MaxHp;
-                _combatStat.currHp = ClericInfo.CurrentHp;
+                _combatStat.CurrHp = ClericInfo.CurrentHp;
                 _combatStat.initiative = ClericInfo.Init;
 
                 baseMove = ClericInfo.Movement;
@@ -63,7 +63,7 @@ public class PlayerMovement : TacticsMovement
                 break;
             case Perso.Wizard:
                 _combatStat.MaxHp = WizardInfo.MaxHp;
-                _combatStat.currHp = WizardInfo.CurrentHp;
+                _combatStat.CurrHp = WizardInfo.CurrentHp;
                 _combatStat.initiative = WizardInfo.Init;
 
                 baseMove = WizardInfo.Movement;
@@ -74,7 +74,7 @@ public class PlayerMovement : TacticsMovement
                 break;
             case Perso.Default:
                 _combatStat.MaxHp = UnitInfo.maxHp;
-                _combatStat.currHp = UnitInfo.maxHp;
+                _combatStat.CurrHp = UnitInfo.maxHp;
                 _combatStat.initiative = UnitInfo.initiative;
 
                 baseMove = UnitInfo.movement;
@@ -94,28 +94,28 @@ public class PlayerMovement : TacticsMovement
         {
             case Perso.Warrior:
                 WarriorInfo.MaxHp = _combatStat.MaxHp;
-                WarriorInfo.CurrentHp = _combatStat.currHp;
+                WarriorInfo.CurrentHp = _combatStat.CurrHp;
                 WarriorInfo.Init = _combatStat.initiative;
                 
                 WarriorInfo.Consumable = consummable;
                 break;
             case Perso.Thief:
                 ThiefInfo.MaxHp = _combatStat.MaxHp;
-                ThiefInfo.CurrentHp = _combatStat.currHp;
+                ThiefInfo.CurrentHp = _combatStat.CurrHp;
                 ThiefInfo.Init = _combatStat.initiative;
                 
                 ThiefInfo.Consumable = consummable;
                 break;
             case Perso.Cleric:
                 ClericInfo.MaxHp = _combatStat.MaxHp;
-                ClericInfo.CurrentHp = _combatStat.currHp;
+                ClericInfo.CurrentHp = _combatStat.CurrHp;
                 ClericInfo.Init = _combatStat.initiative;
                 
                 ClericInfo.Consumable = consummable;
                 break;
             case Perso.Wizard:
                 WizardInfo.MaxHp = _combatStat.MaxHp;
-                WizardInfo.CurrentHp = _combatStat.currHp;
+                WizardInfo.CurrentHp = _combatStat.CurrHp;
                 WizardInfo.Init = _combatStat.initiative;
                 
                 WizardInfo.Consumable = consummable;

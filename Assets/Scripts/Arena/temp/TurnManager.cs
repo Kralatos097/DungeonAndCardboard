@@ -136,17 +136,25 @@ public class TurnManager : MonoBehaviour
     {
         if (ArePlayersAlive() && AreEnemysAlive())
         {
-            while(!turnOrder.Peek().GetComponent<CombatStat>().isAlive)
+            while(!turnOrder.Peek().GetComponent<CombatStat>().isUp)
             {
-                TacticsMovement DeadUnit = turnOrder.Dequeue();
-                Destroy(DeadUnit.gameObject);
+                if (turnOrder.Peek().CompareTag("Player"))
+                {
+                    TacticsMovement deadUnit = turnOrder.Dequeue();
+                    turnOrder.Enqueue(deadUnit);
+                }
+                else
+                {
+                    TacticsMovement deadUnit = turnOrder.Dequeue();
+                    Destroy(deadUnit.gameObject);
+                }
             }
             Debug.Log("Turn of : " + turnOrder.Peek().name);
 
             if(turnOrder.Peek().GetComponent<CombatStat>().StatusEffect == StatusEffect.Poison)
             {
                 turnOrder.Peek().GetComponent<CombatStat>().Poison();
-                if(!turnOrder.Peek().GetComponent<CombatStat>().isAlive)
+                if(!turnOrder.Peek().GetComponent<CombatStat>().isUp)
                 {
                     TacticsMovement DeadUnit = turnOrder.Dequeue();
                     Destroy(DeadUnit.gameObject);
@@ -180,7 +188,7 @@ public class TurnManager : MonoBehaviour
         if(unit.GetComponent<CombatStat>().StatusEffect == StatusEffect.Burn)
         {
             unit.GetComponent<CombatStat>().Burn();
-            if(!unit.GetComponent<CombatStat>().isAlive)
+            if(!unit.GetComponent<CombatStat>().isUp)
             {
                 TacticsMovement.PlayersTurn = false;
                 StartTurn();
@@ -277,7 +285,7 @@ public class TurnManager : MonoBehaviour
             {
                 turnOrder.Dequeue();
             }*/
-            if(unit.gameObject.CompareTag("Player") && unit.gameObject.GetComponent<CombatStat>().isAlive)
+            if(unit.gameObject.CompareTag("Player") && unit.gameObject.GetComponent<CombatStat>().isUp)
             {
                 return true;
             }
@@ -294,7 +302,7 @@ public class TurnManager : MonoBehaviour
             {
                 turnOrder.Dequeue();
             }*/
-            if (unit.gameObject.CompareTag("Enemy") && unit.gameObject.GetComponent<CombatStat>().isAlive)
+            if (unit.gameObject.CompareTag("Enemy") && unit.gameObject.GetComponent<CombatStat>().isUp)
             {
                 return true;
             }

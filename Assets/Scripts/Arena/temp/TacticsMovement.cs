@@ -448,7 +448,7 @@ public class TacticsMovement : MonoBehaviour
                 break;
         }
 
-        Debug.Log("ATTACKING " + target.gameObject.name + "!\n Now has : " + target.GetComponent<CombatStat>().currHp + " HP!");
+        Debug.Log("ATTACKING " + target.gameObject.name + "!\n Now has : " + target.GetComponent<CombatStat>().CurrHp + " HP!");
         EndOfAttack();
     }
     

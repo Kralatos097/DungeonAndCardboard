@@ -150,7 +150,7 @@ public class Active : Stuff
                 AtkCritical();
                 break;
         }
-        user.GetComponent<CombatStat>().currHp -= hit * activeEffect.value;
+        user.GetComponent<CombatStat>().CurrHp -= hit * activeEffect.value;
     }
     
     private void Heal(GameObject user, ActiveEffect activeEffect, int hit)
@@ -167,7 +167,7 @@ public class Active : Stuff
                 AtkCritical();
                 break;
         }
-        user.GetComponent<CombatStat>().currHp += hit*activeEffect.value;
+        user.GetComponent<CombatStat>().CurrHp += hit*activeEffect.value;
     }
 
     private void Burn(GameObject user, ActiveEffect activeEffect, int hit)

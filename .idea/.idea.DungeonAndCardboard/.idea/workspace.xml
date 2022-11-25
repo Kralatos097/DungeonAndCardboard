@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="4932cad9-fd95-4ab0-8e02-a5f4e371e51a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/EnemyPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/EnemyPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/PlayerInitPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/PlayerInitPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/ThiefInitPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/ThiefInitPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/WarriorInitPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/WarriorInitPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/temp/Archer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/temp/Archer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/temp/kk.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/temp/kk.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/temp/CombatStat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/temp/CombatStat.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/temp/NPCMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/temp/NPCMove.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/temp/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/temp/PlayerMovement.cs" afterDir="false" />
@@ -14,13 +20,17 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/temp/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/temp/UIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Stuff/Active.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Stuff/Active.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SceneNiels/Modele_Guerriere.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SceneNiels/Modele_Guerriere.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_ScenesTibo/CommonFights/Fight.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesTibo/CommonFights/Fight.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.burst@1.6.6/Tests/Runtime/Shared/040-ControlFlows.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -30,12 +40,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="Discover.Launch.Via.Unity" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="rider.run.widget.enabled.cache" value="false" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.12f1\Editor\Unity.exe" />
@@ -80,6 +91,7 @@
       <workItem from="1669123251379" duration="1254000" />
       <workItem from="1669194618656" duration="8256000" />
       <workItem from="1669279452145" duration="10298000" />
+      <workItem from="1669365512749" duration="12686000" />
     </task>
     <servers />
   </component>

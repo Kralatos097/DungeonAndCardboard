@@ -20,7 +20,7 @@ public class NPCMove : TacticsMovement
         CombatStat combatStat = gameObject.GetComponent<CombatStat>();
         
         combatStat.MaxHp = UnitInfo.maxHp;
-        combatStat.currHp = UnitInfo.maxHp;
+        combatStat.CurrHp = UnitInfo.maxHp;
         combatStat.initiative = UnitInfo.initiative;
 
         baseMove = UnitInfo.movement;
@@ -105,6 +105,7 @@ public class NPCMove : TacticsMovement
     private void CalculatePath()
     {
         ArenaTile targetTile = GetTargetTile(target);
+        //Debug.Log(targetTile);
         FindPath(targetTile);
     }
 

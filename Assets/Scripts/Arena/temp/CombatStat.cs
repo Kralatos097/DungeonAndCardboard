@@ -3,16 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class CombatStat : MonoBehaviour
 {
     [HideInInspector] public int initiative;
 
-    [HideInInspector] public int MaxHp;
-    private int _currHp;
+    private int _maxHp;
+    public int MaxHp
+    {
+        get => _maxHp;
 
-    public int currHp
+        set
+        {
+            _maxHp = value;
+
+            isAlive = _maxHp > 0;
+        }
+    }
+    
+    private int _currHp;
+    public int CurrHp
     {
         get => _currHp ;
         set
@@ -33,7 +45,7 @@ public class CombatStat : MonoBehaviour
             if(_currHp <= 0)
             {
                 _currHp = 0;
-                isAlive = false;
+                isUp = false;
                 UnitDeath();
             }
             else if(_currHp > MaxHp)
@@ -42,7 +54,7 @@ public class CombatStat : MonoBehaviour
             }
             if(_currHp > 0)
             {
-                isAlive = true;
+                isUp = true;
             }
         }
     }
@@ -65,6 +77,7 @@ public class CombatStat : MonoBehaviour
 
     [HideInInspector] public int currInit;
 
+    [HideInInspector] public bool isUp = true;
     [HideInInspector] public bool isAlive = true;
 
     public void RollInit()
@@ -74,20 +87,31 @@ public class CombatStat : MonoBehaviour
 
     private void UnitDeath()
     {
-        transform.GetChild(0).gameObject.SetActive(false);
-        //todo: a virer pour les player
-        transform.position = new Vector3(-100, -100, -100);
+        if(gameObject.CompareTag("Player"))
+        {
+            transform.GetChild(0).GetComponent<Renderer>().material.color = Color.grey;
+        }
+        else
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.position = new Vector3(-100, -100, -100);
+        }
+    }
+
+    private void ReviveUnit()
+    {
+        transform.GetChild(0).GetComponent<Renderer>().material.color = Color.blue;
     }
 
     [ContextMenu("Kill Unit")]
     public void KillUnit()
     {
-        currHp -= 100;
+        CurrHp -= 100;
     }
 
     public void TakeDamage(int value)
     {
-        currHp-=value;
+        CurrHp-=value;
     }
 
     public void Poison()
@@ -108,10 +132,37 @@ public class CombatStat : MonoBehaviour
         statusValue = 0;
     }
     
+    [ContextMenu("Armor Unit")]
+    public void ArmorTest()
+    {;
+        armor += 1;
+    }
+    
     [ContextMenu("Burn Unit")]
     public void BurnTest()
     {
         StatusEffect = StatusEffect.Burn;
+        statusValue = 2;
+    }
+    
+    [ContextMenu("Poison Unit")]
+    public void PoisonTest()
+    {
+        StatusEffect = StatusEffect.Poison;
+        statusValue = 2;
+    }
+    
+    [ContextMenu("Stun Unit")]
+    public void StunTest()
+    {
+        StatusEffect = StatusEffect.Stun;
+        statusValue = 1;
+    }
+    
+    [ContextMenu("Freeze Unit")]
+    public void FreezeTest()
+    {
+        StatusEffect = StatusEffect.Freeze;
         statusValue = 2;
     }
 }

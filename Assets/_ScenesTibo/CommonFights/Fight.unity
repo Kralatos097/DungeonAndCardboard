@@ -323,7 +323,6 @@ MonoBehaviour:
   MaxHp: 0
   armor: 0
   StatusEffect: 0
-  statusValue: 0
   currInit: 0
   isAlive: 1
 --- !u!114 &310277221
@@ -377,7 +376,6 @@ MonoBehaviour:
   MaxHp: 0
   armor: 0
   StatusEffect: 0
-  statusValue: 0
   currInit: 0
   isAlive: 1
 --- !u!114 &327031313
@@ -919,9 +917,9 @@ MonoBehaviour:
   ClericInitPanel: {fileID: 4010798564356627436, guid: bec88c9a8ad8cdd4d8170dec5a6064f3, type: 3}
   WizardInitPanel: {fileID: 2241815680737116179, guid: 6673e6f5719b8fb4d8208e5dd95f3323, type: 3}
   EnemyInitPanel: {fileID: 1984626649158495593, guid: f3d36d99b4e87f349a7f993f811304d8, type: 3}
-  BurnIcon: {fileID: 21300000, guid: 95680b558e93b294699db57d97bb3a9c, type: 3}
-  StunIcon: {fileID: 21300000, guid: 95680b558e93b294699db57d97bb3a9c, type: 3}
-  PoisonIcon: {fileID: 21300000, guid: 95680b558e93b294699db57d97bb3a9c, type: 3}
+  BurnIcon: {fileID: 21300000, guid: c6b242e36de1aeb489ccb2001f9c3c69, type: 3}
+  StunIcon: {fileID: 21300000, guid: 84a6151f17614a347be69bedcc087ef1, type: 3}
+  PoisonIcon: {fileID: 21300000, guid: 92c61b6f25361e34cb9e03420ff01e1f, type: 3}
   FreezeIcon: {fileID: 21300000, guid: 95680b558e93b294699db57d97bb3a9c, type: 3}
 --- !u!114 &852803557
 MonoBehaviour:
@@ -1280,7 +1278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024658474}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1688,7 +1686,6 @@ MonoBehaviour:
   MaxHp: 0
   armor: 0
   StatusEffect: 0
-  statusValue: 0
   currInit: 0
   isAlive: 1
 --- !u!114 &1504656135
@@ -1835,7 +1832,6 @@ MonoBehaviour:
   MaxHp: 0
   armor: 0
   StatusEffect: 0
-  statusValue: 0
   currInit: 0
   isAlive: 1
 --- !u!114 &1748338803
@@ -2056,7 +2052,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109043908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.15000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2275,7 +2271,6 @@ MonoBehaviour:
   MaxHp: 0
   armor: 0
   StatusEffect: 0
-  statusValue: 0
   currInit: 0
   isAlive: 1
 --- !u!114 &2141544468
