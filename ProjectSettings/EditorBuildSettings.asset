@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_ScenesTibo/CommonFights/Fight.unity
     guid: b14bce233c26ffb41914af6c7949c82f
+  - enabled: 1
+    path: Assets/_ScenesValou/Jeu Test.unity
+    guid: c1bc632563ee8a042b200c82c0dc75d3
   m_configObjects: {}
