@@ -14,8 +14,4 @@ public abstract class Stuff : ScriptableObject
     {
         string Name = name;
     }
-    
-    public abstract void Effect(GameObject user);
-    public abstract void Effect(GameObject user, int touchStatus);
-    public abstract void Effect(GameObject user, GameObject target, int hit);
 }

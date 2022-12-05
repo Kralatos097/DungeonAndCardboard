@@ -86,6 +86,19 @@ public enum ActiveType
     ThreeHit,
 }
 
+public enum PassiveType
+{
+    OnCombatStart,
+    OnCombatEnd,
+    OnTurnStart,
+    OnTurnEnd,
+    OnDamageGiven,
+    OnDamageTaken,
+    OnHeal,
+    OnRollAttack,
+    OnStatusGiven,
+}
+
 public enum ActiveTarget
 {
     SelfOnly,

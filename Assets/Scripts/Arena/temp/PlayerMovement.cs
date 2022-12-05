@@ -29,59 +29,59 @@ public class PlayerMovement : TacticsMovement
         switch(charaClass)
         {
             case Perso.Warrior:
-                _combatStat.MaxHp = WarriorInfo.MaxHp;
-                _combatStat.CurrHp = WarriorInfo.CurrentHp;
-                _combatStat.initiative = WarriorInfo.Init;
+                CombatStat.MaxHp = WarriorInfo.MaxHp;
+                CombatStat.CurrHp = WarriorInfo.CurrentHp;
+                CombatStat.initiative = WarriorInfo.Init;
 
                 baseMove = WarriorInfo.Movement;
-                equipmentOne = WarriorInfo.ActiveOne;
-                equipmentTwo = WarriorInfo.ActiveTwo;
-                passif = WarriorInfo.Passive;
-                consummable = WarriorInfo.Consumable;
+                ActiveOne = WarriorInfo.ActiveOne;
+                ActiveTwo = WarriorInfo.ActiveTwo;
+                Passive = WarriorInfo.Passive;
+                Consumable = WarriorInfo.Consumable;
                 break;
             case Perso.Thief:
-                _combatStat.MaxHp = ThiefInfo.MaxHp;
-                _combatStat.CurrHp = ThiefInfo.CurrentHp;
-                _combatStat.initiative = ThiefInfo.Init;
+                CombatStat.MaxHp = ThiefInfo.MaxHp;
+                CombatStat.CurrHp = ThiefInfo.CurrentHp;
+                CombatStat.initiative = ThiefInfo.Init;
 
                 baseMove = ThiefInfo.Movement;
-                equipmentOne = ThiefInfo.ActiveOne;
-                equipmentTwo = ThiefInfo.ActiveTwo;
-                passif = ThiefInfo.Passive;
-                consummable = ThiefInfo.Consumable;
+                ActiveOne = ThiefInfo.ActiveOne;
+                ActiveTwo = ThiefInfo.ActiveTwo;
+                Passive = ThiefInfo.Passive;
+                Consumable = ThiefInfo.Consumable;
                 break;
             case Perso.Cleric:
-                _combatStat.MaxHp = ClericInfo.MaxHp;
-                _combatStat.CurrHp = ClericInfo.CurrentHp;
-                _combatStat.initiative = ClericInfo.Init;
+                CombatStat.MaxHp = ClericInfo.MaxHp;
+                CombatStat.CurrHp = ClericInfo.CurrentHp;
+                CombatStat.initiative = ClericInfo.Init;
 
                 baseMove = ClericInfo.Movement;
-                equipmentOne = ClericInfo.ActiveOne;
-                equipmentTwo = ClericInfo.ActiveTwo;
-                passif = ClericInfo.Passive;
-                consummable = ClericInfo.Consumable;
+                ActiveOne = ClericInfo.ActiveOne;
+                ActiveTwo = ClericInfo.ActiveTwo;
+                Passive = ClericInfo.Passive;
+                Consumable = ClericInfo.Consumable;
                 break;
             case Perso.Wizard:
-                _combatStat.MaxHp = WizardInfo.MaxHp;
-                _combatStat.CurrHp = WizardInfo.CurrentHp;
-                _combatStat.initiative = WizardInfo.Init;
+                CombatStat.MaxHp = WizardInfo.MaxHp;
+                CombatStat.CurrHp = WizardInfo.CurrentHp;
+                CombatStat.initiative = WizardInfo.Init;
 
                 baseMove = WizardInfo.Movement;
-                equipmentOne = WizardInfo.ActiveOne;
-                equipmentTwo = WizardInfo.ActiveTwo;
-                passif = WizardInfo.Passive;
-                consummable = WizardInfo.Consumable;
+                ActiveOne = WizardInfo.ActiveOne;
+                ActiveTwo = WizardInfo.ActiveTwo;
+                Passive = WizardInfo.Passive;
+                Consumable = WizardInfo.Consumable;
                 break;
             case Perso.Default:
-                _combatStat.MaxHp = UnitInfo.maxHp;
-                _combatStat.CurrHp = UnitInfo.maxHp;
-                _combatStat.initiative = UnitInfo.initiative;
+                CombatStat.MaxHp = UnitInfo.maxHp;
+                CombatStat.CurrHp = UnitInfo.maxHp;
+                CombatStat.initiative = UnitInfo.initiative;
 
                 baseMove = UnitInfo.movement;
-                equipmentOne = UnitInfo.activeOne;
-                equipmentTwo = UnitInfo.activeTwo;
-                passif = UnitInfo.passive;
-                consummable = UnitInfo.consumable;
+                ActiveOne = UnitInfo.activeOne;
+                ActiveTwo = UnitInfo.activeTwo;
+                Passive = UnitInfo.passive;
+                Consumable = UnitInfo.consumable;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -93,32 +93,32 @@ public class PlayerMovement : TacticsMovement
         switch(charaClass)
         {
             case Perso.Warrior:
-                WarriorInfo.MaxHp = _combatStat.MaxHp;
-                WarriorInfo.CurrentHp = _combatStat.CurrHp;
-                WarriorInfo.Init = _combatStat.initiative;
+                WarriorInfo.MaxHp = CombatStat.MaxHp;
+                WarriorInfo.CurrentHp = CombatStat.CurrHp;
+                WarriorInfo.Init = CombatStat.initiative;
                 
-                WarriorInfo.Consumable = consummable;
+                WarriorInfo.Consumable = Consumable;
                 break;
             case Perso.Thief:
-                ThiefInfo.MaxHp = _combatStat.MaxHp;
-                ThiefInfo.CurrentHp = _combatStat.CurrHp;
-                ThiefInfo.Init = _combatStat.initiative;
+                ThiefInfo.MaxHp = CombatStat.MaxHp;
+                ThiefInfo.CurrentHp = CombatStat.CurrHp;
+                ThiefInfo.Init = CombatStat.initiative;
                 
-                ThiefInfo.Consumable = consummable;
+                ThiefInfo.Consumable = Consumable;
                 break;
             case Perso.Cleric:
-                ClericInfo.MaxHp = _combatStat.MaxHp;
-                ClericInfo.CurrentHp = _combatStat.CurrHp;
-                ClericInfo.Init = _combatStat.initiative;
+                ClericInfo.MaxHp = CombatStat.MaxHp;
+                ClericInfo.CurrentHp = CombatStat.CurrHp;
+                ClericInfo.Init = CombatStat.initiative;
                 
-                ClericInfo.Consumable = consummable;
+                ClericInfo.Consumable = Consumable;
                 break;
             case Perso.Wizard:
-                WizardInfo.MaxHp = _combatStat.MaxHp;
-                WizardInfo.CurrentHp = _combatStat.CurrHp;
-                WizardInfo.Init = _combatStat.initiative;
+                WizardInfo.MaxHp = CombatStat.MaxHp;
+                WizardInfo.CurrentHp = CombatStat.CurrHp;
+                WizardInfo.Init = CombatStat.initiative;
                 
-                WizardInfo.Consumable = consummable;
+                WizardInfo.Consumable = Consumable;
                 break;
             case Perso.Default:
                 break;
@@ -144,8 +144,8 @@ public class PlayerMovement : TacticsMovement
         {
             case Action.Attack :
                 _uiManager.HideActionSelector();
-                _uiManager.SetStuff(equipmentOne,equipmentTwo,consummable);
-                _uiManager.SetCd(EquiOneCD, EquiTwoCD);
+                _uiManager.SetStuff(ActiveOne,ActiveTwo,Consumable);
+                _uiManager.SetCd(ActiveOneCd, ActiveTwoCd);
                 _uiManager.ShowEquipSelector();
                 _uiManager.actionSelected = Action.Equip;
                 /*AffAttackRange();
@@ -201,13 +201,13 @@ public class PlayerMovement : TacticsMovement
                 switch(_uiManager.stuffSelected)
                 {
                     case StuffSelected.EquipOne:
-                        atkRange = equipmentOne.GetAtkRange();
+                        atkRange = ActiveOne.GetAtkRange();
                         break;
                     case StuffSelected.EquipTwo:
-                        atkRange = equipmentTwo.GetAtkRange();
+                        atkRange = ActiveTwo.GetAtkRange();
                         break;
                     case StuffSelected.Consum:
-                        atkRange = consummable.GetAtkRange();
+                        atkRange = Consumable.GetAtkRange();
                         break;
                     case StuffSelected.Default:
                         break;

@@ -24,10 +24,10 @@ public class NPCMove : TacticsMovement
         combatStat.initiative = UnitInfo.initiative;
 
         baseMove = UnitInfo.movement;
-        equipmentOne = UnitInfo.activeOne;
-        equipmentTwo = UnitInfo.activeTwo;
-        passif = UnitInfo.passive;
-        consummable = UnitInfo.consumable;
+        ActiveOne = UnitInfo.activeOne;
+        ActiveTwo = UnitInfo.activeTwo;
+        Passive = UnitInfo.passive;
+        Consumable = UnitInfo.consumable;
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class NPCMove : TacticsMovement
         if(!Turn) return;
         PlayersTurn = false;
 
-        atkRange = equipmentOne.GetAtkRange();
+        atkRange = ActiveOne.GetAtkRange();
         bool canAtk = true;
 
         GameObject temp = AlliesInAttackRange();
