@@ -16,12 +16,10 @@ public class Active : Stuff
 
     public void Effect(GameObject user, GameObject target, int hitParam)
     {
-        GameObject targetf;
-        int hit;
-        
         foreach(ActiveEffect activeEffect in activeEffectList)
         {
-            targetf = activeEffect.onSelf ? user : target;
+            var gameObject = activeEffect.onSelf ? user : target;
+            int hit;
             if (activeEffect.noMiss && hitParam == 0) hit = 1;
             else if (activeEffect.critOnly && hitParam != 2) hit = 0;
             else hit = hitParam;
@@ -29,28 +27,28 @@ public class Active : Stuff
                 switch(activeEffect.activeType)
             {
                 case ActiveType.Damage:
-                    Damage(targetf,activeEffect, hit);
+                    Damage(gameObject,activeEffect, hit);
                     break;
                 case ActiveType.Heal:
-                    Heal(targetf,activeEffect, hit);
+                    Heal(gameObject,activeEffect, hit);
                     break;
                 case ActiveType.Burn:
-                    Burn(targetf,activeEffect, hit);
+                    Burn(gameObject,activeEffect, hit);
                     break;
                 case ActiveType.Stun:
-                    Stun(targetf,activeEffect, hit);
+                    Stun(gameObject,activeEffect, hit);
                     break;
                 case ActiveType.Freeze:
-                    Freeze(targetf,activeEffect, hit);
+                    Freeze(gameObject,activeEffect, hit);
                     break;
                 case ActiveType.Poison:
-                    Poison(targetf,activeEffect, hit);
+                    Poison(gameObject,activeEffect, hit);
                     break;
                 case ActiveType.Armor:
-                    Armor(targetf,activeEffect, hit);
+                    Armor(gameObject,activeEffect, hit);
                     break;
                 case ActiveType.Cure:
-                    Cure(targetf, hit);
+                    Cure(gameObject, hit);
                     break;
                 case ActiveType.Splash:
                     //todo

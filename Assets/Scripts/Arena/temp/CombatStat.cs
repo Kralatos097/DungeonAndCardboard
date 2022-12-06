@@ -29,37 +29,47 @@ public class CombatStat : MonoBehaviour
         get => _currHp ;
         set
         {
-            if (armor > 0)
+            if (holyShield)
             {
-                armor -= value;
-                if(armor < 0)
-                {
-                    _currHp = armor * -1;
-                    armor = 0;
-                }
+                holyShield = false;
             }
             else
             {
-                _currHp = value;
-            }
-            if(_currHp <= 0)
-            {
-                _currHp = 0;
-                isUp = false;
-                UnitDeath();
-            }
-            else if(_currHp > MaxHp)
-            {
-                _currHp = MaxHp;
-            }
-            if(_currHp > 0)
-            {
-                isUp = true;
+                if (armor > 0)
+                {
+                    armor -= value;
+                    if (armor < 0)
+                    {
+                        _currHp += armor;
+                        armor = 0;
+                    }
+                }
+                else
+                {
+                    _currHp = value;
+                }
+
+                if (_currHp <= 0)
+                {
+                    _currHp = 0;
+                    isUp = false;
+                    UnitDeath();
+                }
+                else if (_currHp > MaxHp)
+                {
+                    _currHp = MaxHp;
+                }
+
+                if (_currHp > 0)
+                {
+                    isUp = true;
+                }
             }
         }
     }
 
     [HideInInspector] public int armor = 0;
+    [HideInInspector] public bool holyShield = false; 
     [HideInInspector] public StatusEffect StatusEffect = StatusEffect.Nothing;
     private int statusValue = 0;
     public int StatusValue

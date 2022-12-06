@@ -94,9 +94,12 @@ public enum PassiveType
     OnTurnEnd,
     OnDamageGiven,
     OnDamageTaken,
-    OnHeal,
-    OnRollAttack,
+    OnHealGiven,
+    OnHealTaken,
+    OnAttack,
     OnStatusGiven,
+    OnStatueTaken,
+    AddStats,
 }
 
 public enum ActiveTarget
