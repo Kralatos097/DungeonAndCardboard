@@ -175,7 +175,7 @@ public class PlayerMovement : TacticsMovement
             case Action.Stay:
                 _lastPos = transform.position;
                 _lastRot = transform.rotation;
-                TurnManager.EndTurn();
+                TurnManager.EndTurnD();
                 pass = false;
                 _uiManager.Reset();
                 break;
@@ -309,6 +309,6 @@ public class PlayerMovement : TacticsMovement
         _lastPos = transform.position;
         _lastRot = transform.rotation;
         _uiManager.Reset();
-        TurnManager.EndTurn();
+        TurnManager.EndTurnD();
     }
 }

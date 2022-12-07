@@ -123,7 +123,7 @@ public class NPCMove : TacticsMovement
 
     protected void EndTurnT()
     {
-        TurnManager.EndTurn();
+        TurnManager.EndTurnD();
         attacking = false;
         _alreadyMoved = false;
     }

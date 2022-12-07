@@ -26,7 +26,7 @@ public class TacticsMovement : MonoBehaviour
     private int move = 3;
     public float moveSpeed = 2;
     
-    protected int atkRange = 0;
+    [HideInInspector] public int atkRange = 0;
 
     protected float MoveY = .75f;
     protected bool passM = false;
@@ -46,7 +46,26 @@ public class TacticsMovement : MonoBehaviour
 
     protected Consumable Consumable;
     
-    protected Passive Passive;
+    private Passive _passive;
+    protected Passive Passive
+    {
+        get => _passive;
+
+        set
+        {
+            if (_passive.GetPassiveTrigger() == PassiveTrigger.OnObtained)
+            {
+                _passive.Effect(gameObject);
+            }
+            
+            _passive = value;
+
+            if (_passive.GetPassiveTrigger() == PassiveTrigger.OnObtained)
+            {
+                _passive.Effect(gameObject);
+            }
+        }
+    }
 
     private Material _unitMat;
     private Color _baseColor;
@@ -531,6 +550,6 @@ public class TacticsMovement : MonoBehaviour
 
     public void ChangeMove(int value)
     {
-        move = baseMove - value;
+        move = baseMove + value;
     }
 }

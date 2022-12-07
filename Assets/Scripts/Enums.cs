@@ -86,8 +86,9 @@ public enum ActiveType
     ThreeHit,
 }
 
-public enum PassiveType
+public enum PassiveTrigger
 {
+    OnObtained,
     OnCombatStart,
     OnCombatEnd,
     OnTurnStart,
@@ -99,7 +100,27 @@ public enum PassiveType
     OnAttack,
     OnStatusGiven,
     OnStatueTaken,
-    AddStats,
+}
+
+public enum PassiveType
+{
+    Damage,
+    Heal,
+    GainHolyShield,
+    ChangeArmor,
+    ChangeMovement,
+    ChangeMaxHp,
+    ChangeInitiative,
+    ChangeRange,
+    ReRollDice,
+    GainStun,
+    GainBurn,
+    GainPoison,
+    GainFreeze,
+    RemoveStun,
+    RemoveBurn,
+    RemovePoison,
+    RemoveFreeze,
 }
 
 public enum ActiveTarget
