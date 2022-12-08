@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -53,14 +54,15 @@ public class TacticsMovement : MonoBehaviour
 
         set
         {
-            if (_passive.GetPassiveTrigger() == PassiveTrigger.OnObtained)
+            //todo: faire en sorte que les effets leseffets s'annulent lorsque l'on retire le passif
+            /*if (_passive != null && _passive.GetPassiveTrigger() == PassiveTrigger.OnObtained)
             {
                 _passive.Effect(gameObject);
-            }
+            }*/
             
             _passive = value;
 
-            if (_passive.GetPassiveTrigger() == PassiveTrigger.OnObtained)
+            if (_passive != null && _passive.GetPassiveTrigger() == PassiveTrigger.OnObtained)
             {
                 _passive.Effect(gameObject);
             }
@@ -88,9 +90,11 @@ public class TacticsMovement : MonoBehaviour
         TurnManager.AddUnit(this);
     }
 
-    protected virtual void GetUnitInfo()
+    protected virtual void GetUnitInfo() {}
+
+    public ArenaTile GetCurrenTile()
     {
-        
+        return _currentTile;
     }
     
     protected void GetCurrentTile()
@@ -445,6 +449,14 @@ public class TacticsMovement : MonoBehaviour
     {
         RemoveSelectableTile();
         int hit = GetHitChance();
+
+        if(Passive)
+        {
+            if (Passive.GetPassiveTrigger() == PassiveTrigger.OnAttack)
+            {
+                hit = Passive.Effect(gameObject, hit);
+            }
+        }
         
         switch (equip)
         {
@@ -472,7 +484,7 @@ public class TacticsMovement : MonoBehaviour
     }
     
     //return 0 for a miss, 1 for a hit, 2 for a critical
-    public int GetHitChance()
+    private int GetHitChance()
     {
         int nb = Random.Range(1,7);
         return nb switch

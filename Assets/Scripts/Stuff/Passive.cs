@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/PassiveCard", order = 4)]
 public class Passive : Stuff
@@ -12,7 +13,7 @@ public class Passive : Stuff
     [Header("Effects")]
     [SerializeField] private List<PassiveEffect> passiveEffectList;
     
-    public void Effect(GameObject user)
+    public void Effect(GameObject target)
     {
 
         foreach (PassiveEffect passiveEffect in passiveEffectList)
@@ -26,12 +27,31 @@ public class Passive : Stuff
             }
             else
             {
-                DoEffect(passiveEffect, user);
+                DoEffect(passiveEffect, target);
             }
         }
     }
     
-    public int Effect(GameObject user, int hit)
+    public void Effect(GameObject target, bool crit)
+    {
+
+        foreach (PassiveEffect passiveEffect in passiveEffectList)
+        {
+            if (passiveEffect.onEveryAllies)
+            {
+                foreach (var playerMovement in TurnManager._playerList)
+                {
+                    DoEffect(passiveEffect, playerMovement.gameObject, crit);
+                }
+            }
+            else
+            {
+                DoEffect(passiveEffect, target, crit);
+            }
+        }
+    }
+    
+    public int Effect(GameObject target, int hit)
     {
         foreach (PassiveEffect passiveEffect in passiveEffectList)
         {
@@ -44,30 +64,33 @@ public class Passive : Stuff
             }
             else
             {
-                hit = DoEffect(passiveEffect, user, hit);
+                hit = DoEffect(passiveEffect, target, hit);
             }
         }
 
         return hit;
     }
 
-    private void DoEffect(PassiveEffect passiveEffect, GameObject user)
+    private void DoEffect(PassiveEffect passiveEffect, GameObject target)
     {
-        CombatStat userCombatStat = user.GetComponent<CombatStat>();
-        TacticsMovement userTacticsMovement = user.GetComponent<TacticsMovement>();
+        CombatStat userCombatStat = target.GetComponent<CombatStat>();
+        TacticsMovement userTacticsMovement = target.GetComponent<TacticsMovement>();
         switch (passiveEffect.passiveType)
         {
             case PassiveType.Damage:
-                userCombatStat.CurrHp += passiveEffect.value;
+                userCombatStat.TakeDamage(passiveEffect.value);
                 break;
             case PassiveType.Heal:
-                userCombatStat.CurrHp += passiveEffect.value;
+                userCombatStat.TakeHeal(passiveEffect.value);
                 break;
             case PassiveType.GainHolyShield:
-                userCombatStat.holyShield = true;
+                userCombatStat.ActivateHolyShield();
+                break;
+            case PassiveType.GainRevive:
+                userCombatStat.ActivateRevive(passiveEffect.value);
                 break;
             case PassiveType.ChangeArmor:
-                userCombatStat.armor += passiveEffect.value;
+                userCombatStat.ChangeArmor(passiveEffect.value);
                 break;
             case PassiveType.ChangeMovement:
                 userTacticsMovement.ChangeMove(passiveEffect.value);
@@ -83,37 +106,32 @@ public class Passive : Stuff
                 break;
             case PassiveType.ReRollDice:
                 throw new Exception();
-                break;
             case PassiveType.GainStun:
-                userCombatStat.StatusEffect = StatusEffect.Stun;
-                userCombatStat.StatusValue = passiveEffect.value;
+                userCombatStat.ChangeStatus(StatusEffect.Stun, 1);
                 break;
             case PassiveType.GainBurn:
-                userCombatStat.StatusEffect = StatusEffect.Burn;
-                userCombatStat.StatusValue = passiveEffect.value;
+                userCombatStat.ChangeStatus(StatusEffect.Burn, passiveEffect.value);
                 break;
             case PassiveType.GainPoison:
-                userCombatStat.StatusEffect = StatusEffect.Poison;
-                userCombatStat.StatusValue = passiveEffect.value;
+                userCombatStat.ChangeStatus(StatusEffect.Poison, passiveEffect.value);
                 break;
             case PassiveType.GainFreeze:
-                userCombatStat.StatusEffect = StatusEffect.Freeze;
-                userCombatStat.StatusValue = passiveEffect.value;
+                userCombatStat.ChangeStatus(StatusEffect.Freeze, passiveEffect.value);
                 break;
             case PassiveType.RemoveStun:
-                if (userCombatStat.StatusEffect == StatusEffect.Stun)
+                if (userCombatStat.GetStatusEffect() == StatusEffect.Stun)
                     userCombatStat.ResetStatus();
                 break;
             case PassiveType.RemoveBurn:
-                if (userCombatStat.StatusEffect == StatusEffect.Burn)
+                if (userCombatStat.GetStatusEffect() == StatusEffect.Burn)
                     userCombatStat.ResetStatus();
                 break;
             case PassiveType.RemovePoison:
-                if (userCombatStat.StatusEffect == StatusEffect.Poison)
+                if (userCombatStat.GetStatusEffect() == StatusEffect.Poison)
                     userCombatStat.ResetStatus();
                 break;
             case PassiveType.RemoveFreeze:
-                if (userCombatStat.StatusEffect == StatusEffect.Freeze)
+                if (userCombatStat.GetStatusEffect() == StatusEffect.Freeze)
                     userCombatStat.ResetStatus();
                 break;
             default:
@@ -121,70 +139,87 @@ public class Passive : Stuff
         }
     }
     
-    private int DoEffect(PassiveEffect passiveEffect, GameObject user, int hit)
+    private void DoEffect(PassiveEffect passiveEffect, GameObject target, bool crit)
     {
-        CombatStat userCombatStat = user.GetComponent<CombatStat>();
-        TacticsMovement userTacticsMovement = user.GetComponent<TacticsMovement>();
+        CombatStat userCombatStat = target.GetComponent<CombatStat>();
+        TacticsMovement userTacticsMovement = target.GetComponent<TacticsMovement>();
+
+        int effectValue = passiveEffect.value;
+        if (crit) effectValue *= 2;
+        
         switch (passiveEffect.passiveType)
         {
             case PassiveType.Damage:
-                userCombatStat.CurrHp += passiveEffect.value;
+                userCombatStat.TakeDamage(effectValue);
                 break;
             case PassiveType.Heal:
-                userCombatStat.CurrHp += passiveEffect.value;
-                break;
-            case PassiveType.GainHolyShield:
-                userCombatStat.holyShield = true;
+                userCombatStat.TakeHeal(effectValue);
                 break;
             case PassiveType.ChangeArmor:
-                userCombatStat.armor += passiveEffect.value;
+                userCombatStat.ChangeArmor(effectValue);
                 break;
             case PassiveType.ChangeMovement:
-                userTacticsMovement.ChangeMove(passiveEffect.value);
+                userTacticsMovement.ChangeMove(effectValue);
                 break;
             case PassiveType.ChangeMaxHp:
-                userCombatStat.MaxHp += passiveEffect.value;
+                userCombatStat.MaxHp += effectValue;
                 break;
             case PassiveType.ChangeInitiative:
-                userCombatStat.currInit += passiveEffect.value;
+                userCombatStat.currInit += effectValue;
                 break;
             case PassiveType.ChangeRange:
-                userTacticsMovement.atkRange += passiveEffect.value;
+                userTacticsMovement.atkRange += effectValue;
                 break;
             case PassiveType.ReRollDice:
-                if (hit == 0) hit = 1;
-                break;
+                throw new Exception();
             case PassiveType.GainStun:
-                userCombatStat.StatusEffect = StatusEffect.Stun;
-                userCombatStat.StatusValue = passiveEffect.value;
+                userCombatStat.ChangeStatus(StatusEffect.Stun, 1);
                 break;
             case PassiveType.GainBurn:
-                userCombatStat.StatusEffect = StatusEffect.Burn;
-                userCombatStat.StatusValue = passiveEffect.value;
+                userCombatStat.ChangeStatus(StatusEffect.Burn, effectValue);
                 break;
             case PassiveType.GainPoison:
-                userCombatStat.StatusEffect = StatusEffect.Poison;
-                userCombatStat.StatusValue = passiveEffect.value;
+                userCombatStat.ChangeStatus(StatusEffect.Poison, effectValue);
                 break;
             case PassiveType.GainFreeze:
-                userCombatStat.StatusEffect = StatusEffect.Freeze;
-                userCombatStat.StatusValue = passiveEffect.value;
+                userCombatStat.ChangeStatus(StatusEffect.Freeze, effectValue);
                 break;
             case PassiveType.RemoveStun:
-                if (userCombatStat.StatusEffect == StatusEffect.Stun)
+                if (userCombatStat.GetStatusEffect() == StatusEffect.Stun)
                     userCombatStat.ResetStatus();
                 break;
             case PassiveType.RemoveBurn:
-                if (userCombatStat.StatusEffect == StatusEffect.Burn)
+                if (userCombatStat.GetStatusEffect() == StatusEffect.Burn)
                     userCombatStat.ResetStatus();
                 break;
             case PassiveType.RemovePoison:
-                if (userCombatStat.StatusEffect == StatusEffect.Poison)
+                if (userCombatStat.GetStatusEffect() == StatusEffect.Poison)
                     userCombatStat.ResetStatus();
                 break;
             case PassiveType.RemoveFreeze:
-                if (userCombatStat.StatusEffect == StatusEffect.Freeze)
+                if (userCombatStat.GetStatusEffect() == StatusEffect.Freeze)
                     userCombatStat.ResetStatus();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+    
+    private int DoEffect(PassiveEffect passiveEffect, GameObject target, int hit)
+    {
+        switch (passiveEffect.passiveType)
+        {
+            case PassiveType.ReRollDice:
+                if (hit == 0)
+                {
+                    hit = Random.Range(1,7);
+                    return hit switch
+                    {
+                        1 => 0,
+                        6 => 2,
+                        _ => 1
+                    };
+                }
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

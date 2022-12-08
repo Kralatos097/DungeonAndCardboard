@@ -116,7 +116,7 @@ public class UIManager : MonoBehaviour
         
         MoveButton.GetComponentInChildren<TextMeshProUGUI>().text = alreadyMoved ? "Return" : "Move";
 
-        if(TurnManager.GetCurrentPlayerD().GetComponent<CombatStat>().StatusEffect == StatusEffect.Stun)
+        if(TurnManager.GetCurrentPlayerD().GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Stun)
             ActionSelectorPanel.transform.Find("AttackButton").GetComponent<Button>().interactable = false;
         else
             ActionSelectorPanel.transform.Find("AttackButton").GetComponent<Button>().interactable = true;
@@ -318,11 +318,11 @@ public class UIManager : MonoBehaviour
                     t.Value.transform.Find("PassifImg").gameObject.SetActive(false);
                 }
                 else
-                    t.Value.transform.Find("PassifImg").GetComponent<Image>().sprite =
+                    t.Value.transform.Find("PassiveImg").GetComponent<Image>().sprite =
                         t.Key.GetComponent<PlayerMovement>().GetPassive().logo;
             }
 
-            int armor = t.Key.GetComponent<CombatStat>().armor;
+            int armor = t.Key.GetComponent<CombatStat>().GetArmor();
             if(armor > 0)
             {
                 t.Value.transform.Find("ArmorImg").gameObject.SetActive(true);
@@ -334,7 +334,7 @@ public class UIManager : MonoBehaviour
                 t.Value.transform.Find("ArmorImg").gameObject.SetActive(false);
             }
 
-            StatusEffect status = t.Key.GetComponent<CombatStat>().StatusEffect;
+            StatusEffect status = t.Key.GetComponent<CombatStat>().GetStatusEffect();
             if(status != StatusEffect.Nothing)
             {
                 t.Value.transform.Find("StatusImg").gameObject.SetActive(true);

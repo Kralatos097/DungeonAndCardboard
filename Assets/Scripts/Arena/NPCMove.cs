@@ -21,7 +21,7 @@ public class NPCMove : TacticsMovement
         
         combatStat.MaxHp = UnitInfo.maxHp;
         combatStat.CurrHp = UnitInfo.maxHp;
-        combatStat.initiative = UnitInfo.initiative;
+        combatStat.ChangeInit(UnitInfo.initiative);
 
         baseMove = UnitInfo.movement;
         ActiveOne = UnitInfo.activeOne;

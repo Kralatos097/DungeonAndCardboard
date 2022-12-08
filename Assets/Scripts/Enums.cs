@@ -100,6 +100,8 @@ public enum PassiveTrigger
     OnAttack,
     OnStatusGiven,
     OnStatueTaken,
+    OnStatueClean,
+    OnDeath,
 }
 
 public enum PassiveType
@@ -107,6 +109,7 @@ public enum PassiveType
     Damage,
     Heal,
     GainHolyShield,
+    GainRevive,
     ChangeArmor,
     ChangeMovement,
     ChangeMaxHp,

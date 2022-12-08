@@ -159,9 +159,9 @@ public class TurnManager : MonoBehaviour
             }
             Debug.Log("Turn of : " + turnOrder.Peek().name);
 
-            if(turnOrder.Peek().GetComponent<CombatStat>().StatusEffect == StatusEffect.Poison)
+            if(turnOrder.Peek().GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Poison)
             {
-                turnOrder.Peek().GetComponent<CombatStat>().Poison();
+                turnOrder.Peek().GetComponent<CombatStat>().ActivatePoison();
                 if(!turnOrder.Peek().GetComponent<CombatStat>().isUp)
                 {
                     TacticsMovement DeadUnit = turnOrder.Dequeue();
@@ -172,9 +172,9 @@ public class TurnManager : MonoBehaviour
                     }
                 }
             }
-            else if(turnOrder.Peek().GetComponent<CombatStat>().StatusEffect == StatusEffect.Freeze)
+            else if(turnOrder.Peek().GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Freeze)
             {
-                turnOrder.Peek().GetComponent<TacticsMovement>().ChangeMove(-turnOrder.Peek().GetComponent<CombatStat>().StatusValue);
+                turnOrder.Peek().GetComponent<TacticsMovement>().ChangeMove(-turnOrder.Peek().GetComponent<CombatStat>().GetStatusValue());
             }
             else
             {
@@ -194,16 +194,16 @@ public class TurnManager : MonoBehaviour
     {
         TacticsMovement unit = turnOrder.Dequeue();
 
-        if(unit.GetComponent<CombatStat>().StatusEffect == StatusEffect.Burn)
+        if(unit.GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Burn)
         {
-            unit.GetComponent<CombatStat>().Burn();
+            unit.GetComponent<CombatStat>().ActivateBurn();
             if(!unit.GetComponent<CombatStat>().isUp)
             {
                 TacticsMovement.PlayersTurn = false;
                 StartTurn();
             }
         }
-        else if (unit.GetComponent<CombatStat>().StatusEffect == StatusEffect.Freeze)
+        else if (unit.GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Freeze)
         {
             unit.GetComponent<CombatStat>().ResetStatus();
         }
@@ -237,8 +237,8 @@ public class TurnManager : MonoBehaviour
                 //si similaire on départage
                 if (temp == init)
                 {
-                    int newBaseInit = unit.gameObject.GetComponent<CombatStat>().initiative;
-                    int retBaseInit = unitRet.gameObject.GetComponent<CombatStat>().initiative;
+                    int newBaseInit = unit.gameObject.GetComponent<CombatStat>().GetInit();
+                    int retBaseInit = unitRet.gameObject.GetComponent<CombatStat>().GetInit();
 
                     //si l'init est surerieur échange
                     if (retBaseInit < newBaseInit)
@@ -325,9 +325,10 @@ public class TurnManager : MonoBehaviour
     {
         foreach (var tacticsMovement in turnOrder)
         {
-            if (tacticsMovement.GetPassive().GetPassiveTrigger() == PassiveTrigger.OnCombatStart)
+            Passive passive = tacticsMovement.GetPassive();
+            if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnCombatStart)
             {
-                tacticsMovement.GetPassive().Effect(tacticsMovement.gameObject);
+                passive.Effect(tacticsMovement.gameObject);
             }
         }
     }
@@ -336,26 +337,29 @@ public class TurnManager : MonoBehaviour
     {
         foreach (var tacticsMovement in turnOrder)
         {
-            if (tacticsMovement.GetPassive().GetPassiveTrigger() == PassiveTrigger.OnCombatEnd)
+            Passive passive = tacticsMovement.GetPassive();
+            if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnCombatEnd)
             {
-                tacticsMovement.GetPassive().Effect(tacticsMovement.gameObject);
+                passive.Effect(tacticsMovement.gameObject);
             }
         }
     }
     
     private void OnTurnStartPassiveEffect(TacticsMovement user)
     {
-        if (user.GetPassive().GetPassiveTrigger() == PassiveTrigger.OnTurnStart)
+        Passive passive = user.GetPassive();
+        if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnTurnStart)
         {
-            user.GetPassive().Effect(user.gameObject);
+            passive.Effect(user.gameObject);
         }
     }
     
     private void OnTurnEndPassiveEffect(TacticsMovement user)
     {
-        if (user.GetPassive().GetPassiveTrigger() == PassiveTrigger.OnTurnEnd)
+        Passive passive = user.GetPassive();
+        if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnTurnEnd)
         {
-            user.GetPassive().Effect(user.gameObject);
+            passive.Effect(user.gameObject);
         }
     }
 }

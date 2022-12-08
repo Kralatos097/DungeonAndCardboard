@@ -31,7 +31,7 @@ public class PlayerMovement : TacticsMovement
             case Perso.Warrior:
                 CombatStat.MaxHp = WarriorInfo.MaxHp;
                 CombatStat.CurrHp = WarriorInfo.CurrentHp;
-                CombatStat.initiative = WarriorInfo.Init;
+                CombatStat. ChangeInit(WarriorInfo.Init);
 
                 baseMove = WarriorInfo.Movement;
                 ActiveOne = WarriorInfo.ActiveOne;
@@ -42,7 +42,7 @@ public class PlayerMovement : TacticsMovement
             case Perso.Thief:
                 CombatStat.MaxHp = ThiefInfo.MaxHp;
                 CombatStat.CurrHp = ThiefInfo.CurrentHp;
-                CombatStat.initiative = ThiefInfo.Init;
+                CombatStat.ChangeInit(ThiefInfo.Init);
 
                 baseMove = ThiefInfo.Movement;
                 ActiveOne = ThiefInfo.ActiveOne;
@@ -53,7 +53,7 @@ public class PlayerMovement : TacticsMovement
             case Perso.Cleric:
                 CombatStat.MaxHp = ClericInfo.MaxHp;
                 CombatStat.CurrHp = ClericInfo.CurrentHp;
-                CombatStat.initiative = ClericInfo.Init;
+                CombatStat.ChangeInit(ClericInfo.Init);
 
                 baseMove = ClericInfo.Movement;
                 ActiveOne = ClericInfo.ActiveOne;
@@ -64,7 +64,7 @@ public class PlayerMovement : TacticsMovement
             case Perso.Wizard:
                 CombatStat.MaxHp = WizardInfo.MaxHp;
                 CombatStat.CurrHp = WizardInfo.CurrentHp;
-                CombatStat.initiative = WizardInfo.Init;
+                CombatStat.ChangeInit(WizardInfo.Init);
 
                 baseMove = WizardInfo.Movement;
                 ActiveOne = WizardInfo.ActiveOne;
@@ -75,7 +75,7 @@ public class PlayerMovement : TacticsMovement
             case Perso.Default:
                 CombatStat.MaxHp = UnitInfo.maxHp;
                 CombatStat.CurrHp = UnitInfo.maxHp;
-                CombatStat.initiative = UnitInfo.initiative;
+                CombatStat.ChangeInit(UnitInfo.initiative);
 
                 baseMove = UnitInfo.movement;
                 ActiveOne = UnitInfo.activeOne;
@@ -95,28 +95,28 @@ public class PlayerMovement : TacticsMovement
             case Perso.Warrior:
                 WarriorInfo.MaxHp = CombatStat.MaxHp;
                 WarriorInfo.CurrentHp = CombatStat.CurrHp;
-                WarriorInfo.Init = CombatStat.initiative;
+                WarriorInfo.Init = CombatStat.GetInit();
                 
                 WarriorInfo.Consumable = Consumable;
                 break;
             case Perso.Thief:
                 ThiefInfo.MaxHp = CombatStat.MaxHp;
                 ThiefInfo.CurrentHp = CombatStat.CurrHp;
-                ThiefInfo.Init = CombatStat.initiative;
+                ThiefInfo.Init = CombatStat.GetInit();
                 
                 ThiefInfo.Consumable = Consumable;
                 break;
             case Perso.Cleric:
                 ClericInfo.MaxHp = CombatStat.MaxHp;
                 ClericInfo.CurrentHp = CombatStat.CurrHp;
-                ClericInfo.Init = CombatStat.initiative;
+                ClericInfo.Init = CombatStat.GetInit();
                 
                 ClericInfo.Consumable = Consumable;
                 break;
             case Perso.Wizard:
                 WizardInfo.MaxHp = CombatStat.MaxHp;
                 WizardInfo.CurrentHp = CombatStat.CurrHp;
-                WizardInfo.Init = CombatStat.initiative;
+                WizardInfo.Init = CombatStat.GetInit();
                 
                 WizardInfo.Consumable = Consumable;
                 break;
@@ -258,10 +258,18 @@ public class PlayerMovement : TacticsMovement
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.CompareTag("Tile"))
+                ArenaTile t = null;
+                if(hit.collider.CompareTag("Tile"))
                 {
-                    ArenaTile t = hit.collider.GetComponent<ArenaTile>();
+                    t = hit.collider.GetComponent<ArenaTile>();
+                }
+                else if(hit.collider.gameObject.GetComponent<TacticsMovement>() != null)
+                {
+                    t = hit.collider.GetComponent<TacticsMovement>().GetCurrenTile().GetComponent<ArenaTile>();
+                }
 
+                if (t != null)
+                {
                     Debug.Log(t.GetGameObjectOnTop());
 
                     bool passAtk = false;
@@ -291,7 +299,6 @@ public class PlayerMovement : TacticsMovement
                         Attack(TargetGO, equip);
                     }
                 }
-                //todo: else pour si on click sur la figurine
             }
         }
     }
