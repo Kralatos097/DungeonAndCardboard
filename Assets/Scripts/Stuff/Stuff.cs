@@ -6,12 +6,14 @@ using UnityEngine.Serialization;
 public abstract class Stuff : ScriptableObject
 {
     [HideInInspector] public string stuffName;
+    [HideInInspector] public string stuffType;
+    
     [Header("Value")]
     public Sprite logo;
     public string description;
     
-    protected void Start()
+    protected virtual void Start()
     {
-        string Name = name;
+        stuffName = name;
     }
 }

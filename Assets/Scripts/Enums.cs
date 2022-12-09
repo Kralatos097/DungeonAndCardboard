@@ -131,5 +131,4 @@ public enum ActiveTarget
     SelfOnly,
     OthersOnly,
     Everyone,
-    Tiles,
 }

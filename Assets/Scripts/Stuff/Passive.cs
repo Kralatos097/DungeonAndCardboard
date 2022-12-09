@@ -13,6 +13,12 @@ public class Passive : Stuff
     [Header("Effects")]
     [SerializeField] private List<PassiveEffect> passiveEffectList;
     
+    protected override void Start()
+    {
+        base.Start();
+        stuffType = "Passive";
+    }
+    
     public void Effect(GameObject target)
     {
 

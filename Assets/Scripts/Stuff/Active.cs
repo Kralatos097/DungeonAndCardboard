@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -13,6 +14,12 @@ public class Active : Stuff
 
     [Header("Effects")]
     [SerializeField] private List<ActiveEffect> activeEffectList;
+    
+    protected override void Start()
+    {
+        base.Start();
+        stuffType = "Active";
+    }
 
     public void Effect(GameObject user, GameObject target, int hitParam)
     {
