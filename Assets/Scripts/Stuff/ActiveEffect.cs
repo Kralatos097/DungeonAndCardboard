@@ -1,9 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine;
-using UnityEngine.Serialization;
 
 [Serializable]
 public class ActiveEffect
@@ -11,4 +6,6 @@ public class ActiveEffect
     public ActiveType activeType;
     public int value;
     public bool onSelf;
+    public bool noMiss;
+    public bool critOnly;
 }

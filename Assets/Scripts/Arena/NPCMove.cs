@@ -17,17 +17,17 @@ public class NPCMove : TacticsMovement
 
     protected override void GetUnitInfo()
     {
-        CombatStat _combatStat = gameObject.GetComponent<CombatStat>();
+        CombatStat combatStat = gameObject.GetComponent<CombatStat>();
         
-        _combatStat.MaxHp = UnitInfo.maxHp;
-        _combatStat.currHp = UnitInfo.maxHp;
-        _combatStat.initiative = UnitInfo.initiative;
+        combatStat.MaxHp = UnitInfo.maxHp;
+        combatStat.CurrHp = UnitInfo.maxHp;
+        combatStat.ChangeInit(UnitInfo.initiative);
 
-        move = UnitInfo.movement;
-        equipmentOne = UnitInfo.activeOne;
-        equipmentTwo = UnitInfo.activeTwo;
-        passif = UnitInfo.passive;
-        consummable = UnitInfo.consumable;
+        baseMove = UnitInfo.movement;
+        ActiveOne = UnitInfo.activeOne;
+        ActiveTwo = UnitInfo.activeTwo;
+        Passive = UnitInfo.passive;
+        Consumable = UnitInfo.consumable;
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class NPCMove : TacticsMovement
         if(!Turn) return;
         PlayersTurn = false;
 
-        atkRange = equipmentOne.GetAtkRange();
+        atkRange = ActiveOne.GetAtkRange();
         bool canAtk = true;
 
         GameObject temp = AlliesInAttackRange();
@@ -105,6 +105,7 @@ public class NPCMove : TacticsMovement
     private void CalculatePath()
     {
         ArenaTile targetTile = GetTargetTile(target);
+        //Debug.Log(targetTile);
         FindPath(targetTile);
     }
 
@@ -122,7 +123,7 @@ public class NPCMove : TacticsMovement
 
     protected void EndTurnT()
     {
-        TurnManager.EndTurn();
+        TurnManager.EndTurnD();
         attacking = false;
         _alreadyMoved = false;
     }

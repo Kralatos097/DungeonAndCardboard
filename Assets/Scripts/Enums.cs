@@ -81,11 +81,49 @@ public enum ActiveType
     Poison,
     Armor,
     Cure,
-    CritOnly,
-    NoMiss,
     Splash,
     TwoHit,
     ThreeHit,
+}
+
+public enum PassiveTrigger
+{
+    OnObtained,
+    OnCombatStart,
+    OnCombatEnd,
+    OnTurnStart,
+    OnTurnEnd,
+    OnDamageGiven,
+    OnDamageTaken,
+    OnHealGiven,
+    OnHealTaken,
+    OnAttack,
+    OnStatusGiven,
+    OnStatueTaken,
+    OnStatueClean,
+    OnDeath,
+}
+
+public enum PassiveType
+{
+    Damage,
+    Heal,
+    GainHolyShield,
+    GainRevive,
+    ChangeArmor,
+    ChangeMovement,
+    ChangeMaxHp,
+    ChangeInitiative,
+    ChangeRange,
+    ReRollDice,
+    GainStun,
+    GainBurn,
+    GainPoison,
+    GainFreeze,
+    RemoveStun,
+    RemoveBurn,
+    RemovePoison,
+    RemoveFreeze,
 }
 
 public enum ActiveTarget

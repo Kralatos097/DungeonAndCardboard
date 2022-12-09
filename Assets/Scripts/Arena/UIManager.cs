@@ -62,6 +62,7 @@ public class UIManager : MonoBehaviour
         }
         
         UpdateHpUi();
+        
             
         if (Input.GetMouseButtonUp(1))//On release right click
         {
@@ -113,8 +114,12 @@ public class UIManager : MonoBehaviour
         _actionSelectorShown = true;
         ActionSelectorPanel.SetActive(true);
         
-        /*MoveButton.interactable = !alreadyMoved;*/
         MoveButton.GetComponentInChildren<TextMeshProUGUI>().text = alreadyMoved ? "Return" : "Move";
+
+        if(TurnManager.GetCurrentPlayerD().GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Stun)
+            ActionSelectorPanel.transform.Find("AttackButton").GetComponent<Button>().interactable = false;
+        else
+            ActionSelectorPanel.transform.Find("AttackButton").GetComponent<Button>().interactable = true;
     }
 
     public void HideActionSelector()
@@ -277,43 +282,47 @@ public class UIManager : MonoBehaviour
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            
-            _playerPanelList.Add(unit, t);
 
-            t.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = "" + combatStat.currHp;
+            t.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = "" + combatStat.CurrHp;
             t.transform.GetChild(1).Find("FillHpImg").GetComponent<Image>().fillAmount =
-                (combatStat.currHp / (float)combatStat.MaxHp);
-            if (playerMovement.GetPassif() == null)
+                (combatStat.CurrHp / (float)combatStat.MaxHp);
+            if (playerMovement.GetPassive() == null)
             {
                 t.transform.Find("PassifImg").gameObject.SetActive(false);
             }
             else
-                t.transform.Find("PassifImg").GetComponent<Image>().sprite = playerMovement.GetPassif().logo;
+                t.transform.Find("PassifImg").GetComponent<Image>().sprite = playerMovement.GetPassive().logo;
         }
         else
         {
             //NPCMove npcMove = unit.GetComponent<NPCMove>();
             t = Instantiate(EnemyInitPanel, InitPanel);
         }
+        _playerPanelList.Add(unit, t);
         t.transform.Find("ArmorImg").gameObject.SetActive(false);
         t.transform.Find("StatusImg").gameObject.SetActive(false);
     }
 
-    public void UpdateHpUi()
+    private void UpdateHpUi()
     {
         foreach(KeyValuePair<GameObject, GameObject> t in _playerPanelList)
         {
-            t.Value.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = "" + t.Key.GetComponent<CombatStat>().currHp;
-            t.Value.transform.GetChild(1).Find("FillHpImg").GetComponent<Image>().fillAmount =
-                (t.Key.GetComponent<CombatStat>().currHp / (float)t.Key.GetComponent<CombatStat>().MaxHp);
-            if (t.Key.GetComponent<PlayerMovement>().GetPassif() == null)
+            if(t.Key.GetComponent<PlayerMovement>() != null)
             {
-                t.Value.transform.Find("PassifImg").gameObject.SetActive(false);
+                t.Value.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text =
+                    "" + t.Key.GetComponent<CombatStat>().CurrHp;
+                t.Value.transform.GetChild(1).Find("FillHpImg").GetComponent<Image>().fillAmount =
+                    (t.Key.GetComponent<CombatStat>().CurrHp / (float)t.Key.GetComponent<CombatStat>().MaxHp);
+                if (t.Key.GetComponent<PlayerMovement>().GetPassive() == null)
+                {
+                    t.Value.transform.Find("PassifImg").gameObject.SetActive(false);
+                }
+                else
+                    t.Value.transform.Find("PassiveImg").GetComponent<Image>().sprite =
+                        t.Key.GetComponent<PlayerMovement>().GetPassive().logo;
             }
-            else
-                t.Value.transform.Find("PassifImg").GetComponent<Image>().sprite = t.Key.GetComponent<PlayerMovement>().GetPassif().logo;
 
-            int armor = t.Key.GetComponent<CombatStat>().armor;
+            int armor = t.Key.GetComponent<CombatStat>().GetArmor();
             if(armor > 0)
             {
                 t.Value.transform.Find("ArmorImg").gameObject.SetActive(true);
@@ -325,9 +334,13 @@ public class UIManager : MonoBehaviour
                 t.Value.transform.Find("ArmorImg").gameObject.SetActive(false);
             }
 
-            StatusEffect status = t.Key.GetComponent<CombatStat>().StatusEffect;
+            StatusEffect status = t.Key.GetComponent<CombatStat>().GetStatusEffect();
             if(status != StatusEffect.Nothing)
             {
+                t.Value.transform.Find("StatusImg").gameObject.SetActive(true);
+                t.Value.transform.Find("StatusImg").GetComponentInChildren<TextMeshProUGUI>().text =
+                    t.Key.GetComponent<CombatStat>().StatusValue.ToString();
+                
                 switch(status)
                 {
                     case StatusEffect.Poison:
@@ -335,6 +348,7 @@ public class UIManager : MonoBehaviour
                         break;
                     case StatusEffect.Stun:
                         t.Value.transform.Find("StatusImg").GetComponent<Image>().sprite = StunIcon;
+                        t.Value.transform.Find("StatusImg").GetComponentInChildren<TextMeshProUGUI>().text = "";
                         break;
                     case StatusEffect.Burn:
                         t.Value.transform.Find("StatusImg").GetComponent<Image>().sprite = BurnIcon;
@@ -346,10 +360,6 @@ public class UIManager : MonoBehaviour
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
-                
-                t.Value.transform.Find("StatusImg").gameObject.SetActive(true);
-                t.Value.transform.Find("StatusImg").GetComponentInChildren<TextMeshProUGUI>().text =
-                    t.Key.GetComponent<CombatStat>().statusValue.ToString();
             }
             else
             {

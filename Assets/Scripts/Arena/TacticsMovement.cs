@@ -4,27 +4,30 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class TacticsMovement : MonoBehaviour
 {
     protected bool Turn = false;
     public static bool PlayersTurn = false;
     
-    private List<ArenaTile> selectableTiles = new List<ArenaTile>();
-    private GameObject[] tiles;
+    private List<ArenaTile> _selectableTiles = new List<ArenaTile>();
+    private GameObject[] _tiles;
 
-    private Stack<ArenaTile> path = new Stack<ArenaTile>();
-    private ArenaTile currentTile;
+    private Stack<ArenaTile> _path = new Stack<ArenaTile>();
+    private ArenaTile _currentTile;
 
     protected bool moving = false;
     protected bool attacking = false;
-    protected int move = 3;
+    protected int baseMove = 3;
+    private int move = 3;
     public float moveSpeed = 2;
     
-    protected int atkRange = 0;
+    [HideInInspector] public int atkRange = 0;
 
     protected float MoveY = .75f;
     protected bool passM = false;
@@ -36,46 +39,68 @@ public class TacticsMovement : MonoBehaviour
 
     [HideInInspector] public ArenaTile actualTargetTile;
 
-    protected Active equipmentOne;
-    protected int EquiOneCD = 0;
+    protected Active ActiveOne;
+    protected int ActiveOneCd = 0;
     
-    protected Active equipmentTwo;
-    protected int EquiTwoCD = 0;
+    protected Active ActiveTwo;
+    protected int ActiveTwoCd = 0;
 
-    protected Consumable consummable;
+    protected Consumable Consumable;
     
-    protected Passive passif;
+    private Passive _passive;
+    protected Passive Passive
+    {
+        get => _passive;
+
+        set
+        {
+            //todo: faire en sorte que les effets leseffets s'annulent lorsque l'on retire le passif
+            /*if (_passive != null && _passive.GetPassiveTrigger() == PassiveTrigger.OnObtained)
+            {
+                _passive.Effect(gameObject);
+            }*/
+            
+            _passive = value;
+
+            if (_passive != null && _passive.GetPassiveTrigger() == PassiveTrigger.OnObtained)
+            {
+                _passive.Effect(gameObject);
+            }
+        }
+    }
 
     private Material _unitMat;
     private Color _baseColor;
     private Color _changeColor;
 
-    protected CombatStat _combatStat;
+    protected CombatStat CombatStat;
 
     protected void Init()
     {
-        tiles = GameObject.FindGameObjectsWithTag("Tile");
+        _tiles = GameObject.FindGameObjectsWithTag("Tile");
         
-        _combatStat = gameObject.GetComponent<CombatStat>();
+        CombatStat = gameObject.GetComponent<CombatStat>();
         
         GetUnitInfo();
 
         halfHeight = GetComponent<Collider>().bounds.extents.y;
 
-        _combatStat.RollInit();
+        CombatStat.RollInit();
         
         TurnManager.AddUnit(this);
     }
 
-    protected virtual void GetUnitInfo()
+    protected virtual void GetUnitInfo() {}
+
+    public ArenaTile GetCurrenTile()
     {
-        
+        return _currentTile;
     }
     
     protected void GetCurrentTile()
     {
-        currentTile = GetTargetTile(gameObject);
-        currentTile.current = true;
+        _currentTile = GetTargetTile(gameObject);
+        _currentTile.current = true;
     }
 
     protected ArenaTile GetTargetTile(GameObject target)
@@ -93,7 +118,7 @@ public class TacticsMovement : MonoBehaviour
 
     protected void ComputeAdjacencyList()
     {
-        foreach (GameObject tile in tiles)
+        foreach (GameObject tile in _tiles)
         {
             ArenaTile t = tile.GetComponent<ArenaTile>();
             t.FindNeighbors(null);
@@ -102,7 +127,7 @@ public class TacticsMovement : MonoBehaviour
     
     protected void ComputeAdjacencyListAtk()
     {
-        foreach (GameObject tile in tiles)
+        foreach (GameObject tile in _tiles)
         {
             ArenaTile t = tile.GetComponent<ArenaTile>();
             t.FindNeighborsAtk();
@@ -111,7 +136,7 @@ public class TacticsMovement : MonoBehaviour
     
     protected void ComputeAdjacencyList(ArenaTile target)
     {
-        foreach (GameObject tile in tiles)
+        foreach (GameObject tile in _tiles)
         {
             ArenaTile t = tile.GetComponent<ArenaTile>();
             t.FindNeighbors(target);
@@ -125,14 +150,14 @@ public class TacticsMovement : MonoBehaviour
 
         Queue<ArenaTile> process = new Queue<ArenaTile>();
         
-        process.Enqueue(currentTile);
-        currentTile.visited = true;
+        process.Enqueue(_currentTile);
+        _currentTile.visited = true;
 
         while (process.Count > 0)
         {
             ArenaTile t = process.Dequeue();
             
-            selectableTiles.Add(t);
+            _selectableTiles.Add(t);
             t.selectable = true;
 
             if (t.distance < move)
@@ -153,23 +178,23 @@ public class TacticsMovement : MonoBehaviour
 
     protected void MoveToTile(ArenaTile tile)
     {
-        path.Clear();
+        _path.Clear();
         tile.target = true;
         moving = true;
 
         ArenaTile next = tile;
         while (next != null)
         {
-            path.Push(next);
+            _path.Push(next);
             next = next.parent;
         }
     }
 
     protected void Move()
     {
-        if (path.Count > 0)
+        if (_path.Count > 0)
         {
-            ArenaTile t = path.Peek();
+            ArenaTile t = _path.Peek();
             Vector3 target = t.transform.position;
 
             target.y += halfHeight + t.GetComponent<Collider>().bounds.extents.y;
@@ -186,7 +211,7 @@ public class TacticsMovement : MonoBehaviour
             {
                 //tile center reached
                 transform.position = target;
-                path.Pop();
+                _path.Pop();
             }
         }
         else
@@ -211,18 +236,18 @@ public class TacticsMovement : MonoBehaviour
 
     protected void RemoveSelectableTile()
     {
-        if (currentTile != null)
+        if (_currentTile != null)
         {
-            currentTile.current = false;
-            currentTile = null;
+            _currentTile.current = false;
+            _currentTile = null;
         }
         
-        foreach (ArenaTile tile in selectableTiles)
+        foreach (ArenaTile tile in _selectableTiles)
         {
             tile.Reset();
         }
         
-        selectableTiles.Clear();
+        _selectableTiles.Clear();
     }
 
     public void BeginTurn()
@@ -269,9 +294,9 @@ public class TacticsMovement : MonoBehaviour
         List<ArenaTile> openList = new List<ArenaTile>();
         List<ArenaTile> closedList = new List<ArenaTile>();
         
-        openList.Add(currentTile);
-        currentTile.h = Vector3.Distance(currentTile.transform.position, targetTile.transform.position);
-        currentTile.f = currentTile.h;
+        openList.Add(_currentTile);
+        _currentTile.h = Vector3.Distance(_currentTile.transform.position, targetTile.transform.position);
+        _currentTile.f = _currentTile.h;
 
         while (openList.Count > 0)
         {
@@ -352,14 +377,14 @@ public class TacticsMovement : MonoBehaviour
 
         Queue<ArenaTile> process = new Queue<ArenaTile>();
         
-        process.Enqueue(currentTile);
-        currentTile.visited = true;
+        process.Enqueue(_currentTile);
+        _currentTile.visited = true;
 
         while (process.Count > 0)
         {
             ArenaTile t = process.Dequeue();
             
-            selectableTiles.Add(t);
+            _selectableTiles.Add(t);
 
             if (t.distance < atkRange)
             {
@@ -394,14 +419,14 @@ public class TacticsMovement : MonoBehaviour
 
         Queue<ArenaTile> process = new Queue<ArenaTile>();
         
-        process.Enqueue(currentTile);
-        currentTile.visited = true;
+        process.Enqueue(_currentTile);
+        _currentTile.visited = true;
 
         while (process.Count > 0)
         {
             ArenaTile t = process.Dequeue();
             
-            selectableTiles.Add(t);
+            _selectableTiles.Add(t);
             t.selectable = true;
 
             if (t.distance < atkRange)
@@ -423,30 +448,51 @@ public class TacticsMovement : MonoBehaviour
     protected void Attack(GameObject target, int equip)
     {
         RemoveSelectableTile();
+        int hit = GetHitChance();
 
+        if(Passive)
+        {
+            if (Passive.GetPassiveTrigger() == PassiveTrigger.OnAttack)
+            {
+                hit = Passive.Effect(gameObject, hit);
+            }
+        }
+        
         switch (equip)
         {
             case 1:
-                equipmentOne.Effect(target);
+                ActiveOne.Effect(gameObject, target, hit);
                 target.gameObject.GetComponent<TacticsMovement>().DamageClign();
-                EquiOneCD = equipmentOne.GetCd();
+                ActiveOneCd = ActiveOne.GetCd();
                 break;
             case 2:
-                equipmentTwo.Effect(target);
+                ActiveTwo.Effect(gameObject, target, hit);
                 target.gameObject.GetComponent<TacticsMovement>().DamageClign();
-                EquiTwoCD = equipmentTwo.GetCd();
+                ActiveTwoCd = ActiveTwo.GetCd();
                 break;
             case 3:
-                consummable.Effect(target);
+                Consumable.Effect(gameObject, target, hit);
                 target.gameObject.GetComponent<TacticsMovement>().DamageClign();
-                consummable = null;
+                Consumable = null;
                 break;
             default:
                 break;
         }
 
-        Debug.Log("ATTACKING " + target.gameObject.name + "!\n Now has : " + target.GetComponent<CombatStat>().currHp + " HP!");
+        Debug.Log("ATTACKING " + target.gameObject.name + "!\n Now has : " + target.GetComponent<CombatStat>().CurrHp + " HP!");
         EndOfAttack();
+    }
+    
+    //return 0 for a miss, 1 for a hit, 2 for a critical
+    private int GetHitChance()
+    {
+        int nb = Random.Range(1,7);
+        return nb switch
+        {
+            1 => 0,
+            6 => 2,
+            _ => 1
+        };
     }
 
     protected virtual void EndOfAttack()
@@ -456,11 +502,11 @@ public class TacticsMovement : MonoBehaviour
 
     public void EquipCDMinus(int value)
     {
-        if (equipmentOne != null) EquiOneCD-=value;
-        if (equipmentTwo != null) EquiTwoCD-=value;
+        if (ActiveOne != null) ActiveOneCd-=value;
+        if (ActiveTwo != null) ActiveTwoCd-=value;
 
-        if (EquiOneCD < 0) EquiOneCD = 0;
-        if (EquiTwoCD < 0) EquiTwoCD = 0;
+        if (ActiveOneCd < 0) ActiveOneCd = 0;
+        if (ActiveTwoCd < 0) ActiveTwoCd = 0;
     }
 
     public void StartTurnClign()
@@ -509,8 +555,13 @@ public class TacticsMovement : MonoBehaviour
         _unitMat.color = _changeColor;
     }
 
-    public Passive GetPassif()
+    public Passive GetPassive()
     {
-        return passif;
+        return Passive;
+    }
+
+    public void ChangeMove(int value)
+    {
+        move = baseMove + value;
     }
 }

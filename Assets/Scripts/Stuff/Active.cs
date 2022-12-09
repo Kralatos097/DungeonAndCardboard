@@ -9,53 +9,46 @@ public class Active : Stuff
 {
     [SerializeField] private int range;
     [SerializeField] private int cd;
-    [SerializeField] private ActiveTarget target;
-    
-    //[SerializeField] private ActiveTarget activeTarget;
+    [SerializeField] private ActiveTarget clickTarget;
 
     [Header("Effects")]
     [SerializeField] private List<ActiveEffect> activeEffectList;
-    
-    public override void Effect(GameObject user)
+
+    public void Effect(GameObject user, GameObject target, int hitParam)
     {
         foreach(ActiveEffect activeEffect in activeEffectList)
         {
+            var gameObject = activeEffect.onSelf ? user : target;
+            int hit;
+            if (activeEffect.noMiss && hitParam == 0) hit = 1;
+            else if (activeEffect.critOnly && hitParam != 2) hit = 0;
+            else hit = hitParam;
+
             switch(activeEffect.activeType)
             {
                 case ActiveType.Damage:
-                    user.GetComponent<CombatStat>().currHp -= activeEffect.value;
+                    Damage(gameObject,activeEffect, hit);
                     break;
                 case ActiveType.Heal:
-                    user.GetComponent<CombatStat>().currHp += activeEffect.value;
+                    Heal(gameObject,activeEffect, hit);
                     break;
                 case ActiveType.Burn:
-                    user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Burn;
-                    user.GetComponent<CombatStat>().statusValue = activeEffect.value;
+                    Burn(gameObject,activeEffect, hit);
                     break;
                 case ActiveType.Stun:
-                    user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Stun;
-                    user.GetComponent<CombatStat>().statusValue = activeEffect.value;
+                    Stun(gameObject,activeEffect, hit);
                     break;
                 case ActiveType.Freeze:
-                    user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Freeze;
-                    user.GetComponent<CombatStat>().statusValue = activeEffect.value;
+                    Freeze(gameObject,activeEffect, hit);
                     break;
                 case ActiveType.Poison:
-                    user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Poison;
-                    user.GetComponent<CombatStat>().statusValue = activeEffect.value;
+                    Poison(gameObject,activeEffect, hit);
                     break;
                 case ActiveType.Armor:
-                    user.GetComponent<CombatStat>().armor = activeEffect.value;
+                    Armor(gameObject,activeEffect, hit);
                     break;
                 case ActiveType.Cure:
-                    user.GetComponent<CombatStat>().StatusEffect = StatusEffect.Nothing;
-                    user.GetComponent<CombatStat>().statusValue = 0;
-                    break;
-                case ActiveType.CritOnly:
-                    //todo
-                    break;
-                case ActiveType.NoMiss:
-                    //todo
+                    Cure(gameObject, hit);
                     break;
                 case ActiveType.Splash:
                     //todo
@@ -72,9 +65,224 @@ public class Active : Stuff
         }
     }
 
-    private void DamageSelf(GameObject user)
+
+    private void Damage(GameObject target, ActiveEffect activeEffect, int hit)
     {
-        //todo
+        Passive passive;
+        switch(hit)
+        {
+            case 0:
+                AtkMiss();
+                break;
+            case 1:
+                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnDamageGiven)
+                {
+                    passive.Effect(target);
+                }
+                AtkHit();
+                break;
+            case 2:
+                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnDamageGiven)
+                {
+                    passive.Effect(target, true);
+                }
+                AtkCritical();
+                break;
+        }
+        target.GetComponent<CombatStat>().TakeDamage(hit * activeEffect.value);
+    }
+    
+    private void Heal(GameObject target, ActiveEffect activeEffect, int hit)
+    {
+        Passive passive;
+        switch(hit)
+        {
+            case 0:
+                AtkMiss();
+                break;
+            case 1:
+                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnHealGiven)
+                {
+                    passive.Effect(target);
+                }
+                AtkHit();
+                break;
+            case 2:
+                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnHealGiven)
+                {
+                    passive.Effect(target, true);
+                }
+                AtkCritical();
+                break;
+        }
+        target.GetComponent<CombatStat>().TakeHeal(hit*activeEffect.value);
+    }
+
+    private void Burn(GameObject target, ActiveEffect activeEffect, int hit)
+    {
+        Passive passive;
+        switch(hit)
+        {
+            case 0:
+                AtkMiss();
+                break;
+            case 1:
+                AtkHit();
+                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
+                {
+                    passive.Effect(target);
+                }
+                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Burn, activeEffect.value);
+                break;
+            case 2:
+                AtkCritical();
+                 passive = target.GetComponent<TacticsMovement>().GetPassive();
+                if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
+                {
+                    passive.Effect(target, true);
+                }
+                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Burn, activeEffect.value*2);
+                break;
+        }
+    }
+    
+    private void Freeze(GameObject target, ActiveEffect activeEffect, int hit)
+    {
+        Passive passive;
+        switch(hit)
+        {
+            case 0:
+                AtkMiss();
+                break;
+            case 1:
+                AtkHit();
+                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
+                {
+                    passive.Effect(target);
+                }
+                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Freeze, activeEffect.value);
+                break;
+            case 2:
+                AtkCritical();
+                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
+                {
+                    passive.Effect(target, true);
+                }
+                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Freeze, activeEffect.value*2);
+                break;
+        }
+    }
+    
+    private void Poison(GameObject target, ActiveEffect activeEffect, int hit)
+    {
+        Passive passive;
+        switch(hit)
+        {
+            case 0:
+                AtkMiss();
+                break;
+            case 1:
+                AtkHit();
+                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
+                {
+                    passive.Effect(target);
+                }
+                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Poison, activeEffect.value);
+                break;
+            case 2:
+                AtkCritical();
+                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
+                {
+                    passive.Effect(target, true);
+                }
+                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Poison, activeEffect.value*2);
+                break;
+        }
+    }
+    
+    private void Stun(GameObject target, ActiveEffect activeEffect, int hit)
+    {
+        Passive passive;
+        switch(hit)
+        {
+            case 0:
+                AtkMiss();
+                break;
+            case 1:
+                AtkHit();
+                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
+                {
+                    passive.Effect(target);
+                }
+                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Stun, activeEffect.value);
+                break;
+            case 2:
+                AtkCritical();
+                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
+                {
+                    passive.Effect(target, true);
+                }
+                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Stun, activeEffect.value*2);
+                break;
+        }
+    }
+    
+    private void Armor(GameObject target, ActiveEffect activeEffect, int hit)
+    {
+        switch(hit)
+        {
+            case 0:
+                AtkMiss();
+                break;
+            case 1:
+                AtkHit();
+                target.GetComponent<CombatStat>().ChangeArmor(activeEffect.value);
+                break;
+            case 2:
+                AtkCritical();
+                target.GetComponent<CombatStat>().ChangeArmor(activeEffect.value*2);
+                break;
+        }
+    }
+
+    private void Cure(GameObject target, int hit)
+    {
+        switch(hit)
+        {
+            case 0:
+                AtkMiss();
+                break;
+            case 1 or 2:
+                AtkHit();
+                target.GetComponent<CombatStat>().ResetStatus();
+                break;
+        }
+    }
+
+    private void AtkMiss()
+    {
+        
+    }
+
+    private void AtkHit()
+    {
+        
+    }
+
+    private void AtkCritical()
+    {
+        
     }
 
     public int GetCd()

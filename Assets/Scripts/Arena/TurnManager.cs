@@ -11,13 +11,21 @@ public class TurnManager : MonoBehaviour
     private static Transform _combatEndCanvas;
     
     private static Queue<TacticsMovement> turnOrder = new Queue<TacticsMovement>();
-    private static List<TacticsMovement> _unitsList = new List<TacticsMovement>();
-    private static List<PlayerMovement> _playerList = new List<PlayerMovement>();
+    private static readonly List<TacticsMovement> _unitsList = new List<TacticsMovement>();
+    public static List<PlayerMovement> _playerList = new List<PlayerMovement>();
 
     [HideInInspector] public bool startCombat = false;
     public bool bossFight = false;
     private static bool _combatEnded = false;
     private static bool _isDefeat = false;
+
+    public delegate GameObject TurnManagerDelegate();
+    public static TurnManagerDelegate GetCurrentPlayerD;
+    
+    public delegate void TurnManagerDelegateV();
+    private static TurnManagerDelegateV _combatEndPassiveEffectD;
+    public static TurnManagerDelegateV EndTurnD;
+
 
     private void Awake()
     {
@@ -31,6 +39,9 @@ public class TurnManager : MonoBehaviour
         Invoke(nameof(LateStart), 1);
         _combatEnded = false;
         _combatEndCanvas = CombatEndCanvas;
+        GetCurrentPlayerD = GetCurrentPlayer;
+        _combatEndPassiveEffectD = OnCombatEndPassiveEffect;
+        EndTurnD = EndTurn;
     }
     
     private void LateStart()
@@ -42,6 +53,7 @@ public class TurnManager : MonoBehaviour
     {
         ListToQueue();
         SetInitsUi();
+        OnCombatStartPassiveEffect();
         StartTurn();
     }
 
@@ -95,6 +107,7 @@ public class TurnManager : MonoBehaviour
     private static void EndCombat(bool pStatue)
     {
         _combatEnded = true;
+        _combatEndPassiveEffectD();
         //Victoire player
         if(pStatue)
         {
@@ -127,18 +140,48 @@ public class TurnManager : MonoBehaviour
         }
     }
     
-    static void StartTurn()
+    void StartTurn()
     {
         if (ArePlayersAlive() && AreEnemysAlive())
         {
-            while(!turnOrder.Peek().GetComponent<CombatStat>().isAlive)
+            while(!turnOrder.Peek().GetComponent<CombatStat>().isUp)
             {
-                TacticsMovement DeadUnit = turnOrder.Dequeue();
-                Debug.Log("Dead");
-                Destroy(DeadUnit.gameObject);
+                if (turnOrder.Peek().CompareTag("Player"))
+                {
+                    TacticsMovement deadUnit = turnOrder.Dequeue();
+                    turnOrder.Enqueue(deadUnit);
+                }
+                else
+                {
+                    TacticsMovement deadUnit = turnOrder.Dequeue();
+                    Destroy(deadUnit.gameObject);
+                }
             }
             Debug.Log("Turn of : " + turnOrder.Peek().name);
-            
+
+            if(turnOrder.Peek().GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Poison)
+            {
+                turnOrder.Peek().GetComponent<CombatStat>().ActivatePoison();
+                if(!turnOrder.Peek().GetComponent<CombatStat>().isUp)
+                {
+                    TacticsMovement DeadUnit = turnOrder.Dequeue();
+                    Destroy(DeadUnit.gameObject);
+                    if(!ArePlayersAlive() && !AreEnemysAlive())
+                    {
+                        EndCombat(ArePlayersAlive());
+                    }
+                }
+            }
+            else if(turnOrder.Peek().GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Freeze)
+            {
+                turnOrder.Peek().GetComponent<TacticsMovement>().ChangeMove(-turnOrder.Peek().GetComponent<CombatStat>().GetStatusValue());
+            }
+            else
+            {
+                turnOrder.Peek().GetComponent<TacticsMovement>().ChangeMove(0);
+            }
+
+            OnTurnStartPassiveEffect(turnOrder.Peek());
             turnOrder.Peek().BeginTurn();
         }
         else
@@ -147,10 +190,26 @@ public class TurnManager : MonoBehaviour
         }
     }
 
-    public static void EndTurn()
+    private void EndTurn()
     {
         TacticsMovement unit = turnOrder.Dequeue();
+
+        if(unit.GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Burn)
+        {
+            unit.GetComponent<CombatStat>().ActivateBurn();
+            if(!unit.GetComponent<CombatStat>().isUp)
+            {
+                TacticsMovement.PlayersTurn = false;
+                StartTurn();
+            }
+        }
+        else if (unit.GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Freeze)
+        {
+            unit.GetComponent<CombatStat>().ResetStatus();
+        }
+
         unit.EndTurn();
+        OnTurnEndPassiveEffect(turnOrder.Peek());
         unit.EquipCDMinus(1);
         turnOrder.Enqueue(unit);
         TacticsMovement.PlayersTurn = false;
@@ -178,8 +237,8 @@ public class TurnManager : MonoBehaviour
                 //si similaire on départage
                 if (temp == init)
                 {
-                    int newBaseInit = unit.gameObject.GetComponent<CombatStat>().initiative;
-                    int retBaseInit = unitRet.gameObject.GetComponent<CombatStat>().initiative;
+                    int newBaseInit = unit.gameObject.GetComponent<CombatStat>().GetInit();
+                    int retBaseInit = unitRet.gameObject.GetComponent<CombatStat>().GetInit();
 
                     //si l'init est surerieur échange
                     if (retBaseInit < newBaseInit)
@@ -236,7 +295,7 @@ public class TurnManager : MonoBehaviour
             {
                 turnOrder.Dequeue();
             }*/
-            if(unit.gameObject.CompareTag("Player") && unit.gameObject.GetComponent<CombatStat>().isAlive)
+            if(unit.gameObject.CompareTag("Player") && unit.gameObject.GetComponent<CombatStat>().isUp)
             {
                 return true;
             }
@@ -249,15 +308,58 @@ public class TurnManager : MonoBehaviour
     {
         foreach (TacticsMovement unit in turnOrder)
         {
-            /*if (unit.gameObject.CompareTag("Enemy") && !unit.gameObject.GetComponent<CombatStat>().isAlive)
-            {
-                turnOrder.Dequeue();
-            }*/
-            if (unit.gameObject.CompareTag("Enemy") && unit.gameObject.GetComponent<CombatStat>().isAlive)
+            if (unit.gameObject.CompareTag("Enemy") && unit.gameObject.GetComponent<CombatStat>().isUp)
             {
                 return true;
             }
         }
         return false;
+    }
+
+    private GameObject GetCurrentPlayer()
+    {
+        return turnOrder.Peek().gameObject;
+    }
+
+    private void OnCombatStartPassiveEffect()
+    {
+        foreach (var tacticsMovement in turnOrder)
+        {
+            Passive passive = tacticsMovement.GetPassive();
+            if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnCombatStart)
+            {
+                passive.Effect(tacticsMovement.gameObject);
+            }
+        }
+    }
+    
+    private void OnCombatEndPassiveEffect()
+    {
+        foreach (var tacticsMovement in turnOrder)
+        {
+            Passive passive = tacticsMovement.GetPassive();
+            if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnCombatEnd)
+            {
+                passive.Effect(tacticsMovement.gameObject);
+            }
+        }
+    }
+    
+    private void OnTurnStartPassiveEffect(TacticsMovement user)
+    {
+        Passive passive = user.GetPassive();
+        if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnTurnStart)
+        {
+            passive.Effect(user.gameObject);
+        }
+    }
+    
+    private void OnTurnEndPassiveEffect(TacticsMovement user)
+    {
+        Passive passive = user.GetPassive();
+        if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnTurnEnd)
+        {
+            passive.Effect(user.gameObject);
+        }
     }
 }
