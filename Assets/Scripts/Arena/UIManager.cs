@@ -67,7 +67,6 @@ public class UIManager : MonoBehaviour
             
         if (Input.GetMouseButtonUp(1))//On release right click
         {
-            Debug.Log(actionSelected);
             switch (_actionSelectorShown)
             {
                 case true:
@@ -302,10 +301,13 @@ public class UIManager : MonoBehaviour
                 (combatStat.CurrHp / (float)combatStat.MaxHp);
             if (playerMovement.GetPassive() == null)
             {
-                t.transform.Find("PassifImg").gameObject.SetActive(false);
+                t.transform.Find("PassiveImg").gameObject.SetActive(false);
             }
             else
-                t.transform.Find("PassifImg").GetComponent<Image>().sprite = playerMovement.GetPassive().logo;
+            {
+                t.transform.Find("PassiveImg").GetComponent<StuffButtonOver>().ChangeStuff(playerMovement.GetPassive());
+                t.transform.Find("PassiveImg").GetComponent<Image>().sprite = playerMovement.GetPassive().logo;
+            }
         }
         else
         {
@@ -327,13 +329,17 @@ public class UIManager : MonoBehaviour
                     "" + t.Key.GetComponent<CombatStat>().CurrHp;
                 t.Value.transform.GetChild(1).Find("FillHpImg").GetComponent<Image>().fillAmount =
                     (t.Key.GetComponent<CombatStat>().CurrHp / (float)t.Key.GetComponent<CombatStat>().MaxHp);
+            
                 if (t.Key.GetComponent<PlayerMovement>().GetPassive() == null)
                 {
-                    t.Value.transform.Find("PassifImg").gameObject.SetActive(false);
+                    t.Value.transform.Find("PassiveImg").gameObject.SetActive(false);
                 }
                 else
+                {
+                    t.Value.transform.Find("PassiveImg").GetComponent<StuffButtonOver>().ChangeStuff(t.Key.GetComponent<PlayerMovement>().GetPassive());
                     t.Value.transform.Find("PassiveImg").GetComponent<Image>().sprite =
-                        t.Key.GetComponent<PlayerMovement>().GetPassive().logo;
+                        t.Key.GetComponent<TacticsMovement>().GetPassive().logo;
+                }
             }
 
             int armor = t.Key.GetComponent<CombatStat>().GetArmor();

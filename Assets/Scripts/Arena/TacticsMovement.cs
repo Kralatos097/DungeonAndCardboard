@@ -82,6 +82,7 @@ public class TacticsMovement : MonoBehaviour
         CombatStat = gameObject.GetComponent<CombatStat>();
         
         GetUnitInfo();
+        SetCurrentTile();
 
         halfHeight = GetComponent<Collider>().bounds.extents.y;
 
@@ -92,12 +93,12 @@ public class TacticsMovement : MonoBehaviour
 
     protected virtual void GetUnitInfo() {}
 
-    public ArenaTile GetCurrenTile()
+    public ArenaTile GetCurrentTile()
     {
-        return _currentTile;
+        return GetTargetTile(gameObject);
     }
-    
-    protected void GetCurrentTile()
+
+    private void SetCurrentTile()
     {
         _currentTile = GetTargetTile(gameObject);
         _currentTile.current = true;
@@ -108,7 +109,7 @@ public class TacticsMovement : MonoBehaviour
         RaycastHit hit;
         ArenaTile tile = null;
         
-        if (Physics.Raycast(target.transform.position, Vector3.down, out hit, 1))
+        if (Physics.Raycast(target.transform.position, Vector3.down, out hit, 2))
         {
             tile = hit.collider.GetComponent<ArenaTile>();
         }
@@ -146,7 +147,7 @@ public class TacticsMovement : MonoBehaviour
     protected void FindSelectableTile()
     {
         ComputeAdjacencyList();
-        GetCurrentTile();
+        SetCurrentTile();
 
         Queue<ArenaTile> process = new Queue<ArenaTile>();
         
@@ -289,7 +290,7 @@ public class TacticsMovement : MonoBehaviour
     protected void FindPath(ArenaTile targetTile)
     {
         ComputeAdjacencyList(targetTile);
-        GetCurrentTile();
+        SetCurrentTile();
 
         List<ArenaTile> openList = new List<ArenaTile>();
         List<ArenaTile> closedList = new List<ArenaTile>();
@@ -373,7 +374,7 @@ public class TacticsMovement : MonoBehaviour
     protected GameObject AlliesInAttackRange()
     {
         ComputeAdjacencyListAtk();
-        GetCurrentTile();
+        SetCurrentTile();
 
         Queue<ArenaTile> process = new Queue<ArenaTile>();
         
@@ -415,7 +416,7 @@ public class TacticsMovement : MonoBehaviour
     protected void AffAttackRange()
     {
         ComputeAdjacencyListAtk();
-        GetCurrentTile();
+        SetCurrentTile();
 
         Queue<ArenaTile> process = new Queue<ArenaTile>();
         

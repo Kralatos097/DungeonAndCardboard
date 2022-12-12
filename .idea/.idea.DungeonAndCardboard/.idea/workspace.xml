@@ -6,14 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="4932cad9-fd95-4ab0-8e02-a5f4e371e51a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/EnemyPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/EnemyPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/PlayerInitPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/PlayerInitPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/temp/Archer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/temp/Archer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/temp/Gobelin/Goblin.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/temp/Gobelin/Goblin.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/temp/ReviveGoblin.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/temp/ReviveGoblin.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/StuffButtonOver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/StuffButtonOver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enums.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enums.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Stuff/Active.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Stuff/Active.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Stuff/Consumable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Stuff/Consumable.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Stuff/Passive.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Stuff/Passive.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Stuff/Stuff.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Stuff/Stuff.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_ScenesTibo/CommonFights/Fight.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesTibo/CommonFights/Fight.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +97,7 @@
       <workItem from="1670418904221" duration="8791000" />
       <workItem from="1670489291687" duration="12213000" />
       <workItem from="1670579657001" duration="10748000" />
+      <workItem from="1670836109088" duration="13766000" />
     </task>
     <servers />
   </component>

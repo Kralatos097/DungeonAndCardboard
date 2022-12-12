@@ -8,7 +8,20 @@ using UnityEngine.EventSystems;
 public class StuffButtonOver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private Stuff _stuff;
-    public RectTransform descriptionPanel;
+    private RectTransform descriptionPanel;
+
+    private void Start()
+    {
+        descriptionPanel = GameObject.Find("DescriptionCanvas").transform.GetChild(0).GetComponent<RectTransform>();
+    }
+
+    private void Update()
+    {
+        if((Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0)) && descriptionPanel.gameObject.activeSelf)
+        {
+            descriptionPanel.gameObject.SetActive(false);
+        }
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -72,8 +85,15 @@ public class StuffButtonOver : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
         if(_stuff.stuffType == "Passive")
         {
-            descriptionPanel.GetChild(2).GetChild(0).gameObject.SetActive(false);
-            descriptionPanel.GetChild(3).GetChild(0).gameObject.SetActive(false);
+            descriptionPanel.GetChild(2).gameObject.SetActive(false);
+            descriptionPanel.GetChild(3).gameObject.SetActive(false);
+        }
+        else if(_stuff.stuffType == "Consumable")
+        {
+            descriptionPanel.GetChild(2).GetChild(0).gameObject.SetActive(true);
+            descriptionPanel.GetChild(3).gameObject.SetActive(false);
+            Consumable consumable = (Consumable)_stuff;
+            descriptionPanel.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = consumable.GetAtkRange().ToString();
         }
         else
         {

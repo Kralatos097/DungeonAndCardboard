@@ -265,7 +265,8 @@ public class PlayerMovement : TacticsMovement
                 }
                 else if(hit.collider.gameObject.GetComponent<TacticsMovement>() != null)
                 {
-                    t = hit.collider.GetComponent<TacticsMovement>().GetCurrenTile().GetComponent<ArenaTile>();
+                    t = hit.collider.GetComponent<TacticsMovement>().GetCurrentTile();
+                    Debug.Log(t);
                 }
 
                 if (t != null)

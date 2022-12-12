@@ -12,10 +12,10 @@ public class Passive : Stuff
     [SerializeField] private PassiveTrigger passiveTrigger;
     [Header("Effects")]
     [SerializeField] private List<PassiveEffect> passiveEffectList;
-    
-    protected override void Start()
+
+    public override void OnEnable()
     {
-        base.Start();
+        base.OnEnable();
         stuffType = "Passive";
     }
     

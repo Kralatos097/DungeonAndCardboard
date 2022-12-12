@@ -17,5 +17,5 @@ MonoBehaviour:
   movement: 2
   activeOne: {fileID: 11400000, guid: 6b00d5274074e6044993d3f7ba9b16c6, type: 2}
   activeTwo: {fileID: 11400000, guid: afe470aa89997da439e53fde0ecae53a, type: 2}
-  passive: {fileID: 0}
+  passive: {fileID: 11400000, guid: 333b5c787942be540880fa5c9cbbf5ea, type: 2}
   consumable: {fileID: 11400000, guid: a215f2fadb7d593438bb55aee8a3acd8, type: 2}

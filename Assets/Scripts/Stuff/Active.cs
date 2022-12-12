@@ -14,13 +14,13 @@ public class Active : Stuff
 
     [Header("Effects")]
     [SerializeField] private List<ActiveEffect> activeEffectList;
-    
-    protected override void Start()
+
+    public override void OnEnable()
     {
-        base.Start();
+        base.OnEnable();
         stuffType = "Active";
     }
-
+    
     public void Effect(GameObject user, GameObject target, int hitParam)
     {
         foreach(ActiveEffect activeEffect in activeEffectList)
