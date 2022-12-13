@@ -537,8 +537,7 @@ MonoBehaviour:
   clericCard: {fileID: 11400000, guid: ccb22e06a8753654eb5c17e944da9f66, type: 2}
   wizardCard: {fileID: 11400000, guid: ccb22e06a8753654eb5c17e944da9f66, type: 2}
   fightingSceneList:
-  - Fight 2
-  - Fight 1
+  - Fight
   ambushedSceneList:
   - TestDeplacement 5
   - TestDeplacement 4

@@ -90,15 +90,15 @@ public class StuffButtonOver : MonoBehaviour, IPointerEnterHandler, IPointerExit
         }
         else if(_stuff.stuffType == "Consumable")
         {
-            descriptionPanel.GetChild(2).GetChild(0).gameObject.SetActive(true);
+            descriptionPanel.GetChild(2).gameObject.SetActive(true);
             descriptionPanel.GetChild(3).gameObject.SetActive(false);
             Consumable consumable = (Consumable)_stuff;
             descriptionPanel.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = consumable.GetAtkRange().ToString();
         }
         else
         {
-            descriptionPanel.GetChild(2).GetChild(0).gameObject.SetActive(true);
-            descriptionPanel.GetChild(3).GetChild(0).gameObject.SetActive(true);
+            descriptionPanel.GetChild(2).gameObject.SetActive(true);
+            descriptionPanel.GetChild(3).gameObject.SetActive(true);
             Active active = (Active)_stuff;
             descriptionPanel.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = active.GetAtkRange().ToString();
             descriptionPanel.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = active.GetCd().ToString();

@@ -22,9 +22,9 @@ public class CombatStat : MonoBehaviour
             isAlive = _maxHp > 0;
         }
     }
-    
-    private int _currHp;
-    public int CurrHp
+
+    protected int _currHp;
+    public virtual int CurrHp
     {
         get => _currHp ;
         set
@@ -83,7 +83,7 @@ public class CombatStat : MonoBehaviour
     private bool holyShield = false;
     private bool _revive = false;
     private int _reviveValue = 0;
-    private StatusEffect StatusEffect = StatusEffect.Nothing;
+    protected StatusEffect StatusEffect = StatusEffect.Nothing;
     private int statusValue = 0;
     public int StatusValue
     {
@@ -108,7 +108,7 @@ public class CombatStat : MonoBehaviour
         currInit = _initiative + Random.Range(1,7);
     }
 
-    private void UnitDeath()
+    protected virtual void UnitDeath()
     {
         Passive passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
         if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnDeath)
