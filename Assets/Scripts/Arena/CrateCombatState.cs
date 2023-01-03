@@ -27,6 +27,12 @@ public class CrateCombatState : CombatStat
         }
     }
 
+    public override int StatusValue
+    {
+        get => statusValue;
+        set => StatusEffect = StatusEffect.Nothing;
+    }
+    
     private void Start()
     {
         MaxHp = maxHp;

@@ -275,7 +275,7 @@ public class PlayerMovement : TacticsMovement
 
                     bool passAtk = false;
                     GameObject TargetGO = t.GetGameObjectOnTop();
-                    if(TargetGO != null) passAtk = (TargetGO.CompareTag("Enemy")||TargetGO.CompareTag("Player"));
+                    if(TargetGO != null) passAtk = (TargetGO.CompareTag("Enemy")||TargetGO.CompareTag("Player")||TargetGO.CompareTag("Crate"));
 
                     if (t.selectable && passAtk)
                     {

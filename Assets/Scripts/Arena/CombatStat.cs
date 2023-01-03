@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -29,6 +30,7 @@ public class CombatStat : MonoBehaviour
         get => _currHp ;
         set
         {
+            
             if (holyShield)
             {
                 holyShield = false;
@@ -84,8 +86,8 @@ public class CombatStat : MonoBehaviour
     private bool _revive = false;
     private int _reviveValue = 0;
     protected StatusEffect StatusEffect = StatusEffect.Nothing;
-    private int statusValue = 0;
-    public int StatusValue
+    protected int statusValue = 0;
+    public virtual int StatusValue
     {
         get => statusValue;
         set
@@ -270,6 +272,48 @@ public class CombatStat : MonoBehaviour
         _revive = true;
         _reviveValue = value;
     }
+
+    private void DamageFX()
+    {
+        
+    }
+
+    private void HealFX()
+    {
+        
+    }
+
+    private void DamageHolyShieldFX()
+    {
+        
+    }
+
+    private void GetBurnFX()
+    {
+        
+    }
+
+    private void GetFreezeFX()
+    {
+        
+    }
+
+    private void GetStunFX()
+    {
+        
+    }
+
+    private void GetPoisonFX()
+    {
+        
+    }
+
+    private void ActivatePoisonFX()
+    {
+        
+    }
+    
+    //todo: Add more FX
     
     //-------------- TEST FUNCTION -------------
 

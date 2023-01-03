@@ -25,6 +25,7 @@ public class StuffButtonOver : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if(_stuff == null) return;
         InsertInfo();
         
         var menuCorners = new Vector3[4];

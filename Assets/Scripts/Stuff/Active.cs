@@ -72,7 +72,6 @@ public class Active : Stuff
         }
     }
 
-
     private void Damage(GameObject target, ActiveEffect activeEffect, int hit)
     {
         Passive passive;

@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
   m_Name: BlindClaymore
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: 95680b558e93b294699db57d97bb3a9c, type: 3}
-  description: 
+  stuffType: Active
+  logo: {fileID: 21300000, guid: 032157897a20244488a3c9fddb8e732c, type: 3}
+  description: A big sword that go boom (sometime) !
   range: 0
   cd: 0
+  clickTarget: 0
   activeEffectList:
-  - activeType: 8
+  - activeType: 0
     value: 20
-    target: 1
+    onSelf: 0
+    noMiss: 0
+    critOnly: 1

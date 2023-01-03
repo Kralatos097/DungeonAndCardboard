@@ -458,26 +458,47 @@ public class TacticsMovement : MonoBehaviour
                 hit = Passive.Effect(gameObject, hit);
             }
         }
-        
-        switch (equip)
+
+        CrateCombatState targetCS = target.GetComponent<CrateCombatState>();
+        if(targetCS)
         {
-            case 1:
-                ActiveOne.Effect(gameObject, target, hit);
-                target.gameObject.GetComponent<TacticsMovement>().DamageClign();
-                ActiveOneCd = ActiveOne.GetCd();
-                break;
-            case 2:
-                ActiveTwo.Effect(gameObject, target, hit);
-                target.gameObject.GetComponent<TacticsMovement>().DamageClign();
-                ActiveTwoCd = ActiveTwo.GetCd();
-                break;
-            case 3:
-                Consumable.Effect(gameObject, target, hit);
-                target.gameObject.GetComponent<TacticsMovement>().DamageClign();
-                Consumable = null;
-                break;
-            default:
-                break;
+            switch (equip)
+            {
+                case 1:
+                    ActiveOne.Effect(gameObject, target, hit);
+                    ActiveOneCd = ActiveOne.GetCd();
+                    break;
+                case 2:
+                    ActiveTwo.Effect(gameObject, target, hit);
+                    ActiveTwoCd = ActiveTwo.GetCd();
+                    break;
+                case 3:
+                    Consumable.Effect(gameObject, target, hit);
+                    Consumable = null;
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            switch (equip)
+            {
+                case 1:
+                    ActiveOne.Effect(gameObject, target, hit);
+                    ActiveOneCd = ActiveOne.GetCd();
+                    break;
+                case 2:
+                    ActiveTwo.Effect(gameObject, target, hit);
+                    ActiveTwoCd = ActiveTwo.GetCd();
+                    break;
+                case 3:
+                    Consumable.Effect(gameObject, target, hit);
+                    Consumable = null;
+                    break;
+                default:
+                    break;
+            }
         }
 
         Debug.Log("ATTACKING " + target.gameObject.name + "!\n Now has : " + target.GetComponent<CombatStat>().CurrHp + " HP!");
