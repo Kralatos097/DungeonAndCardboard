@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_ScenesValou/ParticleWorld.unity
+    guid: d4b99c4edf2d5f94581f4e2db64074c0
+  - enabled: 1
     path: Assets/_ScenesTibo/MainMenu.unity
     guid: 3da0cb404a1ce2e43971efbf6ec46c9e
   - enabled: 1
