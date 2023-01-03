@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Helmet of Concentration
   m_EditorClassIdentifier: 
   stuffName: 
-  logo: {fileID: 0}
-  description: 
-  passiveTrigger: 0
-  passiveEffectList: []
+  logo: {fileID: 21300000, guid: ac710da639908784984395ae85d72607, type: 3}
+  description: Immunity to Stun
+  passiveTrigger: 11
+  passiveEffectList:
+  - value: 0
+    onEveryAllies: 0
+    passiveType: 14

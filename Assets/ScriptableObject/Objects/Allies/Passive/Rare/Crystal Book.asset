@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Crystal Book
   m_EditorClassIdentifier: 
   stuffName: 
-  logo: {fileID: 0}
-  description: 
-  passiveTrigger: 0
-  passiveEffectList: []
+  logo: {fileID: 21300000, guid: 8c27e13652445424499417d378d50502, type: 3}
+  description: Gain +2 Heals on Active with heals
+  passiveTrigger: 7
+  passiveEffectList:
+  - value: 2
+    onEveryAllies: 0
+    passiveType: 1

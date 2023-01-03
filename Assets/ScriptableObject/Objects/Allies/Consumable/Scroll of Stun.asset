@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stuffName: 
   logo: {fileID: 21300000, guid: 1c0f2e5d694a5e546b5259173f70829a, type: 3}
-  description: 
-  range: 0
+  description: Inflict Stun
+  range: 3
   cd: 0
-  clickTarget: 0
-  activeEffectList: []
+  clickTarget: 1
+  activeEffectList:
+  - activeType: 3
+    value: 0
+    onSelf: 0
+    noMiss: 0
+    critOnly: 0

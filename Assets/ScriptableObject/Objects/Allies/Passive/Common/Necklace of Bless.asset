@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Necklace of Bless
   m_EditorClassIdentifier: 
   stuffName: 
-  logo: {fileID: 0}
-  description: 
-  passiveTrigger: 0
-  passiveEffectList: []
+  logo: {fileID: 21300000, guid: ac710da639908784984395ae85d72607, type: 3}
+  description: All allies heal +2 HP each start of fight
+  passiveTrigger: 1
+  passiveEffectList:
+  - value: 2
+    onEveryAllies: 1
+    passiveType: 1
