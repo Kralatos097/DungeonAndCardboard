@@ -737,6 +737,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Distance Action
       objectReference: {fileID: 0}
+    - target: {fileID: 164462766732792751, guid: 8ff3ca3bb9204694a89db5cef3c872b6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ff3ca3bb9204694a89db5cef3c872b6, type: 3}
 --- !u!1001 &1147233860481069259
@@ -793,6 +797,10 @@ PrefabInstance:
     - target: {fileID: 1147233861859217900, guid: c6039c3e10fd1e941a918009877d49bd, type: 3}
       propertyPath: m_Name
       value: CaC Action
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147233861859217900, guid: c6039c3e10fd1e941a918009877d49bd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6039c3e10fd1e941a918009877d49bd, type: 3}
@@ -851,6 +859,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stun
       objectReference: {fileID: 0}
+    - target: {fileID: 1371484619932752243, guid: 60c7c7ad5a42a054f888dfbd40554666, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60c7c7ad5a42a054f888dfbd40554666, type: 3}
 --- !u!1001 &1698549960219768964
@@ -908,6 +920,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Get Poison
       objectReference: {fileID: 0}
+    - target: {fileID: 1698549960701772141, guid: 5c669e2d6619f7d44bc8132ca49fd940, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c669e2d6619f7d44bc8132ca49fd940, type: 3}
 --- !u!1001 &2566774674322732369
@@ -920,6 +936,10 @@ PrefabInstance:
     - target: {fileID: 2566774675729739429, guid: 7453258b44a56fc4182fe0e87b1e3e31, type: 3}
       propertyPath: m_Name
       value: Burn
+      objectReference: {fileID: 0}
+    - target: {fileID: 2566774675729739429, guid: 7453258b44a56fc4182fe0e87b1e3e31, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2566774675729739430, guid: 7453258b44a56fc4182fe0e87b1e3e31, type: 3}
       propertyPath: m_RootOrder
@@ -1022,6 +1042,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heal
       objectReference: {fileID: 0}
+    - target: {fileID: 4500085554803695389, guid: c5925d4c0e318b84899ca171d43305f4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5925d4c0e318b84899ca171d43305f4, type: 3}
 --- !u!1001 &4866706101965231876
@@ -1034,6 +1058,10 @@ PrefabInstance:
     - target: {fileID: 4866706101258442210, guid: f1ff5ece12e9d534b87c679a4915cf37, type: 3}
       propertyPath: m_Name
       value: Freeze
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866706101258442210, guid: f1ff5ece12e9d534b87c679a4915cf37, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4866706101258442221, guid: f1ff5ece12e9d534b87c679a4915cf37, type: 3}
       propertyPath: m_RootOrder
@@ -1092,6 +1120,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Get Freeze
       objectReference: {fileID: 0}
+    - target: {fileID: 5194049909122970738, guid: 20b68b9c2eb5b194aad73b4946e61a8a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5194049909122970743, guid: 20b68b9c2eb5b194aad73b4946e61a8a, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -1148,6 +1180,10 @@ PrefabInstance:
     - target: {fileID: 5298821903193847754, guid: 49a752e9929c5a044b2c8db289a0e8e2, type: 3}
       propertyPath: m_Name
       value: Damage
+      objectReference: {fileID: 0}
+    - target: {fileID: 5298821903193847754, guid: 49a752e9929c5a044b2c8db289a0e8e2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5298821903193847759, guid: 49a752e9929c5a044b2c8db289a0e8e2, type: 3}
       propertyPath: m_RootOrder
@@ -1206,6 +1242,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cure
       objectReference: {fileID: 0}
+    - target: {fileID: 5456244774970856577, guid: ade1a8119fee54b428b1f897181f317a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5456244774970856578, guid: ade1a8119fee54b428b1f897181f317a, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -1262,6 +1302,10 @@ PrefabInstance:
     - target: {fileID: 5758658489581617538, guid: b0a59cf8a4dcdbd41ad60473214408fd, type: 3}
       propertyPath: m_Name
       value: Pose Figurine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758658489581617538, guid: b0a59cf8a4dcdbd41ad60473214408fd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5758658489581617551, guid: b0a59cf8a4dcdbd41ad60473214408fd, type: 3}
       propertyPath: m_RootOrder
@@ -1364,6 +1408,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Self Action
       objectReference: {fileID: 0}
+    - target: {fileID: 6032490838762562915, guid: 7a2860d9a76166342b3a04cfd55a377e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a2860d9a76166342b3a04cfd55a377e, type: 3}
 --- !u!1001 &6564321800927138794
@@ -1421,6 +1469,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Get Burn
       objectReference: {fileID: 0}
+    - target: {fileID: 6564321802021511799, guid: 29f439a293acce6499d610de5db1d302, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29f439a293acce6499d610de5db1d302, type: 3}
 --- !u!1001 &7964537312982594107
@@ -1433,6 +1485,10 @@ PrefabInstance:
     - target: {fileID: 7964537311868637317, guid: 95b383fb1f2cbe5429d9eff13777c4c1, type: 3}
       propertyPath: m_Name
       value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 7964537311868637317, guid: 95b383fb1f2cbe5429d9eff13777c4c1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7964537311868637434, guid: 95b383fb1f2cbe5429d9eff13777c4c1, type: 3}
       propertyPath: m_RootOrder
@@ -1490,6 +1546,10 @@ PrefabInstance:
     - target: {fileID: 8946014222486893596, guid: 8d2c0dbf88e6db645a44ca5c576a0e20, type: 3}
       propertyPath: m_Name
       value: 'Get Stun '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8946014222486893596, guid: 8d2c0dbf88e6db645a44ca5c576a0e20, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8946014222486893603, guid: 8d2c0dbf88e6db645a44ca5c576a0e20, type: 3}
       propertyPath: m_RootOrder
