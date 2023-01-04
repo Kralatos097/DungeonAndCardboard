@@ -15,9 +15,9 @@ MonoBehaviour:
   stuffType: Active
   logo: {fileID: 21300000, guid: 032157897a20244488a3c9fddb8e732c, type: 3}
   description: A big sword that go boom (sometime) !
-  range: 0
+  range: 1
   cd: 0
-  clickTarget: 0
+  clickTarget: 2
   activeEffectList:
   - activeType: 0
     value: 20

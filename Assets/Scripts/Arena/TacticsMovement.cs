@@ -417,6 +417,7 @@ public class TacticsMovement : MonoBehaviour
     {
         ComputeAdjacencyListAtk();
         SetCurrentTile();
+        ActiveTarget activeTarget = GetSelectedActive().GetActiveTarget();
 
         Queue<ArenaTile> process = new Queue<ArenaTile>();
         
@@ -426,10 +427,11 @@ public class TacticsMovement : MonoBehaviour
         while (process.Count > 0)
         {
             ArenaTile t = process.Dequeue();
-            
+
             _selectableTiles.Add(t);
             t.selectable = true;
 
+            if(activeTarget == ActiveTarget.SelfOnly) return;
             if (t.distance < atkRange)
             {
                 foreach (ArenaTile tile in t.adjacencyList)
@@ -444,6 +446,13 @@ public class TacticsMovement : MonoBehaviour
                 }
             }
         }
+        if (activeTarget == ActiveTarget.OthersOnly)
+            _currentTile.selectable = false;
+    }
+    
+    protected virtual Active GetSelectedActive()
+    {
+        return ActiveOne;
     }
 
     protected void Attack(GameObject target, int equip)
@@ -458,47 +467,23 @@ public class TacticsMovement : MonoBehaviour
                 hit = Passive.Effect(gameObject, hit);
             }
         }
-
-        CrateCombatState targetCS = target.GetComponent<CrateCombatState>();
-        if(targetCS)
+        
+        switch (equip)
         {
-            switch (equip)
-            {
-                case 1:
-                    ActiveOne.Effect(gameObject, target, hit);
-                    ActiveOneCd = ActiveOne.GetCd();
-                    break;
-                case 2:
-                    ActiveTwo.Effect(gameObject, target, hit);
-                    ActiveTwoCd = ActiveTwo.GetCd();
-                    break;
-                case 3:
-                    Consumable.Effect(gameObject, target, hit);
-                    Consumable = null;
-                    break;
-                default:
-                    break;
-            }
-        }
-        else
-        {
-            switch (equip)
-            {
-                case 1:
-                    ActiveOne.Effect(gameObject, target, hit);
-                    ActiveOneCd = ActiveOne.GetCd();
-                    break;
-                case 2:
-                    ActiveTwo.Effect(gameObject, target, hit);
-                    ActiveTwoCd = ActiveTwo.GetCd();
-                    break;
-                case 3:
-                    Consumable.Effect(gameObject, target, hit);
-                    Consumable = null;
-                    break;
-                default:
-                    break;
-            }
+            case 1:
+                ActiveOne.Effect(gameObject, target, hit);
+                ActiveOneCd = ActiveOne.GetCd();
+                break;
+            case 2:
+                ActiveTwo.Effect(gameObject, target, hit);
+                ActiveTwoCd = ActiveTwo.GetCd();
+                break;
+            case 3:
+                Consumable.Effect(gameObject, target, hit);
+                Consumable = null;
+                break;
+            default:
+                break;
         }
 
         Debug.Log("ATTACKING " + target.gameObject.name + "!\n Now has : " + target.GetComponent<CombatStat>().CurrHp + " HP!");
@@ -515,6 +500,38 @@ public class TacticsMovement : MonoBehaviour
             6 => 2,
             _ => 1
         };
+    }
+
+    protected void TurnToTarget(GameObject target)
+    {
+        if (Mathf.Abs(Mathf.Abs(transform.position.x) - Mathf.Abs(target.transform.position.x)) >
+            Mathf.Abs(Mathf.Abs(transform.position.y) - Mathf.Abs(target.transform.position.y)))
+        {
+            if(transform.position.x > target.transform.position.x)
+            {
+                //turn left
+                transform.rotation = Quaternion.Euler(0,-90,0);
+            }
+            else
+            {
+                //turn right
+                transform.rotation = Quaternion.Euler(0,90,0);
+            }
+        }
+        else if (Mathf.Abs(Mathf.Abs(transform.position.x) - Mathf.Abs(target.transform.position.x)) <
+                 Mathf.Abs(Mathf.Abs(transform.position.z) - Mathf.Abs(target.transform.position.z)))
+        {
+            if(transform.position.z > target.transform.position.z)
+            {
+                //turn down
+                transform.rotation = Quaternion.Euler(0,180,0);
+            }
+            else
+            {
+                //turn up
+                transform.rotation = Quaternion.Euler(0,0,0);
+            }
+        }
     }
 
     protected virtual void EndOfAttack()

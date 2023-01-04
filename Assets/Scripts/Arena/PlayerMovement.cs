@@ -11,7 +11,7 @@ public class PlayerMovement : TacticsMovement
     private Quaternion _lastRot;
 
     public Perso charaClass;
-    
+
     [SerializeField] protected PlayerBaseInfo UnitInfo;
 
     // Start is called before the first frame update
@@ -26,12 +26,12 @@ public class PlayerMovement : TacticsMovement
 
     protected override void GetUnitInfo()
     {
-        switch(charaClass)
+        switch (charaClass)
         {
             case Perso.Warrior:
                 CombatStat.MaxHp = WarriorInfo.MaxHp;
                 CombatStat.CurrHp = WarriorInfo.CurrentHp;
-                CombatStat. ChangeInit(WarriorInfo.Init);
+                CombatStat.ChangeInit(WarriorInfo.Init);
 
                 baseMove = WarriorInfo.Movement;
                 ActiveOne = WarriorInfo.ActiveOne;
@@ -90,34 +90,34 @@ public class PlayerMovement : TacticsMovement
 
     public void SetUnitInfo()
     {
-        switch(charaClass)
+        switch (charaClass)
         {
             case Perso.Warrior:
                 WarriorInfo.MaxHp = CombatStat.MaxHp;
                 WarriorInfo.CurrentHp = CombatStat.CurrHp;
                 WarriorInfo.Init = CombatStat.GetInit();
-                
+
                 WarriorInfo.Consumable = Consumable;
                 break;
             case Perso.Thief:
                 ThiefInfo.MaxHp = CombatStat.MaxHp;
                 ThiefInfo.CurrentHp = CombatStat.CurrHp;
                 ThiefInfo.Init = CombatStat.GetInit();
-                
+
                 ThiefInfo.Consumable = Consumable;
                 break;
             case Perso.Cleric:
                 ClericInfo.MaxHp = CombatStat.MaxHp;
                 ClericInfo.CurrentHp = CombatStat.CurrHp;
                 ClericInfo.Init = CombatStat.GetInit();
-                
+
                 ClericInfo.Consumable = Consumable;
                 break;
             case Perso.Wizard:
                 WizardInfo.MaxHp = CombatStat.MaxHp;
                 WizardInfo.CurrentHp = CombatStat.CurrHp;
                 WizardInfo.Init = CombatStat.GetInit();
-                
+
                 WizardInfo.Consumable = Consumable;
                 break;
             case Perso.Default:
@@ -126,11 +126,11 @@ public class PlayerMovement : TacticsMovement
                 throw new ArgumentOutOfRangeException();
         }
     }
-    
+
     // Update is called once per frame
     void Update()
     {
-        if(!Turn) return;
+        if (!Turn) return;
         PlayersTurn = true;
 
         //display action Selector on turn start
@@ -140,29 +140,27 @@ public class PlayerMovement : TacticsMovement
             pass = true;
         }
 
-        switch(_uiManager.actionSelected)
+        switch (_uiManager.actionSelected)
         {
-            case Action.Attack :
+            case Action.Attack:
                 _uiManager.HideActionSelector();
-                _uiManager.SetStuff(ActiveOne,ActiveTwo,Consumable);
+                _uiManager.SetStuff(ActiveOne, ActiveTwo, Consumable);
                 _uiManager.SetCd(ActiveOneCd, ActiveTwoCd);
                 _uiManager.ShowEquipSelector();
                 _uiManager.actionSelected = Action.Equip;
-                /*AffAttackRange();
-                CheckAttack();*/
                 break;
             case Action.Move:
                 _uiManager.HideActionSelector();
-                
-                if(!moving)
+
+                if (!moving)
                 {
                     //Début du Soulevement du pion lors du mouvement
-                    if(!passM)
+                    if (!passM)
                     {
                         transform.GetChild(0).Translate(0, MoveY, 0);
                         passM = true;
                     }
-                    
+
                     FindSelectableTile();
                     CheckMove();
                 }
@@ -171,6 +169,7 @@ public class PlayerMovement : TacticsMovement
                     Move();
                     _uiManager.alreadyMoved = true;
                 }
+
                 break;
             case Action.Stay:
                 _lastPos = transform.position;
@@ -181,24 +180,25 @@ public class PlayerMovement : TacticsMovement
                 break;
             case Action.Default:
                 RemoveSelectableTile();
-                if(passM)
+                if (passM)
                 {
                     //Fin du Soulevement du pion lors du mouvement
-                    transform.GetChild(0).Translate(0,-MoveY,0);
+                    transform.GetChild(0).Translate(0, -MoveY, 0);
                     passM = false;
                 }
+
                 break;
             case Action.CancelMove:
                 transform.position = _lastPos;
                 transform.rotation = _lastRot;
-                
+
                 _uiManager.alreadyMoved = false;
                 _uiManager.actionSelected = Action.Default;
                 _uiManager.ShowActionSelector();
                 break;
             case Action.Equip:
                 _uiManager.HideActionSelector();
-                switch(_uiManager.stuffSelected)
+                switch (_uiManager.stuffSelected)
                 {
                     case StuffSelected.EquipOne:
                         atkRange = ActiveOne.GetAtkRange();
@@ -215,12 +215,13 @@ public class PlayerMovement : TacticsMovement
                         throw new ArgumentOutOfRangeException();
                 }
 
-                if(_uiManager.stuffSelected != StuffSelected.Default)
+                if (_uiManager.stuffSelected != StuffSelected.Default)
                 {
                     _uiManager.HideEquipSelector();
                     AffAttackRange();
                     CheckAttack();
                 }
+
                 break;
             default:
                 break;
@@ -229,7 +230,7 @@ public class PlayerMovement : TacticsMovement
 
     private void CheckMove()
     {
-        if(Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
             Ray ray = Camera.main.ScreenPointToRay((Input.mousePosition));
 
@@ -248,22 +249,23 @@ public class PlayerMovement : TacticsMovement
             }
         }
     }
-    
+
     private void CheckAttack()
     {
-        if(Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
             Ray ray = Camera.main.ScreenPointToRay((Input.mousePosition));
+            bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
 
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit) && !isOverUI)
             {
                 ArenaTile t = null;
-                if(hit.collider.CompareTag("Tile"))
+                if (hit.collider.CompareTag("Tile"))
                 {
                     t = hit.collider.GetComponent<ArenaTile>();
                 }
-                else if(hit.collider.gameObject.GetComponent<TacticsMovement>() != null)
+                else if (hit.collider.gameObject.GetComponent<TacticsMovement>() != null)
                 {
                     t = hit.collider.GetComponent<TacticsMovement>().GetCurrentTile();
                     Debug.Log(t);
@@ -275,42 +277,77 @@ public class PlayerMovement : TacticsMovement
 
                     bool passAtk = false;
                     GameObject TargetGO = t.GetGameObjectOnTop();
-                    if(TargetGO != null) passAtk = (TargetGO.CompareTag("Enemy")||TargetGO.CompareTag("Player")||TargetGO.CompareTag("Crate"));
+                    if (TargetGO != null)
+                        passAtk = (TargetGO.CompareTag("Enemy") || TargetGO.CompareTag("Player") ||
+                                   TargetGO.CompareTag("Crate"));
 
+                    int equip = 0;
+                    switch (_uiManager.stuffSelected)
+                    {
+                        case StuffSelected.EquipOne:
+                            equip = 1;
+                            break;
+                        case StuffSelected.EquipTwo:
+                            equip = 2;
+                            break;
+                        case StuffSelected.Consum:
+                            equip = 3;
+                            break;
+                        case StuffSelected.Default:
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
                     if (t.selectable && passAtk)
                     {
-                        int equip = 0;
-                        switch(_uiManager.stuffSelected)
-                        {
-                            case StuffSelected.EquipOne:
-                                equip = 1;
-                                break;
-                            case StuffSelected.EquipTwo:
-                                equip = 2;
-                                break;
-                            case StuffSelected.Consum:
-                                equip = 3;
-                                break;
-                            case StuffSelected.Default:
-                                break;
-                            default:
-                                throw new ArgumentOutOfRangeException();
-                        }
-                        
+                        TurnToTarget(TargetGO);
+
                         Attack(TargetGO, equip);
+                    }
+                    else
+                    {
+                        //Todo: If attacking an empty tile -> do atk animation and nothing else
+                        GameObject dummy = GameObject.Find("DummyPlayer");
+                        
+                        Debug.Log("ATTACK");
+                        TurnToTarget(t.gameObject);
+                        Attack(dummy, equip);
                     }
                 }
             }
         }
     }
-    
+
+    protected override Active GetSelectedActive()
+    {
+        Active active;
+        switch (_uiManager.stuffSelected)
+        {
+            case StuffSelected.EquipOne:
+                active = ActiveOne;
+                break;
+            case StuffSelected.EquipTwo:
+                active = ActiveTwo;
+                break;
+            case StuffSelected.Consum:
+                active = Consumable;
+                break;
+            case StuffSelected.Default:
+            default:
+                active = null;
+                throw new ArgumentOutOfRangeException();
+        }
+
+        return active;
+    }
+
     protected override void EndOfMovement()
     {
         base.EndOfMovement();
         _uiManager.actionSelected = Action.Default;
         _uiManager.ShowActionSelector();
     }
-    
+
     protected override void EndOfAttack()
     {
         base.EndOfAttack();

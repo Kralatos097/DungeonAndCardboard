@@ -87,5 +87,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThiefPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 2866687279345344546, guid: 3fee4182a797f1d4e9ce8f07679ef922, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 87f7b47408c3a7f45a42736d66fc5cf1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fee4182a797f1d4e9ce8f07679ef922, type: 3}

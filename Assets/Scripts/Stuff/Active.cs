@@ -300,4 +300,9 @@ public class Active : Stuff
     {
         return range;
     }
+
+    public ActiveTarget GetActiveTarget()
+    {
+        return clickTarget;
+    }
 }
