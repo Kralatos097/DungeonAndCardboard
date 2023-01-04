@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private string Sessions0Name, Sessions1Name;
+
+    public void NewGame()
     {
-        
+        SceneManager.LoadScene(Sessions0Name);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void QuitTheGame()
     {
-        
+        Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 }

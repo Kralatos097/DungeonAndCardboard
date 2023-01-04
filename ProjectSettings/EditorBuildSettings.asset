@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_ScenesValou/MainMenu.unity
+    guid: cd4f62d06c2042545a6ab735ef75c6cd
+  - enabled: 1
     path: Assets/_ScenesValou/ParticleWorld.unity
     guid: d4b99c4edf2d5f94581f4e2db64074c0
   - enabled: 1
@@ -29,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_ScenesTibo/CommonFights/Fight.unity
     guid: b14bce233c26ffb41914af6c7949c82f
+  - enabled: 1
+    path: Assets/_ScenesValou/IntroTest.unity
+    guid: d1d2690c8f4624a439dce00127c52657
   - enabled: 1
     path: Assets/_ScenesValou/Jeu Test.unity
     guid: c1bc632563ee8a042b200c82c0dc75d3
