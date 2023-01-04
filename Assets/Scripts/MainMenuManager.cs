@@ -14,6 +14,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Animator TableFlip;
     [Header("GameObjects")]
     [SerializeField] private GameObject QuitQuestion;
+    [SerializeField] private GameObject Settings;
     [SerializeField] private GameObject Session0Display;
     [SerializeField] private GameObject Session1Display;
 
@@ -72,6 +73,7 @@ public class MainMenuManager : MonoBehaviour
     public void SetFalseAllMenu()
     {
         QuitQuestion.SetActive(false);
+        Settings.SetActive(false);
         Session0Display.SetActive(false);
         Session1Display.SetActive(false);
     }
