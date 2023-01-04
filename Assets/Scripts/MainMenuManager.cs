@@ -14,13 +14,23 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Animator TableFlip;
     [Header("GameObjects")]
     [SerializeField] private GameObject QuitQuestion;
+    [SerializeField] private GameObject Session0Display;
+    [SerializeField] private GameObject Session1Display;
+
+    public bool AsSessionDisplay;
+
     private void Update()
     {
-        if (Input.GetMouseButton(1) && !TransitionCam.GetBool("InAnimation"))
+        if (Input.GetMouseButtonDown(1) && !TransitionCam.GetBool("InAnimation") && !AsSessionDisplay)
         {
             MainScreen();
+            SetFalseAllMenu();
+        } 
+        else if (Input.GetMouseButtonDown(1))
+        {
+            AsSessionDisplay = false;
+            SetFalseAllMenu();
         }
-        if (Input.GetMouseButton(1)) SetFalseAllMenu();
     }
     
     //Anim event
@@ -62,6 +72,14 @@ public class MainMenuManager : MonoBehaviour
     public void SetFalseAllMenu()
     {
         QuitQuestion.SetActive(false);
+        Session0Display.SetActive(false);
+        Session1Display.SetActive(false);
+    }
+    
+    //Check si un display session est ouvert
+    public void DisplaySessionTrue()
+    {
+        AsSessionDisplay = true;
     }
 
     //Quit le jeu
