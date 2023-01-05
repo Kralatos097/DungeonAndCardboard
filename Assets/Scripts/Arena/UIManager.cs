@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -11,21 +12,21 @@ public class UIManager : MonoBehaviour
     private bool _actionSelectorShown = false;
     [HideInInspector] public bool alreadyMoved = false;
 
+    [FormerlySerializedAs("ActionSelectorPanel")]
     [Header("Drag'n Drop")]
-    [SerializeField] private GameObject ActionSelectorPanel;
-    [SerializeField] private Button MoveButton;
-    [SerializeField] private GameObject EquipSelectorPanel;
+    [SerializeField] private GameObject actionSelectorPanel;
+    [SerializeField] private Button moveButton;
+    [SerializeField] private GameObject equipSelectorPanel;
     
     [HideInInspector] public StuffSelected stuffSelected = StuffSelected.Default;
-    /*private bool _equipSelectorShown = false;*/
 
-    private Active equipmentOne = null;
-    private int equipOneCd = 0;
+    private Active _activeOne = null;
+    private int _activeOneCd = 0;
     
-    private Active equipmentTwo = null;
-    private int equipTwoCd = 0;
+    private Active _activeTwo = null;
+    private int _activeTwoCd = 0;
 
-    private Consumable consummable = null;
+    private Consumable _consumable = null;
 
     [Header("Init Aff")]
     public Transform InitPanel;
@@ -66,7 +67,6 @@ public class UIManager : MonoBehaviour
             
         if (Input.GetMouseButtonUp(1))//On release right click
         {
-            Debug.Log(actionSelected);
             switch (_actionSelectorShown)
             {
                 case true:
@@ -112,77 +112,90 @@ public class UIManager : MonoBehaviour
     public void ShowActionSelector()
     {
         _actionSelectorShown = true;
-        ActionSelectorPanel.SetActive(true);
+        actionSelectorPanel.SetActive(true);
         
-        MoveButton.GetComponentInChildren<TextMeshProUGUI>().text = alreadyMoved ? "Return" : "Move";
+        moveButton.GetComponentInChildren<TextMeshProUGUI>().text = alreadyMoved ? "Return" : "Move";
 
         if(TurnManager.GetCurrentPlayerD().GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Stun)
-            ActionSelectorPanel.transform.Find("AttackButton").GetComponent<Button>().interactable = false;
+            actionSelectorPanel.transform.Find("AttackButton").GetComponent<Button>().interactable = false;
         else
-            ActionSelectorPanel.transform.Find("AttackButton").GetComponent<Button>().interactable = true;
+            actionSelectorPanel.transform.Find("AttackButton").GetComponent<Button>().interactable = true;
     }
 
     public void HideActionSelector()
     {
         _actionSelectorShown = false;
-        ActionSelectorPanel.SetActive(false);
+        actionSelectorPanel.SetActive(false);
     }
     
     public void ShowEquipSelector()
     {
         /*_equipSelectorShown = true;*/
-        EquipSelectorPanel.SetActive(true);
+        equipSelectorPanel.SetActive(true);
 
-        if (equipmentOne == null)
+        if (_activeOne == null)
         {
-            EquipSelectorPanel.transform.GetChild(0).gameObject.GetComponent<Button>().interactable = false;
-            EquipSelectorPanel.transform.GetChild(0).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = "";
-            EquipSelectorPanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            equipSelectorPanel.transform.GetChild(0).gameObject.GetComponent<Button>().interactable = false;
+            equipSelectorPanel.transform.GetChild(0).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = "";
+            equipSelectorPanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            equipSelectorPanel.transform.GetChild(0).GetComponent<StuffButtonOver>().enabled = false;
         }
-        else if(equipOneCd > 0)
+        else if(_activeOneCd > 0)
         {
-            EquipSelectorPanel.transform.GetChild(0).gameObject.GetComponent<Button>().interactable = false;
-            EquipSelectorPanel.transform.GetChild(0).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = ""+equipOneCd;
-            EquipSelectorPanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().color = Color.white;
-            EquipSelectorPanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().sprite = equipmentOne.logo;
-        }
-        else
-        {
-            EquipSelectorPanel.transform.GetChild(0).gameObject.GetComponent<Button>().interactable = true;
-            EquipSelectorPanel.transform.GetChild(0).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = "";
-            EquipSelectorPanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().color = Color.white;
-            EquipSelectorPanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().sprite = equipmentOne.logo;
-        }
-        if (equipmentTwo == null)
-        {
-            EquipSelectorPanel.transform.GetChild(1).gameObject.GetComponent<Button>().interactable = false;
-            EquipSelectorPanel.transform.GetChild(1).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = "";
-            EquipSelectorPanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
-        }
-        else if (equipTwoCd > 0)
-        {
-            EquipSelectorPanel.transform.GetChild(1).gameObject.GetComponent<Button>().interactable = false;
-            EquipSelectorPanel.transform.GetChild(1).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = ""+equipTwoCd;
-            EquipSelectorPanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Image>().color = Color.white;
-            EquipSelectorPanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Image>().sprite = equipmentTwo.logo;
+            equipSelectorPanel.transform.GetChild(0).gameObject.GetComponent<Button>().interactable = false;
+            equipSelectorPanel.transform.GetChild(0).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = ""+_activeOneCd;
+            equipSelectorPanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().color = Color.white;
+            equipSelectorPanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().sprite = _activeOne.logo;
+            equipSelectorPanel.transform.GetChild(0).GetComponent<StuffButtonOver>().enabled = true;
+            equipSelectorPanel.transform.GetChild(0).GetComponent<StuffButtonOver>().ChangeStuff(_activeOne);
         }
         else
         {
-            EquipSelectorPanel.transform.GetChild(1).gameObject.GetComponent<Button>().interactable = true;
-            EquipSelectorPanel.transform.GetChild(1).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = "";
-            EquipSelectorPanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Image>().color = Color.white;
-            EquipSelectorPanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Image>().sprite = equipmentTwo.logo;
+            equipSelectorPanel.transform.GetChild(0).gameObject.GetComponent<Button>().interactable = true;
+            equipSelectorPanel.transform.GetChild(0).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = "";
+            equipSelectorPanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().color = Color.white;
+            equipSelectorPanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().sprite = _activeOne.logo;
+            equipSelectorPanel.transform.GetChild(0).GetComponent<StuffButtonOver>().enabled = true;
+            equipSelectorPanel.transform.GetChild(0).GetComponent<StuffButtonOver>().ChangeStuff(_activeOne);
         }
-        if (consummable == null)
+        if (_activeTwo == null)
         {
-            EquipSelectorPanel.transform.GetChild(2).gameObject.GetComponent<Button>().interactable = false;
-            EquipSelectorPanel.transform.GetChild(2).GetChild(0).gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            equipSelectorPanel.transform.GetChild(1).gameObject.GetComponent<Button>().interactable = false;
+            equipSelectorPanel.transform.GetChild(1).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = "";
+            equipSelectorPanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            equipSelectorPanel.transform.GetChild(1).GetComponent<StuffButtonOver>().enabled = false;
+        }
+        else if (_activeTwoCd > 0)
+        {
+            equipSelectorPanel.transform.GetChild(1).gameObject.GetComponent<Button>().interactable = false;
+            equipSelectorPanel.transform.GetChild(1).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = ""+_activeTwoCd;
+            equipSelectorPanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Image>().color = Color.white;
+            equipSelectorPanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Image>().sprite = _activeTwo.logo;
+            equipSelectorPanel.transform.GetChild(1).GetComponent<StuffButtonOver>().ChangeStuff(_activeTwo);
+            equipSelectorPanel.transform.GetChild(1).GetComponent<StuffButtonOver>().enabled = true;
         }
         else
         {
-            EquipSelectorPanel.transform.GetChild(2).gameObject.GetComponent<Button>().interactable = true;
-            EquipSelectorPanel.transform.GetChild(2).GetChild(0).gameObject.GetComponent<Image>().color = Color.white;
-            EquipSelectorPanel.transform.GetChild(2).GetChild(0).gameObject.GetComponent<Image>().sprite = consummable.logo;
+            equipSelectorPanel.transform.GetChild(1).gameObject.GetComponent<Button>().interactable = true;
+            equipSelectorPanel.transform.GetChild(1).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = "";
+            equipSelectorPanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Image>().color = Color.white;
+            equipSelectorPanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Image>().sprite = _activeTwo.logo;
+            equipSelectorPanel.transform.GetChild(1).GetComponent<StuffButtonOver>().ChangeStuff(_activeTwo);
+            equipSelectorPanel.transform.GetChild(1).GetComponent<StuffButtonOver>().enabled = true;
+        }
+        if (_consumable == null)
+        {
+            equipSelectorPanel.transform.GetChild(2).gameObject.GetComponent<Button>().interactable = false;
+            equipSelectorPanel.transform.GetChild(2).GetChild(0).gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            equipSelectorPanel.transform.GetChild(2).GetComponent<StuffButtonOver>().enabled = false;
+        }
+        else
+        {
+            equipSelectorPanel.transform.GetChild(2).gameObject.GetComponent<Button>().interactable = true;
+            equipSelectorPanel.transform.GetChild(2).GetChild(0).gameObject.GetComponent<Image>().color = Color.white;
+            equipSelectorPanel.transform.GetChild(2).GetChild(0).gameObject.GetComponent<Image>().sprite = _consumable.logo;
+            equipSelectorPanel.transform.GetChild(2).GetComponent<StuffButtonOver>().enabled = true;
+            equipSelectorPanel.transform.GetChild(2).GetComponent<StuffButtonOver>().ChangeStuff(_consumable);
         }
     }
 
@@ -190,7 +203,7 @@ public class UIManager : MonoBehaviour
     public void HideEquipSelector()
     {
         /*_equipSelectorShown = false;*/
-        EquipSelectorPanel.SetActive(false);
+        equipSelectorPanel.SetActive(false);
     }
 
     public void MoveSelected()
@@ -244,15 +257,15 @@ public class UIManager : MonoBehaviour
 
     public void SetStuff(Active equipOne, Active equipTwo, Consumable consum)
     {
-        equipmentOne = equipOne;
-        equipmentTwo = equipTwo;
-        consummable = consum;
+        _activeOne = equipOne;
+        _activeTwo = equipTwo;
+        _consumable = consum;
     }
 
     public void SetCd(int CdOne, int CdTwo)
     {
-        equipOneCd = CdOne;
-        equipTwoCd = CdTwo;
+        _activeOneCd = CdOne;
+        _activeTwoCd = CdTwo;
     }
 
     private void AddUnitInitUi(GameObject unit)
@@ -288,10 +301,13 @@ public class UIManager : MonoBehaviour
                 (combatStat.CurrHp / (float)combatStat.MaxHp);
             if (playerMovement.GetPassive() == null)
             {
-                t.transform.Find("PassifImg").gameObject.SetActive(false);
+                t.transform.Find("PassiveImg").gameObject.SetActive(false);
             }
             else
-                t.transform.Find("PassifImg").GetComponent<Image>().sprite = playerMovement.GetPassive().logo;
+            {
+                t.transform.Find("PassiveImg").GetComponent<StuffButtonOver>().ChangeStuff(playerMovement.GetPassive());
+                t.transform.Find("PassiveImg").GetComponent<Image>().sprite = playerMovement.GetPassive().logo;
+            }
         }
         else
         {
@@ -313,13 +329,17 @@ public class UIManager : MonoBehaviour
                     "" + t.Key.GetComponent<CombatStat>().CurrHp;
                 t.Value.transform.GetChild(1).Find("FillHpImg").GetComponent<Image>().fillAmount =
                     (t.Key.GetComponent<CombatStat>().CurrHp / (float)t.Key.GetComponent<CombatStat>().MaxHp);
+            
                 if (t.Key.GetComponent<PlayerMovement>().GetPassive() == null)
                 {
-                    t.Value.transform.Find("PassifImg").gameObject.SetActive(false);
+                    t.Value.transform.Find("PassiveImg").gameObject.SetActive(false);
                 }
                 else
+                {
+                    t.Value.transform.Find("PassiveImg").GetComponent<StuffButtonOver>().ChangeStuff(t.Key.GetComponent<PlayerMovement>().GetPassive());
                     t.Value.transform.Find("PassiveImg").GetComponent<Image>().sprite =
-                        t.Key.GetComponent<PlayerMovement>().GetPassive().logo;
+                        t.Key.GetComponent<TacticsMovement>().GetPassive().logo;
+                }
             }
 
             int armor = t.Key.GetComponent<CombatStat>().GetArmor();

@@ -128,8 +128,7 @@ public enum PassiveType
 
 public enum ActiveTarget
 {
-    SelfOnly,
-    OthersOnly,
-    Everyone,
-    Tiles,
+    SelfOnly, //only the player or the tile he is in
+    OthersOnly, //Can target everything in range except for the current tile 
+    Everything, //the two other combined
 }

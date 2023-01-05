@@ -32,11 +32,11 @@ public class ArenaTile : MonoBehaviour
             return;
         }
 
-        if(current)
+        /*if(current)
         {
             overlay.color = new Color(1,0,1,.5f);
         }
-        else if(target)
+        else */if(target)
         {
             overlay.color = new Color(0,1,0,.5f);
         }

@@ -187,11 +187,13 @@ public class DungeonUiManager : MonoBehaviour
     {
         _newStuff = stuff;
         stuffCharaSelectPanel.SetActive(true);
+        stuffCharaSelectPanel.transform.GetChild(0).gameObject.GetComponent<StuffButtonOver>().ChangeStuff(_newStuff);
         stuffCharaSelectPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff.logo;
     }
     
     public void CharaSelect(int nb)
     {
+        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<StuffButtonOver>().ChangeStuff(_newStuff);
         stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = _newStuff.logo;
         ChoiceButtonInteract();
         switch(nb)
@@ -238,10 +240,12 @@ public class DungeonUiManager : MonoBehaviour
     {
         if (stuff != null)
         {
+            Go.GetComponent<StuffButtonOver>().ChangeStuff(stuff);
             Go.GetComponent<Image>().sprite = stuff.logo;
         }
         else
         {
+            Go.GetComponent<StuffButtonOver>().ChangeStuff(null);
             Go.GetComponent<Image>().sprite = emptyIcon;
         }
     }
@@ -300,9 +304,11 @@ public class DungeonUiManager : MonoBehaviour
         }
 
         GameObject buttonClicked = EventSystem.current.currentSelectedGameObject;
-        
-        buttonClicked.GetComponent<Button>().image.sprite = _newStuff != null ? _newStuff.logo : emptyIcon;
-        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff != null ? stuff.logo : emptyIcon;
+
+        EquipChoiceIconChange(_newStuff, buttonClicked);
+        EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject);
+        /*buttonClicked.GetComponent<Button>().image.sprite = _newStuff != null ? _newStuff.logo : emptyIcon;
+        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff != null ? stuff.logo : emptyIcon;*/
 
         _newStuff = stuff;
     }
@@ -337,8 +343,10 @@ public class DungeonUiManager : MonoBehaviour
         
         GameObject buttonClicked = EventSystem.current.currentSelectedGameObject;
         
-        buttonClicked.GetComponent<Button>().image.sprite = _newStuff != null ? _newStuff.logo : emptyIcon;
-        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff != null ? stuff.logo : emptyIcon;
+        EquipChoiceIconChange(_newStuff, buttonClicked);
+        EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject);
+        /*buttonClicked.GetComponent<Button>().image.sprite = _newStuff != null ? _newStuff.logo : emptyIcon;
+        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff != null ? stuff.logo : emptyIcon;*/
 
         _newStuff = stuff;
     }
@@ -373,8 +381,10 @@ public class DungeonUiManager : MonoBehaviour
         
         GameObject buttonClicked = EventSystem.current.currentSelectedGameObject;
         
-        buttonClicked.GetComponent<Button>().image.sprite = _newStuff != null ? _newStuff.logo : emptyIcon;
-        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff != null ? stuff.logo : emptyIcon;
+        EquipChoiceIconChange(_newStuff, buttonClicked);
+        EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject);
+        /*buttonClicked.GetComponent<Button>().image.sprite = _newStuff != null ? _newStuff.logo : emptyIcon;
+        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff != null ? stuff.logo : emptyIcon;*/
 
         _newStuff = stuff;
     }
@@ -409,8 +419,10 @@ public class DungeonUiManager : MonoBehaviour
         
         GameObject buttonClicked = EventSystem.current.currentSelectedGameObject;
 
-        buttonClicked.GetComponent<Button>().image.sprite = _newStuff != null ? _newStuff.logo : emptyIcon;
-        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff != null ? stuff.logo : emptyIcon;
+        EquipChoiceIconChange(_newStuff, buttonClicked);
+        EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject);
+        /*buttonClicked.GetComponent<Button>().image.sprite = _newStuff != null ? _newStuff.logo : emptyIcon;
+        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff != null ? stuff.logo : emptyIcon;*/
 
         _newStuff = stuff;
     }
@@ -432,12 +444,17 @@ public class DungeonUiManager : MonoBehaviour
                 WarriorInfo.CurrentHp / (float)WarriorInfo.MaxHp;
             playerPanel.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = WarriorInfo.CurrentHp.ToString();
 
+            GameObject passiveImg = playerPanel.transform.Find("PassifImg").gameObject;
             if (WarriorInfo.Passive == null)
             {
-                playerPanel.transform.Find("PassifImg").gameObject.SetActive(false);
+                passiveImg.SetActive(false);
             }
             else
-                playerPanel.transform.Find("PassifImg").GetComponent<Image>().sprite = WarriorInfo.Passive.logo;
+            {
+                passiveImg.gameObject.SetActive(true);
+                passiveImg.GetComponent<Image>().sprite = WarriorInfo.Passive.logo;
+                passiveImg.GetComponent<StuffButtonOver>().ChangeStuff(WarriorInfo.Passive);
+            }
         }
         else
             playerPanel.gameObject.SetActive(false);
@@ -450,12 +467,17 @@ public class DungeonUiManager : MonoBehaviour
                 ThiefInfo.CurrentHp / (float)ThiefInfo.MaxHp;
             playerPanel.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = ThiefInfo.CurrentHp.ToString();
 
+            GameObject passiveImg = playerPanel.transform.Find("PassifImg").gameObject;
             if (ThiefInfo.Passive == null)
             {
-                playerPanel.transform.Find("PassifImg").gameObject.SetActive(false);
+                passiveImg.SetActive(false);
             }
             else
-                playerPanel.transform.Find("PassifImg").GetComponent<Image>().sprite = ThiefInfo.Passive.logo;
+            {
+                passiveImg.gameObject.SetActive(true);
+                passiveImg.GetComponent<Image>().sprite = ThiefInfo.Passive.logo;
+                passiveImg.GetComponent<StuffButtonOver>().ChangeStuff(ThiefInfo.Passive);
+            }
         }
         else
             playerPanel.gameObject.SetActive(false);
@@ -467,13 +489,18 @@ public class DungeonUiManager : MonoBehaviour
             playerPanel.GetChild(1).GetChild(0).GetComponent<Image>().fillAmount =
                 ClericInfo.CurrentHp / (float)ClericInfo.MaxHp;
             playerPanel.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = ClericInfo.CurrentHp.ToString();
-
+            
+            GameObject passiveImg = playerPanel.transform.Find("PassifImg").gameObject;
             if (ClericInfo.Passive == null)
             {
-                playerPanel.transform.Find("PassifImg").gameObject.SetActive(false);
+                passiveImg.SetActive(false);
             }
             else
-                playerPanel.transform.Find("PassifImg").GetComponent<Image>().sprite = ClericInfo.Passive.logo;
+            {
+                passiveImg.gameObject.SetActive(true);
+                passiveImg.GetComponent<Image>().sprite = ClericInfo.Passive.logo;
+                passiveImg.GetComponent<StuffButtonOver>().ChangeStuff(ClericInfo.Passive);
+            }
         }
         else
             playerPanel.gameObject.SetActive(false);
@@ -486,12 +513,17 @@ public class DungeonUiManager : MonoBehaviour
                 WizardInfo.CurrentHp / (float)WizardInfo.MaxHp;
             playerPanel.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = WizardInfo.CurrentHp.ToString();
 
+            GameObject passiveImg = playerPanel.transform.Find("PassifImg").gameObject;
             if (WizardInfo.Passive == null)
             {
-                playerPanel.transform.Find("PassifImg").gameObject.SetActive(false);
+                passiveImg.SetActive(false);
             }
             else
-                playerPanel.transform.Find("PassifImg").GetComponent<Image>().sprite = WizardInfo.Passive.logo;
+            {
+                passiveImg.gameObject.SetActive(true);
+                passiveImg.GetComponent<Image>().sprite = WizardInfo.Passive.logo;
+                passiveImg.GetComponent<StuffButtonOver>().ChangeStuff(WizardInfo.Passive);
+            }
         }
         else
             playerPanel.gameObject.SetActive(false);

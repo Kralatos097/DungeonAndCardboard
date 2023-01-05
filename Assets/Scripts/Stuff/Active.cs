@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -14,6 +15,12 @@ public class Active : Stuff
     [Header("Effects")]
     [SerializeField] private List<ActiveEffect> activeEffectList;
 
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        stuffType = "Active";
+    }
+    
     public void Effect(GameObject user, GameObject target, int hitParam)
     {
         foreach(ActiveEffect activeEffect in activeEffectList)
@@ -64,7 +71,6 @@ public class Active : Stuff
             }
         }
     }
-
 
     private void Damage(GameObject target, ActiveEffect activeEffect, int hit)
     {
@@ -293,5 +299,10 @@ public class Active : Stuff
     public int GetAtkRange()
     {
         return range;
+    }
+
+    public ActiveTarget GetActiveTarget()
+    {
+        return clickTarget;
     }
 }

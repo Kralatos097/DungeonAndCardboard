@@ -24,14 +24,12 @@ EditorBuildSettings:
     path: Assets/_ScenesTibo/DefeatScene.unity
     guid: 5f380e46323a8af45b9fdcf65e87fe5b
   - enabled: 1
-    path: Assets/_ScenesTibo/CommonFights/Fight 1.unity
-    guid: e881443a6658ad04aad29b6089674885
-  - enabled: 1
-    path: Assets/_ScenesTibo/CommonFights/Fight 2.unity
-    guid: 6743b5001787b1546996c0395e27037e
+    path: Assets/_ScenesTibo/CommonFights/BossFight.unity
+    guid: 0e6ef59d1c6ed994eb475265b5f81390
   - enabled: 1
     path: Assets/_ScenesTibo/CommonFights/Fight.unity
     guid: b14bce233c26ffb41914af6c7949c82f
+  - enabled: 0
   - enabled: 1
     path: Assets/_ScenesValou/IntroTest.unity
     guid: d1d2690c8f4624a439dce00127c52657

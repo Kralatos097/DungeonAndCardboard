@@ -82,6 +82,7 @@ public class TacticsMovement : MonoBehaviour
         CombatStat = gameObject.GetComponent<CombatStat>();
         
         GetUnitInfo();
+        SetCurrentTile();
 
         halfHeight = GetComponent<Collider>().bounds.extents.y;
 
@@ -92,12 +93,12 @@ public class TacticsMovement : MonoBehaviour
 
     protected virtual void GetUnitInfo() {}
 
-    public ArenaTile GetCurrenTile()
+    public ArenaTile GetCurrentTile()
     {
-        return _currentTile;
+        return GetTargetTile(gameObject);
     }
-    
-    protected void GetCurrentTile()
+
+    private void SetCurrentTile()
     {
         _currentTile = GetTargetTile(gameObject);
         _currentTile.current = true;
@@ -108,7 +109,7 @@ public class TacticsMovement : MonoBehaviour
         RaycastHit hit;
         ArenaTile tile = null;
         
-        if (Physics.Raycast(target.transform.position, Vector3.down, out hit, 1))
+        if (Physics.Raycast(target.transform.position, Vector3.down, out hit, 2))
         {
             tile = hit.collider.GetComponent<ArenaTile>();
         }
@@ -146,7 +147,7 @@ public class TacticsMovement : MonoBehaviour
     protected void FindSelectableTile()
     {
         ComputeAdjacencyList();
-        GetCurrentTile();
+        SetCurrentTile();
 
         Queue<ArenaTile> process = new Queue<ArenaTile>();
         
@@ -289,7 +290,7 @@ public class TacticsMovement : MonoBehaviour
     protected void FindPath(ArenaTile targetTile)
     {
         ComputeAdjacencyList(targetTile);
-        GetCurrentTile();
+        SetCurrentTile();
 
         List<ArenaTile> openList = new List<ArenaTile>();
         List<ArenaTile> closedList = new List<ArenaTile>();
@@ -373,7 +374,7 @@ public class TacticsMovement : MonoBehaviour
     protected GameObject AlliesInAttackRange()
     {
         ComputeAdjacencyListAtk();
-        GetCurrentTile();
+        SetCurrentTile();
 
         Queue<ArenaTile> process = new Queue<ArenaTile>();
         
@@ -415,7 +416,8 @@ public class TacticsMovement : MonoBehaviour
     protected void AffAttackRange()
     {
         ComputeAdjacencyListAtk();
-        GetCurrentTile();
+        SetCurrentTile();
+        ActiveTarget activeTarget = GetSelectedActive().GetActiveTarget();
 
         Queue<ArenaTile> process = new Queue<ArenaTile>();
         
@@ -425,10 +427,11 @@ public class TacticsMovement : MonoBehaviour
         while (process.Count > 0)
         {
             ArenaTile t = process.Dequeue();
-            
+
             _selectableTiles.Add(t);
             t.selectable = true;
 
+            if(activeTarget == ActiveTarget.SelfOnly) return;
             if (t.distance < atkRange)
             {
                 foreach (ArenaTile tile in t.adjacencyList)
@@ -443,6 +446,13 @@ public class TacticsMovement : MonoBehaviour
                 }
             }
         }
+        if (activeTarget == ActiveTarget.OthersOnly)
+            _currentTile.selectable = false;
+    }
+    
+    protected virtual Active GetSelectedActive()
+    {
+        return ActiveOne;
     }
 
     protected void Attack(GameObject target, int equip)
@@ -462,17 +472,14 @@ public class TacticsMovement : MonoBehaviour
         {
             case 1:
                 ActiveOne.Effect(gameObject, target, hit);
-                target.gameObject.GetComponent<TacticsMovement>().DamageClign();
                 ActiveOneCd = ActiveOne.GetCd();
                 break;
             case 2:
                 ActiveTwo.Effect(gameObject, target, hit);
-                target.gameObject.GetComponent<TacticsMovement>().DamageClign();
                 ActiveTwoCd = ActiveTwo.GetCd();
                 break;
             case 3:
                 Consumable.Effect(gameObject, target, hit);
-                target.gameObject.GetComponent<TacticsMovement>().DamageClign();
                 Consumable = null;
                 break;
             default:
@@ -493,6 +500,38 @@ public class TacticsMovement : MonoBehaviour
             6 => 2,
             _ => 1
         };
+    }
+
+    protected void TurnToTarget(GameObject target)
+    {
+        if (Mathf.Abs(Mathf.Abs(transform.position.x) - Mathf.Abs(target.transform.position.x)) >
+            Mathf.Abs(Mathf.Abs(transform.position.y) - Mathf.Abs(target.transform.position.y)))
+        {
+            if(transform.position.x > target.transform.position.x)
+            {
+                //turn left
+                transform.rotation = Quaternion.Euler(0,-90,0);
+            }
+            else
+            {
+                //turn right
+                transform.rotation = Quaternion.Euler(0,90,0);
+            }
+        }
+        else if (Mathf.Abs(Mathf.Abs(transform.position.x) - Mathf.Abs(target.transform.position.x)) <
+                 Mathf.Abs(Mathf.Abs(transform.position.z) - Mathf.Abs(target.transform.position.z)))
+        {
+            if(transform.position.z > target.transform.position.z)
+            {
+                //turn down
+                transform.rotation = Quaternion.Euler(0,180,0);
+            }
+            else
+            {
+                //turn up
+                transform.rotation = Quaternion.Euler(0,0,0);
+            }
+        }
     }
 
     protected virtual void EndOfAttack()
