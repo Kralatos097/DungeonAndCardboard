@@ -13,6 +13,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject QuitButton;
     [SerializeField] private GameObject QuitQuestion;
     [SerializeField] private GameObject Settings;
+    [SerializeField] private GameObject WikiDisplay;
     [SerializeField] private GameObject Session0Display;
     [SerializeField] private GameObject Session1Display;
 
@@ -80,6 +81,7 @@ public class MainMenuManager : MonoBehaviour
     {
         QuitQuestion.SetActive(false);
         Settings.SetActive(false);
+        WikiDisplay.SetActive(false);
         Session0Display.SetActive(false);
         Session1Display.SetActive(false);
     }
