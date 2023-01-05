@@ -1,10 +1,10 @@
-using System;
+/*using System;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
  
- namespace Helpers {
+namespace Helpers {
      [CustomEditor(typeof(Stuff),true)]
      [CanEditMultipleObjects]
      public class ItemSOEditor : Editor {
@@ -56,4 +56,4 @@ using Object = UnityEngine.Object;
          }
          
      }
- }
+ }*/

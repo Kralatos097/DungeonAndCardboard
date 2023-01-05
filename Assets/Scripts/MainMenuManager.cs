@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,12 +10,21 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Animator TransitionCam;
     [SerializeField] private Animator TableFlip;
     [Header("GameObjects")]
+    [SerializeField] private GameObject QuitButton;
     [SerializeField] private GameObject QuitQuestion;
     [SerializeField] private GameObject Settings;
     [SerializeField] private GameObject Session0Display;
     [SerializeField] private GameObject Session1Display;
 
     public bool AsSessionDisplay;
+    
+    //Check si WEBGL
+    private void Awake()
+    {
+        #if UNITY_WEBGL //a vérifier
+            if(QuitButton != null) QuitButton.SetActive(false);
+        #endif
+    }
 
     private void Update()
     {
@@ -92,7 +98,10 @@ public class MainMenuManager : MonoBehaviour
     }
     public void QuitTheGame()
     {
-        Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 }
