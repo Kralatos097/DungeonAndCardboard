@@ -18,6 +18,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject Session1Display;
 
     public bool AsSessionDisplay;
+    public bool IsInMenu;
     
     //Check si WEBGL
     private void Awake()
@@ -29,6 +30,12 @@ public class MainMenuManager : MonoBehaviour
 
     private void Update()
     {
+        if (!IsInMenu && Input.GetMouseButtonDown(1) || !IsInMenu && Input.GetMouseButtonDown(0))
+        {
+            IsInMenu = true;
+            TransitionCam.SetBool("Menu", true);
+        }
+        
         if (Input.GetMouseButtonDown(1) && !TransitionCam.GetBool("InAnimation") && !AsSessionDisplay)
         {
             MainScreen();

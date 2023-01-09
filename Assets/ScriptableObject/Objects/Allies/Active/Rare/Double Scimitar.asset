@@ -12,14 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
   m_Name: Double Scimitar
   m_EditorClassIdentifier: 
-  stuffName: 
+  stuffType: Active
   logo: {fileID: 21300000, guid: 5ccf4c34630f05c4a95a693e16324835, type: 3}
   description: Inflict 2 X 2 Damages
   range: 1
   cd: 0
   clickTarget: 1
   activeEffectList:
-  - activeType: 9
+  - activeType: 0
+    value: 2
+    onSelf: 0
+    noMiss: 0
+    critOnly: 0
+  - activeType: 0
     value: 2
     onSelf: 0
     noMiss: 0
