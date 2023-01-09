@@ -205,7 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2040434557534301476}
   m_Layer: 0
-  m_Name: Map
+  m_Name: Map8x8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
