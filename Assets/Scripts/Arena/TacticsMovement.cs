@@ -601,6 +601,6 @@ public class TacticsMovement : MonoBehaviour
 
     public void ChangeMove(int value)
     {
-        move = baseMove + value;
+        move += value;
     }
 }

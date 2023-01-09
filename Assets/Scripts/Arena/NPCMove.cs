@@ -19,8 +19,8 @@ public class NPCMove : TacticsMovement
     {
         CombatStat combatStat = gameObject.GetComponent<CombatStat>();
         
-        combatStat.MaxHp = UnitInfo.maxHp;
-        combatStat.CurrHp = UnitInfo.maxHp;
+        combatStat.MaxHp = RandomHp(UnitInfo.maxHp.x, UnitInfo.maxHp.y);
+        combatStat.CurrHp = combatStat.MaxHp;
         combatStat.ChangeInit(UnitInfo.initiative);
 
         baseMove = UnitInfo.movement;
@@ -28,6 +28,12 @@ public class NPCMove : TacticsMovement
         ActiveTwo = UnitInfo.activeTwo;
         Passive = UnitInfo.passive;
         Consumable = UnitInfo.consumable;
+    }
+
+    protected int RandomHp(int min, int max)
+    {
+        int ret = Random.Range(min, max + 1);
+        return ret;
     }
 
     // Update is called once per frame

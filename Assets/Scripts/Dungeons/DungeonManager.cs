@@ -52,6 +52,7 @@ public class DungeonManager : MonoBehaviour
         
         AssignPlayerInfo();
         DungeonUiManager.PlayerInfoUi();
+        FindObjectOfType<AudioManager>().Play("Dungeon");
     }
 
     private void SceneContainerSwitchFunc(bool obj)
@@ -130,8 +131,8 @@ public class DungeonManager : MonoBehaviour
     {
         if (warriorCard != null)
         {
-            WarriorInfo.MaxHp = warriorCard.maxHp;
-            WarriorInfo.CurrentHp = warriorCard.maxHp;
+            WarriorInfo.MaxHp = warriorCard.maxHp.y;
+            WarriorInfo.CurrentHp = warriorCard.maxHp.y;
             WarriorInfo.Init = warriorCard.initiative;
             WarriorInfo.Movement = warriorCard.movement;
             WarriorInfo.ActiveOne = warriorCard.activeOne;
@@ -141,8 +142,8 @@ public class DungeonManager : MonoBehaviour
         }
         if (thiefCard != null)
         {
-            ThiefInfo.MaxHp = thiefCard.maxHp;
-            ThiefInfo.CurrentHp = thiefCard.maxHp;
+            ThiefInfo.MaxHp = thiefCard.maxHp.y;
+            ThiefInfo.CurrentHp = thiefCard.maxHp.y;
             ThiefInfo.Init = thiefCard.initiative;
             ThiefInfo.Movement = thiefCard.movement;
             ThiefInfo.ActiveOne = thiefCard.activeOne;
@@ -152,8 +153,8 @@ public class DungeonManager : MonoBehaviour
         }
         if (clericCard != null)
         {
-            ClericInfo.MaxHp = clericCard.maxHp;
-            ClericInfo.CurrentHp = clericCard.maxHp;
+            ClericInfo.MaxHp = clericCard.maxHp.y;
+            ClericInfo.CurrentHp = clericCard.maxHp.y;
             ClericInfo.Init = clericCard.initiative;
             ClericInfo.Movement = clericCard.movement;
             ClericInfo.ActiveOne = clericCard.activeOne;
@@ -164,8 +165,8 @@ public class DungeonManager : MonoBehaviour
 
         if (wizardCard != null)
         {
-            WizardInfo.MaxHp = wizardCard.maxHp;
-            WizardInfo.CurrentHp = wizardCard.maxHp;
+            WizardInfo.MaxHp = wizardCard.maxHp.y;
+            WizardInfo.CurrentHp = wizardCard.maxHp.y;
             WizardInfo.Init = wizardCard.initiative;
             WizardInfo.Movement = wizardCard.movement;
             WizardInfo.ActiveOne = wizardCard.activeOne;
@@ -393,7 +394,7 @@ public class DungeonManager : MonoBehaviour
     private string SelectAmbushedScene()
     {
         int rand = Random.Range(0, ambushedSceneList.Count);
-        string sceneName = fightingSceneList[rand];
+        string sceneName = ambushedSceneList[rand];
         
         return sceneName;
     }

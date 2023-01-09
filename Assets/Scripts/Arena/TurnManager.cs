@@ -36,6 +36,7 @@ public class TurnManager : MonoBehaviour
 
     private void Start()
     {
+        FindObjectOfType<AudioManager>().Play("Fight");
         Invoke(nameof(LateStart), 1);
         _combatEnded = false;
         _combatEndCanvas = CombatEndCanvas;
@@ -111,21 +112,18 @@ public class TurnManager : MonoBehaviour
         //Victoire player
         if(pStatue)
         {
-            //todo
             Debug.Log("Victiore");
             _combatEndCanvas.GetChild(0).gameObject.SetActive(true);
             SetPlayersInfo();
-            //Todo: changement de scene apres un clic
         }
         //Défaite player
         else
         {
-            //todo
             Debug.Log("Defeat");
             _isDefeat = true;
             _combatEndCanvas.GetChild(1).gameObject.SetActive(true);
-            //Todo: changement de scene apres un clic
         }
+        FindObjectOfType<AudioManager>().AllMusicStop();
     }
     
     private static void SetPlayersInfo()

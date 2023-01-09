@@ -73,8 +73,8 @@ public class PlayerMovement : TacticsMovement
                 Consumable = WizardInfo.Consumable;
                 break;
             case Perso.Default:
-                CombatStat.MaxHp = UnitInfo.maxHp;
-                CombatStat.CurrHp = UnitInfo.maxHp;
+                CombatStat.MaxHp = UnitInfo.maxHp.y;
+                CombatStat.CurrHp = CombatStat.MaxHp;
                 CombatStat.ChangeInit(UnitInfo.initiative);
 
                 baseMove = UnitInfo.movement;

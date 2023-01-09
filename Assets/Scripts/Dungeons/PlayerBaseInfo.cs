@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/UnitCard", order = 1)]
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/PlayerCard", order = 1)]
 public class PlayerBaseInfo : ScriptableObject
 {
-    public int maxHp;
+    [FormerlySerializedAs("maxHpV2")] [MinMaxSlider(0, 20)]
+    public Vector2Int maxHp;
     public int initiative;
     public int movement;
     public Active activeOne;

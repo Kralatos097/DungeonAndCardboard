@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour
 {
     public float timer;
     
+    public float volume;
+    
     [Header("Liste de Musique")]
     public Music[] music;
     
@@ -33,21 +35,21 @@ public class AudioManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-            s.source.volume = s.volume;
+            s.source.volume = s.volume*volume;
             s.source.loop = s.loop;
         }
         foreach (SFX s in sfx)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-            s.source.volume = s.volume;
+            s.source.volume = s.volume*volume;
             s.source.pitch = s.pitch;
         }
         foreach (Voice s in voice)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-            s.source.volume = s.volume;
+            s.source.volume = s.volume*volume;
         }
     }
 
@@ -81,6 +83,20 @@ public class AudioManager : MonoBehaviour
         }
             
         s.source.Stop();
+    }
+    
+    public void AllMusicStop()
+    {
+        foreach (Music s in music)
+        {
+            if (s == null)
+            {
+                Debug.LogWarning("La Musique : " + name + " n'existe pas... Oublier de le mettre ou mal écrit");
+                return;
+            }
+            
+            s.source.Stop();
+        }
     }
     
     //Met en pause une musique : FindObjectOfType<AudioManager>().Pause("NomDuSon");
