@@ -6622,6 +6622,7 @@ MonoBehaviour:
   Session0Display: {fileID: 1920019772}
   Session1Display: {fileID: 883118654}
   AsSessionDisplay: 0
+  IsInMenu: 0
 --- !u!1 &1084443732
 GameObject:
   m_ObjectHideFlags: 0
