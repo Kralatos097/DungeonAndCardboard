@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
   m_Name: Sacred Mace
   m_EditorClassIdentifier: 
-  stuffName: 
+  stuffType: Active
   logo: {fileID: 21300000, guid: 3ee3fb760fd10314fafdd2721d4547c8, type: 3}
   description: Inflict 2 Damages on Ennemies or Heal 1 HP on Allies
   range: 1
   cd: 0
-  clickTarget: 2
+  clickTarget: 1
   activeEffectList:
   - activeType: 0
     value: 2
