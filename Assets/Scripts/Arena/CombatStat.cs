@@ -215,7 +215,7 @@ public class CombatStat : MonoBehaviour
 
     public void ChangeArmor(int value)
     {
-        gameObject.GetComponent<CombatStat>().armor = value;
+        gameObject.GetComponent<CombatStat>().armor += value;
     }
 
     public void ActivatePoison()

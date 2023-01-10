@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/_ScenesValou/S1 Arena/9x9/DuelsVide.unity
     guid: 1e620482c07c4cd49b55187c02b4f99f
   - enabled: 1
+    path: "Assets/_ScenesValou/S1 Arena/Corridor/D\xE9faiteAssur\xE9.unity"
+    guid: d66db7a3fd0856b429d8b48147c7f8a2
+  - enabled: 1
     path: Assets/_ScenesTibo/MainMenu.unity
     guid: 3da0cb404a1ce2e43971efbf6ec46c9e
   - enabled: 1
