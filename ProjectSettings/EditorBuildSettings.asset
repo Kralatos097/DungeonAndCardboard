@@ -12,14 +12,23 @@ EditorBuildSettings:
     path: Assets/_ScenesValou/ParticleWorld.unity
     guid: d4b99c4edf2d5f94581f4e2db64074c0
   - enabled: 1
+    path: Assets/_ScenesTibo/DungeonScene.unity
+    guid: ccb7a2d6859b8014ebba39c90567f593
+  - enabled: 1
     path: Assets/_ScenesValou/S1 Arena/8x8/ZoneGrise.unity
     guid: 8246ce1beb40d1740831717fb7c5aa15
   - enabled: 1
+    path: "Assets/_ScenesValou/S1 Arena/8x9/Rang\xE9Arm\xE9.unity"
+    guid: 050b1ae3f92e7494a8057bc2b1c2db72
+  - enabled: 1
+    path: Assets/_ScenesValou/S1 Arena/9x8/BonResto.unity
+    guid: 85ee6dd0f3100f648a7d6131c961d6c9
+  - enabled: 1
+    path: Assets/_ScenesValou/S1 Arena/9x9/DuelsVide.unity
+    guid: 1e620482c07c4cd49b55187c02b4f99f
+  - enabled: 1
     path: Assets/_ScenesTibo/MainMenu.unity
     guid: 3da0cb404a1ce2e43971efbf6ec46c9e
-  - enabled: 1
-    path: Assets/_ScenesTibo/DungeonScene.unity
-    guid: ccb7a2d6859b8014ebba39c90567f593
   - enabled: 1
     path: Assets/_ScenesTibo/VictoryScene.unity
     guid: b1a6897996fc7ad40ad6644282257fc1
