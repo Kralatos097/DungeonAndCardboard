@@ -41,12 +41,14 @@ public class CombatStat : MonoBehaviour
                     armor -= value;
                     if (armor < 0)
                     {
+                        TakeDamageFX();
                         _currHp += armor;
                         armor = 0;
                     }
                 }
                 else
                 {
+                    TakeDamageFX();
                     _currHp = value;
                 }
 
@@ -145,7 +147,13 @@ public class CombatStat : MonoBehaviour
         {
             passive.Effect(gameObject);
         }
+        
         CurrHp-=value;
+    }
+
+    public void TakeDamageFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch(gameObject.CompareTag("Player") ? "AllieDamaged" : "EnemyDamaged");
     }
     
     public void TakeHeal(int value)
@@ -155,6 +163,8 @@ public class CombatStat : MonoBehaviour
         {
             passive.Effect(gameObject);
         }
+        
+        FindObjectOfType<AudioManager>().RandomPitch(gameObject.CompareTag("Player") ? "AllieHealed" : "EnemyHealed");
         CurrHp+=value;
     }
 

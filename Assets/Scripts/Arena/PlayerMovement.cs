@@ -134,7 +134,7 @@ public class PlayerMovement : TacticsMovement
         PlayersTurn = true;
 
         //display action Selector on turn start
-        if (!pass)
+        if(!pass)
         {
             _uiManager.ShowActionSelector();
             pass = true;

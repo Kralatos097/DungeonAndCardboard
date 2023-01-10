@@ -181,14 +181,12 @@ public class DungeonManager : MonoBehaviour
         switch(roomType)
         {
             case RoomType.Normal:
-                //todo: loot ui
                 DungeonUiManager.DisplayLootActionSelectorUI();
                 break;
             case RoomType.Boss:
                 LaunchRoomEffect(RoomEffect.Boss);
                 break;
             case RoomType.Treasure:
-                //todo: loot ui
                 DungeonUiManager.DisplayLootActionSelectorUI();
                 break;
             case RoomType.Fighting:

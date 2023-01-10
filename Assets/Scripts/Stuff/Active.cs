@@ -21,8 +21,26 @@ public class Active : Stuff
         stuffType = "Active";
     }
     
+    
+    
     public void Effect(GameObject user, GameObject target, int hitParam)
     {
+        switch (range)
+        {
+            case 0:
+                SelfFx();
+                break;
+            case 1:
+                CacFx();
+                break;
+            case > 1:
+                RangeFx();
+                break;
+            default:
+                Debug.LogWarning("Out of range");
+                break;
+        }
+
         foreach(ActiveEffect activeEffect in activeEffectList)
         {
             var gameObject = activeEffect.onSelf ? user : target;
@@ -70,6 +88,21 @@ public class Active : Stuff
                     throw new ArgumentOutOfRangeException();
             }
         }
+    }
+
+    private void CacFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("CaCAction");
+    }
+    
+    private void RangeFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("RangeAction");
+    }
+    
+    private void SelfFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("SelfAction");
     }
 
     private void Damage(GameObject target, ActiveEffect activeEffect, int hit)

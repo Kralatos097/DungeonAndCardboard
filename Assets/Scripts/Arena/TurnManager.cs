@@ -162,8 +162,8 @@ public class TurnManager : MonoBehaviour
                 turnOrder.Peek().GetComponent<CombatStat>().ActivatePoison();
                 if(!turnOrder.Peek().GetComponent<CombatStat>().isUp)
                 {
-                    TacticsMovement DeadUnit = turnOrder.Dequeue();
-                    Destroy(DeadUnit.gameObject);
+                    TacticsMovement deadUnit = turnOrder.Dequeue();
+                    Destroy(deadUnit.gameObject);
                     if(!ArePlayersAlive() && !AreEnemysAlive())
                     {
                         EndCombat(ArePlayersAlive());

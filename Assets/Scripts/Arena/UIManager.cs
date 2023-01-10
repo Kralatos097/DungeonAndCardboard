@@ -58,7 +58,6 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0) && !_actionSelectorShown && !EventSystem.current.IsPointerOverGameObject() && TacticsMovement.PlayersTurn)
         {
-            //todo mieux gerer quand on clique en dehors des ranges
             ShowActionSelector();
         }
         
@@ -71,6 +70,7 @@ public class UIManager : MonoBehaviour
             {
                 case true:
                     HideActionSelector();
+                    FindObjectOfType<AudioManager>().RandomPitch("CloseActionMenu");
                     break;
                 case false:
                     switch (actionSelected)
@@ -111,6 +111,7 @@ public class UIManager : MonoBehaviour
     
     public void ShowActionSelector()
     {
+        FindObjectOfType<AudioManager>().RandomPitch("OpenActionMenu");
         _actionSelectorShown = true;
         actionSelectorPanel.SetActive(true);
         
@@ -386,5 +387,10 @@ public class UIManager : MonoBehaviour
                 t.Value.transform.Find("StatusImg").gameObject.SetActive(false);
             }
         }
+    }
+
+    public void UiButtonSfx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("UiClic");
     }
 }

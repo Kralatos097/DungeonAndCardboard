@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 {
     public float timer;
     
-    public float volume;
+    public float volumeMusic, volumeSfx, volumeVoice;
     
     [Header("Liste de Musique")]
     public Music[] music;
@@ -20,6 +20,8 @@ public class AudioManager : MonoBehaviour
     public Voice[] voice;
 
     public static AudioManager instance;
+
+    private AudioSource _sfxSource;
 
     private void Awake()
     {
@@ -35,21 +37,16 @@ public class AudioManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-            s.source.volume = s.volume*volume;
+            s.source.volume = s.volume*volumeMusic;
             s.source.loop = s.loop;
         }
-        foreach (SFX s in sfx)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-            s.source.volume = s.volume*volume;
-            s.source.pitch = s.pitch;
-        }
+        _sfxSource = gameObject.AddComponent<AudioSource>();
+        
         foreach (Voice s in voice)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-            s.source.volume = s.volume*volume;
+            s.source.volume = s.volume*volumeVoice;
         }
     }
 
@@ -134,8 +131,12 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("La Son : " + name + " n'existe pas... Oublier de le mettre ou mal écrit");
             return;
         }
+
+        _sfxSource.volume = s.volume * volumeSfx;
+        _sfxSource.pitch = s.pitch;
+        _sfxSource.PlayOneShot(s.clip);
         
-        s.source.PlayOneShot(s.clip);
+        
     }
     
     //Produit un son avec un pitch aléatoire : FindObjectOfType<AudioManager>().RandomPitch("NomDuSon");
@@ -150,8 +151,9 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        s.source.pitch = alea;
-        s.source.PlayOneShot(s.clip);
+        _sfxSource.volume = s.volume * volumeSfx;
+        _sfxSource.pitch = s.pitch * alea;
+        _sfxSource.PlayOneShot(s.clip);
     }
 
     //Je n'est pas mis de fonction pour jouer de voix

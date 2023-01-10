@@ -253,7 +253,7 @@ public class TacticsMovement : MonoBehaviour
 
     public void BeginTurn()
     {
-        StartTurnClign();
+        StartTurnFx();
     }
 
     public void EndTurn()
@@ -345,6 +345,7 @@ public class TacticsMovement : MonoBehaviour
         
         //todo - what do you do if there is no path to the target tile?
         Debug.Log("Path not Found");
+        
     }
 
     protected ArenaTile FindLowestF(List<ArenaTile> list)
@@ -489,7 +490,7 @@ public class TacticsMovement : MonoBehaviour
         Debug.Log("ATTACKING " + target.gameObject.name + "!\n Now has : " + target.GetComponent<CombatStat>().CurrHp + " HP!");
         EndOfAttack();
     }
-    
+
     //return 0 for a miss, 1 for a hit, 2 for a critical
     private int GetHitChance()
     {
@@ -548,8 +549,17 @@ public class TacticsMovement : MonoBehaviour
         if (ActiveTwoCd < 0) ActiveTwoCd = 0;
     }
 
-    public void StartTurnClign()
+    private void StartTurnFx()
     {
+        if(gameObject.CompareTag("Player"))
+        {
+            FindObjectOfType<AudioManager>().RandomPitch("AllieStartTurn");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().RandomPitch("EnemyStartTurn");
+        }
+        
         _unitMat = transform.GetChild(0).GetComponent<Renderer>().material;
         
         _baseColor = _unitMat.color;
@@ -571,7 +581,7 @@ public class TacticsMovement : MonoBehaviour
         ColorClign(timing);
     }
 
-    protected void ColorClign(float t)
+    private void ColorClign(float t)
     {
         ChangeColorChange();
         Invoke("ChangeColorBase", t);
