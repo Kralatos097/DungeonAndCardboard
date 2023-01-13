@@ -28,12 +28,12 @@ public class Passive : Stuff
             {
                 foreach (var playerMovement in TurnManager._playerList)
                 {
-                    DoEffect(passiveEffect, playerMovement.gameObject);
+                    DoEffect(passiveEffect, playerMovement.gameObject, false);
                 }
             }
             else
             {
-                DoEffect(passiveEffect, target);
+                DoEffect(passiveEffect, target, false);
             }
         }
     }
@@ -77,7 +77,7 @@ public class Passive : Stuff
         return hit;
     }
 
-    private void DoEffect(PassiveEffect passiveEffect, GameObject target)
+    /*private void DoEffect(PassiveEffect passiveEffect, GameObject target)
     {
         CombatStat userCombatStat = target.GetComponent<CombatStat>();
         TacticsMovement userTacticsMovement = target.GetComponent<TacticsMovement>();
@@ -143,7 +143,7 @@ public class Passive : Stuff
             default:
                 throw new ArgumentOutOfRangeException();
         }
-    }
+    }*/
     
     private void DoEffect(PassiveEffect passiveEffect, GameObject target, bool crit)
     {
@@ -151,7 +151,7 @@ public class Passive : Stuff
         TacticsMovement userTacticsMovement = target.GetComponent<TacticsMovement>();
 
         int effectValue = passiveEffect.value;
-        if (crit) effectValue *= 2;
+        if(crit) effectValue *= 2;
         
         switch (passiveEffect.passiveType)
         {
@@ -206,6 +206,16 @@ public class Passive : Stuff
                 if (userCombatStat.GetStatusEffect() == StatusEffect.Freeze)
                     userCombatStat.ResetStatus();
                 break;
+            case PassiveType.GainHolyShield:
+                userCombatStat.ActivateHolyShield();
+                break;
+            case PassiveType.GainRevive:
+                userCombatStat.ActivateRevive(passiveEffect.value);
+                break;
+            case PassiveType.ImmunStun:
+            case PassiveType.ImmunBurn:
+            case PassiveType.ImmunPoison:
+            case PassiveType.ImmunFreeze:
             default:
                 throw new ArgumentOutOfRangeException();
         }

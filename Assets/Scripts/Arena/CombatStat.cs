@@ -1,9 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class CombatStat : MonoBehaviour
@@ -29,46 +25,53 @@ public class CombatStat : MonoBehaviour
         get => _currHp ;
         set
         {
-            
-            if (holyShield)
+            if(value < 0)
             {
-                holyShield = false;
-            }
-            else
-            {
-                if (armor > 0)
+                if (holyShield)
                 {
-                    armor -= value;
-                    if (armor < 0)
-                    {
-                        TakeDamageFX();
-                        _currHp += armor;
-                        armor = 0;
-                    }
+                    holyShield = false;
+                    DamageHolyShieldFX();
                 }
                 else
                 {
-                    TakeDamageFX();
-                    _currHp = value;
-                }
-
-                if (_currHp <= 0)
-                {
-                    if(_revive)
+                    if (armor > 0)
                     {
-                        Debug.Log("Revived!");
-                        _currHp = _reviveValue;
-                        _revive = false;
-                        _reviveValue = 0;
+                        armor += value;
+                        TakeArmorDamageFX();
+                        if (armor < 0)
+                        {
+                            TakeDamageFX();
+                            _currHp += armor;
+                            armor = 0;
+                        }
                     }
                     else
                     {
-                        _currHp = 0;
-                        isUp = false;
-                        UnitDeath();
+                        TakeDamageFX();
+                        _currHp = value;
+                    }
+
+                    if (_currHp <= 0)
+                    {
+                        if (_revive)
+                        {
+                            Debug.Log("Revived!");
+                            _currHp = _reviveValue;
+                            _revive = false;
+                            _reviveValue = 0;
+                        }
+                        else
+                        {
+                            _currHp = 0;
+                            isUp = false;
+                            UnitDeath();
+                        }
                     }
                 }
-                else if (_currHp > MaxHp)
+            }
+            else
+            {
+                if(_currHp > MaxHp)
                 {
                     _currHp = MaxHp;
                 }
@@ -148,12 +151,8 @@ public class CombatStat : MonoBehaviour
             passive.Effect(gameObject);
         }
         
+        TakeDamageFX();
         CurrHp-=value;
-    }
-
-    public void TakeDamageFX()
-    {
-        FindObjectOfType<AudioManager>().RandomPitch(gameObject.CompareTag("Player") ? "AllieDamaged" : "EnemyDamaged");
     }
     
     public void TakeHeal(int value)
@@ -164,7 +163,7 @@ public class CombatStat : MonoBehaviour
             passive.Effect(gameObject);
         }
         
-        FindObjectOfType<AudioManager>().RandomPitch(gameObject.CompareTag("Player") ? "AllieHealed" : "EnemyHealed");
+        GetHealFX();
         CurrHp+=value;
     }
 
@@ -225,18 +224,21 @@ public class CombatStat : MonoBehaviour
 
     public void ChangeArmor(int value)
     {
-        gameObject.GetComponent<CombatStat>().armor = value;
+        gameObject.GetComponent<CombatStat>().armor += value;
+        GainArmorFX();
     }
 
     public void ActivatePoison()
     {
         TakeDamage(1);
+        ActivatePoisonFX();
         StatusValue--;
     }
     
     public void ActivateBurn()
     {
         TakeDamage(StatusValue);
+        ActivateBurnFX();
         StatusValue = 0;
     }
     
@@ -274,6 +276,8 @@ public class CombatStat : MonoBehaviour
     public void ActivateHolyShield()
     {
         holyShield = true;
+        FindObjectOfType<AudioManager>().RandomPitch("GainHolyShield");
+        //Todo: Add VFX
     }
 
     public void ActivateRevive(int value)
@@ -282,44 +286,76 @@ public class CombatStat : MonoBehaviour
         _reviveValue = value;
     }
 
-    private void DamageFX()
-    {
-        
-    }
-
-    private void HealFX()
-    {
-        
-    }
-
     private void DamageHolyShieldFX()
     {
-        
+        FindObjectOfType<AudioManager>().RandomPitch("DamageHolyShield");
+        //Todo: Add VFX
+    }
+
+    private void TakeArmorDamageFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("ArmorDamaged");
+        //Todo: Add VFX
+    }
+    
+    private void GainArmorFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("ArmorGained");
+        //Todo: Add VFX
+    }
+
+    private void TakeDamageFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch(gameObject.CompareTag("Player") ? "AllieDamaged" : "EnemyDamaged");
+        //Todo: Add VFX
+    }
+
+    private void GetHealFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch(gameObject.CompareTag("Player") ? "AllieHealed" : "EnemyHealed");
+        //Todo: Add VFX
+    }
+    
+    private void GetReviveFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("Revive");
+        //Todo: Add VFX
     }
 
     private void GetBurnFX()
     {
-        
+        FindObjectOfType<AudioManager>().RandomPitch("GetBurn");
+        //Todo: Add VFX
     }
 
     private void GetFreezeFX()
     {
-        
+        FindObjectOfType<AudioManager>().RandomPitch("GetFreeze");
+        //Todo: Add VFX
     }
 
     private void GetStunFX()
     {
-        
+        FindObjectOfType<AudioManager>().RandomPitch("GetStun");
+        //Todo: Add VFX
     }
 
     private void GetPoisonFX()
     {
-        
+        FindObjectOfType<AudioManager>().RandomPitch("GetPoison");
+        //Todo: Add VFX
     }
 
     private void ActivatePoisonFX()
     {
-        
+        FindObjectOfType<AudioManager>().RandomPitch("ActivatePoison");
+        //Todo: Add VFX
+    }
+    
+    private void ActivateBurnFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("ActivateBurn");
+        //Todo: Add VFX
     }
     
     //todo: Add more FX

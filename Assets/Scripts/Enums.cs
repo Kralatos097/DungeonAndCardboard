@@ -124,6 +124,10 @@ public enum PassiveType
     RemoveBurn,
     RemovePoison,
     RemoveFreeze,
+    ImmunStun,
+    ImmunBurn,
+    ImmunPoison,
+    ImmunFreeze,
 }
 
 public enum ActiveTarget
