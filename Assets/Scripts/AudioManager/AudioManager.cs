@@ -4,7 +4,8 @@ using UnityEngine.Audio;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class AudioManager : MonoBehaviour
+public class 
+    AudioManager : MonoBehaviour
 {
     public float timer;
     
@@ -19,7 +20,7 @@ public class AudioManager : MonoBehaviour
     [Header("Liste de Voix")]
     public Voice[] voice;
 
-    public static AudioManager instance;
+    private static AudioManager instance;
 
     private AudioSource _sfxSource;
 

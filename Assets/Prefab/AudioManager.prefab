@@ -205,6 +205,11 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: GetCured
+    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
   - name: AllieDowned
     clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
     volume: 1

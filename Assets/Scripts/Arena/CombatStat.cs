@@ -173,7 +173,7 @@ public class CombatStat : MonoBehaviour
         switch(effect)
         {
             case StatusEffect.Poison:
-                //todo: Poison Effect
+                GetPoisonFX();
                 StatusEffect = effect;
                 StatusValue = value;
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
@@ -183,7 +183,7 @@ public class CombatStat : MonoBehaviour
                 }
                 break;
             case StatusEffect.Stun:
-                //todo: Stun Effect
+                GetPoisonFX();
                 StatusEffect = effect;
                 StatusValue = value;
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
@@ -193,7 +193,7 @@ public class CombatStat : MonoBehaviour
                 }
                 break;
             case StatusEffect.Burn:
-                //todo: Burn Effect
+                GetBurnFX();
                 StatusEffect = effect;
                 StatusValue = value;
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
@@ -203,7 +203,7 @@ public class CombatStat : MonoBehaviour
                 }
                 break;
             case StatusEffect.Freeze:
-                //todo: Freeze Effect
+                GetFreezeFX();
                 StatusEffect = effect;
                 StatusValue = value;
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
@@ -244,11 +244,13 @@ public class CombatStat : MonoBehaviour
     
     public void ResetStatus()
     {
+        GetCuredFX();
         Passive passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
         if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueClean)
         {
             passive.Effect(gameObject);
         }
+        
         StatusEffect = StatusEffect.Nothing;
         statusValue = 0;
     }
@@ -343,6 +345,12 @@ public class CombatStat : MonoBehaviour
     private void GetPoisonFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("GetPoison");
+        //Todo: Add VFX
+    }
+    
+    private void GetCuredFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("GetCured");
         //Todo: Add VFX
     }
 

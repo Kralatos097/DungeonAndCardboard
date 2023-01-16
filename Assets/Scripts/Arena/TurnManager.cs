@@ -140,7 +140,7 @@ public class TurnManager : MonoBehaviour
     
     void StartTurn()
     {
-        if (ArePlayersAlive() && AreEnemysAlive())
+        if (ArePlayersAlive() && AreEnemyAlive())
         {
             while(!turnOrder.Peek().GetComponent<CombatStat>().isUp)
             {
@@ -164,7 +164,7 @@ public class TurnManager : MonoBehaviour
                 {
                     TacticsMovement deadUnit = turnOrder.Dequeue();
                     Destroy(deadUnit.gameObject);
-                    if(!ArePlayersAlive() && !AreEnemysAlive())
+                    if(!ArePlayersAlive() && !AreEnemyAlive())
                     {
                         EndCombat(ArePlayersAlive());
                     }
@@ -180,6 +180,15 @@ public class TurnManager : MonoBehaviour
             }
 
             OnTurnStartPassiveEffect(turnOrder.Peek());
+            if (turnOrder.Peek().CompareTag("Player"))
+            {
+                AllieStartTurnFx();
+            }
+            else
+            {
+                EnemyStartTurnFx();
+            }
+            
             turnOrder.Peek().BeginTurn();
         }
         else
@@ -302,7 +311,7 @@ public class TurnManager : MonoBehaviour
         return false;
     }
     
-    private static bool AreEnemysAlive()
+    private static bool AreEnemyAlive()
     {
         foreach (TacticsMovement unit in turnOrder)
         {
@@ -359,5 +368,17 @@ public class TurnManager : MonoBehaviour
         {
             passive.Effect(user.gameObject);
         }
+    }
+
+    private void AllieStartTurnFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("AllieStartTurn");
+        //Todo: Add Animation
+    }
+    
+    private void EnemyStartTurnFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("EnemyStartTurn");
+        //Todo: Add Animation
     }
 }
