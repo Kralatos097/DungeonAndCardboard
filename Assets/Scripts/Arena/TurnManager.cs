@@ -105,7 +105,7 @@ public class TurnManager : MonoBehaviour
         }
     }
 
-    private static void EndCombat(bool pStatue)
+    private void EndCombat(bool pStatue)
     {
         _combatEnded = true;
         _combatEndPassiveEffectD();
@@ -115,13 +115,15 @@ public class TurnManager : MonoBehaviour
             Debug.Log("Victiore");
             _combatEndCanvas.GetChild(0).gameObject.SetActive(true);
             SetPlayersInfo();
+            VictoryFx();
         }
         //Défaite player
         else
-        {
+        { 
             Debug.Log("Defeat");
             _isDefeat = true;
             _combatEndCanvas.GetChild(1).gameObject.SetActive(true);
+            DefeatFx();
         }
         FindObjectOfType<AudioManager>().AllMusicStop();
     }
@@ -379,6 +381,18 @@ public class TurnManager : MonoBehaviour
     private void EnemyStartTurnFx()
     {
         FindObjectOfType<AudioManager>().RandomPitch("EnemyStartTurn");
+        //Todo: Add Animation
+    }
+
+    private void VictoryFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("Victory");
+        //Todo: Add Animation
+    }
+    
+    private void DefeatFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("Defeat");
         //Todo: Add Animation
     }
 }

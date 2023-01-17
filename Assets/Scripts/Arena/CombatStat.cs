@@ -129,11 +129,13 @@ public class CombatStat : MonoBehaviour
         if(gameObject.CompareTag("Player"))
         {
             transform.GetChild(0).GetComponent<Renderer>().material.color = Color.grey;
+            AllieDownFX();
         }
         else
         {
             transform.GetChild(0).gameObject.SetActive(false);
             transform.position = new Vector3(-100, -100, -100);
+            EnemyDeathFX();
             isAlive = false;
         }
     }
@@ -363,6 +365,24 @@ public class CombatStat : MonoBehaviour
     private void ActivateBurnFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("ActivateBurn");
+        //Todo: Add VFX
+    }
+
+    private void AllieDownFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("AllieDown");
+        //Todo: Add VFX
+    }
+
+    private void AllieDeathFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("AllieDeath");
+        //Todo: Add VFX
+    }
+
+    private void EnemyDeathFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("EnemyDeath");
         //Todo: Add VFX
     }
     

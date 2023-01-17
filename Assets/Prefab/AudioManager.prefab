@@ -260,6 +260,11 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: Hit
+    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
   - name: Critical
     clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
     volume: 1
@@ -270,7 +275,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
-  - name: Loose
+  - name: Defeat
     clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
     volume: 1
     pitch: 1
@@ -286,11 +291,6 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: StepDungeon
-    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: Step
     clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
     volume: 1
     pitch: 1

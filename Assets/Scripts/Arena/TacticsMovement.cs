@@ -551,14 +551,14 @@ public class TacticsMovement : MonoBehaviour
 
     private void StartTurnFx()
     {
-        if(gameObject.CompareTag("Player"))
+        /*if(gameObject.CompareTag("Player"))
         {
             FindObjectOfType<AudioManager>().RandomPitch("AllieStartTurn");
         }
         else
         {
             FindObjectOfType<AudioManager>().RandomPitch("EnemyStartTurn");
-        }
+        }*/
         
         _unitMat = transform.GetChild(0).GetComponent<Renderer>().material;
         
