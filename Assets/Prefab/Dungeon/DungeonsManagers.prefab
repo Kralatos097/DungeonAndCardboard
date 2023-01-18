@@ -46,12 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossScene: BossFight
-  warriorCard: {fileID: 11400000, guid: ccb22e06a8753654eb5c17e944da9f66, type: 2}
-  thiefCard: {fileID: 11400000, guid: ccb22e06a8753654eb5c17e944da9f66, type: 2}
-  clericCard: {fileID: 11400000, guid: ccb22e06a8753654eb5c17e944da9f66, type: 2}
-  wizardCard: {fileID: 11400000, guid: e3fb520fd0e444a4fa6b99634ac5477c, type: 2}
+  warriorCard: {fileID: 11400000, guid: 287459fea8edc334ea7857cdd46ee0bf, type: 2}
+  thiefCard: {fileID: 11400000, guid: f11278d1bce38214289b7b109317e023, type: 2}
+  clericCard: {fileID: 11400000, guid: 2d18e754f8f9ad04d9a2535fdab34af1, type: 2}
+  wizardCard: {fileID: 11400000, guid: 18987c541260a6a45bf5a9befc86996a, type: 2}
   fightingSceneList:
-  - Fight
+  - ZoneGrise
   ambushedSceneList:
   - Fight
   stuffList:

@@ -155,9 +155,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionSelected: 0
   alreadyMoved: 0
-  ActionSelectorPanel: {fileID: 54028448}
-  MoveButton: {fileID: 1454535679}
-  EquipSelectorPanel: {fileID: 280989977}
+  actionSelectorPanel: {fileID: 54028448}
+  moveButton: {fileID: 0}
+  equipSelectorPanel: {fileID: 0}
   stuffSelected: 0
   InitPanel: {fileID: 1026024606}
   PlayerInitPanel: {fileID: 3648971545672378673, guid: fd015fc2027f3ea4a9bbd6dc7d7273ca, type: 3}
@@ -472,12 +472,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b367e9d0baa6194ca7ceffcf520b726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initiative: 0
-  MaxHp: 0
-  armor: 0
-  StatusEffect: 0
-  statusValue: 0
   currInit: 0
+  isUp: 1
   isAlive: 1
 --- !u!114 &184723844
 MonoBehaviour:
@@ -492,6 +488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  atkRange: 0
   actualTargetTile: {fileID: 0}
   charaClass: 0
   UnitInfo: {fileID: 11400000, guid: ccb22e06a8753654eb5c17e944da9f66, type: 2}
@@ -556,12 +553,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b367e9d0baa6194ca7ceffcf520b726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initiative: 0
-  MaxHp: 0
-  armor: 0
-  StatusEffect: 0
-  statusValue: 0
   currInit: 0
+  isUp: 1
   isAlive: 1
 --- !u!114 &199961646
 MonoBehaviour:
@@ -576,6 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  atkRange: 0
   actualTargetTile: {fileID: 0}
   UnitInfo: {fileID: 11400000, guid: 4d57fc5917d0a2047a3b6f3966c55a2d, type: 2}
 --- !u!135 &199961647
@@ -1613,13 +1607,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 499975517}
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
+  m_LocalPosition: {x: -2.7124507, y: 20.664349, z: -23.958355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Father: {fileID: 1077362654}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!1 &548726518
 GameObject:
@@ -2106,7 +2100,7 @@ GameObject:
   - component: {fileID: 822154455}
   - component: {fileID: 822154454}
   m_Layer: 0
-  m_Name: Directional Light (1)
+  m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2181,13 +2175,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822154453}
-  m_LocalRotation: {x: 0, y: 0.92387956, z: -0.38268343, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.92387956, z: -0.38268343, w: 0}
+  m_LocalPosition: {x: -2.7124507, y: 20.664349, z: -23.958355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 1077362654}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45, y: 180, z: 0}
 --- !u!1 &834574695
 GameObject:
@@ -2667,12 +2661,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b367e9d0baa6194ca7ceffcf520b726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initiative: 0
-  MaxHp: 0
-  armor: 0
-  StatusEffect: 0
-  statusValue: 0
   currInit: 0
+  isUp: 1
   isAlive: 1
 --- !u!114 &928842818
 MonoBehaviour:
@@ -2687,6 +2677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  atkRange: 0
   actualTargetTile: {fileID: 0}
   UnitInfo: {fileID: 11400000, guid: 4d57fc5917d0a2047a3b6f3966c55a2d, type: 2}
 --- !u!135 &928842819
@@ -3380,6 +3371,39 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1077362653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1077362654}
+  m_Layer: 0
+  m_Name: LightDeFou
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1077362654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077362653}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.7124507, y: -20.664349, z: 23.958355}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 499975519}
+  - {fileID: 822154455}
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1116314935
 GameObject:
   m_ObjectHideFlags: 0
@@ -4229,12 +4253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b367e9d0baa6194ca7ceffcf520b726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initiative: 0
-  MaxHp: 0
-  armor: 0
-  StatusEffect: 0
-  statusValue: 0
   currInit: 0
+  isUp: 1
   isAlive: 1
 --- !u!114 &1403166422
 MonoBehaviour:
@@ -4249,6 +4269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  atkRange: 0
   actualTargetTile: {fileID: 0}
   charaClass: 0
   UnitInfo: {fileID: 11400000, guid: e3fb520fd0e444a4fa6b99634ac5477c, type: 2}
@@ -5150,12 +5171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b367e9d0baa6194ca7ceffcf520b726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initiative: 0
-  MaxHp: 0
-  armor: 0
-  StatusEffect: 0
-  statusValue: 0
   currInit: 0
+  isUp: 1
   isAlive: 1
 --- !u!114 &1992249616
 MonoBehaviour:
@@ -5170,6 +5187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  atkRange: 0
   actualTargetTile: {fileID: 0}
   UnitInfo: {fileID: 11400000, guid: 20ca0876745f8c14497615f8d6bdf26e, type: 2}
 --- !u!135 &1992249617

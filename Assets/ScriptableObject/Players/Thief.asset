@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720dd80e5193a704192370146364f395, type: 3}
+  m_Name: Thief
+  m_EditorClassIdentifier: 
+  maxHp: 9
+  initiative: 4
+  movement: 3
+  activeOne: {fileID: 11400000, guid: ca8d63fde8ab5334dbdc5cf4514bf4e7, type: 2}
+  activeTwo: {fileID: 0}
+  passive: {fileID: 11400000, guid: a2fd4c0e16d3d9943af858b59f6a4bc1, type: 2}
+  consumable: {fileID: 0}
