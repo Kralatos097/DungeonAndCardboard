@@ -30,7 +30,7 @@ public class CrateCombatState : CombatStat
     public override int StatusValue
     {
         get => statusValue;
-        set => StatusEffect = StatusEffect.Nothing;
+        protected set => StatusEffect = StatusEffect.Nothing;
     }
     
     private void Start()

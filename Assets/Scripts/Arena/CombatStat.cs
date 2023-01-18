@@ -71,6 +71,7 @@ public class CombatStat : MonoBehaviour
             }
             else
             {
+                _currHp = value;
                 if(_currHp > MaxHp)
                 {
                     _currHp = MaxHp;
@@ -94,7 +95,7 @@ public class CombatStat : MonoBehaviour
     public virtual int StatusValue
     {
         get => statusValue;
-        set
+        protected set
         {
             statusValue = value;
             if(statusValue <= 0)
@@ -171,6 +172,7 @@ public class CombatStat : MonoBehaviour
 
     public void ChangeStatus(StatusEffect effect, int value)
     {
+        FindObjectOfType<FXManager>().StopAll(transform);
         Passive passive;
         switch(effect)
         {
@@ -185,7 +187,7 @@ public class CombatStat : MonoBehaviour
                 }
                 break;
             case StatusEffect.Stun:
-                GetPoisonFX();
+                GetStunFX();
                 StatusEffect = effect;
                 StatusValue = value;
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
@@ -235,6 +237,10 @@ public class CombatStat : MonoBehaviour
         TakeDamage(1);
         ActivatePoisonFX();
         StatusValue--;
+        if(StatusEffect == StatusEffect.Nothing)
+        {
+            FindObjectOfType<FXManager>().Stop("Poison", transform);
+        }
     }
     
     public void ActivateBurn()
@@ -311,13 +317,13 @@ public class CombatStat : MonoBehaviour
     private void TakeDamageFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch(gameObject.CompareTag("Player") ? "AllieDamaged" : "EnemyDamaged");
-        //Todo: Add VFX
+        FindObjectOfType<FXManager>().Play("Damaged", transform);
     }
 
     private void GetHealFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch(gameObject.CompareTag("Player") ? "AllieHealed" : "EnemyHealed");
-        //Todo: Add VFX
+        FindObjectOfType<FXManager>().Play("Healed", transform);
     }
     
     private void GetReviveFX()
@@ -329,61 +335,65 @@ public class CombatStat : MonoBehaviour
     private void GetBurnFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("GetBurn");
-        //Todo: Add VFX
+        FindObjectOfType<FXManager>().Play("GetBurn", transform);
+        FindObjectOfType<FXManager>().Play("Burn", transform);
     }
 
     private void GetFreezeFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("GetFreeze");
-        //Todo: Add VFX
+        FindObjectOfType<FXManager>().Play("GetFreeze", transform);
+        FindObjectOfType<FXManager>().Play("Freeze", transform);
     }
 
     private void GetStunFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("GetStun");
-        //Todo: Add VFX
+        FindObjectOfType<FXManager>().Play("GetStun", transform);
+        FindObjectOfType<FXManager>().Play("Stun", transform);
     }
 
     private void GetPoisonFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("GetPoison");
-        //Todo: Add VFX
+        FindObjectOfType<FXManager>().Play("GetPoison", transform);
+        FindObjectOfType<FXManager>().Play("Poison", transform);
     }
     
     private void GetCuredFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("GetCured");
-        //Todo: Add VFX
+        FindObjectOfType<FXManager>().Play("Cured", transform);
     }
 
     private void ActivatePoisonFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("ActivatePoison");
-        //Todo: Add VFX
+        FindObjectOfType<FXManager>().Play("GetPoison", transform);
     }
     
     private void ActivateBurnFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("ActivateBurn");
-        //Todo: Add VFX
+        FindObjectOfType<FXManager>().Play("GetBurn", transform);
     }
 
     private void AllieDownFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("AllieDown");
-        //Todo: Add VFX
+        FindObjectOfType<FXManager>().Play("Dead", transform);
     }
 
     private void AllieDeathFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("AllieDeath");
-        //Todo: Add VFX
+        FindObjectOfType<FXManager>().Play("Dead", transform);
     }
 
     private void EnemyDeathFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("EnemyDeath");
-        //Todo: Add VFX
+        FindObjectOfType<FXManager>().Play("Dead", transform);
     }
     
     //todo: Add more FX
@@ -405,34 +415,36 @@ public class CombatStat : MonoBehaviour
     [ContextMenu("Armor Unit")]
     public void ArmorTest()
     {;
-        armor += 1;
+        ChangeArmor(1);
     }
     
     [ContextMenu("Burn Unit")]
     public void BurnTest()
     {
-        StatusEffect = StatusEffect.Burn;
-        statusValue = 2;
+        ChangeStatus(StatusEffect.Burn, 2);
     }
     
     [ContextMenu("Poison Unit")]
     public void PoisonTest()
     {
-        StatusEffect = StatusEffect.Poison;
-        statusValue = 2;
+        ChangeStatus(StatusEffect.Poison, 2);
     }
     
     [ContextMenu("Stun Unit")]
     public void StunTest()
     {
-        StatusEffect = StatusEffect.Stun;
-        statusValue = 1;
+        ChangeStatus(StatusEffect.Stun, 2);
     }
     
     [ContextMenu("Freeze Unit")]
     public void FreezeTest()
     {
-        StatusEffect = StatusEffect.Freeze;
-        statusValue = 2;
+        ChangeStatus(StatusEffect.Freeze, 2);
+    }
+    
+    [ContextMenu("Cure Unit")]
+    public void CureTest()
+    {
+        GetCuredFX();
     }
 }
