@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1389772460320022066, guid: 5285896115ac6ae4c86876f88e4df93a, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -451385896242881460, guid: ee0a03aa742b57840939005f9a779411, type: 3}
     - target: {fileID: 2552437457112604618, guid: 5285896115ac6ae4c86876f88e4df93a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -59,5 +63,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cleric
       objectReference: {fileID: 0}
+    - target: {fileID: 3795832970039667448, guid: 5285896115ac6ae4c86876f88e4df93a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d9b46768837968e43ae435b8e4f2c9e2, type: 2}
+    - target: {fileID: 3795832970039667448, guid: 5285896115ac6ae4c86876f88e4df93a, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5285896115ac6ae4c86876f88e4df93a, type: 3}
