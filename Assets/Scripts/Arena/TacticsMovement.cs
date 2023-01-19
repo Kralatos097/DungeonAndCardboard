@@ -369,7 +369,13 @@ public class TacticsMovement : MonoBehaviour
     {
         //Fin du Soulevement du pion lors du mouvement
         transform.GetChild(0).Translate(0,-MoveY,0);
+        EndOfMovementFX();
         passM = false;
+    }
+
+    protected void EndOfMovementFX()
+    {
+        FindObjectOfType<FXManager>().Play("DropFigurine", transform);
     }
     
     protected GameObject AlliesInAttackRange()

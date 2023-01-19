@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,6 +27,11 @@ public class MainMenuManager : MonoBehaviour
         #if UNITY_WEBGL //a vérifier
             if(QuitButton != null) QuitButton.SetActive(false);
         #endif
+    }
+
+    private void Start()
+    {
+        FindObjectOfType<AudioManager>().Play("MainMenu");
     }
 
     private void Update()

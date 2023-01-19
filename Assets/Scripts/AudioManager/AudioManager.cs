@@ -1,13 +1,14 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine.Audio;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class 
     AudioManager : MonoBehaviour
 {
-    public float timer;
     
     public float volumeMusic, volumeSfx, volumeVoice;
     
@@ -21,7 +22,9 @@ public class
     public Voice[] voice;
 
     private static AudioManager instance;
-
+    
+    private AudioSource _musicSource;
+    private AudioSource _musicSourceTwo;
     private AudioSource _sfxSource;
 
     private void Awake()
@@ -34,14 +37,14 @@ public class
         }
         DontDestroyOnLoad(gameObject);
         
-        foreach (Music s in music)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-            s.source.volume = s.volume*volumeMusic;
-            s.source.loop = s.loop;
-        }
+        _musicSource = gameObject.AddComponent<AudioSource>();
+        _musicSourceTwo = gameObject.AddComponent<AudioSource>();
+        
+        _musicSource.volume = volumeMusic;
+        _musicSourceTwo.volume = volumeMusic;
+        
         _sfxSource = gameObject.AddComponent<AudioSource>();
+        _sfxSource.volume = volumeSfx;
         
         foreach (Voice s in voice)
         {
@@ -51,12 +54,36 @@ public class
         }
     }
 
-    //Joue un son au démarage 
-    private void Start()
+    private float _timer = 0;
+    [SerializeField] private float fadeDuration;
+    private bool _isFading = false;
+    private int _currTrack = 2;
+    private float[] _trackVolume = new float[2];
+    private void Update()
     {
-        //Play("Theme");
+        if (!_isFading) return;
+
+        _timer += Time.deltaTime/fadeDuration;
+        if(_currTrack == 1)
+        {
+            _musicSource.volume = Mathf.Lerp(0, _trackVolume[1], _timer);
+            _musicSourceTwo.volume = Mathf.Lerp(_trackVolume[0], 0, _timer);
+            if(_musicSourceTwo.volume == 0)
+            {
+                _isFading = false;
+            }
+        }
+        else
+        {
+            _musicSource.volume = Mathf.Lerp(_trackVolume[0], 0, _timer);
+            _musicSourceTwo.volume = Mathf.Lerp(0, _trackVolume[1], _timer);
+            if(_musicSource.volume == 0)
+            {
+                _isFading = false;
+            }
+        }
     }
-    
+
     //Joue une musique depuis le début : FindObjectOfType<AudioManager>().Play("NomDuSon");
     public void Play(string name)
     {
@@ -66,10 +93,30 @@ public class
             Debug.LogWarning("La Musique : " + name + " n'existe pas... Oublier de le mettre ou mal écrit");
             return;
         }
-            
-        s.source.Play();
+
+        if(_currTrack == 1)
+        {
+            _trackVolume[0] = _musicSource.volume;
+            _trackVolume[1] = s.volume * volumeMusic;
+            _musicSourceTwo.clip = s.clip;
+            _musicSourceTwo.volume = s.volume * volumeMusic;
+            _musicSourceTwo.loop = s.loop;
+            _musicSourceTwo.Play();
+            _currTrack = 2;
+        }
+        else
+        {
+            _trackVolume[0] = s.volume * volumeMusic;
+            _trackVolume[1] = _musicSourceTwo.volume;
+            _musicSource.clip = s.clip;
+            _musicSource.loop = s.loop;
+            _musicSource.Play();
+            _currTrack = 1;
+        }
+        _timer = 0;
+            _isFading = true;
     }
-    
+
     //Arrête une musique : FindObjectOfType<AudioManager>().Stop("NomDuSon");
     public void Stop(string name)
     {

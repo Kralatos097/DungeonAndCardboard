@@ -86,6 +86,8 @@ public class PlayerMovement : TacticsMovement
             default:
                 throw new ArgumentOutOfRangeException();
         }
+        
+        Debug.Log(CombatStat.MaxHp +"\n"+ CombatStat.CurrHp);
     }
 
     public void SetUnitInfo()

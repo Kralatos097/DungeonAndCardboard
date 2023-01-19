@@ -8,8 +8,8 @@ public class FXManager : MonoBehaviour
 {
     [Header("Liste de Particule")] 
     public Particules[] particules;
-    
-    public static FXManager instance;
+
+    private static FXManager instance;
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -22,7 +22,7 @@ public class FXManager : MonoBehaviour
     }
     
     //FindObjectOfType<FXManager>().Play("NomDeParticule", transform);
-    public void Play (string name, Transform context)
+    public void Play(string name, Transform context)
     {
         Particules s = Array.Find(particules, parti => parti.name == name);
         if (s == null)
@@ -30,6 +30,38 @@ public class FXManager : MonoBehaviour
             Debug.LogWarning("La Particule : " + name + " n'existe pas... Oublier de le mettre ou mal écrit");
         }
 
-        Instantiate(s.particule, context.position, transform.rotation, transform);
+        Vector3 instPos = new Vector3(context.position.x, s.particule.transform.position.y, context.position.z);
+        GameObject inst = Instantiate(s.particule, instPos, Quaternion.identity, context);
+        inst.name = s.name;
+    }
+    
+    //FindObjectOfType<FXManager>().Stop("NomDeParticule", transform);
+    public void Stop(string name, Transform context)
+    {
+        Particules s = Array.Find(particules, parti => parti.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("La Particule : " + name + " n'existe pas... Oublier de le mettre ou mal écrit");
+        }
+
+        Transform inst = context.Find(s.name);
+        if(inst != null)
+        {
+            Destroy(inst.gameObject);
+        }
+    }
+    
+    //FindObjectOfType<FXManager>().StopAll(transform);
+    public void StopAll(Transform context)
+    {
+        foreach (Particules p in particules)
+        {
+            Transform inst = context.Find(p.name);
+            if(inst != null)
+            {
+                inst.gameObject.GetComponent<ParticleSystem>().Stop();
+                Destroy(inst.gameObject);
+            }
+        }
     }
 }
