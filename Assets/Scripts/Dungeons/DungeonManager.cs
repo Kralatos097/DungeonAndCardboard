@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class DungeonManager : MonoBehaviour
@@ -438,10 +437,16 @@ public class DungeonManager : MonoBehaviour
         LaunchRoomEffectAction(RoomEffect.Rest);
     }
 
+    public void ToMainMenu()
+    {
+        SceneManager.LoadSceneAsync("_ScenesValou/MainMenu");
+    }
+
+    /*--------------------------------------------------TEST------------------------------------------*/
+    
     [ContextMenu("Trap")]
     public void TestTrapUnits()
     {
         LaunchTrap();
     }
-    
 }

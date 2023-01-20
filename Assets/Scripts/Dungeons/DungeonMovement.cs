@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
 public class DungeonMovement : MonoBehaviour
@@ -10,17 +11,19 @@ public class DungeonMovement : MonoBehaviour
 
     private Vector3 target;
     private bool canMove = false;
+    private EventSystem eventSystem;
 
     private void Start()
     {
         target = transform.position;
         DungeonManager.CurrentTile = GetCurrentTile();
         canMove = true;
+        eventSystem = EventSystem.current;
     }
 
     private void Update()
     {
-        if(canMove/* && !DungeonUiManager.ArtworkShown*/ && !DungeonUiManager.inChoice)
+        if(canMove && !DungeonUiManager.inChoice && !eventSystem.IsPointerOverGameObject())
         {
             CheckMove();
         }

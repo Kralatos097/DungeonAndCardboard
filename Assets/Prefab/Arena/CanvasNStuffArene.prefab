@@ -2781,6 +2781,70 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &3723302308250201021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4672928230628904599}
+  - component: {fileID: 4781977059062697465}
+  - component: {fileID: 1527203552061235405}
+  m_Layer: 0
+  m_Name: DummyPlayer
+  m_TagString: Crate
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4672928230628904599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723302308250201021}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4636592046916025258}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4781977059062697465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723302308250201021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3d015f9e87eeb44eb7752281f82885c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0
+  atkRange: 0
+  actualTargetTile: {fileID: 0}
+--- !u!114 &1527203552061235405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723302308250201021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 671e05c623845e04d970a553fcfeee5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currInit: 0
+  isUp: 1
+  isAlive: 1
+  maxHp: 400
 --- !u!1 &4636592046916025257
 GameObject:
   m_ObjectHideFlags: 0
@@ -2816,6 +2880,7 @@ Transform:
   - {fileID: 162094853751815416}
   - {fileID: 8645692053830606695}
   - {fileID: 8645692053509363769}
+  - {fileID: 4672928230628904599}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2984,7 +3049,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8645692053824159187}
   - component: {fileID: 8645692053824159212}
-  - component: {fileID: 8645692053824159213}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3050,14 +3114,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &8645692053824159213
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8645692053824159214}
-  m_Enabled: 1
 --- !u!1 &8645692053830606690
 GameObject:
   m_ObjectHideFlags: 0

@@ -82,8 +82,7 @@ public enum ActiveType
     Armor,
     Cure,
     Splash,
-    TwoHit,
-    ThreeHit,
+    SacredMace,
 }
 
 public enum PassiveTrigger

@@ -9,7 +9,7 @@ public class FXManager : MonoBehaviour
     [Header("Liste de Particule")] 
     public Particules[] particules;
 
-    private static FXManager instance;
+    /*private static FXManager instance;
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -19,7 +19,7 @@ public class FXManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
-    }
+    }*/
     
     //FindObjectOfType<FXManager>().Play("NomDeParticule", transform);
     public void Play(string name, Transform context)

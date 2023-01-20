@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3743040489013127287}
   - component: {fileID: 3743040489013127288}
   - component: {fileID: 5566258208821927673}
+  - component: {fileID: 2263537129894144590}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -362,3 +363,11 @@ MonoBehaviour:
     particule: {fileID: 5758658489581617538, guid: b0a59cf8a4dcdbd41ad60473214408fd, type: 3}
   - name: Dead
     particule: {fileID: 7420029356290824026, guid: b2fd26a5e6187894d97f0a65c1a8540a, type: 3}
+--- !u!81 &2263537129894144590
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3743040489013127286}
+  m_Enabled: 1

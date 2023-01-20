@@ -41,7 +41,7 @@ public class Active : Stuff
 
         foreach(ActiveEffect activeEffect in activeEffectList)
         {
-            var gameObject = activeEffect.onSelf ? user : target;
+            GameObject go = activeEffect.onSelf ? user : target;
             int hit;
             if (activeEffect.noMiss && hitParam == 0) hit = 1;
             else if (activeEffect.critOnly && hitParam != 2) hit = 0;
@@ -65,38 +65,35 @@ public class Active : Stuff
             switch(activeEffect.activeType)
             {
                 case ActiveType.Damage:
-                    Damage(gameObject,activeEffect, hit);
+                    Damage(go,activeEffect, hit);
                     break;
                 case ActiveType.Heal:
-                    Heal(gameObject,activeEffect, hit);
+                    Heal(go,activeEffect, hit);
                     break;
                 case ActiveType.Burn:
-                    Burn(gameObject,activeEffect, hit);
+                    Burn(go,activeEffect, hit);
                     break;
                 case ActiveType.Stun:
-                    Stun(gameObject,activeEffect, hit);
+                    Stun(go,activeEffect, hit);
                     break;
                 case ActiveType.Freeze:
-                    Freeze(gameObject,activeEffect, hit);
+                    Freeze(go,activeEffect, hit);
                     break;
                 case ActiveType.Poison:
-                    Poison(gameObject,activeEffect, hit);
+                    Poison(go,activeEffect, hit);
                     break;
                 case ActiveType.Armor:
-                    Armor(gameObject,activeEffect, hit);
+                    Armor(go,activeEffect, hit);
                     break;
                 case ActiveType.Cure:
-                    Cure(gameObject, hit);
+                    Cure(go, hit);
                     break;
                 case ActiveType.Splash:
                     //todo
                     break;
-                /*case ActiveType.TwoHit:
-                    //todo
+                case ActiveType.SacredMace:
+                    SacredMace(user, go, activeEffect, hit);
                     break;
-                case ActiveType.ThreeHit:
-                    //todo
-                    break;*/
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -311,6 +308,18 @@ public class Active : Stuff
             case 1 or 2:
                 target.GetComponent<CombatStat>().ResetStatus();
                 break;
+        }
+    }
+
+    private void SacredMace(GameObject user, GameObject target, ActiveEffect activeEffect, int hit)
+    {
+        if(!user.CompareTag(target.tag))
+            Damage(target,activeEffect,hit);
+        else
+        {
+            ActiveEffect tempAE = new ActiveEffect(activeEffect.activeType, activeEffect.value / 2, activeEffect.onSelf,
+                activeEffect.noMiss, activeEffect.critOnly);
+            Heal(target, tempAE, hit);
         }
     }
 

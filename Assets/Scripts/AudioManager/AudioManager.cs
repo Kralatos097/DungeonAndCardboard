@@ -23,10 +23,16 @@ public class
 
     private static AudioManager instance;
     
-    private AudioSource _musicSource;
-    private AudioSource _musicSourceTwo;
-    private AudioSource _sfxSource;
-
+    private static AudioSource _musicSource;
+    private static AudioSource _musicSourceTwo;
+    private static AudioSource _sfxSource;
+    
+    private float _timer = 0;
+    [SerializeField] private float fadeDuration;
+    private bool _isFading = false;
+    private int _currTrack = 2;
+    private float[] _trackVolume = new float[]{0,0};
+    
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -54,11 +60,6 @@ public class
         }
     }
 
-    private float _timer = 0;
-    [SerializeField] private float fadeDuration;
-    private bool _isFading = false;
-    private int _currTrack = 2;
-    private float[] _trackVolume = new float[2];
     private void Update()
     {
         if (!_isFading) return;
@@ -114,7 +115,7 @@ public class
             _currTrack = 1;
         }
         _timer = 0;
-            _isFading = true;
+        _isFading = true;
     }
 
     //Arrête une musique : FindObjectOfType<AudioManager>().Stop("NomDuSon");

@@ -1,9 +1,10 @@
+#if UNITY_EDITOR
 using System;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
- 
+
 namespace Helpers {
      [CustomEditor(typeof(Stuff),true)]
      [CanEditMultipleObjects]
@@ -57,3 +58,4 @@ namespace Helpers {
          
      }
  }
+#endif

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720dd80e5193a704192370146364f395, type: 3}
   m_Name: OverGoblinArmored
   m_EditorClassIdentifier: 
-  maxHp: 10
+  maxHp: {x: 7, y: 10}
   initiative: 3
   movement: 2
   activeOne: {fileID: 11400000, guid: 47a5ada15e87e014a9b25609e335cd98, type: 2}

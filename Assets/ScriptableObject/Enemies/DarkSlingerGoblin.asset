@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720dd80e5193a704192370146364f395, type: 3}
   m_Name: DarkSlingerGoblin
   m_EditorClassIdentifier: 
-  maxHp: 5
+  maxHp: {x: 4, y: 5}
   initiative: 2
   movement: 3
   activeOne: {fileID: 11400000, guid: 2f10bbfb22f87ff4da4bbe048696a957, type: 2}
