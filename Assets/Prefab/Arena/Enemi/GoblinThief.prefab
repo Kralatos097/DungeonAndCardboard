@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 3377682630542870394, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
       propertyPath: UnitInfo
       value: 
-      objectReference: {fileID: 11400000, guid: c0731ecb28e4c9043bb125d2a8f3d3f2, type: 2}
+      objectReference: {fileID: 11400000, guid: 705a8d0c25b4e1545a3c2888a4bcfee8, type: 2}
     - target: {fileID: 3377682630542870396, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
       propertyPath: m_Name
       value: GoblinThief

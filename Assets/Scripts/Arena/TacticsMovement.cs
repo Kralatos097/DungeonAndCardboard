@@ -197,9 +197,10 @@ public class TacticsMovement : MonoBehaviour
         {
             ArenaTile t = _path.Peek();
             Vector3 target = t.transform.position;
-
-            target.y += halfHeight + t.GetComponent<Collider>().bounds.extents.y;
-
+            
+            /*target.y += halfHeight + t.GetComponent<Collider>().bounds.extents.y;*/
+            target.y = transform.position.y;
+            
             if (Vector3.Distance(transform.position, target) >= 0.05f)
             {
                 CalculateHeading(target);

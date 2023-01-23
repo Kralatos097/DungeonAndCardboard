@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 3377682630542870394, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
       propertyPath: UnitInfo
       value: 
-      objectReference: {fileID: 11400000, guid: afa07414b46f2c647b725862d5b1b825, type: 2}
+      objectReference: {fileID: 11400000, guid: f27a70c6b8aec104da1c9f6894735279, type: 2}
     - target: {fileID: 3377682630542870396, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
       propertyPath: m_Name
       value: DarkGoblinSlinger

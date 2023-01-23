@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 3377682630542870394, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
       propertyPath: UnitInfo
       value: 
-      objectReference: {fileID: 11400000, guid: 52f2508cdf6f83d4797b9ad6faa90bb7, type: 2}
+      objectReference: {fileID: 11400000, guid: ea9a173a26ea7ed4a93bfd83623fdbc9, type: 2}
     - target: {fileID: 3377682630542870396, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
       propertyPath: m_Name
       value: OverGoblinArmored

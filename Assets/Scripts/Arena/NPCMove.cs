@@ -1,13 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class NPCMove : TacticsMovement
 {
     private GameObject target;
     private bool _alreadyMoved = false;
     
-    [SerializeField] protected PlayerBaseInfo UnitInfo;
+    [SerializeField] protected EnemieBaseInfo UnitInfo;
+
+    private IaType _iaType;
     
     // Start is called before the first frame update
     void Start()
@@ -28,6 +32,8 @@ public class NPCMove : TacticsMovement
         ActiveTwo = UnitInfo.activeTwo;
         Passive = UnitInfo.passive;
         Consumable = UnitInfo.consumable;
+
+        _iaType = UnitInfo.iaType;
     }
 
     protected int RandomHp(int min, int max)
@@ -70,6 +76,25 @@ public class NPCMove : TacticsMovement
                 }
 
                 FindNearestTarget();
+                //todo: virer ligne du dessus et mettre les lignes du dessous quand les IA seront plus avancé
+                /*switch(_iaType)
+                {
+                    case IaType.Dumb:
+                        FindNearestTarget();
+                        break;
+                    case IaType.Coward:
+                        break;
+                    case IaType.Ruthless:
+                        break;
+                    case IaType.Perfectionist:
+                        break;
+                    case IaType.Accurate:
+                        break;
+                    case IaType.Friendly:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }*/
                 CalculatePath();
                 FindSelectableTile();
                 actualTargetTile.target = true;

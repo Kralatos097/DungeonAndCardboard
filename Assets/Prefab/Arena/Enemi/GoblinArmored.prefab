@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 3377682630542870394, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
       propertyPath: UnitInfo
       value: 
-      objectReference: {fileID: 11400000, guid: 3f0ffb99a8c48bd4ca7ee37561d4d0c8, type: 2}
+      objectReference: {fileID: 11400000, guid: c5deecd9a555def4c9eb6d162ec805b8, type: 2}
     - target: {fileID: 3377682630542870396, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
       propertyPath: m_Name
       value: GoblinArmored

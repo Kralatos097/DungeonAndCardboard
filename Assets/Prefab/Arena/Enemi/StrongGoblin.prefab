@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 3377682630542870394, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
       propertyPath: UnitInfo
       value: 
-      objectReference: {fileID: 11400000, guid: fb21f4aa9b5553541b440fde07d2ae6b, type: 2}
+      objectReference: {fileID: 11400000, guid: 931ba12554403154aa3d4710ebe1981c, type: 2}
     - target: {fileID: 3377682630542870396, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
       propertyPath: m_Name
       value: StrongGoblin

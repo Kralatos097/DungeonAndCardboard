@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 720dd80e5193a704192370146364f395, type: 3}
+  m_Script: {fileID: 11500000, guid: 151f7073a45793d43b3a318e58feea8d, type: 3}
   m_Name: StrongGoblin
   m_EditorClassIdentifier: 
   maxHp: {x: 5, y: 7}
@@ -19,3 +19,4 @@ MonoBehaviour:
   activeTwo: {fileID: 0}
   passive: {fileID: 11400000, guid: 7b4d1f29812b4514292cd8798190c6dd, type: 2}
   consumable: {fileID: 0}
+  iaType: 0

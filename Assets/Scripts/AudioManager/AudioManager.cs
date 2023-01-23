@@ -10,7 +10,9 @@ public class
     AudioManager : MonoBehaviour
 {
     
-    public float volumeMusic, volumeSfx, volumeVoice;
+    [SerializeField] private float volumeMusic, volumeSfx, volumeVoice;
+    [MinMaxSlider(0, 2)]
+    [SerializeField] private Vector2 pitchMinMax;
     
     [Header("Liste de Musique")]
     public Music[] music;
@@ -191,7 +193,7 @@ public class
     //Produit un son avec un pitch aléatoire : FindObjectOfType<AudioManager>().RandomPitch("NomDuSon");
     public void RandomPitch(string name)
     {
-        float alea = Random.Range(0.6f, 1.5f);
+        float alea = Random.Range(pitchMinMax.x, pitchMinMax.y);
         
         SFX s = Array.Find(sfx, sound => sound.name == name);
         if (s == null)

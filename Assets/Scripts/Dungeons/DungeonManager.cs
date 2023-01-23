@@ -130,8 +130,8 @@ public class DungeonManager : MonoBehaviour
     {
         if (warriorCard != null)
         {
-            WarriorInfo.MaxHp = warriorCard.maxHp.y;
-            WarriorInfo.CurrentHp = warriorCard.maxHp.y;
+            WarriorInfo.MaxHp = warriorCard.maxHp;
+            WarriorInfo.CurrentHp = warriorCard.maxHp;
             WarriorInfo.Init = warriorCard.initiative;
             WarriorInfo.Movement = warriorCard.movement;
             WarriorInfo.ActiveOne = warriorCard.activeOne;
@@ -141,8 +141,8 @@ public class DungeonManager : MonoBehaviour
         }
         if (thiefCard != null)
         {
-            ThiefInfo.MaxHp = thiefCard.maxHp.y;
-            ThiefInfo.CurrentHp = thiefCard.maxHp.y;
+            ThiefInfo.MaxHp = thiefCard.maxHp;
+            ThiefInfo.CurrentHp = thiefCard.maxHp;
             ThiefInfo.Init = thiefCard.initiative;
             ThiefInfo.Movement = thiefCard.movement;
             ThiefInfo.ActiveOne = thiefCard.activeOne;
@@ -152,8 +152,8 @@ public class DungeonManager : MonoBehaviour
         }
         if (clericCard != null)
         {
-            ClericInfo.MaxHp = clericCard.maxHp.y;
-            ClericInfo.CurrentHp = clericCard.maxHp.y;
+            ClericInfo.MaxHp = clericCard.maxHp;
+            ClericInfo.CurrentHp = clericCard.maxHp;
             ClericInfo.Init = clericCard.initiative;
             ClericInfo.Movement = clericCard.movement;
             ClericInfo.ActiveOne = clericCard.activeOne;
@@ -164,8 +164,8 @@ public class DungeonManager : MonoBehaviour
 
         if (wizardCard != null)
         {
-            WizardInfo.MaxHp = wizardCard.maxHp.y;
-            WizardInfo.CurrentHp = wizardCard.maxHp.y;
+            WizardInfo.MaxHp = wizardCard.maxHp;
+            WizardInfo.CurrentHp = wizardCard.maxHp;
             WizardInfo.Init = wizardCard.initiative;
             WizardInfo.Movement = wizardCard.movement;
             WizardInfo.ActiveOne = wizardCard.activeOne;
@@ -235,6 +235,7 @@ public class DungeonManager : MonoBehaviour
 
     private void LaunchFight()
     {
+        LaunchFightFX();
         string scene = SelectFightScene();
         
         Debug.Log(scene);
@@ -250,6 +251,7 @@ public class DungeonManager : MonoBehaviour
     
     private void LaunchAmbush()
     {
+        LaunchFightFX();
         string scene = SelectAmbushedScene();
         
         Debug.Log(scene);
@@ -265,6 +267,7 @@ public class DungeonManager : MonoBehaviour
     
     private void LaunchBoss()
     {
+        LaunchFightFX();
         SceneManager.LoadSceneAsync(bossScene);
     }
     
@@ -277,22 +280,25 @@ public class DungeonManager : MonoBehaviour
         {
             DungeonUiManager.LootAmbushedUi();
             lootEffect = LootEffect.Ambush;
+            NegativeLootFX();
         }
         else if (rand is > 0 and <= 3)
         {
-            
             DungeonUiManager.LootTrapUi();
             lootEffect = LootEffect.Trap;
+            NegativeLootFX();
         }
         else if(rand is > 3 and <= 7)
         {
             DungeonUiManager.LootStuffUi();
             lootEffect = LootEffect.Stuff;
+            PositiveLootFX();
         }
         else if (rand is > 7 and <= 13)
         {
             DungeonUiManager.LootConsumableUi();
             lootEffect = LootEffect.Consumable;
+            PositiveLootFX();
         }
         else
         {
@@ -321,6 +327,7 @@ public class DungeonManager : MonoBehaviour
         artworkShown = true;
         Stuff newStuff;
         int rand = Random.Range(0, 5);
+        PositiveLootFX();
         if(rand == 0)
         {
             DungeonUiManager.TreasureConsumableUi();
@@ -442,6 +449,26 @@ public class DungeonManager : MonoBehaviour
         SceneManager.LoadSceneAsync("_ScenesValou/MainMenu");
     }
 
+    private void PositiveLootFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("PositiveLoot");
+    }
+
+    private void NegativeLootFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("NegativeLoot");
+    }
+
+    private void StepFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("StepDungeon");
+    }
+
+    private void LaunchFightFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("LaunchFight");
+    }
+    
     /*--------------------------------------------------TEST------------------------------------------*/
     
     [ContextMenu("Trap")]

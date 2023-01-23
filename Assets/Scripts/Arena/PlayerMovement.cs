@@ -73,7 +73,7 @@ public class PlayerMovement : TacticsMovement
                 Consumable = WizardInfo.Consumable;
                 break;
             case Perso.Default:
-                CombatStat.MaxHp = UnitInfo.maxHp.y;
+                CombatStat.MaxHp = UnitInfo.maxHp;
                 CombatStat.CurrHp = CombatStat.MaxHp;
                 CombatStat.ChangeInit(UnitInfo.initiative);
 
@@ -157,7 +157,7 @@ public class PlayerMovement : TacticsMovement
                 if (!moving)
                 {
                     //Début du Soulevement du pion lors du mouvement
-                    if (!passM)
+                    if(!passM)
                     {
                         transform.GetChild(0).Translate(0, MoveY, 0);
                         passM = true;

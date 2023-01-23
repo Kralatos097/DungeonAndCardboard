@@ -14,7 +14,11 @@ public class CombatStat : MonoBehaviour
         set
         {
             _maxHp = value;
-
+            if(_maxHp > _currHp)
+            {
+                _currHp = _maxHp;
+            }
+            
             isAlive = _maxHp > 0;
         }
     }

@@ -30,10 +30,10 @@ PrefabInstance:
     - target: {fileID: 3377682630542870394, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
       propertyPath: UnitInfo
       value: 
-      objectReference: {fileID: 11400000, guid: 379b7505ee0357a45890134d4e625a8d, type: 2}
+      objectReference: {fileID: 11400000, guid: f3e54164cd990ce4fadc24e5fa04cde2, type: 2}
     - target: {fileID: 3377682630542870396, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
       propertyPath: m_Name
-      value: SadicGoblinThief
+      value: SadisticGoblinThief
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 109b9a43bccac90458515c8467bdf908, type: 3}

@@ -135,3 +135,13 @@ public enum ActiveTarget
     OthersOnly, //Can target everything in range except for the current tile 
     Everything, //the two other combined
 }
+
+public enum IaType
+{
+    Dumb,
+    Coward,
+    Ruthless,
+    Perfectionist,
+    Accurate,
+    Friendly,
+}

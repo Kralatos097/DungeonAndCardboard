@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720dd80e5193a704192370146364f395, type: 3}
   m_Name: Cleric
   m_EditorClassIdentifier: 
-  maxHp: {x: 0, y: 10}
+  maxHp: 10
   initiative: 1
   movement: 2
   activeOne: {fileID: 11400000, guid: 0e72c4832ea573340905f910f682b3ab, type: 2}

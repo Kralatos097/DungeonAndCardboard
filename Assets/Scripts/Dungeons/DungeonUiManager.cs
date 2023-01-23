@@ -295,6 +295,11 @@ public class DungeonUiManager : MonoBehaviour
         }
     }
 
+    private void ChangeStuffFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("SwitchStuff");
+    }
+
     public void ChangeEquipOneButton()
     {
         Stuff stuff = null;
@@ -328,6 +333,7 @@ public class DungeonUiManager : MonoBehaviour
         EquipChoiceIconChange(_newStuff, buttonClicked);
         EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject);
         
+        ChangeStuffFx();
         _newStuff = stuff;
     }
     
@@ -364,6 +370,7 @@ public class DungeonUiManager : MonoBehaviour
         EquipChoiceIconChange(_newStuff, buttonClicked);
         EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject);
         
+        ChangeStuffFx();
         _newStuff = stuff;
     }
     
@@ -400,6 +407,7 @@ public class DungeonUiManager : MonoBehaviour
         EquipChoiceIconChange(_newStuff, buttonClicked);
         EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject);
         
+        ChangeStuffFx();
         _newStuff = stuff;
     }
     
@@ -436,6 +444,7 @@ public class DungeonUiManager : MonoBehaviour
         EquipChoiceIconChange(_newStuff, buttonClicked);
         EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject);
         
+        ChangeStuffFx();
         _newStuff = stuff;
     }
 

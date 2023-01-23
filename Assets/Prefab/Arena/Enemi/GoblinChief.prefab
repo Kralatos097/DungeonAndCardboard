@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 3377682630542870394, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
       propertyPath: UnitInfo
       value: 
-      objectReference: {fileID: 11400000, guid: 550418e3a3161a64ca8b7d4cebd5cdd9, type: 2}
+      objectReference: {fileID: 11400000, guid: dedd624cf0ad3104d8ac5bab1439d9ab, type: 2}
     - target: {fileID: 3377682630542870396, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
       propertyPath: m_Name
       value: GoblinChief
