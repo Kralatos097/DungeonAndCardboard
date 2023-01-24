@@ -14,12 +14,12 @@ public class TacticsMovement : MonoBehaviour
 {
     protected bool Turn = false;
     public static bool PlayersTurn = false;
-    
-    private List<ArenaTile> _selectableTiles = new List<ArenaTile>();
+
+    protected List<ArenaTile> _selectableTiles = new List<ArenaTile>();
     private GameObject[] _tiles;
 
     private Stack<ArenaTile> _path = new Stack<ArenaTile>();
-    private ArenaTile _currentTile;
+    protected ArenaTile _currentTile;
 
     protected bool moving = false;
     protected bool attacking = false;
@@ -29,7 +29,7 @@ public class TacticsMovement : MonoBehaviour
     
     [HideInInspector] public int atkRange = 0;
 
-    protected float MoveY = .75f;
+    protected float MoveY = .5f;
     protected bool passM = false;
 
     private Vector3 velocity = new Vector3();
@@ -98,7 +98,7 @@ public class TacticsMovement : MonoBehaviour
         return GetTargetTile(gameObject);
     }
 
-    private void SetCurrentTile()
+    protected void SetCurrentTile()
     {
         _currentTile = GetTargetTile(gameObject);
         _currentTile.current = true;
@@ -344,9 +344,8 @@ public class TacticsMovement : MonoBehaviour
             }
         }
         
-        //todo - what do you do if there is no path to the target tile?
+        //todo: what do you do if there is no path to the target tile?
         Debug.Log("Path not Found");
-        
     }
 
     protected ArenaTile FindLowestF(List<ArenaTile> list)
@@ -494,7 +493,7 @@ public class TacticsMovement : MonoBehaviour
                 break;
         }
 
-        Debug.Log("ATTACKING " + target.gameObject.name + "!\n Now has : " + target.GetComponent<CombatStat>().CurrHp + " HP!");
+        //Debug.Log("ATTACKING " + target.gameObject.name + "!\n Now has : " + target.GetComponent<CombatStat>().CurrHp + " HP!");
         EndOfAttack();
     }
 

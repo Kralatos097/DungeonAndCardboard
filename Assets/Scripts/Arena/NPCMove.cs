@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 public class NPCMove : TacticsMovement
 {
     private GameObject target;
+    private int targetDistance = 0;
+    private GameObject CrateOnPath = null;
     private bool _alreadyMoved = false;
     
     [SerializeField] protected EnemieBaseInfo UnitInfo;
@@ -55,7 +57,7 @@ public class NPCMove : TacticsMovement
         RemoveSelectableTile();
         if (temp != null && !moving)
         {
-            Debug.Log("Ennemi Atk !");
+            //Debug.Log("Ennemi Atk !");
             attacking = true;
             Attack(temp, 1);
             return;
@@ -75,7 +77,10 @@ public class NPCMove : TacticsMovement
                     passM = true;
                 }
 
-                FindNearestTarget();
+                FindLowestHpTarget();
+                //FindFarthestTarget();
+                //FindNearestTarget();
+                Debug.Log(target.name);
                 //todo: virer ligne du dessus et mettre les lignes du dessous quand les IA seront plus avancé
                 /*switch(_iaType)
                 {
@@ -112,7 +117,7 @@ public class NPCMove : TacticsMovement
         }
     }
 
-    private void FindNearestTarget()
+    private void FindNearestTargetV1()
     {
         GameObject[] targets = GameObject.FindGameObjectsWithTag("Player");
 
@@ -132,11 +137,133 @@ public class NPCMove : TacticsMovement
         
         target = nearest; 
     }
+    
+    private void FindNearestTarget()
+    {
+        ComputeAdjacencyListAtk();
+        SetCurrentTile();
+
+        Queue<ArenaTile> process = new Queue<ArenaTile>();
+        
+        process.Enqueue(_currentTile);
+        _currentTile.visited = true;
+
+        while (process.Count > 0)
+        {
+            ArenaTile t = process.Dequeue();
+            
+            _selectableTiles.Add(t);
+
+            foreach (ArenaTile tile in t.adjacencyList)
+            {
+                if (!tile.visited)
+                {
+                    tile.parent = t;
+                    tile.visited = true;
+                    tile.distance = 1 + t.distance;
+                    process.Enqueue(tile);
+
+                    GameObject TGO = tile.GetGameObjectOnTop();
+                    if (TGO != null)
+                    {
+                        if (TGO.CompareTag("Player"))
+                        {
+                            target = TGO;
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    private void FindFarthestTarget() //A revoir
+    {
+        ComputeAdjacencyListAtk();
+        SetCurrentTile();
+
+        Queue<ArenaTile> process = new Queue<ArenaTile>();
+        
+        process.Enqueue(_currentTile);
+        _currentTile.visited = true;
+
+        while (process.Count > 0)
+        {
+            ArenaTile t = process.Dequeue();
+            
+            _selectableTiles.Add(t);
+
+            foreach (ArenaTile tile in t.adjacencyList)
+            {
+                if (!tile.visited)
+                {
+                    tile.parent = t;
+                    tile.visited = true;
+                    tile.distance = 1 + t.distance;
+                    process.Enqueue(tile);
+
+                    GameObject TGO = tile.GetGameObjectOnTop();
+                    if (TGO != null)
+                    {
+                        if (TGO.CompareTag("Player") && tile.distance > targetDistance)
+                        {
+                            target = TGO;
+                            targetDistance = tile.distance;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    private void FindLowestHpTarget()
+    {
+        ComputeAdjacencyListAtk();
+        SetCurrentTile();
+
+        Queue<ArenaTile> process = new Queue<ArenaTile>();
+        
+        process.Enqueue(_currentTile);
+        _currentTile.visited = true;
+
+        while (process.Count > 0)
+        {
+            ArenaTile t = process.Dequeue();
+            
+            _selectableTiles.Add(t);
+
+            foreach (ArenaTile tile in t.adjacencyList)
+            {
+                if (!tile.visited)
+                {
+                    tile.parent = t;
+                    tile.visited = true;
+                    tile.distance = 1 + t.distance;
+                    process.Enqueue(tile);
+
+                    GameObject TGO = tile.GetGameObjectOnTop();
+                    if (TGO != null)
+                    {
+                        if (TGO.CompareTag("Player"))
+                        {
+                            int targetHp = 1000;
+                            if(target != null)
+                                targetHp = target.GetComponent<CombatStat>().CurrHp;
+                            int TGOHp = TGO.GetComponent<CombatStat>().CurrHp;
+                            if(targetHp > TGOHp)
+                            {
+                                target = TGO;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     private void CalculatePath()
     {
         ArenaTile targetTile = GetTargetTile(target);
-        //Debug.Log(targetTile);
         FindPath(targetTile);
     }
 

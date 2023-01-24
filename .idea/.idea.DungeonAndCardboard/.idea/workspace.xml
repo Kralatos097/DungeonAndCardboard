@@ -2,61 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225202b0-c116-4b2c-8d9c-8c9a57c9d235" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/DarkGoblinSlinger.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/DarkGoblinSlinger.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/Enemi.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/Enemi.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/Goblin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/Goblin.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/GoblinArmored.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/GoblinArmored.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/GoblinChief.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/GoblinChief.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/GoblinSlinger.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/GoblinSlinger.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/GoblinThief.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/GoblinThief.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/OverGoblinArmored.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/OverGoblinArmored.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/SadicGoblinThief.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/SadicGoblinThief.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/StarredGoblinChief.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/StarredGoblinChief.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/StrongGoblin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/StrongGoblin.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Player/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/AudioManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/AudioManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/DungeonsManagers.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/DungeonsManagers.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/DarkSlingerGoblin.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/DarkSlingerGoblin.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/DarkSlingerGoblin.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/DarkSlingerGoblin.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/Goblin.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/Goblin.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/Goblin.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/Goblin.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinArmored.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinArmored.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinArmored.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinArmored.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinChief.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinChief.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinChief.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinChief.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinSlinger.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinSlinger.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinSlinger.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinSlinger.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinThief.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinThief.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinThief.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinThief.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/OverGoblinArmored.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/OverGoblinArmored.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/SadisticGoblinThief.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/SadisticGoblinThief.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/SadisticGoblinThief.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/SadisticGoblinThief.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/StarredGoblinChief.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/StarredGoblinChief.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/StarredGoblinChief.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/StarredGoblinChief.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/StrongGoblin.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/StrongGoblin.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/StrongGoblin.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/StrongGoblin.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Players/Cleric.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Players/Cleric.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Players/Thief.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Players/Thief.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Players/Warrior.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Players/Warrior.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Players/Wizard.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Players/Wizard.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/CombatStat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/CombatStat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/temp/Warrior.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/temp/Warrior.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/NPCMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/NPCMove.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/PlayerMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AudioManager/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AudioManager/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dungeons/DungeonManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dungeons/DungeonManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dungeons/DungeonUiManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dungeons/DungeonUiManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dungeons/PlayerBaseInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dungeons/PlayerBaseInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enums.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enums.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_ScenesTibo/CommonFights/Fight 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesTibo/CommonFights/Fight 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_ScenesTibo/DungeonScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesTibo/DungeonScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/TurnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/TurnManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,6 +78,7 @@
       <updated>1674480362400</updated>
       <workItem from="1674480369471" duration="9000" />
       <workItem from="1674480396385" duration="6893000" />
+      <workItem from="1674549738916" duration="11958000" />
     </task>
     <servers />
   </component>

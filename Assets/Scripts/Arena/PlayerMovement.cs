@@ -87,7 +87,7 @@ public class PlayerMovement : TacticsMovement
                 throw new ArgumentOutOfRangeException();
         }
         
-        Debug.Log(CombatStat.MaxHp +"\n"+ CombatStat.CurrHp);
+        //Debug.Log(CombatStat.MaxHp +"\n"+ CombatStat.CurrHp);
     }
 
     public void SetUnitInfo()
@@ -308,7 +308,7 @@ public class PlayerMovement : TacticsMovement
                     }
                     else
                     {
-                        //Todo: If attacking an empty tile -> do atk animation and nothing else
+                        //If attacking an empty tile -> do atk animation and nothing else
                         GameObject dummy = GameObject.Find("DummyPlayer");
                         
                         Debug.Log("ATTACK");

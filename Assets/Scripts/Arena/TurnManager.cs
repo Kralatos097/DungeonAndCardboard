@@ -157,7 +157,7 @@ public class TurnManager : MonoBehaviour
                     Destroy(deadUnit.gameObject);
                 }
             }
-            Debug.Log("Turn of : " + turnOrder.Peek().name);
+            //Debug.Log("Turn of : " + turnOrder.Peek().name);
 
             if(turnOrder.Peek().GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Poison)
             {
