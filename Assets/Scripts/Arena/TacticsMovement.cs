@@ -288,7 +288,7 @@ public class TacticsMovement : MonoBehaviour
         return endTile;
     }
 
-    protected void FindPath(ArenaTile targetTile)
+    protected bool FindPath(ArenaTile targetTile)
     {
         ComputeAdjacencyList(targetTile);
         SetCurrentTile();
@@ -310,7 +310,7 @@ public class TacticsMovement : MonoBehaviour
             {
                 actualTargetTile = FindEndTile(t);
                 MoveToTile(actualTargetTile);
-                return;
+                return true;
             }
 
             foreach (ArenaTile tile in t.adjacencyList)
@@ -346,6 +346,7 @@ public class TacticsMovement : MonoBehaviour
         
         //todo: what do you do if there is no path to the target tile?
         Debug.Log("Path not Found");
+        return false;
     }
 
     protected ArenaTile FindLowestF(List<ArenaTile> list)
