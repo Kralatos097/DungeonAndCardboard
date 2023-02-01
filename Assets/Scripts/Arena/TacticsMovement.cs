@@ -37,7 +37,7 @@ public class TacticsMovement : MonoBehaviour
 
     private float halfHeight = 0;
 
-    [HideInInspector] public ArenaTile actualTargetTile;
+    protected ArenaTile ActualTargetTile;
 
     protected Active ActiveOne;
     protected int ActiveOneCd = 0;
@@ -288,7 +288,7 @@ public class TacticsMovement : MonoBehaviour
         return endTile;
     }
 
-    protected bool FindPath(ArenaTile targetTile)
+    protected bool FindPathFull(ArenaTile targetTile) //A modifier
     {
         ComputeAdjacencyList(targetTile);
         SetCurrentTile();
@@ -308,8 +308,191 @@ public class TacticsMovement : MonoBehaviour
 
             if (t == targetTile)
             {
-                actualTargetTile = FindEndTile(t);
-                MoveToTile(actualTargetTile);
+                ActualTargetTile = FindEndTile(t);
+                //MoveToTile(ActualTargetTile);
+                return true;
+            }
+
+            foreach (ArenaTile tile in t.adjacencyList)
+            {
+                if (closedList.Contains(tile))
+                {
+                    //Do nothing, already processed
+                }
+                else if (openList.Contains(tile))
+                {
+                    float tempG = t.g + Vector3.Distance(tile.transform.position, t.transform.position);
+
+                    if (tempG < tile.g)
+                    {
+                        tile.parent = t;
+                        tile.g = tempG;
+                        tile.f = tile.g + tile.h;
+                    }
+                }
+                else
+                {
+                    tile.parent = t;
+
+                    tile.g = t.g + Vector3.Distance(tile.transform.position, t.transform.position);
+                    tile.h = Vector3.Distance(tile.transform.position, targetTile.transform.position);
+
+                    tile.f = tile.g + tile.h;
+                    
+                    openList.Add(tile);
+                }
+            }
+        }
+        
+        //todo: what do you do if there is no path to the target tile?
+        Debug.Log("Path not Found");
+        return false;
+    }
+    
+    protected bool FindPathWoTrap(ArenaTile targetTile) //A Faire
+    {
+        ComputeAdjacencyListAtk();// a modif pour ignorer les pieges
+        SetCurrentTile();
+
+        List<ArenaTile> openList = new List<ArenaTile>();
+        List<ArenaTile> closedList = new List<ArenaTile>();
+        
+        openList.Add(_currentTile);
+        _currentTile.h = Vector3.Distance(_currentTile.transform.position, targetTile.transform.position);
+        _currentTile.f = _currentTile.h;
+
+        while (openList.Count > 0)
+        {
+            ArenaTile t = FindLowestF(openList);
+            
+            closedList.Add(t);
+
+            if (t == targetTile)
+            {
+                ActualTargetTile = FindEndTile(t);
+                //MoveToTile(ActualTargetTile);
+                return true;
+            }
+
+            foreach (ArenaTile tile in t.adjacencyList)
+            {
+                if (closedList.Contains(tile))
+                {
+                    //Do nothing, already processed
+                }
+                else if (openList.Contains(tile))
+                {
+                    float tempG = t.g + Vector3.Distance(tile.transform.position, t.transform.position);
+
+                    if (tempG < tile.g)
+                    {
+                        tile.parent = t;
+                        tile.g = tempG;
+                        tile.f = tile.g + tile.h;
+                    }
+                }
+                else
+                {
+                    tile.parent = t;
+
+                    tile.g = t.g + Vector3.Distance(tile.transform.position, t.transform.position);
+                    tile.h = Vector3.Distance(tile.transform.position, targetTile.transform.position);
+
+                    tile.f = tile.g + tile.h;
+                    
+                    openList.Add(tile);
+                }
+            }
+        }
+        
+        //todo: what do you do if there is no path to the target tile?
+        Debug.Log("Path not Found");
+        return false;
+    }
+    
+    protected bool FindPathWoCrate(ArenaTile targetTile) //A Faire
+    {
+        ComputeAdjacencyList(targetTile);// a modif pour ignorer les pieges et Caisse
+        SetCurrentTile();
+
+        List<ArenaTile> openList = new List<ArenaTile>();
+        List<ArenaTile> closedList = new List<ArenaTile>();
+        
+        openList.Add(_currentTile);
+        _currentTile.h = Vector3.Distance(_currentTile.transform.position, targetTile.transform.position);
+        _currentTile.f = _currentTile.h;
+
+        while (openList.Count > 0)
+        {
+            ArenaTile t = FindLowestF(openList);
+            
+            closedList.Add(t);
+
+            if (t == targetTile)
+            {
+                ActualTargetTile = FindEndTile(t);
+                //MoveToTile(ActualTargetTile);
+                return true;
+            }
+
+            foreach (ArenaTile tile in t.adjacencyList)
+            {
+                if (closedList.Contains(tile))
+                {
+                    //Do nothing, already processed
+                }
+                else if (openList.Contains(tile))
+                {
+                    float tempG = t.g + Vector3.Distance(tile.transform.position, t.transform.position);
+
+                    if (tempG < tile.g)
+                    {
+                        tile.parent = t;
+                        tile.g = tempG;
+                        tile.f = tile.g + tile.h;
+                    }
+                }
+                else
+                {
+                    tile.parent = t;
+
+                    tile.g = t.g + Vector3.Distance(tile.transform.position, t.transform.position);
+                    tile.h = Vector3.Distance(tile.transform.position, targetTile.transform.position);
+
+                    tile.f = tile.g + tile.h;
+                    
+                    openList.Add(tile);
+                }
+            }
+        }
+        
+        //todo: what do you do if there is no path to the target tile?
+        Debug.Log("Path not Found");
+        return false;
+    }
+    
+    protected bool FindPathWoAll(ArenaTile targetTile) //A Faire
+    {
+        ComputeAdjacencyList(targetTile);// a modif pour ignorer les pieges et Caisse
+        SetCurrentTile();
+
+        List<ArenaTile> openList = new List<ArenaTile>();
+        List<ArenaTile> closedList = new List<ArenaTile>();
+        
+        openList.Add(_currentTile);
+        _currentTile.h = Vector3.Distance(_currentTile.transform.position, targetTile.transform.position);
+        _currentTile.f = _currentTile.h;
+
+        while (openList.Count > 0)
+        {
+            ArenaTile t = FindLowestF(openList);
+            
+            closedList.Add(t);
+
+            if (t == targetTile)
+            {
+                ActualTargetTile = FindEndTile(t);
+                //MoveToTile(ActualTargetTile);
                 return true;
             }
 

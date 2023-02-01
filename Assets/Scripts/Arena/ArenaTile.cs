@@ -96,7 +96,7 @@ public class ArenaTile : MonoBehaviour
         foreach (Collider item in colliders)
         {
             ArenaTile arenaTile = item.GetComponent<ArenaTile>();
-            if (arenaTile != null && arenaTile.walkable == true)
+            if(arenaTile != null && arenaTile.walkable)
             {
                 RaycastHit hit;
 

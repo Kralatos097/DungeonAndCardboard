@@ -55,7 +55,7 @@ public class NPCMove : TacticsMovement
 
         GameObject temp = AlliesInAttackRange();
         RemoveSelectableTile();
-        if (temp != null && !moving)
+        if(temp != null && !moving)
         {
             //Debug.Log("Ennemi Atk !");
             attacking = true;
@@ -100,9 +100,9 @@ public class NPCMove : TacticsMovement
                     default:
                         throw new ArgumentOutOfRangeException();
                 }*/
-                CalculatePath();
+                CalculatePathFull();
                 FindSelectableTile();
-                actualTargetTile.target = true;
+                ActualTargetTile.target = true;
             }
             else
             {
@@ -117,7 +117,7 @@ public class NPCMove : TacticsMovement
         }
     }
 
-    private void FindNearestTargetV1()
+    private void FindNearestTargetDist()
     {
         GameObject[] targets = GameObject.FindGameObjectsWithTag("Player");
 
@@ -169,6 +169,7 @@ public class NPCMove : TacticsMovement
                         if (TGO.CompareTag("Player"))
                         {
                             target = TGO;
+                            targetDistance = tile.distance;
                             return;
                         }
                     }
@@ -253,6 +254,7 @@ public class NPCMove : TacticsMovement
                             if(targetHp > TGOHp)
                             {
                                 target = TGO;
+                                targetDistance = tile.distance;
                             }
                         }
                     }
@@ -261,10 +263,98 @@ public class NPCMove : TacticsMovement
         }
     }
 
-    private void CalculatePath()
+    private bool CalculatePathFull()
     {
         ArenaTile targetTile = GetTargetTile(target);
-        FindPath(targetTile);
+        return FindPathFull(targetTile);
+    }
+    
+    private bool CalculatePathWoTrap()
+    {
+        ArenaTile targetTile = GetTargetTile(target);
+        return FindPathWoTrap(targetTile);
+    }
+    
+    private bool CalculatePathWoCrate()
+    {
+        ArenaTile targetTile = GetTargetTile(target);
+        return FindPathWoCrate(targetTile);
+    }
+    
+    private bool CalculatePathWoAll()
+    {
+        ArenaTile targetTile = GetTargetTile(target);
+        return FindPathWoCrate(targetTile);
+    }
+
+    private void DumbAI()
+    {
+        if(AlliesInAttackRange())
+        {
+            //attack target
+        }
+        else
+        {
+            FindNearestTarget();
+
+            bool findPath = CalculatePathFull(); //Calcul du trajet normal
+            int tDist = targetDistance;
+            bool findPathV2 = CalculatePathWoTrap(); //Calcul du trajet sans les pieges
+            int tDistV2 = targetDistance;
+
+            if (findPath && findPathV2) //Si les 2 on des trajets valides
+            {
+                if (tDist <= tDistV2) //On compare la longueur des trajets et on prend le plus court
+                {
+                    CalculatePathFull();
+                    MoveToTile(ActualTargetTile);
+                }
+                else
+                {
+                    CalculatePathWoTrap();
+                    MoveToTile(ActualTargetTile);
+                }
+            }
+            else if (findPath) //Si seul le 1er trajet et valide
+            {
+                CalculatePathFull();
+                MoveToTile(ActualTargetTile);
+            }
+            else if (findPathV2) //Si seul le 2eme trajet et valide
+            {
+                CalculatePathWoTrap();
+                MoveToTile(ActualTargetTile);
+            }
+            else //Si les trajets ne sont pas valide
+            {
+                findPath = CalculatePathWoCrate();
+                if (findPath)
+                {
+                    MoveToTile(ActualTargetTile);
+                }
+                else
+                {
+                    //recherche de chemin en ignorant tous les obstacles
+                    /*if(findPath)
+                     {
+                        bouge le plus loins possible
+                     }                 
+                     else
+                     {
+                        Fin du tour
+                     }
+                     */
+                }
+            }
+            if(AlliesInAttackRange())
+            {
+                //attack target
+            }
+            else
+            {
+                //Fin du tour
+            }
+        }
     }
 
     protected override void EndOfMovement()
