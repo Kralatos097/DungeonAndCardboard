@@ -205,5 +205,33 @@ public class
     }
 
     //Je n'est pas mis de fonction pour jouer de voix
-    //Ajouter des fonctions Fade In / Out pour les musiques
+    
+    public void ChangeMusicVolume(float volume)
+    {
+        volumeMusic = volume;
+
+        if (_musicSource.isPlaying)
+        {
+            AudioClip a = _musicSource.clip;
+            Music s = Array.Find(music, sound => sound.clip == a);
+            _musicSource.volume = volume * s.volume;
+        }
+
+        if (_musicSourceTwo.isPlaying)
+        {
+            AudioClip b = _musicSourceTwo.clip;
+            Music t = Array.Find(music, sound => sound.clip == b);
+            _musicSourceTwo.volume = volume * t.volume;
+        }
+    
+    }
+    public void ChangeSFXVolume(float volume)
+    {
+        volumeSfx = volume;
+    }
+    
+    public void ChangeVoiceVolume(float volume)
+    {
+        volumeVoice = volume;
+    }
 }
