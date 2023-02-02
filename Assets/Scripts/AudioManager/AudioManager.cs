@@ -29,6 +29,15 @@ public class
 
     private void Awake()
     {
+        if (PlayerPrefs.HasKey("MusicVolume"))
+            volumeMusic = PlayerPrefs.GetFloat("MusicVolume", 0);
+        
+        if (PlayerPrefs.HasKey("SFXVolume"))
+            volumeSfx = PlayerPrefs.GetFloat("SFXVolume", 0);
+        
+        if (PlayerPrefs.HasKey("VoiceVolume"))
+            volumeVoice = PlayerPrefs.GetFloat("VoiceVolume", 0);
+        
         if (instance == null) instance = this;
         else
         {

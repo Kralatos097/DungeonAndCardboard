@@ -12,9 +12,10 @@ public class SettingsManager : MonoBehaviour
     private void Awake()
     {
         _audioManager = FindObjectOfType<AudioManager>();
+        
         Music.value = _audioManager.volumeMusic;
-        SoundEffect.value = _audioManager.volumeMusic;
-        Voice.value = _audioManager.volumeMusic;
+        SoundEffect.value = _audioManager.volumeSfx;
+        Voice.value = _audioManager.volumeVoice;
     }
 
     private void Update()
@@ -49,15 +50,18 @@ public class SettingsManager : MonoBehaviour
     public void MusicChange()
     {
         _audioManager.ChangeMusicVolume(Music.value);
+        PlayerPrefs.SetFloat("MusicVolume", Music.value);
     }
 
     public void SFXChange()
     {
         _audioManager.ChangeSFXVolume(SoundEffect.value);
+        PlayerPrefs.SetFloat("SFXVolume", Music.value);
     }
     
     public void VoiceChange()
     {
         _audioManager.ChangeVoiceVolume(Voice.value);
+        PlayerPrefs.SetFloat("VoiceVolume", Music.value);
     }
 }
