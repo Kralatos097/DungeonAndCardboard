@@ -118,7 +118,6 @@ public class ArenaTile : MonoBehaviour
             ArenaTile arenaTile = item.GetComponent<ArenaTile>();
             if (arenaTile != null)
             {
-                //RaycastHit hit;
                 adjacencyList.Add(arenaTile);
             }
         }

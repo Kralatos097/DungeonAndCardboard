@@ -8,7 +8,6 @@ public class NPCMove : TacticsMovement
 {
     private GameObject target;
     private int targetDistance = 0;
-    private GameObject CrateOnPath = null;
     private bool _alreadyMoved = false;
     
     [SerializeField] protected EnemieBaseInfo UnitInfo;
@@ -68,7 +67,7 @@ public class NPCMove : TacticsMovement
         }
         if(!_alreadyMoved && !attacking)
         {
-            if (!moving)
+            if(!moving)
             {
                 //Début du Soulevement du pion lors du mouvement
                 if (!passM)
@@ -77,15 +76,19 @@ public class NPCMove : TacticsMovement
                     passM = true;
                 }
 
-                FindLowestHpTarget();
+                /*FindLowestHpTarget();
                 //FindFarthestTarget();
                 //FindNearestTarget();
                 Debug.Log(target.name);
-                //todo: virer ligne du dessus et mettre les lignes du dessous quand les IA seront plus avancé
-                /*switch(_iaType)
+                CalculatePathFull();
+                FindSelectableTile();
+                ActualTargetTile.target = true;
+                MoveToTile(ActualTargetTile);*/
+                //todo: virer lignes du dessus et mettre les lignes du dessous quand les IA seront plus avancé
+                switch(_iaType)
                 {
                     case IaType.Dumb:
-                        FindNearestTarget();
+                        DumbAI();
                         break;
                     case IaType.Coward:
                         break;
@@ -99,10 +102,7 @@ public class NPCMove : TacticsMovement
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
-                }*/
-                CalculatePathFull();
-                FindSelectableTile();
-                ActualTargetTile.target = true;
+                }
             }
             else
             {
@@ -110,7 +110,6 @@ public class NPCMove : TacticsMovement
                 canAtk = true;
             }
         }
-
         if (_alreadyMoved && !canAtk)
         {
             EndTurnT();
