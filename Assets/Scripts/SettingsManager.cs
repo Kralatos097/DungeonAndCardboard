@@ -56,12 +56,12 @@ public class SettingsManager : MonoBehaviour
     public void SFXChange()
     {
         _audioManager.ChangeSFXVolume(SoundEffect.value);
-        PlayerPrefs.SetFloat("SFXVolume", Music.value);
+        PlayerPrefs.SetFloat("SFXVolume", SoundEffect.value);
     }
     
     public void VoiceChange()
     {
         _audioManager.ChangeVoiceVolume(Voice.value);
-        PlayerPrefs.SetFloat("VoiceVolume", Music.value);
+        PlayerPrefs.SetFloat("VoiceVolume", Voice.value);
     }
 }
