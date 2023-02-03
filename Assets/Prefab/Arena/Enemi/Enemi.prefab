@@ -53,7 +53,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d724c73a0d824ef438b2aef6294f91ed, type: 2}
+  - {fileID: 2100000, guid: de4765fbb76baaa44b7fcf63daf7914d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,7 +82,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3377682628808166843}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 2514270573848426643, guid: 1546e1e122de3694a8a0fcf714c600d0, type: 3}
 --- !u!1 &3377682630542870396
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,9 +92,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3377682630542870392}
-  - component: {fileID: 3377682630542870399}
   - component: {fileID: 3377682630542870394}
   - component: {fileID: 3377682630542870395}
+  - component: {fileID: 4763881386593351290}
   m_Layer: 0
   m_Name: Enemi
   m_TagString: Enemy
@@ -110,27 +110,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3377682630542870396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalPosition: {x: 0, y: 0.51, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3377682628808166842}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &3377682630542870399
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3377682630542870396}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3377682630542870394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +132,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   atkRange: 0
-  actualTargetTile: {fileID: 0}
   UnitInfo: {fileID: 11400000, guid: 572f3b222cddff0469dd68f5083e1515, type: 2}
 --- !u!114 &3377682630542870395
 MonoBehaviour:
@@ -162,3 +148,16 @@ MonoBehaviour:
   currInit: 0
   isUp: 1
   isAlive: 1
+--- !u!65 &4763881386593351290
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3377682630542870396}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.7, z: 0.5}
+  m_Center: {x: 0, y: 0.35, z: 0}

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
   m_Name: Crystal Rod
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: 4406bb8599be90f48af654919b5b3b02, type: 3}
+  stuffType: Active
+  logo: {fileID: 21300000, guid: af0b52611cea867489220d724723753b, type: 3}
   description: Inflict 2 Damages & 1 Splash Damage
   range: 3
   cd: 0

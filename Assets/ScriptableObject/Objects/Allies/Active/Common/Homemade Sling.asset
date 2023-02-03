@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
   m_Name: Homemade Sling
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: 452b1fc8e88bff04fb85e9fea463afc7, type: 3}
+  stuffType: Active
+  logo: {fileID: 21300000, guid: 97b4df375c2936c42ab737342a6f5548, type: 3}
   description: Inflict 2 Damages
   range: 4
   cd: 0

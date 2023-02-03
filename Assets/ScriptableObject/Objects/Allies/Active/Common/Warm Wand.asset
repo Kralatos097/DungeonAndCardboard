@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
   m_Name: Warm Wand
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: 7f2f41c2302725b449393faa3dbf9874, type: 3}
+  stuffType: Active
+  logo: {fileID: 21300000, guid: a5375ee2a378bb84b8f7b67705229c0c, type: 3}
   description: Inflict 4 Burn
   range: 3
   cd: 1

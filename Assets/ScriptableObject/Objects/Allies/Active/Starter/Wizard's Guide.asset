@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
   m_Name: Wizard's Guide
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: e8e22b143af20b24c81970f370d8b871, type: 3}
+  stuffType: Active
+  logo: {fileID: 21300000, guid: 216b64cac7d427941a83e5de23b26f3a, type: 3}
   description: Inflict 2 Burn
   range: 4
   cd: 0

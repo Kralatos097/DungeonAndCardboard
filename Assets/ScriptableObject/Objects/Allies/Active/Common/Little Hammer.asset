@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
   m_Name: Little Hammer
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: ff4097a584076d74ea9ac6516f6016cc, type: 3}
+  stuffType: Active
+  logo: {fileID: 21300000, guid: d126a4bde99a70243a7957dfd87dfd64, type: 3}
   description: Inflict 3 Damages & Stun on Critic
   range: 1
   cd: 0

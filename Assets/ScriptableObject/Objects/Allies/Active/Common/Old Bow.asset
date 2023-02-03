@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
   m_Name: Old Bow
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: 4711025140083fe4bb3d6b63c3b2e8f4, type: 3}
+  stuffType: Active
+  logo: {fileID: 21300000, guid: f42ef78cb0b5e59488c2da7fba7e671d, type: 3}
   description: Inflict 3 Damages
   range: 3
   cd: 0

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
   m_Name: Blue Book
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: a5da789c8b497ee48ba67971ffa3a51c, type: 3}
+  stuffType: Active
+  logo: {fileID: 21300000, guid: 4df8e2f800150d245b8f77a721ffc864, type: 3}
   description: Inflict 2 Froze
   range: 2
   cd: 0
