@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="225202b0-c116-4b2c-8d9c-8c9a57c9d235" name="Changes" comment="" />
+    <list default="true" id="225202b0-c116-4b2c-8d9c-8c9a57c9d235" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/Textures/Texture Players/Texture_Dwarf/Modele_Dwarf_1001_BaseMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Materials/Textures/Texture Players/Texture_Dwarf/Modele_Dwarf_1001_BaseMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/Textures/Texture Players/Texture_Dwarf/Modele_Dwarf_1001_Emissive.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Materials/Textures/Texture Players/Texture_Dwarf/Modele_Dwarf_1001_Emissive.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/Textures/Texture Players/Texture_Dwarf/Modele_Dwarf_1001_MaskMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Materials/Textures/Texture Players/Texture_Dwarf/Modele_Dwarf_1001_MaskMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/NPCMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/NPCMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AudioManager/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AudioManager/AudioManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SceneTom/UI_Icon_Legendary_Passive.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SceneTom/UI_Icon_Rare_Active.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SceneTom/UI_Icon_Rare_Passive.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SceneTom/UI_Icon_Starter_Active.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SceneTom/UI_Icon_Starter_Passive.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

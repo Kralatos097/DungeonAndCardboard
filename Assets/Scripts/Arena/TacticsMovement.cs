@@ -345,7 +345,7 @@ public class TacticsMovement : MonoBehaviour
         }
         
         //todo: what do you do if there is no path to the target tile?
-        Debug.Log("Path not Found");
+        //Debug.Log("Path not Found");
         return false;
     }
     
@@ -408,7 +408,7 @@ public class TacticsMovement : MonoBehaviour
             }
         }
         
-        Debug.Log("Path not Found");
+        //Debug.Log("Path not Found");
         return false;
     }
     
@@ -533,7 +533,7 @@ public class TacticsMovement : MonoBehaviour
         }
         
         //todo: what do you do if there is no path to the target tile?
-        Debug.Log("Path not Found");
+        //Debug.Log("Path not Found");
         return false;
     }
 

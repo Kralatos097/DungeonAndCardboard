@@ -10,7 +10,7 @@ public class
     AudioManager : MonoBehaviour
 {
     
-    [SerializeField] private float volumeMusic, volumeSfx, volumeVoice;
+    [SerializeField] public float volumeMusic, volumeSfx, volumeVoice;
     [MinMaxSlider(0, 2)]
     [SerializeField] private Vector2 pitchMinMax;
     

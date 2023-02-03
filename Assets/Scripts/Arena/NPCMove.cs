@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class NPCMove : TacticsMovement
@@ -12,7 +13,7 @@ public class NPCMove : TacticsMovement
     
     [SerializeField] protected EnemieBaseInfo UnitInfo;
 
-    private IaType _iaType;
+    [SerializeField] private IaType iaType; //todo: A lier à EnemieBaseInfo
     
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,7 @@ public class NPCMove : TacticsMovement
         Passive = UnitInfo.passive;
         Consumable = UnitInfo.consumable;
 
-        _iaType = UnitInfo.iaType;
+        iaType = UnitInfo.iaType;
     }
 
     protected int RandomHp(int min, int max)
@@ -43,8 +44,35 @@ public class NPCMove : TacticsMovement
         return ret;
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        if(!Turn) return;
+        PlayersTurn = false;
+
+        atkRange = ActiveOne.GetAtkRange();
+        
+        switch(iaType)
+        {
+            case IaType.Dumb:
+                DumbAI();
+                break;
+            case IaType.Coward:
+                break;
+            case IaType.Ruthless:
+                break;
+            case IaType.Perfectionist:
+                break;
+            case IaType.Accurate:
+                break;
+            case IaType.Friendly:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    // Update is called once per frame
+    void UpdateV1()
     {
         if(!Turn) return;
         PlayersTurn = false;
@@ -85,7 +113,7 @@ public class NPCMove : TacticsMovement
                 ActualTargetTile.target = true;
                 MoveToTile(ActualTargetTile);*/
                 //todo: virer lignes du dessus et mettre les lignes du dessous quand les IA seront plus avancé
-                switch(_iaType)
+                switch(iaType)
                 {
                     case IaType.Dumb:
                         DumbAI();
@@ -288,14 +316,30 @@ public class NPCMove : TacticsMovement
 
     private void DumbAI()
     {
-        if(AlliesInAttackRange())
+        FindNearestTarget();
+        RemoveSelectableTile();
+        
+        if(target != null && targetDistance <= atkRange && !moving && !_alreadyMoved) //Attack en début de tour si un Player est dans la range
         {
-            //attack target
+            attacking = true;
+            Attack(target, 1);
+            return;
         }
-        else
+        if(_alreadyMoved) //Attack après avoir bougé si un Player est dans la range
         {
-            FindNearestTarget();
-
+            if(target != null && targetDistance <= atkRange)
+            {
+                attacking = true;
+                Attack(target, 1);
+                return;
+            }
+            else
+            {
+                EndTurnT();
+            }
+        }
+        if(!attacking && !moving)
+        {
             bool findPath = CalculatePathFull(); //Calcul du trajet normal
             int tDist = targetDistance;
             bool findPathV2 = CalculatePathWoTrap(); //Calcul du trajet sans les pieges
@@ -340,19 +384,16 @@ public class NPCMove : TacticsMovement
                      }                 
                      else
                      {
-                        Fin du tour
+                        EndTurnT();
                      }
                      */
+                    EndTurnT();
                 }
             }
-            if(AlliesInAttackRange())
-            {
-                //attack target
-            }
-            else
-            {
-                //Fin du tour
-            }
+        }
+        if(moving)
+        {
+            Move();
         }
     }
 
