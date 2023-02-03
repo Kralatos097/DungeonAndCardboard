@@ -37,6 +37,15 @@ public class
     
     private void Awake()
     {
+        if (PlayerPrefs.HasKey("MusicVolume"))
+            volumeMusic = PlayerPrefs.GetFloat("MusicVolume", 0);
+        
+        if (PlayerPrefs.HasKey("SFXVolume"))
+            volumeSfx = PlayerPrefs.GetFloat("SFXVolume", 0);
+        
+        if (PlayerPrefs.HasKey("VoiceVolume"))
+            volumeVoice = PlayerPrefs.GetFloat("VoiceVolume", 0);
+        
         if (instance == null) instance = this;
         else
         {
@@ -208,5 +217,33 @@ public class
     }
 
     //Je n'est pas mis de fonction pour jouer de voix
-    //Ajouter des fonctions Fade In / Out pour les musiques
+    
+    public void ChangeMusicVolume(float volume)
+    {
+        volumeMusic = volume;
+
+        if (_musicSource.isPlaying)
+        {
+            AudioClip a = _musicSource.clip;
+            Music s = Array.Find(music, sound => sound.clip == a);
+            _musicSource.volume = volume * s.volume;
+        }
+
+        if (_musicSourceTwo.isPlaying)
+        {
+            AudioClip b = _musicSourceTwo.clip;
+            Music t = Array.Find(music, sound => sound.clip == b);
+            _musicSourceTwo.volume = volume * t.volume;
+        }
+    
+    }
+    public void ChangeSFXVolume(float volume)
+    {
+        volumeSfx = volume;
+    }
+    
+    public void ChangeVoiceVolume(float volume)
+    {
+        volumeVoice = volume;
+    }
 }
