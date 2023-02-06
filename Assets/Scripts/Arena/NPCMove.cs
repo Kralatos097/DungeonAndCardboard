@@ -343,6 +343,7 @@ public class NPCMove : TacticsMovement
         }
         if(!attacking && !moving)
         {
+            transform.GetChild(0).Translate(0, MoveY, 0);
             bool findPath = CalculatePathFull(); //Calcul du trajet normal
             int tDist = _targetDistance;
             bool findPathV2 = CalculatePathWoTrap(); //Calcul du trajet sans les pieges
@@ -381,15 +382,18 @@ public class NPCMove : TacticsMovement
                 else
                 {
                     //recherche de chemin en ignorant tous les obstacles
-                    /*if(findPath)
+                    /*findPath = CalculatePathWoAll();
+                    if(findPath)
                      {
                         bouge le plus loins possible
                      }                 
                      else
                      {
+                        transform.GetChild(0).Translate(0, MoveY, 0);
                         EndTurnT();
                      }
                      */
+                    transform.GetChild(0).Translate(0, MoveY, 0);
                     EndTurnT();
                 }
             }
