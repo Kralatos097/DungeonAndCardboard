@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
   m_Name: Heirloom Staff
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: b391f70a8b8d15547bf72395418dbf42, type: 3}
+  stuffType: Active
+  logo: {fileID: 21300000, guid: 47033d4426e522d4ea0213bee6336b1b, type: 3}
   description: Inflict 4 Damages
   range: 2
   cd: 1

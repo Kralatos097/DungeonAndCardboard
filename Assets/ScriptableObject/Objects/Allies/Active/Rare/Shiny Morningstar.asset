@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
   m_Name: Shiny Morningstar
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: 0848bb2d37bf33a4dba0b80f4ee353f1, type: 3}
+  stuffType: Active
+  logo: {fileID: 21300000, guid: 8a8e6311172ea854d8d8418b7fde74e0, type: 3}
   description: Inflict 5 Damages & Self 5 Damages on Critic
   range: 1
   cd: 0

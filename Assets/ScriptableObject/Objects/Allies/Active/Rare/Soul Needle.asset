@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Soul Needle
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 0b737b664adb73f4389ffac02ced1b1d, type: 3}
+  logo: {fileID: 21300000, guid: 8dbf0f9a613cb7f428f145eda62111e7, type: 3}
   description: Inflict 2 Damages & Heal 2 HP
   range: 1
   cd: 1

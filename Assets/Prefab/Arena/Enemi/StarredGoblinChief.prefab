@@ -10,7 +10,11 @@ PrefabInstance:
     - target: {fileID: 3377682628808166836, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 35c0e849333ce7b418dbd343e5cfd6b1, type: 2}
+      objectReference: {fileID: 2100000, guid: 8c11f7c5a890e8e41a6b8d2b3547b037, type: 2}
+    - target: {fileID: 3377682628808166837, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -8614623236274637960, guid: fc157c19b4cc2f543884464528fe7d0b, type: 3}
     - target: {fileID: 3377682630542870392, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
       propertyPath: m_RootOrder
       value: 0

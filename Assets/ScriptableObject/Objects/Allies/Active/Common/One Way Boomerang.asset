@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
   m_Name: One Way Boomerang
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: 68ba877d03ab78748b8fa1b73f33af33, type: 3}
+  stuffType: Active
+  logo: {fileID: 21300000, guid: 158ec4e9dcc79f3458586dc58af67c44, type: 3}
   description: Inflict 1 Damage & Stun
   range: 3
   cd: 3

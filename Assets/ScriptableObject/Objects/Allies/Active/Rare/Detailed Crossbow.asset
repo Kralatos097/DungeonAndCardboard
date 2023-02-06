@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
   m_Name: Detailed Crossbow
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: e07227cf82a34a445bedd0041bf38c62, type: 3}
+  stuffType: Active
+  logo: {fileID: 21300000, guid: 577f25ec81847304db53ff2bfb0b4946, type: 3}
   description: Inflict 4 Damages
   range: 4
   cd: 1

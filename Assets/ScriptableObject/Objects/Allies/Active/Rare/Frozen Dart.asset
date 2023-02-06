@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
   m_Name: Frozen Dart
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: 5f840eeded8ca2642a1769d9d82ec9c1, type: 3}
+  stuffType: Active
+  logo: {fileID: 21300000, guid: 1e3dfc32e8a85fb4697300a1f3ef0228, type: 3}
   description: Inflict 2 Damages & 2 Froze
   range: 3
   cd: 1

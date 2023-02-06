@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Double Scimitar
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 5ccf4c34630f05c4a95a693e16324835, type: 3}
+  logo: {fileID: 21300000, guid: ffb2df103f005df45b5a5ec490d37253, type: 3}
   description: Inflict 2 X 2 Damages
   range: 1
   cd: 0

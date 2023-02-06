@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Barbered Buckler
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 797763fb95f42034cb8d36e7d40d1c06, type: 3}
+  logo: {fileID: 21300000, guid: e8b2cc4da456fda4084fcc117807e7ff, type: 3}
   description: Inflict 2 Damages & Gain 2 Armors on self
   range: 1
   cd: 1
