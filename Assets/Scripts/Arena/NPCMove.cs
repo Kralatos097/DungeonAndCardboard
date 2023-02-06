@@ -7,9 +7,8 @@ using Random = UnityEngine.Random;
 
 public class NPCMove : TacticsMovement
 {
-    private GameObject target;
-    private int targetDistance = 0;
     private bool _alreadyMoved = false;
+    public bool temp = false;
     
     [SerializeField] protected EnemieBaseInfo UnitInfo;
 
@@ -196,7 +195,7 @@ public class NPCMove : TacticsMovement
                         if (TGO.CompareTag("Player"))
                         {
                             target = TGO;
-                            targetDistance = tile.distance;
+                            _targetDistance = tile.distance;
                             return;
                         }
                     }
@@ -233,10 +232,10 @@ public class NPCMove : TacticsMovement
                     GameObject TGO = tile.GetGameObjectOnTop();
                     if (TGO != null)
                     {
-                        if (TGO.CompareTag("Player") && tile.distance > targetDistance)
+                        if (TGO.CompareTag("Player") && tile.distance > _targetDistance)
                         {
                             target = TGO;
-                            targetDistance = tile.distance;
+                            _targetDistance = tile.distance;
                         }
                     }
                 }
@@ -281,7 +280,7 @@ public class NPCMove : TacticsMovement
                             if(targetHp > TGOHp)
                             {
                                 target = TGO;
-                                targetDistance = tile.distance;
+                                _targetDistance = tile.distance;
                             }
                         }
                     }
@@ -316,10 +315,14 @@ public class NPCMove : TacticsMovement
 
     private void DumbAI()
     {
-        FindNearestTarget();
-        RemoveSelectableTile();
-        
-        if(target != null && targetDistance <= atkRange && !moving && !_alreadyMoved) //Attack en début de tour si un Player est dans la range
+        if(!temp)
+        {
+            FindNearestTarget();
+            RemoveSelectableTile();
+            temp = true;
+        }
+
+        if(target != null && _targetDistance <= atkRange && !moving && !_alreadyMoved) //Attack en début de tour si un Player est dans la range
         {
             attacking = true;
             Attack(target, 1);
@@ -327,7 +330,7 @@ public class NPCMove : TacticsMovement
         }
         if(_alreadyMoved) //Attack après avoir bougé si un Player est dans la range
         {
-            if(target != null && targetDistance <= atkRange)
+            if(target != null && _targetDistance <= atkRange)
             {
                 attacking = true;
                 Attack(target, 1);
@@ -341,9 +344,9 @@ public class NPCMove : TacticsMovement
         if(!attacking && !moving)
         {
             bool findPath = CalculatePathFull(); //Calcul du trajet normal
-            int tDist = targetDistance;
+            int tDist = _targetDistance;
             bool findPathV2 = CalculatePathWoTrap(); //Calcul du trajet sans les pieges
-            int tDistV2 = targetDistance;
+            int tDistV2 = _targetDistance;
 
             if (findPath && findPathV2) //Si les 2 on des trajets valides
             {

@@ -189,6 +189,7 @@ public class TurnManager : MonoBehaviour
             else
             {
                 EnemyStartTurnFx();
+                turnOrder.Peek().GetComponent<NPCMove>().temp = false;
             }
             
             turnOrder.Peek().BeginTurn();
