@@ -107,8 +107,8 @@ public class ArenaTile : MonoBehaviour
             }
         }
     }
-    
-    public void CheckTileAtk(Vector3 dir)
+
+    private void CheckTileAtk(Vector3 dir)
     {
         Vector3 halfExtents = new Vector3(.25f,.25f,.25f);
         Collider[] colliders = Physics.OverlapBox(transform.position + dir, halfExtents);
@@ -116,7 +116,7 @@ public class ArenaTile : MonoBehaviour
         foreach (Collider item in colliders)
         {
             ArenaTile arenaTile = item.GetComponent<ArenaTile>();
-            if (arenaTile != null)
+            if(arenaTile != null)
             {
                 adjacencyList.Add(arenaTile);
             }
