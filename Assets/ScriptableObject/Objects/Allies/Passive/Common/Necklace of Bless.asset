@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cad211d6ef0d754c988201d13a6208f, type: 3}
   m_Name: Necklace of Bless
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: ac710da639908784984395ae85d72607, type: 3}
+  stuffType: Passive
+  logo: {fileID: 21300000, guid: d7133f956487dc941822d10520d8de30, type: 3}
   description: All allies heal +2 HP each start of fight
   passiveTrigger: 1
   passiveEffectList:

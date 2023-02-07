@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cad211d6ef0d754c988201d13a6208f, type: 3}
   m_Name: Ritri's Cube
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: f2855fb1eb1a2f74a9b874d446f01453, type: 3}
+  stuffType: Passive
+  logo: {fileID: 21300000, guid: b97f70ef283710a46a3ab0311fe97fc0, type: 3}
   description: Reroll the Active dice when it's a 1 (work one time per turn)
   passiveTrigger: 0
   passiveEffectList:

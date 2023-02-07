@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cad211d6ef0d754c988201d13a6208f, type: 3}
   m_Name: Boot of Speed
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: d6af98cac3c009f4c92d76bdcec0f844, type: 3}
+  stuffType: Passive
+  logo: {fileID: 21300000, guid: 5b0b6bf3531c182429cfeac07b2dfb64, type: 3}
   description: Gain +1 Movement
   passiveTrigger: 0
   passiveEffectList:

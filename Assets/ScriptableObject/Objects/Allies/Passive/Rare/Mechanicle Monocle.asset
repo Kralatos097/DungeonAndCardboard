@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cad211d6ef0d754c988201d13a6208f, type: 3}
   m_Name: Mechanicle Monocle
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: 8c27e13652445424499417d378d50502, type: 3}
+  stuffType: Passive
+  logo: {fileID: 21300000, guid: 7db58f6c37c258947a53f89dd78ca162, type: 3}
   description: Tile +1 on each ranged Active
   passiveTrigger: 0
   passiveEffectList:

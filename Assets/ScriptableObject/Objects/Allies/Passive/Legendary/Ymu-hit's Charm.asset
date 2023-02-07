@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cad211d6ef0d754c988201d13a6208f, type: 3}
   m_Name: Ymu-hit's Charm
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: f2855fb1eb1a2f74a9b874d446f01453, type: 3}
+  stuffType: Passive
+  logo: {fileID: 21300000, guid: acdbe0de14fc85244be5da679ce52554, type: 3}
   description: Immunity to all status
   passiveTrigger: 11
   passiveEffectList:

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cad211d6ef0d754c988201d13a6208f, type: 3}
   m_Name: Robe of Comfort
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: ac710da639908784984395ae85d72607, type: 3}
+  stuffType: Passive
+  logo: {fileID: 21300000, guid: 668cde634f6e10e459f26710c7c033cc, type: 3}
   description: When healed, gain +1 HP
   passiveTrigger: 8
   passiveEffectList:
