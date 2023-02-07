@@ -88,7 +88,7 @@ public class ArenaTile : MonoBehaviour
         CheckTileAtk(Vector3.left);
     }
 
-    public void CheckTile(Vector3 dir, ArenaTile target)
+    private void CheckTile(Vector3 dir, ArenaTile target)
     {
         Vector3 halfExtents = new Vector3(.25f,.25f,.25f);
         Collider[] colliders = Physics.OverlapBox(transform.position + dir, halfExtents);

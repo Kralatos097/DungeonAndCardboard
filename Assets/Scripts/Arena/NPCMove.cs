@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class NPCMove : TacticsMovement
 {
     private bool _alreadyMoved = false;
+    private int tileMoved = 0;
     public bool temp = false;
     
     [SerializeField] protected EnemieBaseInfo UnitInfo;
@@ -28,13 +29,13 @@ public class NPCMove : TacticsMovement
         combatStat.CurrHp = combatStat.MaxHp;
         combatStat.ChangeInit(UnitInfo.initiative);
 
-        baseMove = UnitInfo.movement;
+        move = UnitInfo.movement;
         ActiveOne = UnitInfo.activeOne;
         ActiveTwo = UnitInfo.activeTwo;
         Passive = UnitInfo.passive;
         Consumable = UnitInfo.consumable;
 
-        iaType = UnitInfo.iaType;
+        //iaType = UnitInfo.iaType;
     }
 
     protected int RandomHp(int min, int max)
@@ -58,6 +59,7 @@ public class NPCMove : TacticsMovement
             case IaType.Coward:
                 break;
             case IaType.Ruthless:
+                RuthlessAI();
                 break;
             case IaType.Perfectionist:
                 break;
@@ -271,12 +273,18 @@ public class NPCMove : TacticsMovement
                     GameObject TGO = tile.GetGameObjectOnTop();
                     if (TGO != null)
                     {
-                        if (TGO.CompareTag("Player"))
+                        if(TGO.CompareTag("Player") && TGO.GetComponent<CombatStat>().isAlive)
                         {
                             int targetHp = 1000;
                             if(target != null)
                                 targetHp = target.GetComponent<CombatStat>().CurrHp;
                             int TGOHp = TGO.GetComponent<CombatStat>().CurrHp;
+                            if(targetHp == 0 && targetHp == TGOHp)
+                            {
+                                targetHp = target.GetComponent<CombatStat>().MaxHp;
+                                TGOHp = TGO.GetComponent<CombatStat>().MaxHp;
+                            }
+                            
                             if(targetHp > TGOHp)
                             {
                                 target = TGO;
@@ -310,7 +318,7 @@ public class NPCMove : TacticsMovement
     private bool CalculatePathWoAll()
     {
         ArenaTile targetTile = GetTargetTile(target);
-        return FindPathWoCrate(targetTile);
+        return FindPathWoAll(targetTile);
     }
 
     private void DumbAI()
@@ -339,9 +347,11 @@ public class NPCMove : TacticsMovement
             else
             {
                 EndTurnT();
+                return;
             }
         }
-        if(!attacking && !moving)
+
+        if(!attacking && !moving && !_alreadyMoved) //Calcul du mouvement
         {
             transform.GetChild(0).Translate(0, MoveY, 0);
             bool findPath = CalculatePathFull(); //Calcul du trajet normal
@@ -382,23 +392,107 @@ public class NPCMove : TacticsMovement
                 else
                 {
                     //recherche de chemin en ignorant tous les obstacles
-                    /*findPath = CalculatePathWoAll();
+                    findPath = CalculatePathWoAll();
                     if(findPath)
-                     {
-                        bouge le plus loins possible
-                     }                 
-                     else
-                     {
-                        transform.GetChild(0).Translate(0, MoveY, 0);
+                    {
+                        MoveToTile(ActualTargetTile);
+                    }                 
+                    else
+                    {
+                        transform.GetChild(0).Translate(0, -MoveY, 0);
                         EndTurnT();
-                     }
-                     */
-                    transform.GetChild(0).Translate(0, MoveY, 0);
-                    EndTurnT();
+                    }
+                    /*transform.GetChild(0).Translate(0, -MoveY, 0);
+                    EndTurnT();*/
                 }
             }
+            tileMoved = _path.Count-1;
         }
-        if(moving)
+        if(moving) //Application du mouvement
+        {
+            Move();
+        }
+    }
+
+    private void RuthlessAI()
+    {
+        if(!temp)
+        {
+            FindLowestHpTarget();
+            Debug.Log(target.name);
+            RemoveSelectableTile();
+            temp = true;
+        }
+        
+        if(target != null && _targetDistance <= atkRange && !moving && !_alreadyMoved) //Attack en début de tour si un Player est dans la range
+        {
+            attacking = true;
+            Attack(target, 1);
+            return;
+        }
+        if(_alreadyMoved) //Attack après avoir bougé si un Player est dans la range
+        {
+            if(target != null && _targetDistance <= atkRange)
+            {
+                attacking = true;
+                Attack(target, 1);
+                return;
+            }
+            else
+            {
+                EndTurnT();
+                return;
+            }
+        }
+        
+        if(!attacking && !moving && !_alreadyMoved) //Calcul du mouvement
+        {
+            transform.GetChild(0).Translate(0, MoveY, 0);
+            bool findPath = CalculatePathFull(); //Calcul du trajet normal
+            
+            if (findPath) //Si seul le 1er trajet et valide
+            {
+                CalculatePathFull();
+                MoveToTile(ActualTargetTile);
+            }
+            else
+            {
+                //recherche de chemin en ignorant les pieges
+                findPath = CalculatePathWoTrap();
+                if (findPath)
+                {
+                    MoveToTile(ActualTargetTile);
+                }
+                else
+                {
+                    //recherche de chemin en ignorant les pieges et les caisses
+                    findPath = CalculatePathWoCrate();
+                    if (findPath)
+                    {
+                        MoveToTile(ActualTargetTile);
+                    }
+                    else
+                    {
+                        //recherche de chemin en ignorant tous les obstacles
+                        findPath = CalculatePathWoAll();
+                        if (findPath)
+                        {
+                            MoveToTile(ActualTargetTile);
+                        }
+                        else
+                        {
+                            transform.GetChild(0).Translate(0, -MoveY, 0);
+                            EndTurnT();
+                        }
+                        /*transform.GetChild(0).Translate(0, -MoveY, 0);
+                        EndTurnT();*/
+                    }
+                }
+            }
+
+            tileMoved = _path.Count-1;
+        }
+        if(moving) //Application du mouvement
         {
             Move();
         }
@@ -406,6 +500,8 @@ public class NPCMove : TacticsMovement
 
     protected override void EndOfMovement()
     {
+        Debug.Log(_targetDistance+" - "+ tileMoved);
+        _targetDistance -= tileMoved;
         _alreadyMoved = true;
         base.EndOfMovement();
     }
@@ -419,6 +515,7 @@ public class NPCMove : TacticsMovement
     protected void EndTurnT()
     {
         TurnManager.EndTurnD();
+        temp = false;
         attacking = false;
         _alreadyMoved = false;
     }
