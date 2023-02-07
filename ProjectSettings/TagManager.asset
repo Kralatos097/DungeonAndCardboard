@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Tile
   - Enemy
+  - Crate
+  - Trap
   layers:
   - Default
   - TransparentFX

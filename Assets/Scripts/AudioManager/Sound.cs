@@ -36,3 +36,11 @@ public class Voice
     [HideInInspector]
     public AudioSource source;
 }
+
+[System.Serializable]
+public class Particules
+{
+    public string name;
+    public GameObject particule;
+}
+

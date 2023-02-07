@@ -32,11 +32,11 @@ public class ArenaTile : MonoBehaviour
             return;
         }
 
-        if(current)
+        /*if(current)
         {
             overlay.color = new Color(1,0,1,.5f);
         }
-        else if(target)
+        else */if(target)
         {
             overlay.color = new Color(0,1,0,.5f);
         }
@@ -96,7 +96,7 @@ public class ArenaTile : MonoBehaviour
         foreach (Collider item in colliders)
         {
             ArenaTile arenaTile = item.GetComponent<ArenaTile>();
-            if (arenaTile != null && arenaTile.walkable == true)
+            if(arenaTile != null && arenaTile.walkable)
             {
                 RaycastHit hit;
 
@@ -107,8 +107,8 @@ public class ArenaTile : MonoBehaviour
             }
         }
     }
-    
-    public void CheckTileAtk(Vector3 dir)
+
+    private void CheckTileAtk(Vector3 dir)
     {
         Vector3 halfExtents = new Vector3(.25f,.25f,.25f);
         Collider[] colliders = Physics.OverlapBox(transform.position + dir, halfExtents);
@@ -116,9 +116,8 @@ public class ArenaTile : MonoBehaviour
         foreach (Collider item in colliders)
         {
             ArenaTile arenaTile = item.GetComponent<ArenaTile>();
-            if (arenaTile != null)
+            if(arenaTile != null)
             {
-                //RaycastHit hit;
                 adjacencyList.Add(arenaTile);
             }
         }

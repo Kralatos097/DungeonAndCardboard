@@ -1,0 +1,379 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3743040489013127286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3743040489013127287}
+  - component: {fileID: 3743040489013127288}
+  - component: {fileID: 5566258208821927673}
+  - component: {fileID: 2263537129894144590}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3743040489013127287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3743040489013127286}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3743040489013127288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3743040489013127286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55147bb42703f7f488466cc30ad2fc03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeMusic: 0.3
+  volumeSfx: 0.3
+  volumeVoice: 0.3
+  pitchMinMax: {x: 0.6, y: 1.5}
+  music:
+  - name: MainMenu
+    clip: {fileID: 8300000, guid: 74077659f8ffbf347a609714be7efac0, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Fight
+    clip: {fileID: 8300000, guid: 5ce538083c1e6714da26f2843c4a4501, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Dungeon
+    clip: {fileID: 8300000, guid: 7aaacbe5dd9790b438c272db8ff93c99, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Boss
+    clip: {fileID: 8300000, guid: ee1c0ca586afa8442aa7e4660834e0dd, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: DefeatFanfare
+    clip: {fileID: 8300000, guid: 75737c0f5ebe9754b99fa5e893b98539, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: VictoryFanfare
+    clip: {fileID: 8300000, guid: 82536857ab60c2b4198831d42c71bab2, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Intro
+    clip: {fileID: 8300000, guid: 74077659f8ffbf347a609714be7efac0, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  sfx:
+  - name: OpenActionMenu
+    clip: {fileID: 8300000, guid: a419f1501eb2bef498556f2a10e00126, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: CloseActionMenu
+    clip: {fileID: 8300000, guid: b911ef055521ec64c97c447f499c24c4, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: AllieStartTurn
+    clip: {fileID: 8300000, guid: 5f86f261bd13d7448ad7ac98ccb1272f, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: EnemyStartTurn
+    clip: {fileID: 8300000, guid: 5f86f261bd13d7448ad7ac98ccb1272f, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: StepArena
+    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: UiClic
+    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: RangeAction
+    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: CaCAction
+    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: SelfAction
+    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: EnemyDamaged
+    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: AllieDamaged
+    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: EnemyHealed
+    clip: {fileID: 8300000, guid: 10248117ba262244598b1b2f9391ccfe, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: AllieHealed
+    clip: {fileID: 8300000, guid: c8944ab1e3326c64daefbf3caa62efe1, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ArmorDamaged
+    clip: {fileID: 8300000, guid: 0a8caecfd8387b046a48956524c9dbe6, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ArmorGained
+    clip: {fileID: 8300000, guid: 337c413bbd8ec0741a6854764acbb382, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Revive
+    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: GetBurn
+    clip: {fileID: 8300000, guid: a9fd4c83024df7d4a8205472ca2e7ab7, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ActivateBurn
+    clip: {fileID: 8300000, guid: a9fd4c83024df7d4a8205472ca2e7ab7, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: GetPoison
+    clip: {fileID: 8300000, guid: 7f88f3eb51cd1b544888491cca90c748, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ActivatePoison
+    clip: {fileID: 8300000, guid: 7f88f3eb51cd1b544888491cca90c748, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: GetStun
+    clip: {fileID: 8300000, guid: f66ad12a218a2a34585bbdacabed5437, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ActivateStun
+    clip: {fileID: 8300000, guid: f66ad12a218a2a34585bbdacabed5437, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: GetFreeze
+    clip: {fileID: 8300000, guid: 018c051ab789f9f4ca7c0cb735610a32, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ActivateFreeze
+    clip: {fileID: 8300000, guid: 018c051ab789f9f4ca7c0cb735610a32, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: GetCured
+    clip: {fileID: 8300000, guid: be48daa9e4eeaff4bb8771dd2dc67232, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: AllieDowned
+    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: AllieDeath
+    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: EnemyDeath
+    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: CrateDamage
+    clip: {fileID: 8300000, guid: f2100f6d7233dde4b8e0a3264b2cb0ce, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: CrateDeath
+    clip: {fileID: 8300000, guid: 7d653bb26ba7d9d45aa08373d508a151, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Immune
+    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: GainHolyShield
+    clip: {fileID: 8300000, guid: 7790f1d2202054d42b861592edba2884, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: DamageHolyshield
+    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: RollDice
+    clip: {fileID: 8300000, guid: 98cc30d7e80beb243893541275f523c0, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Miss
+    clip: {fileID: 8300000, guid: fee2360146fcaff46ba72ebc5ef77b69, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Hit
+    clip: {fileID: 8300000, guid: 30503941158ceca499a4b768d404223f, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Critical
+    clip: {fileID: 8300000, guid: 3cf3eb5642a5fd542a4e7288a6474aae, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Victory
+    clip: {fileID: 8300000, guid: 121be606f4de41a4284c081b63642c43, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Defeat
+    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ArenaTrapDamage
+    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ArenaTrapActivate
+    clip: {fileID: 8300000, guid: eb708fa3465cd3743bee279b368d5ff7, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: StepDungeon
+    clip: {fileID: 8300000, guid: 706245a84d7374a479356712fa2acbf8, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: DungeonUIClic
+    clip: {fileID: 8300000, guid: 9594e9b10d894854b92662392e40ac35, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: LaunchFight
+    clip: {fileID: 8300000, guid: b0dd1b6c82f415048b42a3271ebdda7f, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PositiveLoot
+    clip: {fileID: 8300000, guid: 757e2d1d2080b214cb45bf2d41e68a2c, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: NegativeLoot
+    clip: {fileID: 8300000, guid: 5eeacdd442d3b594b9650269bbbe57d2, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: SwitchStuff
+    clip: {fileID: 8300000, guid: 796d29f7197a3594d8149acbb7806946, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  voice: []
+  fadeDuration: 2
+--- !u!114 &5566258208821927673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3743040489013127286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac14216cafe55f349a34c1a3a0fb05e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particules:
+  - name: Damaged
+    particule: {fileID: 5298821903193847754, guid: 49a752e9929c5a044b2c8db289a0e8e2, type: 3}
+  - name: Healed
+    particule: {fileID: 4500085554803695389, guid: c5925d4c0e318b84899ca171d43305f4, type: 3}
+  - name: Cured
+    particule: {fileID: 5456244774970856577, guid: ade1a8119fee54b428b1f897181f317a, type: 3}
+  - name: Poison
+    particule: {fileID: 7964537311868637317, guid: 95b383fb1f2cbe5429d9eff13777c4c1, type: 3}
+  - name: Burn
+    particule: {fileID: 2566774675729739429, guid: 7453258b44a56fc4182fe0e87b1e3e31, type: 3}
+  - name: Freeze
+    particule: {fileID: 4866706101258442210, guid: f1ff5ece12e9d534b87c679a4915cf37, type: 3}
+  - name: Stun
+    particule: {fileID: 1371484619932752243, guid: 60c7c7ad5a42a054f888dfbd40554666, type: 3}
+  - name: GetPoison
+    particule: {fileID: 1698549960701772141, guid: 5c669e2d6619f7d44bc8132ca49fd940, type: 3}
+  - name: GetBurn
+    particule: {fileID: 6564321802021511799, guid: 29f439a293acce6499d610de5db1d302, type: 3}
+  - name: GetFreeze
+    particule: {fileID: 5194049909122970738, guid: 20b68b9c2eb5b194aad73b4946e61a8a, type: 3}
+  - name: GetStun
+    particule: {fileID: 8946014222486893596, guid: 8d2c0dbf88e6db645a44ca5c576a0e20, type: 3}
+  - name: CaCaction
+    particule: {fileID: 1147233861859217900, guid: c6039c3e10fd1e941a918009877d49bd, type: 3}
+  - name: RangeAction
+    particule: {fileID: 164462766732792751, guid: 8ff3ca3bb9204694a89db5cef3c872b6, type: 3}
+  - name: SelfAction
+    particule: {fileID: 6032490838762562915, guid: 7a2860d9a76166342b3a04cfd55a377e, type: 3}
+  - name: DropFigurine
+    particule: {fileID: 5758658489581617538, guid: b0a59cf8a4dcdbd41ad60473214408fd, type: 3}
+  - name: Dead
+    particule: {fileID: 7420029356290824026, guid: b2fd26a5e6187894d97f0a65c1a8540a, type: 3}
+--- !u!81 &2263537129894144590
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3743040489013127286}
+  m_Enabled: 1

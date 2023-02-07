@@ -10,7 +10,11 @@ using UnityEngine.UI;
 public class DungeonUiManager : MonoBehaviour
 {
     public static bool inChoice = false;
+    private Stuff _lootedStuff = null;
+    private Stuff[] _baseStuffs = new Stuff[4];
     private Stuff _newStuff;
+    private Perso _charaSelected;
+    private Stuff _changedStuff;
 
     [SerializeField] private Sprite emptyIcon;
     
@@ -54,8 +58,6 @@ public class DungeonUiManager : MonoBehaviour
     
     public delegate void StuffChoiceUi(Stuff newStuff);
     public static StuffChoiceUi StuffChoiceAction;
-    private Perso _charaSelected;
-    private Stuff _changedStuff;
 
     private void Awake()
     {
@@ -186,12 +188,16 @@ public class DungeonUiManager : MonoBehaviour
     private void StuffChoice(Stuff stuff)
     {
         _newStuff = stuff;
+        _lootedStuff = stuff;
         stuffCharaSelectPanel.SetActive(true);
+        stuffReplaceSelectPanel.SetActive(false);
+        stuffCharaSelectPanel.transform.GetChild(0).gameObject.GetComponent<StuffButtonOver>().ChangeStuff(_newStuff);
         stuffCharaSelectPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff.logo;
     }
     
     public void CharaSelect(int nb)
     {
+        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<StuffButtonOver>().ChangeStuff(_newStuff);
         stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = _newStuff.logo;
         ChoiceButtonInteract();
         switch(nb)
@@ -202,6 +208,10 @@ public class DungeonUiManager : MonoBehaviour
                 EquipChoiceIconChange(WarriorInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject);
                 EquipChoiceIconChange(WarriorInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject);
                 EquipChoiceIconChange(WarriorInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject);
+                _baseStuffs[0] = WarriorInfo.ActiveOne;
+                _baseStuffs[1] = WarriorInfo.ActiveTwo;
+                _baseStuffs[2] = WarriorInfo.Passive;
+                _baseStuffs[3] = WarriorInfo.Consumable;
                 break;
             
             case 1: //Thief
@@ -210,6 +220,10 @@ public class DungeonUiManager : MonoBehaviour
                 EquipChoiceIconChange(ThiefInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject);
                 EquipChoiceIconChange(ThiefInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject);
                 EquipChoiceIconChange(ThiefInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject);
+                _baseStuffs[0] = ThiefInfo.ActiveOne;
+                _baseStuffs[1] = ThiefInfo.ActiveTwo;
+                _baseStuffs[2] = ThiefInfo.Passive;
+                _baseStuffs[3] = ThiefInfo.Consumable;
                 break;
             
             case 2: //Cleric
@@ -218,6 +232,10 @@ public class DungeonUiManager : MonoBehaviour
                 EquipChoiceIconChange(ClericInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject);
                 EquipChoiceIconChange(ClericInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject);
                 EquipChoiceIconChange(ClericInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject);
+                _baseStuffs[0] = ClericInfo.ActiveOne;
+                _baseStuffs[1] = ClericInfo.ActiveTwo;
+                _baseStuffs[2] = ClericInfo.Passive;
+                _baseStuffs[3] = ClericInfo.Consumable;
                 break;
             
             case 3: //Wizard
@@ -226,6 +244,10 @@ public class DungeonUiManager : MonoBehaviour
                 EquipChoiceIconChange(WizardInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject);
                 EquipChoiceIconChange(WizardInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject);
                 EquipChoiceIconChange(WizardInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject);
+                _baseStuffs[0] = WizardInfo.ActiveOne;
+                _baseStuffs[1] = WizardInfo.ActiveTwo;
+                _baseStuffs[2] = WizardInfo.Passive;
+                _baseStuffs[3] = WizardInfo.Consumable;
                 break;
             default:
                 break;
@@ -238,10 +260,12 @@ public class DungeonUiManager : MonoBehaviour
     {
         if (stuff != null)
         {
+            Go.GetComponent<StuffButtonOver>().ChangeStuff(stuff);
             Go.GetComponent<Image>().sprite = stuff.logo;
         }
         else
         {
+            Go.GetComponent<StuffButtonOver>().ChangeStuff(null);
             Go.GetComponent<Image>().sprite = emptyIcon;
         }
     }
@@ -269,6 +293,11 @@ public class DungeonUiManager : MonoBehaviour
             stuffIconPanel.transform.GetChild(3).gameObject.GetComponent<Button>().interactable = false;
             stuffIconPanel.transform.GetChild(4).gameObject.GetComponent<Button>().interactable = false;
         }
+    }
+
+    private void ChangeStuffFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("SwitchStuff");
     }
 
     public void ChangeEquipOneButton()
@@ -300,10 +329,11 @@ public class DungeonUiManager : MonoBehaviour
         }
 
         GameObject buttonClicked = EventSystem.current.currentSelectedGameObject;
-        
-        buttonClicked.GetComponent<Button>().image.sprite = _newStuff != null ? _newStuff.logo : emptyIcon;
-        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff != null ? stuff.logo : emptyIcon;
 
+        EquipChoiceIconChange(_newStuff, buttonClicked);
+        EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject);
+        
+        ChangeStuffFx();
         _newStuff = stuff;
     }
     
@@ -337,13 +367,14 @@ public class DungeonUiManager : MonoBehaviour
         
         GameObject buttonClicked = EventSystem.current.currentSelectedGameObject;
         
-        buttonClicked.GetComponent<Button>().image.sprite = _newStuff != null ? _newStuff.logo : emptyIcon;
-        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff != null ? stuff.logo : emptyIcon;
-
+        EquipChoiceIconChange(_newStuff, buttonClicked);
+        EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject);
+        
+        ChangeStuffFx();
         _newStuff = stuff;
     }
     
-    public void ChangePassifButton()
+    public void ChangePassiveButton()
     {
         Stuff stuff = null;
         _changedStuff = _newStuff;
@@ -373,9 +404,10 @@ public class DungeonUiManager : MonoBehaviour
         
         GameObject buttonClicked = EventSystem.current.currentSelectedGameObject;
         
-        buttonClicked.GetComponent<Button>().image.sprite = _newStuff != null ? _newStuff.logo : emptyIcon;
-        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff != null ? stuff.logo : emptyIcon;
-
+        EquipChoiceIconChange(_newStuff, buttonClicked);
+        EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject);
+        
+        ChangeStuffFx();
         _newStuff = stuff;
     }
     
@@ -409,10 +441,50 @@ public class DungeonUiManager : MonoBehaviour
         
         GameObject buttonClicked = EventSystem.current.currentSelectedGameObject;
 
-        buttonClicked.GetComponent<Button>().image.sprite = _newStuff != null ? _newStuff.logo : emptyIcon;
-        stuffIconPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff != null ? stuff.logo : emptyIcon;
-
+        EquipChoiceIconChange(_newStuff, buttonClicked);
+        EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject);
+        
+        ChangeStuffFx();
         _newStuff = stuff;
+    }
+
+    public void CancelCharaSelection()
+    {
+        Debug.Log(_baseStuffs);
+        switch(_charaSelected)
+        {
+            case Perso.Warrior:
+                WarriorInfo.ActiveOne = (Active)_baseStuffs[0];
+                WarriorInfo.ActiveTwo = (Active)_baseStuffs[1];
+                WarriorInfo.Passive = (Passive)_baseStuffs[2];
+                WarriorInfo.Consumable = (Consumable)_baseStuffs[3];
+                break;
+            case Perso.Thief:
+                ThiefInfo.ActiveOne = (Active)_baseStuffs[0];
+                ThiefInfo.ActiveTwo = (Active)_baseStuffs[1];
+                ThiefInfo.Passive = (Passive)_baseStuffs[2];
+                ThiefInfo.Consumable = (Consumable)_baseStuffs[3];
+                break;
+            case Perso.Cleric:
+                ClericInfo.ActiveOne = (Active)_baseStuffs[0];
+                ClericInfo.ActiveTwo = (Active)_baseStuffs[1];
+                ClericInfo.Passive = (Passive)_baseStuffs[2];
+                ClericInfo.Consumable = (Consumable)_baseStuffs[3];
+                break;
+            case Perso.Wizard:
+                WizardInfo.ActiveOne = (Active)_baseStuffs[0];
+                WizardInfo.ActiveTwo = (Active)_baseStuffs[1];
+                WizardInfo.Passive = (Passive)_baseStuffs[2];
+                WizardInfo.Consumable = (Consumable)_baseStuffs[3];
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+
+        _baseStuffs = new Stuff[4];
+        _changedStuff = null;
+        _newStuff = _lootedStuff;
+        StuffChoice(_newStuff);
     }
 
     public void EndStuffChange()
@@ -432,12 +504,17 @@ public class DungeonUiManager : MonoBehaviour
                 WarriorInfo.CurrentHp / (float)WarriorInfo.MaxHp;
             playerPanel.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = WarriorInfo.CurrentHp.ToString();
 
+            GameObject passiveImg = playerPanel.transform.Find("PassifImg").gameObject;
             if (WarriorInfo.Passive == null)
             {
-                playerPanel.transform.Find("PassifImg").gameObject.SetActive(false);
+                passiveImg.SetActive(false);
             }
             else
-                playerPanel.transform.Find("PassifImg").GetComponent<Image>().sprite = WarriorInfo.Passive.logo;
+            {
+                passiveImg.gameObject.SetActive(true);
+                passiveImg.GetComponent<Image>().sprite = WarriorInfo.Passive.logo;
+                passiveImg.GetComponent<StuffButtonOver>().ChangeStuff(WarriorInfo.Passive);
+            }
         }
         else
             playerPanel.gameObject.SetActive(false);
@@ -450,12 +527,17 @@ public class DungeonUiManager : MonoBehaviour
                 ThiefInfo.CurrentHp / (float)ThiefInfo.MaxHp;
             playerPanel.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = ThiefInfo.CurrentHp.ToString();
 
+            GameObject passiveImg = playerPanel.transform.Find("PassifImg").gameObject;
             if (ThiefInfo.Passive == null)
             {
-                playerPanel.transform.Find("PassifImg").gameObject.SetActive(false);
+                passiveImg.SetActive(false);
             }
             else
-                playerPanel.transform.Find("PassifImg").GetComponent<Image>().sprite = ThiefInfo.Passive.logo;
+            {
+                passiveImg.gameObject.SetActive(true);
+                passiveImg.GetComponent<Image>().sprite = ThiefInfo.Passive.logo;
+                passiveImg.GetComponent<StuffButtonOver>().ChangeStuff(ThiefInfo.Passive);
+            }
         }
         else
             playerPanel.gameObject.SetActive(false);
@@ -467,13 +549,18 @@ public class DungeonUiManager : MonoBehaviour
             playerPanel.GetChild(1).GetChild(0).GetComponent<Image>().fillAmount =
                 ClericInfo.CurrentHp / (float)ClericInfo.MaxHp;
             playerPanel.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = ClericInfo.CurrentHp.ToString();
-
+            
+            GameObject passiveImg = playerPanel.transform.Find("PassifImg").gameObject;
             if (ClericInfo.Passive == null)
             {
-                playerPanel.transform.Find("PassifImg").gameObject.SetActive(false);
+                passiveImg.SetActive(false);
             }
             else
-                playerPanel.transform.Find("PassifImg").GetComponent<Image>().sprite = ClericInfo.Passive.logo;
+            {
+                passiveImg.gameObject.SetActive(true);
+                passiveImg.GetComponent<Image>().sprite = ClericInfo.Passive.logo;
+                passiveImg.GetComponent<StuffButtonOver>().ChangeStuff(ClericInfo.Passive);
+            }
         }
         else
             playerPanel.gameObject.SetActive(false);
@@ -486,12 +573,17 @@ public class DungeonUiManager : MonoBehaviour
                 WizardInfo.CurrentHp / (float)WizardInfo.MaxHp;
             playerPanel.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = WizardInfo.CurrentHp.ToString();
 
+            GameObject passiveImg = playerPanel.transform.Find("PassifImg").gameObject;
             if (WizardInfo.Passive == null)
             {
-                playerPanel.transform.Find("PassifImg").gameObject.SetActive(false);
+                passiveImg.SetActive(false);
             }
             else
-                playerPanel.transform.Find("PassifImg").GetComponent<Image>().sprite = WizardInfo.Passive.logo;
+            {
+                passiveImg.gameObject.SetActive(true);
+                passiveImg.GetComponent<Image>().sprite = WizardInfo.Passive.logo;
+                passiveImg.GetComponent<StuffButtonOver>().ChangeStuff(WizardInfo.Passive);
+            }
         }
         else
             playerPanel.gameObject.SetActive(false);

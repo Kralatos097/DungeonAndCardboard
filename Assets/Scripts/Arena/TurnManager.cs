@@ -36,6 +36,7 @@ public class TurnManager : MonoBehaviour
 
     private void Start()
     {
+        FindObjectOfType<AudioManager>().Play("Fight");
         Invoke(nameof(LateStart), 1);
         _combatEnded = false;
         _combatEndCanvas = CombatEndCanvas;
@@ -104,28 +105,27 @@ public class TurnManager : MonoBehaviour
         }
     }
 
-    private static void EndCombat(bool pStatue)
+    private void EndCombat(bool pStatue)
     {
         _combatEnded = true;
         _combatEndPassiveEffectD();
         //Victoire player
         if(pStatue)
         {
-            //todo
             Debug.Log("Victiore");
             _combatEndCanvas.GetChild(0).gameObject.SetActive(true);
             SetPlayersInfo();
-            //Todo: changement de scene apres un clic
+            VictoryFx();
         }
         //Défaite player
         else
-        {
-            //todo
+        { 
             Debug.Log("Defeat");
             _isDefeat = true;
             _combatEndCanvas.GetChild(1).gameObject.SetActive(true);
-            //Todo: changement de scene apres un clic
+            DefeatFx();
         }
+        FindObjectOfType<AudioManager>().AllMusicStop();
     }
     
     private static void SetPlayersInfo()
@@ -142,7 +142,7 @@ public class TurnManager : MonoBehaviour
     
     void StartTurn()
     {
-        if (ArePlayersAlive() && AreEnemysAlive())
+        if (ArePlayersAlive() && AreEnemyAlive())
         {
             while(!turnOrder.Peek().GetComponent<CombatStat>().isUp)
             {
@@ -157,16 +157,16 @@ public class TurnManager : MonoBehaviour
                     Destroy(deadUnit.gameObject);
                 }
             }
-            Debug.Log("Turn of : " + turnOrder.Peek().name);
+            //Debug.Log("Turn of : " + turnOrder.Peek().name);
 
             if(turnOrder.Peek().GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Poison)
             {
                 turnOrder.Peek().GetComponent<CombatStat>().ActivatePoison();
                 if(!turnOrder.Peek().GetComponent<CombatStat>().isUp)
                 {
-                    TacticsMovement DeadUnit = turnOrder.Dequeue();
-                    Destroy(DeadUnit.gameObject);
-                    if(!ArePlayersAlive() && !AreEnemysAlive())
+                    TacticsMovement deadUnit = turnOrder.Dequeue();
+                    Destroy(deadUnit.gameObject);
+                    if(!ArePlayersAlive() && !AreEnemyAlive())
                     {
                         EndCombat(ArePlayersAlive());
                     }
@@ -182,6 +182,16 @@ public class TurnManager : MonoBehaviour
             }
 
             OnTurnStartPassiveEffect(turnOrder.Peek());
+            if (turnOrder.Peek().CompareTag("Player"))
+            {
+                AllieStartTurnFx();
+            }
+            else
+            {
+                EnemyStartTurnFx();
+                turnOrder.Peek().GetComponent<NPCMove>().temp = false;
+            }
+            
             turnOrder.Peek().BeginTurn();
         }
         else
@@ -304,7 +314,7 @@ public class TurnManager : MonoBehaviour
         return false;
     }
     
-    private static bool AreEnemysAlive()
+    private static bool AreEnemyAlive()
     {
         foreach (TacticsMovement unit in turnOrder)
         {
@@ -361,5 +371,29 @@ public class TurnManager : MonoBehaviour
         {
             passive.Effect(user.gameObject);
         }
+    }
+
+    private void AllieStartTurnFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("AllieStartTurn");
+        //Todo: Add Animation
+    }
+    
+    private void EnemyStartTurnFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("EnemyStartTurn");
+        //Todo: Add Animation
+    }
+
+    private void VictoryFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("Victory");
+        //Todo: Add Animation
+    }
+    
+    private void DefeatFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("Defeat");
+        //Todo: Add Animation
     }
 }

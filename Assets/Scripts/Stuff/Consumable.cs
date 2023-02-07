@@ -5,5 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/ConsumableCard", order = 3)]
 public class Consumable : Active
 {
-    
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        stuffType = "consumable";
+    }
 }

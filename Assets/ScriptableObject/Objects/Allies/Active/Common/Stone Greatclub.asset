@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
+  m_Name: Stone Greatclub
+  m_EditorClassIdentifier: 
+  stuffType: Active
+  logo: {fileID: 21300000, guid: 4d14c30032c34a0408497e2099058a84, type: 3}
+  description: Inflict 4 Damages
+  range: 1
+  cd: 1
+  clickTarget: 1
+  activeEffectList:
+  - activeType: 0
+    value: 4
+    onSelf: 0
+    noMiss: 0
+    critOnly: 0

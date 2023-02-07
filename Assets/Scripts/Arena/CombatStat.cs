@@ -1,9 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class CombatStat : MonoBehaviour
@@ -18,54 +14,69 @@ public class CombatStat : MonoBehaviour
         set
         {
             _maxHp = value;
-
+            if(_maxHp > _currHp)
+            {
+                _currHp = _maxHp;
+            }
+            
             isAlive = _maxHp > 0;
         }
     }
-    
-    private int _currHp;
-    public int CurrHp
+
+    protected int _currHp;
+    public virtual int CurrHp
     {
         get => _currHp ;
         set
         {
-            if (holyShield)
+            if(value < 0)
             {
-                holyShield = false;
-            }
-            else
-            {
-                if (armor > 0)
+                if (holyShield)
                 {
-                    armor -= value;
-                    if (armor < 0)
-                    {
-                        _currHp += armor;
-                        armor = 0;
-                    }
+                    holyShield = false;
+                    DamageHolyShieldFX();
                 }
                 else
                 {
-                    _currHp = value;
-                }
-
-                if (_currHp <= 0)
-                {
-                    if(_revive)
+                    if (armor > 0)
                     {
-                        Debug.Log("Revived!");
-                        _currHp = _reviveValue;
-                        _revive = false;
-                        _reviveValue = 0;
+                        armor += value;
+                        TakeArmorDamageFX();
+                        if (armor < 0)
+                        {
+                            TakeDamageFX();
+                            _currHp += armor;
+                            armor = 0;
+                        }
                     }
                     else
                     {
-                        _currHp = 0;
-                        isUp = false;
-                        UnitDeath();
+                        TakeDamageFX();
+                        _currHp = value;
+                    }
+
+                    if (_currHp <= 0)
+                    {
+                        if (_revive)
+                        {
+                            Debug.Log("Revived!");
+                            _currHp = _reviveValue;
+                            _revive = false;
+                            _reviveValue = 0;
+                        }
+                        else
+                        {
+                            _currHp = 0;
+                            isUp = false;
+                            UnitDeath();
+                        }
                     }
                 }
-                else if (_currHp > MaxHp)
+            }
+            else
+            {
+                _currHp = value;
+                if(_currHp > MaxHp)
                 {
                     _currHp = MaxHp;
                 }
@@ -83,12 +94,12 @@ public class CombatStat : MonoBehaviour
     private bool holyShield = false;
     private bool _revive = false;
     private int _reviveValue = 0;
-    private StatusEffect StatusEffect = StatusEffect.Nothing;
-    private int statusValue = 0;
-    public int StatusValue
+    protected StatusEffect StatusEffect = StatusEffect.Nothing;
+    protected int statusValue = 0;
+    public virtual int StatusValue
     {
         get => statusValue;
-        set
+        protected set
         {
             statusValue = value;
             if(statusValue <= 0)
@@ -108,7 +119,7 @@ public class CombatStat : MonoBehaviour
         currInit = _initiative + Random.Range(1,7);
     }
 
-    private void UnitDeath()
+    protected virtual void UnitDeath()
     {
         Passive passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
         if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnDeath)
@@ -123,11 +134,13 @@ public class CombatStat : MonoBehaviour
         if(gameObject.CompareTag("Player"))
         {
             transform.GetChild(0).GetComponent<Renderer>().material.color = Color.grey;
+            AllieDownFX();
         }
         else
         {
             transform.GetChild(0).gameObject.SetActive(false);
             transform.position = new Vector3(-100, -100, -100);
+            EnemyDeathFX();
             isAlive = false;
         }
     }
@@ -144,6 +157,8 @@ public class CombatStat : MonoBehaviour
         {
             passive.Effect(gameObject);
         }
+        
+        TakeDamageFX();
         CurrHp-=value;
     }
     
@@ -154,16 +169,19 @@ public class CombatStat : MonoBehaviour
         {
             passive.Effect(gameObject);
         }
+        
+        GetHealFX();
         CurrHp+=value;
     }
 
     public void ChangeStatus(StatusEffect effect, int value)
     {
+        FindObjectOfType<FXManager>().StopAll(transform);
         Passive passive;
         switch(effect)
         {
             case StatusEffect.Poison:
-                //todo: Poison Effect
+                GetPoisonFX();
                 StatusEffect = effect;
                 StatusValue = value;
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
@@ -173,7 +191,7 @@ public class CombatStat : MonoBehaviour
                 }
                 break;
             case StatusEffect.Stun:
-                //todo: Stun Effect
+                GetStunFX();
                 StatusEffect = effect;
                 StatusValue = value;
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
@@ -183,7 +201,7 @@ public class CombatStat : MonoBehaviour
                 }
                 break;
             case StatusEffect.Burn:
-                //todo: Burn Effect
+                GetBurnFX();
                 StatusEffect = effect;
                 StatusValue = value;
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
@@ -193,7 +211,7 @@ public class CombatStat : MonoBehaviour
                 }
                 break;
             case StatusEffect.Freeze:
-                //todo: Freeze Effect
+                GetFreezeFX();
                 StatusEffect = effect;
                 StatusValue = value;
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
@@ -214,28 +232,37 @@ public class CombatStat : MonoBehaviour
 
     public void ChangeArmor(int value)
     {
-        gameObject.GetComponent<CombatStat>().armor = value;
+        gameObject.GetComponent<CombatStat>().armor += value;
+        GainArmorFX();
     }
 
     public void ActivatePoison()
     {
         TakeDamage(1);
+        ActivatePoisonFX();
         StatusValue--;
+        if(StatusEffect == StatusEffect.Nothing)
+        {
+            FindObjectOfType<FXManager>().Stop("Poison", transform);
+        }
     }
     
     public void ActivateBurn()
     {
         TakeDamage(StatusValue);
+        ActivateBurnFX();
         StatusValue = 0;
     }
     
     public void ResetStatus()
     {
+        GetCuredFX();
         Passive passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
         if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueClean)
         {
             passive.Effect(gameObject);
         }
+        
         StatusEffect = StatusEffect.Nothing;
         statusValue = 0;
     }
@@ -263,6 +290,8 @@ public class CombatStat : MonoBehaviour
     public void ActivateHolyShield()
     {
         holyShield = true;
+        FindObjectOfType<AudioManager>().RandomPitch("GainHolyShield");
+        //Todo: Add VFX
     }
 
     public void ActivateRevive(int value)
@@ -270,6 +299,108 @@ public class CombatStat : MonoBehaviour
         _revive = true;
         _reviveValue = value;
     }
+
+    private void DamageHolyShieldFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("DamageHolyShield");
+        //Todo: Add VFX
+    }
+
+    private void TakeArmorDamageFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("ArmorDamaged");
+        //Todo: Add VFX
+    }
+    
+    private void GainArmorFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("ArmorGained");
+        //Todo: Add VFX
+    }
+
+    private void TakeDamageFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch(gameObject.CompareTag("Player") ? "AllieDamaged" : "EnemyDamaged");
+        FindObjectOfType<FXManager>().Play("Damaged", transform);
+    }
+
+    private void GetHealFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch(gameObject.CompareTag("Player") ? "AllieHealed" : "EnemyHealed");
+        FindObjectOfType<FXManager>().Play("Healed", transform);
+    }
+    
+    private void GetReviveFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("Revive");
+        //Todo: Add VFX
+    }
+
+    private void GetBurnFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("GetBurn");
+        FindObjectOfType<FXManager>().Play("GetBurn", transform);
+        FindObjectOfType<FXManager>().Play("Burn", transform);
+    }
+
+    private void GetFreezeFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("GetFreeze");
+        FindObjectOfType<FXManager>().Play("GetFreeze", transform);
+        FindObjectOfType<FXManager>().Play("Freeze", transform);
+    }
+
+    private void GetStunFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("GetStun");
+        FindObjectOfType<FXManager>().Play("GetStun", transform);
+        FindObjectOfType<FXManager>().Play("Stun", transform);
+    }
+
+    private void GetPoisonFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("GetPoison");
+        FindObjectOfType<FXManager>().Play("GetPoison", transform);
+        FindObjectOfType<FXManager>().Play("Poison", transform);
+    }
+    
+    private void GetCuredFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("GetCured");
+        FindObjectOfType<FXManager>().Play("Cured", transform);
+    }
+
+    private void ActivatePoisonFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("ActivatePoison");
+        FindObjectOfType<FXManager>().Play("GetPoison", transform);
+    }
+    
+    private void ActivateBurnFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("ActivateBurn");
+        FindObjectOfType<FXManager>().Play("GetBurn", transform);
+    }
+
+    private void AllieDownFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("AllieDown");
+        FindObjectOfType<FXManager>().Play("Dead", transform);
+    }
+
+    private void AllieDeathFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("AllieDeath");
+        FindObjectOfType<FXManager>().Play("Dead", transform);
+    }
+
+    private void EnemyDeathFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("EnemyDeath");
+        FindObjectOfType<FXManager>().Play("Dead", transform);
+    }
+    
+    //todo: Add more FX
     
     //-------------- TEST FUNCTION -------------
 
@@ -288,34 +419,36 @@ public class CombatStat : MonoBehaviour
     [ContextMenu("Armor Unit")]
     public void ArmorTest()
     {;
-        armor += 1;
+        ChangeArmor(1);
     }
     
     [ContextMenu("Burn Unit")]
     public void BurnTest()
     {
-        StatusEffect = StatusEffect.Burn;
-        statusValue = 2;
+        ChangeStatus(StatusEffect.Burn, 2);
     }
     
     [ContextMenu("Poison Unit")]
     public void PoisonTest()
     {
-        StatusEffect = StatusEffect.Poison;
-        statusValue = 2;
+        ChangeStatus(StatusEffect.Poison, 2);
     }
     
     [ContextMenu("Stun Unit")]
     public void StunTest()
     {
-        StatusEffect = StatusEffect.Stun;
-        statusValue = 1;
+        ChangeStatus(StatusEffect.Stun, 2);
     }
     
     [ContextMenu("Freeze Unit")]
     public void FreezeTest()
     {
-        StatusEffect = StatusEffect.Freeze;
-        statusValue = 2;
+        ChangeStatus(StatusEffect.Freeze, 2);
+    }
+    
+    [ContextMenu("Cure Unit")]
+    public void CureTest()
+    {
+        GetCuredFX();
     }
 }

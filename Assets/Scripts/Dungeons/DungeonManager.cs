@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class DungeonManager : MonoBehaviour
@@ -52,6 +51,7 @@ public class DungeonManager : MonoBehaviour
         
         AssignPlayerInfo();
         DungeonUiManager.PlayerInfoUi();
+        FindObjectOfType<AudioManager>().Play("Dungeon");
     }
 
     private void SceneContainerSwitchFunc(bool obj)
@@ -180,14 +180,12 @@ public class DungeonManager : MonoBehaviour
         switch(roomType)
         {
             case RoomType.Normal:
-                //todo: loot ui
                 DungeonUiManager.DisplayLootActionSelectorUI();
                 break;
             case RoomType.Boss:
                 LaunchRoomEffect(RoomEffect.Boss);
                 break;
             case RoomType.Treasure:
-                //todo: loot ui
                 DungeonUiManager.DisplayLootActionSelectorUI();
                 break;
             case RoomType.Fighting:
@@ -237,6 +235,7 @@ public class DungeonManager : MonoBehaviour
 
     private void LaunchFight()
     {
+        LaunchFightFX();
         string scene = SelectFightScene();
         
         Debug.Log(scene);
@@ -252,6 +251,7 @@ public class DungeonManager : MonoBehaviour
     
     private void LaunchAmbush()
     {
+        LaunchFightFX();
         string scene = SelectAmbushedScene();
         
         Debug.Log(scene);
@@ -267,6 +267,7 @@ public class DungeonManager : MonoBehaviour
     
     private void LaunchBoss()
     {
+        LaunchFightFX();
         SceneManager.LoadSceneAsync(bossScene);
     }
     
@@ -279,22 +280,25 @@ public class DungeonManager : MonoBehaviour
         {
             DungeonUiManager.LootAmbushedUi();
             lootEffect = LootEffect.Ambush;
+            NegativeLootFX();
         }
         else if (rand is > 0 and <= 3)
         {
-            
             DungeonUiManager.LootTrapUi();
             lootEffect = LootEffect.Trap;
+            NegativeLootFX();
         }
         else if(rand is > 3 and <= 7)
         {
             DungeonUiManager.LootStuffUi();
             lootEffect = LootEffect.Stuff;
+            PositiveLootFX();
         }
         else if (rand is > 7 and <= 13)
         {
             DungeonUiManager.LootConsumableUi();
             lootEffect = LootEffect.Consumable;
+            PositiveLootFX();
         }
         else
         {
@@ -323,6 +327,7 @@ public class DungeonManager : MonoBehaviour
         artworkShown = true;
         Stuff newStuff;
         int rand = Random.Range(0, 5);
+        PositiveLootFX();
         if(rand == 0)
         {
             DungeonUiManager.TreasureConsumableUi();
@@ -393,7 +398,7 @@ public class DungeonManager : MonoBehaviour
     private string SelectAmbushedScene()
     {
         int rand = Random.Range(0, ambushedSceneList.Count);
-        string sceneName = fightingSceneList[rand];
+        string sceneName = ambushedSceneList[rand];
         
         return sceneName;
     }
@@ -439,10 +444,36 @@ public class DungeonManager : MonoBehaviour
         LaunchRoomEffectAction(RoomEffect.Rest);
     }
 
+    public void ToMainMenu()
+    {
+        SceneManager.LoadSceneAsync("_ScenesValou/MainMenu");
+    }
+
+    private void PositiveLootFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("PositiveLoot");
+    }
+
+    private void NegativeLootFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("NegativeLoot");
+    }
+
+    private void StepFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("StepDungeon");
+    }
+
+    private void LaunchFightFX()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("LaunchFight");
+    }
+    
+    /*--------------------------------------------------TEST------------------------------------------*/
+    
     [ContextMenu("Trap")]
     public void TestTrapUnits()
     {
         LaunchTrap();
     }
-    
 }

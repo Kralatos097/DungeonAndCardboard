@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,13 +6,16 @@ using UnityEngine.Serialization;
 
 public abstract class Stuff : ScriptableObject
 {
-    [HideInInspector] public string stuffName;
+    [HideInInspector] public string stuffType;
+    protected bool pass = false;
+    
     [Header("Value")]
     public Sprite logo;
     public string description;
-    
-    protected void Start()
+
+    public virtual void OnEnable()
     {
-        string Name = name;
+        if (pass) return;
+        else pass = false;
     }
 }

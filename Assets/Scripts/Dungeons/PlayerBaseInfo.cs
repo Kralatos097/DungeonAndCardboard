@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/UnitCard", order = 1)]
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/PlayerCard", order = 1)]
 public class PlayerBaseInfo : ScriptableObject
 {
     public int maxHp;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -14,50 +15,84 @@ public class Active : Stuff
     [Header("Effects")]
     [SerializeField] private List<ActiveEffect> activeEffectList;
 
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        stuffType = "Active";
+    }
+    
     public void Effect(GameObject user, GameObject target, int hitParam)
     {
+        switch (range)
+        {
+            case 0:
+                SelfAtkFx();
+                break;
+            case 1:
+                CacAtkFx();
+                break;
+            case > 1:
+                RangeAtkFx();
+                break;
+            default:
+                Debug.LogWarning("Out of range");
+                break;
+        }
+
         foreach(ActiveEffect activeEffect in activeEffectList)
         {
-            var gameObject = activeEffect.onSelf ? user : target;
+            GameObject go = activeEffect.onSelf ? user : target;
             int hit;
             if (activeEffect.noMiss && hitParam == 0) hit = 1;
             else if (activeEffect.critOnly && hitParam != 2) hit = 0;
             else hit = hitParam;
 
+            switch(hit)
+            {
+                case 0 :
+                    MissFx();
+                    break;
+                case 1 :
+                    HitFx();
+                    break;
+                case 2 :
+                    CritFx();
+                    break;
+                default:
+                    break;
+            }
+
             switch(activeEffect.activeType)
             {
                 case ActiveType.Damage:
-                    Damage(gameObject,activeEffect, hit);
+                    Damage(go,activeEffect, hit);
                     break;
                 case ActiveType.Heal:
-                    Heal(gameObject,activeEffect, hit);
+                    Heal(go,activeEffect, hit);
                     break;
                 case ActiveType.Burn:
-                    Burn(gameObject,activeEffect, hit);
+                    Burn(go,activeEffect, hit);
                     break;
                 case ActiveType.Stun:
-                    Stun(gameObject,activeEffect, hit);
+                    Stun(go,activeEffect, hit);
                     break;
                 case ActiveType.Freeze:
-                    Freeze(gameObject,activeEffect, hit);
+                    Freeze(go,activeEffect, hit);
                     break;
                 case ActiveType.Poison:
-                    Poison(gameObject,activeEffect, hit);
+                    Poison(go,activeEffect, hit);
                     break;
                 case ActiveType.Armor:
-                    Armor(gameObject,activeEffect, hit);
+                    Armor(go,activeEffect, hit);
                     break;
                 case ActiveType.Cure:
-                    Cure(gameObject, hit);
+                    Cure(go, hit);
                     break;
                 case ActiveType.Splash:
                     //todo
                     break;
-                case ActiveType.TwoHit:
-                    //todo
-                    break;
-                case ActiveType.ThreeHit:
-                    //todo
+                case ActiveType.SacredMace:
+                    SacredMace(user, go, activeEffect, hit);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -65,6 +100,35 @@ public class Active : Stuff
         }
     }
 
+    private void CacAtkFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("CaCAction");
+    }
+    
+    private void RangeAtkFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("RangeAction");
+    }
+    
+    private void SelfAtkFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("SelfAction");
+    }
+    
+    private void MissFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("Miss");
+    }
+    
+    private void HitFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("Hit");
+    }
+    
+    private void CritFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("Critical");
+    }
 
     private void Damage(GameObject target, ActiveEffect activeEffect, int hit)
     {
@@ -72,7 +136,6 @@ public class Active : Stuff
         switch(hit)
         {
             case 0:
-                AtkMiss();
                 break;
             case 1:
                 passive = target.GetComponent<TacticsMovement>().GetPassive();
@@ -80,7 +143,6 @@ public class Active : Stuff
                 {
                     passive.Effect(target);
                 }
-                AtkHit();
                 break;
             case 2:
                 passive = target.GetComponent<TacticsMovement>().GetPassive();
@@ -88,7 +150,6 @@ public class Active : Stuff
                 {
                     passive.Effect(target, true);
                 }
-                AtkCritical();
                 break;
         }
         target.GetComponent<CombatStat>().TakeDamage(hit * activeEffect.value);
@@ -100,7 +161,6 @@ public class Active : Stuff
         switch(hit)
         {
             case 0:
-                AtkMiss();
                 break;
             case 1:
                 passive = target.GetComponent<TacticsMovement>().GetPassive();
@@ -108,7 +168,6 @@ public class Active : Stuff
                 {
                     passive.Effect(target);
                 }
-                AtkHit();
                 break;
             case 2:
                 passive = target.GetComponent<TacticsMovement>().GetPassive();
@@ -116,7 +175,6 @@ public class Active : Stuff
                 {
                     passive.Effect(target, true);
                 }
-                AtkCritical();
                 break;
         }
         target.GetComponent<CombatStat>().TakeHeal(hit*activeEffect.value);
@@ -128,10 +186,8 @@ public class Active : Stuff
         switch(hit)
         {
             case 0:
-                AtkMiss();
                 break;
             case 1:
-                AtkHit();
                 passive = target.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
@@ -140,7 +196,6 @@ public class Active : Stuff
                 target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Burn, activeEffect.value);
                 break;
             case 2:
-                AtkCritical();
                  passive = target.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
@@ -157,10 +212,8 @@ public class Active : Stuff
         switch(hit)
         {
             case 0:
-                AtkMiss();
                 break;
             case 1:
-                AtkHit();
                 passive = target.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
@@ -169,7 +222,6 @@ public class Active : Stuff
                 target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Freeze, activeEffect.value);
                 break;
             case 2:
-                AtkCritical();
                 passive = target.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
@@ -186,10 +238,8 @@ public class Active : Stuff
         switch(hit)
         {
             case 0:
-                AtkMiss();
                 break;
             case 1:
-                AtkHit();
                 passive = target.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
@@ -198,7 +248,6 @@ public class Active : Stuff
                 target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Poison, activeEffect.value);
                 break;
             case 2:
-                AtkCritical();
                 passive = target.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
@@ -215,10 +264,8 @@ public class Active : Stuff
         switch(hit)
         {
             case 0:
-                AtkMiss();
                 break;
             case 1:
-                AtkHit();
                 passive = target.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
@@ -227,7 +274,6 @@ public class Active : Stuff
                 target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Stun, activeEffect.value);
                 break;
             case 2:
-                AtkCritical();
                 passive = target.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
@@ -243,14 +289,11 @@ public class Active : Stuff
         switch(hit)
         {
             case 0:
-                AtkMiss();
                 break;
             case 1:
-                AtkHit();
                 target.GetComponent<CombatStat>().ChangeArmor(activeEffect.value);
                 break;
             case 2:
-                AtkCritical();
                 target.GetComponent<CombatStat>().ChangeArmor(activeEffect.value*2);
                 break;
         }
@@ -261,28 +304,23 @@ public class Active : Stuff
         switch(hit)
         {
             case 0:
-                AtkMiss();
                 break;
             case 1 or 2:
-                AtkHit();
                 target.GetComponent<CombatStat>().ResetStatus();
                 break;
         }
     }
 
-    private void AtkMiss()
+    private void SacredMace(GameObject user, GameObject target, ActiveEffect activeEffect, int hit)
     {
-        
-    }
-
-    private void AtkHit()
-    {
-        
-    }
-
-    private void AtkCritical()
-    {
-        
+        if(!user.CompareTag(target.tag))
+            Damage(target,activeEffect,hit);
+        else
+        {
+            ActiveEffect tempAE = new ActiveEffect(activeEffect.activeType, activeEffect.value / 2, activeEffect.onSelf,
+                activeEffect.noMiss, activeEffect.critOnly);
+            Heal(target, tempAE, hit);
+        }
     }
 
     public int GetCd()
@@ -293,5 +331,10 @@ public class Active : Stuff
     public int GetAtkRange()
     {
         return range;
+    }
+
+    public ActiveTarget GetActiveTarget()
+    {
+        return clickTarget;
     }
 }
