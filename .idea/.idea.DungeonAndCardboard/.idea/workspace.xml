@@ -24,6 +24,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }
@@ -72,6 +74,7 @@
       <workItem from="1674821083583" duration="3810000" />
       <workItem from="1675240596236" duration="11543000" />
       <workItem from="1675331215298" duration="10342000" />
+      <workItem from="1675758983551" duration="1249000" />
     </task>
     <servers />
   </component>
