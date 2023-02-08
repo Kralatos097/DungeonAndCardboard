@@ -288,39 +288,6 @@ public class TacticsMovement : MonoBehaviour
         return endTile;
     }
 
-    private int DistToTarget(ArenaTile target)
-    {
-        Queue<ArenaTile> process = new Queue<ArenaTile>();
-        
-        process.Enqueue(_currentTile);
-        _currentTile.visited = true;
-
-        while (process.Count > 0)
-        {
-            ArenaTile t = process.Dequeue();
-            
-            _selectableTiles.Add(t);
-
-            foreach (ArenaTile tile in t.adjacencyList)
-            {
-                if (!tile.visited)
-                {
-                    tile.parent = t;
-                    tile.visited = true;
-                    tile.distance = 1 + t.distance;
-                    process.Enqueue(tile);
-
-                    if (tile == target)
-                    {
-                        return tile.distance;
-                    }
-                }
-            }
-        }
-        
-        return -1;
-    }
-
     protected bool FindPathFull(ArenaTile targetTile)
     {
         ComputeAdjacencyList(targetTile);

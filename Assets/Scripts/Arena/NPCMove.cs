@@ -10,10 +10,11 @@ public class NPCMove : TacticsMovement
     private bool _alreadyMoved = false;
     private int tileMoved = 0;
     public bool temp = false;
+    private int _tempMove = -1;
     
     [SerializeField] protected EnemieBaseInfo UnitInfo;
 
-    [SerializeField] private IaType iaType; //todo: A lier à EnemieBaseInfo
+    [SerializeField] private IaType iaType; //todo: Apres test enlever le SerializedField
     
     // Start is called before the first frame update
     void Start()
@@ -35,7 +36,7 @@ public class NPCMove : TacticsMovement
         Passive = UnitInfo.passive;
         Consumable = UnitInfo.consumable;
 
-        //iaType = UnitInfo.iaType;
+        //iaType = UnitInfo.iaType; todo: après le test enlever de commentaire
     }
 
     protected int RandomHp(int min, int max)
@@ -57,13 +58,13 @@ public class NPCMove : TacticsMovement
                 DumbAI();
                 break;
             case IaType.Coward:
+                CowardAI();
                 break;
             case IaType.Ruthless:
                 RuthlessAI();
                 break;
             case IaType.Perfectionist:
-                break;
-            case IaType.Accurate:
+                PerfectionistAI();
                 break;
             case IaType.Friendly:
                 break;
@@ -72,8 +73,7 @@ public class NPCMove : TacticsMovement
         }
     }
 
-    // Update is called once per frame
-    void UpdateV1()
+    /*void UpdateV1()
     {
         if(!Turn) return;
         PlayersTurn = false;
@@ -112,8 +112,7 @@ public class NPCMove : TacticsMovement
                 CalculatePathFull();
                 FindSelectableTile();
                 ActualTargetTile.target = true;
-                MoveToTile(ActualTargetTile);*/
-                //todo: virer lignes du dessus et mettre les lignes du dessous quand les IA seront plus avancé
+                MoveToTile(ActualTargetTile);#1#
                 switch(iaType)
                 {
                     case IaType.Dumb:
@@ -124,8 +123,6 @@ public class NPCMove : TacticsMovement
                     case IaType.Ruthless:
                         break;
                     case IaType.Perfectionist:
-                        break;
-                    case IaType.Accurate:
                         break;
                     case IaType.Friendly:
                         break;
@@ -143,27 +140,49 @@ public class NPCMove : TacticsMovement
         {
             EndTurnT();
         }
-    }
+    }*/
 
-    private void FindNearestTargetDist()
+    private ArenaTile FindFarthestFromTarget(int cMove)
     {
-        GameObject[] targets = GameObject.FindGameObjectsWithTag("Player");
+        ComputeAdjacencyListAtk();
+        SetCurrentTile();
 
-        GameObject nearest = null;
-        float distance = Mathf.Infinity;
+        Queue<ArenaTile> process = new Queue<ArenaTile>();
+        
+        process.Enqueue(_currentTile);
+        _currentTile.visited = true;
 
-        foreach (GameObject obj in targets)
+        while (process.Count > 0)
         {
-            float d = Vector3.Distance(transform.position, obj.transform.position);
+            ArenaTile t = process.Dequeue();
+            
+            _selectableTiles.Add(t);
 
-            if (d < distance)
+            foreach (ArenaTile tile in t.adjacencyList)
             {
-                distance = d;
-                nearest = obj;
+                if (!tile.visited)
+                {
+                    tile.parent = t;
+                    tile.visited = true;
+                    tile.distance = 1 + t.distance;
+
+                    if (tile.distance > cMove)
+                    {
+                        return tile.parent;
+                    }
+
+                    float distPToTarget = Vector3.Distance(tile.transform.position, target.transform.position);
+                    float distTileToTarget = Vector3.Distance(tile.transform.position, target.transform.position);
+                    if (distTileToTarget > distPToTarget)
+                    {
+                        GameObject TGO = tile.GetGameObjectOnTop();
+                        if (TGO == null) process.Enqueue(tile);
+                    }
+                }
             }
         }
-        
-        target = nearest; 
+
+        return null;
     }
     
     private void FindNearestTarget()
@@ -199,6 +218,49 @@ public class NPCMove : TacticsMovement
                             target = TGO;
                             _targetDistance = tile.distance;
                             return;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    private void FindFarthestTargetInRange() //A revoir
+    {
+        int distAtk = atkRange + move;
+
+        ComputeAdjacencyListAtk();
+        SetCurrentTile();
+
+        Queue<ArenaTile> process = new Queue<ArenaTile>();
+        
+        process.Enqueue(_currentTile);
+        _currentTile.visited = true;
+
+        while (process.Count > 0)
+        {
+            ArenaTile t = process.Dequeue();
+            
+            _selectableTiles.Add(t);
+
+            foreach (ArenaTile tile in t.adjacencyList)
+            {
+                if (!tile.visited)
+                {
+                    tile.parent = t;
+                    tile.visited = true;
+                    tile.distance = 1 + t.distance;
+
+                    if (tile.distance > distAtk) return;
+                    process.Enqueue(tile);
+
+                    GameObject TGO = tile.GetGameObjectOnTop();
+                    if (TGO != null)
+                    {
+                        if (TGO.CompareTag("Player") && tile.distance > _targetDistance)
+                        {
+                            target = TGO;
+                            _targetDistance = tile.distance;
                         }
                     }
                 }
@@ -330,7 +392,10 @@ public class NPCMove : TacticsMovement
             temp = true;
         }
 
-        if(target != null && _targetDistance <= atkRange && !moving && !_alreadyMoved) //Attack en début de tour si un Player est dans la range
+        bool isAttacking = AttackAI(); //lance les attaques
+        if (isAttacking) return;
+        
+        /*if(target != null && _targetDistance <= atkRange && !moving && !_alreadyMoved) //Attack en début de tour si un Player est dans la range
         {
             attacking = true;
             Attack(target, 1);
@@ -349,7 +414,7 @@ public class NPCMove : TacticsMovement
                 EndTurnT();
                 return;
             }
-        }
+        }*/
 
         if(!attacking && !moving && !_alreadyMoved) //Calcul du mouvement
         {
@@ -413,6 +478,103 @@ public class NPCMove : TacticsMovement
             Move();
         }
     }
+    
+    private void CowardAI()
+    {
+        if(!temp)
+        {
+            _tempMove = move;
+            FindNearestTarget();
+
+            RemoveSelectableTile();
+            temp = true;
+
+            if(_targetDistance == atkRange)
+            {
+                attacking = true;
+                Attack(target, 1);
+                return;
+            }
+            else if(_targetDistance < atkRange)
+            {
+                move = atkRange-_targetDistance;
+                
+                ActualTargetTile = FindFarthestFromTarget(move);
+                
+                transform.GetChild(0).Translate(0, MoveY, 0);
+                MoveToTile(ActualTargetTile);
+            }
+            else
+            {
+                move = _targetDistance-atkRange; //todo: erreur
+                
+                transform.GetChild(0).Translate(0, MoveY, 0);
+            
+                bool findPath = CalculatePathFull(); //Calcul du trajet normal
+                if (findPath) //Si seul le 1er trajet et valide
+                {
+                    CalculatePathFull();
+                    MoveToTile(ActualTargetTile);
+                }
+                else
+                {
+                    //recherche de chemin en ignorant les pieges
+                    findPath = CalculatePathWoTrap();
+                    if (findPath)
+                    {
+                        MoveToTile(ActualTargetTile);
+                    }
+                    else
+                    {
+                        //recherche de chemin en ignorant les pieges et les caisses
+                        findPath = CalculatePathWoCrate();
+                        if (findPath)
+                        {
+                            MoveToTile(ActualTargetTile);
+                        }
+                        else
+                        {
+                            //recherche de chemin en ignorant tous les obstacles
+                            findPath = CalculatePathWoAll();
+                            if (findPath)
+                            {
+                                MoveToTile(ActualTargetTile);
+                            }
+                            else
+                            {
+                                transform.GetChild(0).Translate(0, -MoveY, 0);
+                                EndTurnT();
+                            }
+                            /*transform.GetChild(0).Translate(0, -MoveY, 0);
+                            EndTurnT();*/
+                        }
+                    }
+                }
+
+                tileMoved = _path.Count-1;
+            }
+        }
+        
+        if(_alreadyMoved) //Attack après avoir bougé si un Player est dans la range
+        {
+            if(target != null && _targetDistance <= atkRange)
+            {
+                attacking = true;
+                Attack(target, 1);
+                return;
+            }
+            else
+            {
+                EndTurnT();
+                return;
+            }
+        }
+        
+        if(moving) //Application du mouvement
+        {
+            Move();
+        }
+    }
 
     private void RuthlessAI()
     {
@@ -424,7 +586,10 @@ public class NPCMove : TacticsMovement
             temp = true;
         }
         
-        if(target != null && _targetDistance <= atkRange && !moving && !_alreadyMoved) //Attack en début de tour si un Player est dans la range
+        bool isAttacking = AttackAI(); //lance les attaques
+        if (isAttacking) return;
+        
+        /*if(target != null && _targetDistance <= atkRange && !moving && !_alreadyMoved) //Attack en début de tour si un Player est dans la range
         {
             attacking = true;
             Attack(target, 1);
@@ -443,6 +608,73 @@ public class NPCMove : TacticsMovement
                 EndTurnT();
                 return;
             }
+        }*/
+        
+        if(!attacking && !moving && !_alreadyMoved) //Calcul du mouvement
+        {
+            transform.GetChild(0).Translate(0, MoveY, 0);
+            bool findPath = CalculatePathFull(); //Calcul du trajet normal
+            
+            if (findPath) //Si seul le 1er trajet et valide
+            {
+                CalculatePathFull();
+                MoveToTile(ActualTargetTile);
+            }
+            else
+            {
+                //recherche de chemin en ignorant les pieges
+                findPath = CalculatePathWoTrap();
+                if (findPath)
+                {
+                    MoveToTile(ActualTargetTile);
+                }
+                else
+                {
+                    //recherche de chemin en ignorant les pieges et les caisses
+                    findPath = CalculatePathWoCrate();
+                    if (findPath)
+                    {
+                        MoveToTile(ActualTargetTile);
+                    }
+                    else
+                    {
+                        //recherche de chemin en ignorant tous les obstacles
+                        findPath = CalculatePathWoAll();
+                        if (findPath)
+                        {
+                            MoveToTile(ActualTargetTile);
+                        }
+                        else
+                        {
+                            transform.GetChild(0).Translate(0, -MoveY, 0);
+                            EndTurnT();
+                        }
+                        /*transform.GetChild(0).Translate(0, -MoveY, 0);
+                        EndTurnT();*/
+                    }
+                }
+            }
+
+            tileMoved = _path.Count-1;
+        }
+        if(moving) //Application du mouvement
+        {
+            Move();
+        }
+    }
+
+    private void PerfectionistAI()
+    {
+        if(!temp)
+        {
+            FindFarthestTargetInRange();
+            if(target == null)
+            {
+                FindFarthestTarget();
+            }
+            
+            RemoveSelectableTile();
+            temp = true;
         }
         
         if(!attacking && !moving && !_alreadyMoved) //Calcul du mouvement
@@ -498,11 +730,44 @@ public class NPCMove : TacticsMovement
         }
     }
 
+    private bool AttackAI()
+    {
+        if(target != null && _targetDistance <= atkRange && !moving && !_alreadyMoved) //Attack en début de tour si un Player est dans la range
+        {
+            attacking = true;
+            Attack(target, 1);
+            return true;
+        }
+        if(_alreadyMoved) //Attack après avoir bougé si un Player est dans la range
+        {
+            if(target != null && _targetDistance <= atkRange)
+            {
+                attacking = true;
+                Attack(target, 1);
+                return true;
+            }
+            else
+            {
+                EndTurnT();
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     protected override void EndOfMovement()
     {
         Debug.Log(_targetDistance+" - "+ tileMoved);
         _targetDistance -= tileMoved;
         _alreadyMoved = true;
+
+        if(_tempMove != -1)
+        {
+            move = _tempMove;
+            _tempMove = -1;
+        }
+        
         base.EndOfMovement();
     }
     

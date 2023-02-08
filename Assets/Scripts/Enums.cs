@@ -142,6 +142,5 @@ public enum IaType
     Coward,
     Ruthless,
     Perfectionist,
-    Accurate,
     Friendly,
 }
