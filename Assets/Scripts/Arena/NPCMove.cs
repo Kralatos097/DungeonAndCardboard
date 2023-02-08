@@ -506,7 +506,11 @@ public class NPCMove : TacticsMovement
             }
             else
             {
-                move = _targetDistance-atkRange; //todo: erreur
+                move = _targetDistance-atkRange;
+                if(move > _tempMove)
+                {
+                    move = _tempMove;
+                }
                 
                 transform.GetChild(0).Translate(0, MoveY, 0);
             
