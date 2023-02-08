@@ -10,6 +10,7 @@ public class MainMenuManager : MonoBehaviour
     [Header("Animators")]
     [SerializeField] private Animator TransitionCam;
     [SerializeField] private Animator TableFlip;
+    [SerializeField] private Animator Book;
     [Header("GameObjects")]
     [SerializeField] private GameObject QuitButton;
     [SerializeField] private GameObject QuitQuestion;
@@ -51,6 +52,7 @@ public class MainMenuManager : MonoBehaviour
         {
             AsSessionDisplay = false;
             SetFalseAllMenu();
+            Book.SetBool("IsOut",false);
         }
     }
     
@@ -77,6 +79,11 @@ public class MainMenuManager : MonoBehaviour
     public void MainScreen()
     {
         TransitionCam.SetBool("Session",false);
+    }
+
+    public void BookAnim()
+    {
+        Book.SetBool("IsOut",true);
     }
     
     //Load la session...

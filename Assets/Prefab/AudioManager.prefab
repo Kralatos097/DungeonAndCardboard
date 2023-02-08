@@ -49,7 +49,7 @@ MonoBehaviour:
   volumeMusic: 0.3
   volumeSfx: 0.3
   volumeVoice: 0.3
-  pitchMinMax: {x: 0.6, y: 1.5}
+  pitchMinMax: {x: 0.9, y: 1.1}
   music:
   - name: MainMenu
     clip: {fileID: 8300000, guid: 74077659f8ffbf347a609714be7efac0, type: 3}
