@@ -12,34 +12,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 592621618088576928, guid: 0ed47d4af673e6f40bac877fd161f93b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 592621618088576928, guid: 0ed47d4af673e6f40bac877fd161f93b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 592621618088576928, guid: 0ed47d4af673e6f40bac877fd161f93b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 592621618088576928, guid: 0ed47d4af673e6f40bac877fd161f93b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 592621618088576928, guid: 0ed47d4af673e6f40bac877fd161f93b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 592621618088576928, guid: 0ed47d4af673e6f40bac877fd161f93b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 592621618088576928, guid: 0ed47d4af673e6f40bac877fd161f93b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 592621618088576928, guid: 0ed47d4af673e6f40bac877fd161f93b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -51,6 +23,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 592621618088576930, guid: 0ed47d4af673e6f40bac877fd161f93b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eeec941cc8cf633488015400aa4e67ca, type: 2}
     - target: {fileID: 592621618088576932, guid: 0ed47d4af673e6f40bac877fd161f93b, type: 3}
       propertyPath: m_Name
       value: MetalCrate
