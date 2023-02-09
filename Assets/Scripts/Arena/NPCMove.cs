@@ -14,7 +14,7 @@ public class NPCMove : TacticsMovement
     
     [SerializeField] protected EnemieBaseInfo UnitInfo;
 
-    [SerializeField] private IaType iaType; //todo: Apres test enlever le SerializedField
+    private IaType iaType;
     
     // Start is called before the first frame update
     void Start()
@@ -67,6 +67,7 @@ public class NPCMove : TacticsMovement
                 PerfectionistAI();
                 break;
             case IaType.Friendly:
+                FriendlyAI();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -142,7 +143,7 @@ public class NPCMove : TacticsMovement
         }
     }*/
 
-    private ArenaTile FindFarthestFromTarget(int cMove)
+    private ArenaTile FindFarthestFromTarget()
     {
         ComputeAdjacencyListAtk();
         SetCurrentTile();
@@ -166,14 +167,14 @@ public class NPCMove : TacticsMovement
                     tile.visited = true;
                     tile.distance = 1 + t.distance;
 
-                    if (tile.distance > cMove)
+                    if (tile.distance > move)
                     {
                         return tile.parent;
                     }
 
-                    float distPToTarget = Vector3.Distance(tile.transform.position, target.transform.position);
+                    float distPToTarget = Vector3.Distance(t.transform.position, target.transform.position);
                     float distTileToTarget = Vector3.Distance(tile.transform.position, target.transform.position);
-                    if (distTileToTarget > distPToTarget)
+                    if (distTileToTarget >= distPToTarget)
                     {
                         GameObject TGO = tile.GetGameObjectOnTop();
                         if (TGO == null) process.Enqueue(tile);
@@ -225,7 +226,7 @@ public class NPCMove : TacticsMovement
         }
     }
     
-    private void FindFarthestTargetInRange() //A revoir
+    private void FindFarthestTargetInRange()
     {
         int distAtk = atkRange + move;
 
@@ -268,7 +269,91 @@ public class NPCMove : TacticsMovement
         }
     }
     
-    private void FindFarthestTarget() //A revoir
+    private void FindNearestEnemyInRange()
+    {
+        int distAtk = atkRange + move;
+
+        ComputeAdjacencyListAtk();
+        SetCurrentTile();
+
+        Queue<ArenaTile> process = new Queue<ArenaTile>();
+        
+        process.Enqueue(_currentTile);
+        _currentTile.visited = true;
+
+        while (process.Count > 0)
+        {
+            ArenaTile t = process.Dequeue();
+            
+            _selectableTiles.Add(t);
+
+            foreach (ArenaTile tile in t.adjacencyList)
+            {
+                if (!tile.visited)
+                {
+                    tile.parent = t;
+                    tile.visited = true;
+                    tile.distance = 1 + t.distance;
+
+                    if (tile.distance > distAtk) return;
+                    process.Enqueue(tile);
+
+                    GameObject TGO = tile.GetGameObjectOnTop();
+                    if (TGO != null)
+                    {
+                        if (TGO.CompareTag("Enemy") && tile.distance > _targetDistance)
+                        {
+                            target = TGO;
+                            _targetDistance = tile.distance;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    private void FindNearestEnemy()
+    {
+
+        ComputeAdjacencyListAtk();
+        SetCurrentTile();
+
+        Queue<ArenaTile> process = new Queue<ArenaTile>();
+        
+        process.Enqueue(_currentTile);
+        _currentTile.visited = true;
+
+        while (process.Count > 0)
+        {
+            ArenaTile t = process.Dequeue();
+            
+            _selectableTiles.Add(t);
+
+            foreach (ArenaTile tile in t.adjacencyList)
+            {
+                if (!tile.visited)
+                {
+                    tile.parent = t;
+                    tile.visited = true;
+                    tile.distance = 1 + t.distance;
+
+                    process.Enqueue(tile);
+
+                    GameObject TGO = tile.GetGameObjectOnTop();
+                    if (TGO != null)
+                    {
+                        if (TGO.CompareTag("Enemy"))
+                        {
+                            target = TGO;
+                            _targetDistance = tile.distance;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    private void FindFarthestTarget()
     {
         ComputeAdjacencyListAtk();
         SetCurrentTile();
@@ -498,11 +583,26 @@ public class NPCMove : TacticsMovement
             else if(_targetDistance < atkRange)
             {
                 move = atkRange-_targetDistance;
+                if(move > _tempMove)
+                {
+                    move = _tempMove;
+                }
                 
-                ActualTargetTile = FindFarthestFromTarget(move);
+                ActualTargetTile = FindFarthestFromTarget();
+
+                Debug.Log(ActualTargetTile);
                 
-                transform.GetChild(0).Translate(0, MoveY, 0);
-                MoveToTile(ActualTargetTile);
+                if (ActualTargetTile == null)
+                {
+                    attacking = true;
+                    Attack(target, 1);
+                    return;
+                }
+                else
+                {
+                    transform.GetChild(0).Translate(0, MoveY, 0);
+                    MoveToTile(ActualTargetTile);
+                }
             }
             else
             {
@@ -558,6 +658,8 @@ public class NPCMove : TacticsMovement
                 tileMoved = _path.Count-1;
             }
         }
+        
+        Debug.Log(target);
         
         if(_alreadyMoved) //Attack après avoir bougé si un Player est dans la range
         {
@@ -681,6 +783,9 @@ public class NPCMove : TacticsMovement
             temp = true;
         }
         
+        bool isAttacking = AttackAI(); //lance les attaques
+        if (isAttacking) return;
+        
         if(!attacking && !moving && !_alreadyMoved) //Calcul du mouvement
         {
             transform.GetChild(0).Translate(0, MoveY, 0);
@@ -733,6 +838,74 @@ public class NPCMove : TacticsMovement
             Move();
         }
     }
+    
+    private void FriendlyAI()
+    {
+        if(!temp)
+        {
+            FindNearestEnemyInRange();
+            if(target == null)
+            {
+                FindNearestEnemy();
+            }
+            
+            RemoveSelectableTile();
+            temp = true;
+        }
+        
+        bool isAttacking = AttackAI(); //lance les attaques
+        if (isAttacking) return;
+        
+        if(!attacking && !moving && !_alreadyMoved) //Calcul du mouvement
+        {
+            transform.GetChild(0).Translate(0, MoveY, 0);
+            bool findPath = CalculatePathFull(); //Calcul du trajet normal
+            
+            if (findPath) //Si le trajet et valide
+            {
+                CalculatePathFull();
+                MoveToTile(ActualTargetTile);
+            }
+            else
+            {
+                //recherche de chemin en ignorant les pieges
+                findPath = CalculatePathWoTrap();
+                if (findPath)
+                {
+                    MoveToTile(ActualTargetTile);
+                }
+                else
+                {
+                    //recherche de chemin en ignorant les pieges et les caisses
+                    findPath = CalculatePathWoCrate();
+                    if (findPath)
+                    {
+                        MoveToTile(ActualTargetTile);
+                    }
+                    else
+                    {
+                        //recherche de chemin en ignorant tous les obstacles
+                        findPath = CalculatePathWoAll();
+                        if (findPath)
+                        {
+                            MoveToTile(ActualTargetTile);
+                        }
+                        else
+                        {
+                            transform.GetChild(0).Translate(0, -MoveY, 0);
+                            EndTurnT();
+                        }
+                    }
+                }
+            }
+
+            tileMoved = _path.Count-1;
+        }
+        if(moving) //Application du mouvement
+        {
+            Move();
+        }
+    }
 
     private bool AttackAI()
     {
@@ -762,7 +935,6 @@ public class NPCMove : TacticsMovement
 
     protected override void EndOfMovement()
     {
-        Debug.Log(_targetDistance+" - "+ tileMoved);
         _targetDistance -= tileMoved;
         _alreadyMoved = true;
 

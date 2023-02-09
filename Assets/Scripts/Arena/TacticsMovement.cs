@@ -342,15 +342,12 @@ public class TacticsMovement : MonoBehaviour
                 }
             }
         }
-        
-        //todo: what do you do if there is no path to the target tile?
-        //Debug.Log("Path not Found");
         return false;
     }
     
-    protected bool FindPathWoTrap(ArenaTile targetTile) //A Faire
+    protected bool FindPathWoTrap(ArenaTile targetTile)
     {
-        ComputeAdjacencyListAtk();// a modif pour ignorer les pieges
+        ComputeAdjacencyListAtk();
         SetCurrentTile();
 
         List<ArenaTile> openList = new List<ArenaTile>();
@@ -369,16 +366,15 @@ public class TacticsMovement : MonoBehaviour
             if (t == targetTile)
             {
                 ActualTargetTile = FindEndTile(t);
-                //MoveToTile(ActualTargetTile);
                 return true;
             }
 
             foreach (ArenaTile tile in t.adjacencyList)
             {
                 GameObject tileGo = tile.GetGameObjectOnTop();
-                if(tileGo == null || tileGo.CompareTag("Trap") || tileGo.CompareTag("Player"))
+                if(tileGo == null || tileGo.CompareTag("Trap") || tileGo.CompareTag(target.tag))
                 {
-                    if (closedList.Contains(tile))
+                    if(closedList.Contains(tile))
                     {
                         //Do nothing, already processed
                     }
@@ -442,7 +438,7 @@ public class TacticsMovement : MonoBehaviour
             foreach(ArenaTile tile in t.adjacencyList)
             {
                 GameObject tileGo = tile.GetGameObjectOnTop();
-                if(tileGo == null || tileGo.CompareTag("Trap") || tileGo.CompareTag("Crate") || tileGo.CompareTag("Player"))
+                if(tileGo == null || tileGo.CompareTag("Trap") || tileGo.CompareTag("Crate") || tileGo.CompareTag(target.tag))
                 {
                     if (closedList.Contains(tile))
                     {
