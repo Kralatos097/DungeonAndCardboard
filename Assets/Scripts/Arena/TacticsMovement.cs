@@ -18,13 +18,12 @@ public class TacticsMovement : MonoBehaviour
     protected List<ArenaTile> _selectableTiles = new List<ArenaTile>();
     private GameObject[] _tiles;
 
-    private Stack<ArenaTile> _path = new Stack<ArenaTile>();
+    protected Stack<ArenaTile> _path = new Stack<ArenaTile>();
     protected ArenaTile _currentTile;
 
     protected bool moving = false;
     protected bool attacking = false;
-    protected int baseMove = 3;
-    private int move = 3;
+    protected int move;
     public float moveSpeed = 2;
     
     [HideInInspector] public int atkRange = 0;
@@ -195,7 +194,7 @@ public class TacticsMovement : MonoBehaviour
 
     protected void Move()
     {
-        if (_path.Count > 0)
+        if(_path.Count > 0)
         {
             ArenaTile t = _path.Peek();
             Vector3 target = t.transform.position;
@@ -221,7 +220,6 @@ public class TacticsMovement : MonoBehaviour
         else
         {
             RemoveSelectableTile();
-            moving = false;
             
             EndOfMovement();
         }
@@ -290,7 +288,7 @@ public class TacticsMovement : MonoBehaviour
         return endTile;
     }
 
-    protected bool FindPathFull(ArenaTile targetTile) //A modifier
+    protected bool FindPathFull(ArenaTile targetTile)
     {
         ComputeAdjacencyList(targetTile);
         SetCurrentTile();
@@ -311,7 +309,6 @@ public class TacticsMovement : MonoBehaviour
             if (t == targetTile)
             {
                 ActualTargetTile = FindEndTile(t);
-                //MoveToTile(ActualTargetTile);
                 return true;
             }
 
@@ -345,15 +342,12 @@ public class TacticsMovement : MonoBehaviour
                 }
             }
         }
-        
-        //todo: what do you do if there is no path to the target tile?
-        //Debug.Log("Path not Found");
         return false;
     }
     
-    protected bool FindPathWoTrap(ArenaTile targetTile) //A Faire
+    protected bool FindPathWoTrap(ArenaTile targetTile)
     {
-        ComputeAdjacencyListAtk();// a modif pour ignorer les pieges
+        ComputeAdjacencyListAtk();
         SetCurrentTile();
 
         List<ArenaTile> openList = new List<ArenaTile>();
@@ -372,16 +366,15 @@ public class TacticsMovement : MonoBehaviour
             if (t == targetTile)
             {
                 ActualTargetTile = FindEndTile(t);
-                //MoveToTile(ActualTargetTile);
                 return true;
             }
 
             foreach (ArenaTile tile in t.adjacencyList)
             {
                 GameObject tileGo = tile.GetGameObjectOnTop();
-                if(tileGo == null || tileGo.CompareTag("Trap") || tileGo.CompareTag("Player"))
+                if(tileGo == null || tileGo.CompareTag("Trap") || tileGo.CompareTag(target.tag))
                 {
-                    if (closedList.Contains(tile))
+                    if(closedList.Contains(tile))
                     {
                         //Do nothing, already processed
                     }
@@ -445,7 +438,7 @@ public class TacticsMovement : MonoBehaviour
             foreach(ArenaTile tile in t.adjacencyList)
             {
                 GameObject tileGo = tile.GetGameObjectOnTop();
-                if(tileGo == null || tileGo.CompareTag("Trap") || tileGo.CompareTag("Crate") || tileGo.CompareTag("Player"))
+                if(tileGo == null || tileGo.CompareTag("Trap") || tileGo.CompareTag("Crate") || tileGo.CompareTag(target.tag))
                 {
                     if (closedList.Contains(tile))
                     {
@@ -476,14 +469,12 @@ public class TacticsMovement : MonoBehaviour
                 }
             }
         }
-        
-        Debug.Log("Path not Found");
         return false;
     }
     
     protected bool FindPathWoAll(ArenaTile targetTile) //A Faire
     {
-        ComputeAdjacencyListAtk();// a modif pour ignorer tout
+        ComputeAdjacencyListAtk();
         SetCurrentTile();
 
         List<ArenaTile> openList = new List<ArenaTile>();
@@ -501,8 +492,8 @@ public class TacticsMovement : MonoBehaviour
 
             if (t == targetTile)
             {
-                ActualTargetTile = FindEndTile(t);
-                ActualTargetTile = GetFirstObstacleOnPath(ActualTargetTile);
+                ArenaTile obstTile = GetFirstObstacleOnPath(t);
+                ActualTargetTile = FindEndTile(obstTile);
                 return true;
             }
 
@@ -536,9 +527,6 @@ public class TacticsMovement : MonoBehaviour
                 }
             }
         }
-        
-        //todo: what do you do if there is no path to the target tile?
-        //Debug.Log("Path not Found");
         return false;
     }
 
@@ -561,16 +549,22 @@ public class TacticsMovement : MonoBehaviour
 
     protected ArenaTile GetFirstCrateOnPath(ArenaTile target)
     {
+        int n = 0;
         ArenaTile firstCrate = null;
         while(target.parent != null)
         {
             if(target.GetGameObjectOnTop() != null && target.GetGameObjectOnTop().CompareTag("Crate"))
             {
+                n = 0;
                 firstCrate = target;
             }
+            n += 1;
 
             target = target.parent;
         }
+
+        //_targetDistance = n;
+        firstCrate.distance = n;
         return firstCrate;
     }
     
@@ -580,7 +574,7 @@ public class TacticsMovement : MonoBehaviour
         ArenaTile firstObst = null;
         while (target.parent != null)
         {
-            if(target.GetGameObjectOnTop().CompareTag("Crate"))
+            if(target.GetGameObjectOnTop() != null)
             {
                 firstObst = target;
             }
@@ -597,6 +591,7 @@ public class TacticsMovement : MonoBehaviour
         transform.GetChild(0).Translate(0,-MoveY,0);
         EndOfMovementFX();
         passM = false;
+        moving = false;
     }
 
     protected void EndOfMovementFX()

@@ -256,6 +256,7 @@ public class CombatStat : MonoBehaviour
     
     public void ResetStatus()
     {
+        FindObjectOfType<FXManager>().StopAll(transform);
         GetCuredFX();
         Passive passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
         if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueClean)
@@ -265,6 +266,7 @@ public class CombatStat : MonoBehaviour
         
         StatusEffect = StatusEffect.Nothing;
         statusValue = 0;
+        GetCuredFX();
     }
 
     public int GetInit()

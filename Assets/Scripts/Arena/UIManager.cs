@@ -312,7 +312,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            //NPCMove npcMove = unit.GetComponent<NPCMove>();
+            //todo: add NPC variations
             t = Instantiate(EnemyInitPanel, InitPanel);
         }
         _playerPanelList.Add(unit, t);
