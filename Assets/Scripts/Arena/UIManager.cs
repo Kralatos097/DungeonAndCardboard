@@ -324,6 +324,12 @@ public class UIManager : MonoBehaviour
     {
         foreach(KeyValuePair<GameObject, GameObject> t in _playerPanelList)
         {
+            if(!t.Key.GetComponent<CombatStat>().isAlive)
+            {
+                GameObject temp = t.Value;
+                Destroy(temp);
+            }
+
             if(t.Key.GetComponent<PlayerMovement>() != null)
             {
                 t.Value.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text =
