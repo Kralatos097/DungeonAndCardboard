@@ -19,4 +19,4 @@ MonoBehaviour:
   activeTwo: {fileID: 0}
   passive: {fileID: 0}
   consumable: {fileID: 0}
-  iaType: 5
+  iaType: 4

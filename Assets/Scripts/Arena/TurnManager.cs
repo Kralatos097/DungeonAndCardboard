@@ -189,7 +189,7 @@ public class TurnManager : MonoBehaviour
             else
             {
                 EnemyStartTurnFx();
-                turnOrder.Peek().GetComponent<NPCMove>().temp = false;
+                turnOrder.Peek().GetComponent<NPCMove>().firstTimePass = false;
             }
             
             turnOrder.Peek().BeginTurn();
@@ -296,6 +296,10 @@ public class TurnManager : MonoBehaviour
     }
     
     //todo: remove of the list
+    public static void RemovePlayerToList(PlayerMovement unit)
+    {
+        _playerList.Remove(unit);
+    }
 
     private static bool ArePlayersAlive()
     {

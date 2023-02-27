@@ -160,18 +160,21 @@ public class CombatStat : MonoBehaviour
         
         TakeDamageFX();
         CurrHp-=value;
+        
+        Debug.Log(name+" is damaged for : " + value + " remaining " + CurrHp +"/"+ MaxHp);
     }
     
     public void TakeHeal(int value)
     {
         Passive passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
-        if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnHealTaken)
         {
             passive.Effect(gameObject);
         }
         
         GetHealFX();
         CurrHp+=value;
+        
+        Debug.Log(name+" is healed for : " + value + " remaining " + CurrHp +"/"+ MaxHp);
     }
 
     public void ChangeStatus(StatusEffect effect, int value)
