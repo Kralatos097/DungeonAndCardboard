@@ -5,27 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="225202b0-c116-4b2c-8d9c-8c9a57c9d235" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Helpers/ConditionalData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Helpers/ConditionalData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Helpers/ConditionalFieldAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Helpers/ConditionalFieldAttribute.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Helpers/ConditionalUtility.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Helpers/ConditionalUtility.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Active/Starter/Heirloom Staff.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Active/Starter/Heirloom Staff.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/CombatStat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/CombatStat.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/NPCMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/NPCMove.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/TurnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/TurnManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Stuff/Active.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Stuff/Active.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dungeons/DungeonManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dungeons/DungeonManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_ScenesTibo/DungeonScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesTibo/DungeonScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/2c/221a1ffc/String.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -101,7 +95,7 @@
       <workItem from="1675878220583" duration="540000" />
       <workItem from="1675945901415" duration="8978000" />
       <workItem from="1677486508640" duration="15366000" />
-      <workItem from="1677571552162" duration="8409000" />
+      <workItem from="1677571552162" duration="11386000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MyBox;
 using UnityEditor;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ public class PlayerMovement : TacticsMovement
 
     [Header("Test Zone")]
     public bool testMap;
-    [SerializeField] protected PlayerBaseInfo UnitInfo;
+    [ConditionalField(nameof(testMap))][SerializeField] protected PlayerBaseInfo UnitInfo;
 
     // Start is called before the first frame update
     void Start()
