@@ -565,6 +565,7 @@ MonoBehaviour:
   moveSpeed: 2
   atkRange: 0
   charaClass: 0
+  testMap: 0
   UnitInfo: {fileID: 11400000, guid: ccb22e06a8753654eb5c17e944da9f66, type: 2}
 --- !u!1 &327031311
 GameObject:
@@ -616,7 +617,6 @@ MonoBehaviour:
   atkRange: 0
   temp: 0
   UnitInfo: {fileID: 0}
-  iaType: 0
 --- !u!135 &327031314
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2552,7 +2552,6 @@ MonoBehaviour:
   atkRange: 0
   temp: 0
   UnitInfo: {fileID: 0}
-  iaType: 0
 --- !u!1 &1742943737
 GameObject:
   m_ObjectHideFlags: 0
@@ -2697,7 +2696,6 @@ MonoBehaviour:
   atkRange: 0
   temp: 0
   UnitInfo: {fileID: 0}
-  iaType: 0
 --- !u!135 &1748338804
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3305,6 +3303,7 @@ MonoBehaviour:
   moveSpeed: 2
   atkRange: 0
   charaClass: 0
+  testMap: 0
   UnitInfo: {fileID: 11400000, guid: e3fb520fd0e444a4fa6b99634ac5477c, type: 2}
 --- !u!1001 &2040434556626346639
 PrefabInstance:
