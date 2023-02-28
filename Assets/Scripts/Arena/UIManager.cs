@@ -324,10 +324,13 @@ public class UIManager : MonoBehaviour
     {
         foreach(KeyValuePair<GameObject, GameObject> t in _playerPanelList)
         {
-            if(!t.Key.GetComponent<CombatStat>().isAlive)
+            if (!t.Value.activeSelf) continue; //si l'UI a déjà été retiré alors on passe à la prochaine itération
+            
+            if(!t.Key.GetComponent<CombatStat>().isAlive) //si le personnage n'est pas vivant alors on désactive sont UI et on passe à l'iteration suivante
             {
                 GameObject temp = t.Value;
-                Destroy(temp);
+                temp.SetActive(false);
+                continue;
             }
 
             if(t.Key.GetComponent<PlayerMovement>() != null)

@@ -23,6 +23,7 @@ public class TacticsMovement : MonoBehaviour
 
     protected bool moving = false;
     protected bool attacking = false;
+    protected int baseMove;
     protected int move;
     public float moveSpeed = 2;
     
@@ -688,7 +689,7 @@ public class TacticsMovement : MonoBehaviour
         RemoveSelectableTile();
         int hit = GetHitChance();
 
-        if(Passive)
+        if(Passive != null)
         {
             if (Passive.GetPassiveTrigger() == PassiveTrigger.OnAttack)
             {
@@ -778,14 +779,14 @@ public class TacticsMovement : MonoBehaviour
 
     private void StartTurnFx()
     {
-        /*if(gameObject.CompareTag("Player"))
+        if(gameObject.CompareTag("Player"))
         {
             FindObjectOfType<AudioManager>().RandomPitch("AllieStartTurn");
         }
         else
         {
             FindObjectOfType<AudioManager>().RandomPitch("EnemyStartTurn");
-        }*/
+        }
         
         _unitMat = transform.GetChild(0).GetComponent<Renderer>().material;
         
@@ -838,6 +839,6 @@ public class TacticsMovement : MonoBehaviour
 
     public void ChangeMove(int value)
     {
-        move += value;
+        move = baseMove + value;
     }
 }

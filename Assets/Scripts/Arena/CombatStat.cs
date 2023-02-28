@@ -167,6 +167,7 @@ public class CombatStat : MonoBehaviour
     public void TakeHeal(int value)
     {
         Passive passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
+        if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnHealTaken)
         {
             passive.Effect(gameObject);
         }

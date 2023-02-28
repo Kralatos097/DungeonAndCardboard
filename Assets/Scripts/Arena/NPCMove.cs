@@ -30,6 +30,7 @@ public class NPCMove : TacticsMovement
         combatStat.CurrHp = combatStat.MaxHp;
         combatStat.ChangeInit(UnitInfo.initiative);
 
+        baseMove = UnitInfo.movement;
         move = UnitInfo.movement;
         ActiveOne = UnitInfo.activeOne;
         ActiveTwo = UnitInfo.activeTwo;
@@ -254,7 +255,7 @@ public class NPCMove : TacticsMovement
                     GameObject TGO = tile.GetGameObjectOnTop();
                     if (TGO != null)
                     {
-                        if (TGO.CompareTag("Player") && tile.distance > _targetDistance & TGO.GetComponent<CombatStat>().isUp)
+                        if (TGO.CompareTag("Player") && tile.distance >= _targetDistance & TGO.GetComponent<CombatStat>().isUp)
                         {
                             target = TGO;
                             _targetDistance = tile.distance;
@@ -298,7 +299,7 @@ public class NPCMove : TacticsMovement
                     GameObject TGO = tile.GetGameObjectOnTop();
                     if (TGO != null)
                     {
-                        if (TGO.CompareTag("Player") && tile.distance > _targetDistance)
+                        if (TGO.CompareTag("Player") && tile.distance >= _targetDistance)
                         {
                             target = TGO;
                             _targetDistance = tile.distance;
@@ -341,7 +342,7 @@ public class NPCMove : TacticsMovement
                     GameObject TGO = tile.GetGameObjectOnTop();
                     if (TGO != null)
                     {
-                        if (TGO.CompareTag("Player") && tile.distance > _targetDistance & TGO.GetComponent<CombatStat>().isUp)
+                        if (TGO.CompareTag("Player") && tile.distance >= _targetDistance & TGO.GetComponent<CombatStat>().isUp)
                         {
                             target = TGO;
                             _targetDistance = tile.distance;
@@ -384,7 +385,7 @@ public class NPCMove : TacticsMovement
                     GameObject TGO = tile.GetGameObjectOnTop();
                     if (TGO != null)
                     {
-                        if (TGO.CompareTag("Enemy") && tile.distance > _targetDistance)
+                        if (TGO.CompareTag("Enemy") && tile.distance >= _targetDistance)
                         {
                             target = TGO;
                             _targetDistance = tile.distance;
@@ -464,7 +465,7 @@ public class NPCMove : TacticsMovement
                     GameObject TGO = tile.GetGameObjectOnTop();
                     if (TGO != null)
                     {
-                        if (TGO.CompareTag("Player") && tile.distance > _targetDistance)
+                        if (TGO.CompareTag("Player") && tile.distance >= _targetDistance)
                         {
                             target = TGO;
                             _targetDistance = tile.distance;
@@ -556,10 +557,8 @@ public class NPCMove : TacticsMovement
         if(!firstTimePass)
         {
             FindNearestTargetInRangeAlive();
-            if (target == null)
-            {
-                FindNearestTarget();
-            }
+            
+            if (target == null) FindNearestTarget();
 
             RemoveSelectableTile();
             firstTimePass = true;
@@ -901,8 +900,6 @@ public class NPCMove : TacticsMovement
                 FindNearestEnemy();
             }
             
-            Debug.Log(target);
-            
             RemoveSelectableTile();
             firstTimePass = true;
         }
@@ -1013,5 +1010,24 @@ public class NPCMove : TacticsMovement
         firstTimePass = false;
         attacking = false;
         _alreadyMoved = false;
+    }
+
+    public IaType GetIaType()
+    {
+        return iaType;
+    }
+
+    public void FriendlyTransform()
+    {
+        FriendlyTransformFx();
+        Debug.Log("TRAAAAANSFORMATION!");
+
+        (ActiveOne, ActiveTwo) = (ActiveTwo, ActiveOne);
+        iaType = IaType.Dumb;
+    }
+
+    private void FriendlyTransformFx()
+    {
+        //todo
     }
 }

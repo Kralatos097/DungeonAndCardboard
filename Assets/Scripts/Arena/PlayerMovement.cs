@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerMovement : TacticsMovement
@@ -34,6 +35,7 @@ public class PlayerMovement : TacticsMovement
             CombatStat.CurrHp = CombatStat.MaxHp;
             CombatStat.ChangeInit(UnitInfo.initiative);
 
+            baseMove = UnitInfo.movement;
             move = UnitInfo.movement;
             ActiveOne = UnitInfo.activeOne;
             ActiveTwo = UnitInfo.activeTwo;
@@ -49,6 +51,7 @@ public class PlayerMovement : TacticsMovement
                     CombatStat.CurrHp = WarriorInfo.CurrentHp;
                     CombatStat.ChangeInit(WarriorInfo.Init);
 
+                    baseMove = WarriorInfo.Movement;
                     move = WarriorInfo.Movement;
                     ActiveOne = WarriorInfo.ActiveOne;
                     ActiveTwo = WarriorInfo.ActiveTwo;
@@ -60,6 +63,7 @@ public class PlayerMovement : TacticsMovement
                     CombatStat.CurrHp = ThiefInfo.CurrentHp;
                     CombatStat.ChangeInit(ThiefInfo.Init);
 
+                    baseMove = ThiefInfo.Movement;
                     move = ThiefInfo.Movement;
                     ActiveOne = ThiefInfo.ActiveOne;
                     ActiveTwo = ThiefInfo.ActiveTwo;
@@ -71,6 +75,7 @@ public class PlayerMovement : TacticsMovement
                     CombatStat.CurrHp = ClericInfo.CurrentHp;
                     CombatStat.ChangeInit(ClericInfo.Init);
 
+                    baseMove = ClericInfo.Movement;
                     move = ClericInfo.Movement;
                     ActiveOne = ClericInfo.ActiveOne;
                     ActiveTwo = ClericInfo.ActiveTwo;
@@ -82,6 +87,7 @@ public class PlayerMovement : TacticsMovement
                     CombatStat.CurrHp = WizardInfo.CurrentHp;
                     CombatStat.ChangeInit(WizardInfo.Init);
 
+                    baseMove = WizardInfo.Movement;
                     move = WizardInfo.Movement;
                     ActiveOne = WizardInfo.ActiveOne;
                     ActiveTwo = WizardInfo.ActiveTwo;
@@ -94,8 +100,6 @@ public class PlayerMovement : TacticsMovement
                     throw new ArgumentOutOfRangeException();
             }
         }
-
-        //Debug.Log(UnitInfo.maxHp+"\n"+CombatStat.MaxHp +"--"+ CombatStat.CurrHp);
     }
 
     public void SetUnitInfo()
@@ -281,8 +285,6 @@ public class PlayerMovement : TacticsMovement
 
                 if (t != null)
                 {
-                    Debug.Log(t.GetGameObjectOnTop());
-
                     bool passAtk = false;
                     GameObject TargetGO = t.GetGameObjectOnTop();
                     if (TargetGO != null)

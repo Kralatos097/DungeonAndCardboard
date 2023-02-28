@@ -157,8 +157,13 @@ public class TurnManager : MonoBehaviour
                     Destroy(deadUnit.gameObject);
                 }
             }
-            //Debug.Log("Turn of : " + turnOrder.Peek().name);
+            //Debug.Log("Turn of : " + turnOrder.Peek().name)
 
+            if (AreEnemyAllFriendly())
+            {
+                TransformAllFriendlyEnemy();
+            }
+            
             if(turnOrder.Peek().GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Poison)
             {
                 turnOrder.Peek().GetComponent<CombatStat>().ActivatePoison();
@@ -169,6 +174,10 @@ public class TurnManager : MonoBehaviour
                     if(!ArePlayersAlive() && !AreEnemyAlive())
                     {
                         EndCombat(ArePlayersAlive());
+                    }
+                    if (AreEnemyAllFriendly())
+                    {
+                        TransformAllFriendlyEnemy();
                     }
                 }
             }
@@ -328,6 +337,29 @@ public class TurnManager : MonoBehaviour
             }
         }
         return false;
+    }
+    
+    private static bool AreEnemyAllFriendly()
+    {
+        foreach (TacticsMovement unit in turnOrder)
+        {
+            if (unit.gameObject.CompareTag("Enemy") && unit.gameObject.GetComponent<NPCMove>().GetIaType() != IaType.Friendly)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    private static void TransformAllFriendlyEnemy()
+    {
+        foreach (TacticsMovement unit in turnOrder)
+        {
+            if (unit.gameObject.CompareTag("Enemy"))
+            {
+                //todo: transform
+            }
+        }
     }
 
     private GameObject GetCurrentPlayer()
