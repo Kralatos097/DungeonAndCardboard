@@ -701,11 +701,11 @@ public class TacticsMovement : MonoBehaviour
         {
             case 1:
                 ActiveOne.Effect(gameObject, target, hit);
-                ActiveOneCd = ActiveOne.GetCd();
+                ActiveOneCd = ActiveOne.GetCd()+1;
                 break;
             case 2:
                 ActiveTwo.Effect(gameObject, target, hit);
-                ActiveTwoCd = ActiveTwo.GetCd();
+                ActiveTwoCd = ActiveTwo.GetCd()+1;
                 break;
             case 3:
                 Consumable.Effect(gameObject, target, hit);

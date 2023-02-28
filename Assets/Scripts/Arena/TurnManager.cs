@@ -355,9 +355,10 @@ public class TurnManager : MonoBehaviour
     {
         foreach (TacticsMovement unit in turnOrder)
         {
-            if (unit.gameObject.CompareTag("Enemy"))
+            NPCMove enemy = unit.gameObject.GetComponent<NPCMove>();
+            if (enemy != null)
             {
-                //todo: transform
+                enemy.FriendlyTransform();
             }
         }
     }
