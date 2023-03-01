@@ -250,12 +250,14 @@ public class NPCMove : TacticsMovement
                     tile.parent = t;
                     tile.visited = true;
                     tile.distance = 1 + t.distance;
+                    
+                    if (tile.distance > atkRange + move) return;
                     process.Enqueue(tile);
 
                     GameObject TGO = tile.GetGameObjectOnTop();
                     if (TGO != null)
                     {
-                        if (TGO.CompareTag("Player") && tile.distance >= _targetDistance & TGO.GetComponent<CombatStat>().isUp)
+                        if (TGO.CompareTag("Player") && TGO.GetComponent<CombatStat>().isUp)
                         {
                             target = TGO;
                             _targetDistance = tile.distance;
@@ -560,6 +562,7 @@ public class NPCMove : TacticsMovement
             
             if (target == null) FindNearestTarget();
 
+            Debug.Log(target);
             RemoveSelectableTile();
             firstTimePass = true;
         }

@@ -5,11 +5,195 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="225202b0-c116-4b2c-8d9c-8c9a57c9d235" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/DarkGoblinSlinger.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/DarkGoblinSlinger.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/Enemi.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/Enemi.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/Goblin.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/Goblin.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/GoblinArmored.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/GoblinArmored.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/GoblinChief.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/GoblinChief.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/GoblinSlinger.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/GoblinSlinger.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/GoblinThief.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/GoblinThief.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/OverGoblinArmored.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/OverGoblinArmored.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/SadisticGoblinThief.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/SadisticGoblinThief.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/StarredGoblinChief.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/StarredGoblinChief.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/StrongGoblin.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/StrongGoblin.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/Map8x8.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/Map8x8.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/Map8x9.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/Map8x9.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/Map9x8.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/Map9x8.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/Map9x9.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/Map9x9.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/MapCorridor.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/MapCorridor.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/MetalCrate.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/MetalCrate.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/Pillar.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/Pillar.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/Tile.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/Tile.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/WoodenCrate.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/WoodenCrate.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/ActionSelectorCanvas.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/ActionSelectorCanvas.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/CanvasNStuff.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/CanvasNStuff.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/ClericInitPanel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/ClericInitPanel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/EnemyPanel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/EnemyPanel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/InitCanvas.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/InitCanvas.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/PlayerInitPanel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/PlayerInitPanel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/StuffSelector.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/StuffSelector.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/ThiefInitPanel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/ThiefInitPanel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/WarriorInitPanel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/WarriorInitPanel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/WizardInitPanel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/WizardInitPanel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/Terrain.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/Terrain/DungeonTile.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/Terrain/DungeonTile.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/ArtworkCanvas.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/ArtworkCanvas.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/ClericPanel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/ClericPanel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/LootSelectCanvas.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/LootSelectCanvas.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/PlayerCanvas.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/PlayerCanvas.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/PlayerHealthPanel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/PlayerHealthPanel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/StuffSelectCanvas.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/StuffSelectCanvas.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/ThiefPanel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/ThiefPanel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/WarriorPanel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/WarriorPanel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/WizardPanel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/WizardPanel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/DelitschAntiqua SDF.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/DelitschAntiqua SDF.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/DelitschAntiqua.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/DelitschAntiqua.ttf.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/TurnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/TurnManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/DarkGoblinSlinger.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/DarkGoblinSlinger.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/Enemi.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/Enemi.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/Goblin.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/Goblin.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/GoblinArmored.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/GoblinArmored.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/GoblinChief.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/GoblinChief.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/GoblinSlinger.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/GoblinSlinger.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/GoblinThief.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/GoblinThief.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/OverGoblinArmored.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/OverGoblinArmored.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/SadisticGoblinThief.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/SadisticGoblinThief.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/StarredGoblinChief.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/StarredGoblinChief.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/StrongGoblin.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemi/StrongGoblin.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Map8x8.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Map8x8.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Map8x9.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Map8x9.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Map9x8.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Map9x8.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Map9x9.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Map9x9.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/MapCorridor.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/MapCorridor.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/MetalCrate.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/MetalCrate.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Pillar.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Pillar.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Tile.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Tile.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/WoodenCrate.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/WoodenCrate.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/ArtworkCanvas.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/ArtworkCanvas.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/Dungeon.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/Dungeon/ClericPanel.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/Dungeon/ClericPanel.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/Dungeon/PlayerCanvas.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/Dungeon/PlayerCanvas.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/Dungeon/PlayerHealthPanel.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/Dungeon/PlayerHealthPanel.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/Dungeon/ThiefPanel.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/Dungeon/ThiefPanel.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/Dungeon/WarriorPanel.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/Dungeon/WarriorPanel.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/Dungeon/WizardPanel.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/Dungeon/WizardPanel.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/DungeonTile.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/DungeonTile.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/LootSelectCanvas.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/LootSelectCanvas.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/StuffSelectCanvas.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/StuffSelectCanvas.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/ActionSelectorCanvas.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/ActionSelectorCanvas.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/CanvasNStuff.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/CanvasNStuff.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/ClericInitPanel.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/ClericInitPanel.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/CombatEndCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/CombatEndCanvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/EnemyPanel.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/EnemyPanel.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/GameManager.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/GameManager.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/InitCanvas.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/InitCanvas.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/PlayerInitPanel.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/PlayerInitPanel.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/StuffSelector.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/StuffSelector.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/ThiefInitPanel.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/ThiefInitPanel.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/WarriorInitPanel.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/WarriorInitPanel.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/WizardInitPanel.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Arene/WizardInitPanel.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Dungeon/PlayerHealthPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Temp/Ui/Dungeon/PlayerHealthPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/CombatStat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/CombatStat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/NPCMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/NPCMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dungeons/PlayersInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dungeons/PlayersInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_ScenesTibo/DungeonScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesTibo/DungeonScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_ScenesValou/EndSession.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesValou/EndSession.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_ScenesValou/IntroTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesValou/IntroTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_ScenesValou/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesValou/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +278,8 @@
       <workItem from="1675945901415" duration="8978000" />
       <workItem from="1677486508640" duration="15366000" />
       <workItem from="1677571552162" duration="16132000" />
+      <workItem from="1677658201470" duration="6646000" />
+      <workItem from="1677667280655" duration="1467000" />
     </task>
     <servers />
   </component>

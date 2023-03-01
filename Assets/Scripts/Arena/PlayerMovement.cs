@@ -32,6 +32,7 @@ public class PlayerMovement : TacticsMovement
     {
         if(testMap)
         {
+            CombatStat.baseMaxHp = UnitInfo.maxHp;
             CombatStat.MaxHp = UnitInfo.maxHp;
             CombatStat.CurrHp = CombatStat.MaxHp;
             CombatStat.ChangeInit(UnitInfo.initiative);
@@ -48,6 +49,7 @@ public class PlayerMovement : TacticsMovement
             switch (charaClass)
             {
                 case Perso.Warrior:
+                    CombatStat.baseMaxHp = WarriorInfo.BaseMaxHp;
                     CombatStat.MaxHp = WarriorInfo.MaxHp;
                     CombatStat.CurrHp = WarriorInfo.CurrentHp;
                     CombatStat.ChangeInit(WarriorInfo.Init);
@@ -60,6 +62,7 @@ public class PlayerMovement : TacticsMovement
                     Consumable = WarriorInfo.Consumable;
                     break;
                 case Perso.Thief:
+                    CombatStat.baseMaxHp = ThiefInfo.BaseMaxHp;
                     CombatStat.MaxHp = ThiefInfo.MaxHp;
                     CombatStat.CurrHp = ThiefInfo.CurrentHp;
                     CombatStat.ChangeInit(ThiefInfo.Init);
@@ -72,6 +75,7 @@ public class PlayerMovement : TacticsMovement
                     Consumable = ThiefInfo.Consumable;
                     break;
                 case Perso.Cleric:
+                    CombatStat.baseMaxHp = ClericInfo.BaseMaxHp;
                     CombatStat.MaxHp = ClericInfo.MaxHp;
                     CombatStat.CurrHp = ClericInfo.CurrentHp;
                     CombatStat.ChangeInit(ClericInfo.Init);
@@ -84,6 +88,7 @@ public class PlayerMovement : TacticsMovement
                     Consumable = ClericInfo.Consumable;
                     break;
                 case Perso.Wizard:
+                    CombatStat.baseMaxHp = WizardInfo.BaseMaxHp;
                     CombatStat.MaxHp = WizardInfo.MaxHp;
                     CombatStat.CurrHp = WizardInfo.CurrentHp;
                     CombatStat.ChangeInit(WizardInfo.Init);

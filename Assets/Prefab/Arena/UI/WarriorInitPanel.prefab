@@ -7,10 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3648971545154429869, guid: fd015fc2027f3ea4a9bbd6dc7d7273ca, type: 3}
-      propertyPath: m_fontSize
-      value: 18
-      objectReference: {fileID: 0}
     - target: {fileID: 3648971545672378673, guid: fd015fc2027f3ea4a9bbd6dc7d7273ca, type: 3}
       propertyPath: m_Name
       value: WarriorInitPanel
@@ -115,9 +111,5 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 5b2765ce25b221c4791b5bb49322a908, type: 3}
-    - target: {fileID: 3648971547069784592, guid: fd015fc2027f3ea4a9bbd6dc7d7273ca, type: 3}
-      propertyPath: m_fontSize
-      value: 28.6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd015fc2027f3ea4a9bbd6dc7d7273ca, type: 3}

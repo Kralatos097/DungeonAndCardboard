@@ -1,10 +1,13 @@
 using System;
+using MyBox;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class CombatStat : MonoBehaviour
 {
     private int _initiative;
+
+    [HideInInspector] public int baseMaxHp;
 
     private int _maxHp;
     public int MaxHp
@@ -14,11 +17,18 @@ public class CombatStat : MonoBehaviour
         set
         {
             _maxHp = value;
-            if(_maxHp > _currHp)
+            if(isUp)
             {
-                _currHp = _maxHp;
+                if(_maxHp > _currHp)
+                {
+                    _currHp = _maxHp;
+                }
             }
-            
+            if(_maxHp < 0)
+            {
+                _maxHp = 0;
+            }
+
             isAlive = _maxHp > 0;
         }
     }
@@ -29,8 +39,13 @@ public class CombatStat : MonoBehaviour
         get => _currHp ;
         set
         {
-            if(value < 0)
+            if(value < _currHp)
             {
+                if (_currHp <= 0)
+                {
+                    MaxHp-=1;
+                    return;
+                }
                 if (holyShield)
                 {
                     holyShield = false;
@@ -40,7 +55,7 @@ public class CombatStat : MonoBehaviour
                 {
                     if (armor > 0)
                     {
-                        armor += value;
+                        armor -= (_currHp - value);
                         TakeArmorDamageFX();
                         if (armor < 0)
                         {
@@ -236,6 +251,7 @@ public class CombatStat : MonoBehaviour
 
     public void ChangeArmor(int value)
     {
+        if (CurrHp <= 0) return;
         gameObject.GetComponent<CombatStat>().armor += value;
         GainArmorFX();
     }
@@ -295,6 +311,8 @@ public class CombatStat : MonoBehaviour
 
     public void ActivateHolyShield()
     {
+        if (CurrHp <= 0) return;
+        
         holyShield = true;
         FindObjectOfType<AudioManager>().RandomPitch("GainHolyShield");
         //Todo: Add VFX
@@ -409,7 +427,8 @@ public class CombatStat : MonoBehaviour
     //todo: Add more FX
     
     //-------------- TEST FUNCTION -------------
-
+#if UNITY_EDITOR
+    [ButtonMethod]
     [ContextMenu("Kill Unit")]
     public void KillUnit()
     {
@@ -455,6 +474,7 @@ public class CombatStat : MonoBehaviour
     [ContextMenu("Cure Unit")]
     public void CureTest()
     {
-        GetCuredFX();
+        ResetStatus();
     }
+#endif
 }
