@@ -30,6 +30,15 @@ public class CombatStat : MonoBehaviour
             }
 
             isAlive = _maxHp > 0;
+
+            if(!isAlive)
+            {
+                transform.GetChild(0).gameObject.SetActive(false);
+                transform.position = new Vector3(-100, -100, -100);
+                
+                if(!isUp) //empeche aux effets de ce lancer au début de la scene
+                    AllieDeathFX();
+            }
         }
     }
 
@@ -149,6 +158,7 @@ public class CombatStat : MonoBehaviour
         if(gameObject.CompareTag("Player"))
         {
             transform.GetChild(0).GetComponent<Renderer>().material.color = Color.grey;
+            MaxHp--;
             AllieDownFX();
         }
         else

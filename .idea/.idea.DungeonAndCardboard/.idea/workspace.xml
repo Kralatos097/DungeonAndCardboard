@@ -5,38 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="225202b0-c116-4b2c-8d9c-8c9a57c9d235" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/3D/Materials/New Material.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/3D/Materials/New Material.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObject/temp/Warrior 1.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObject/temp/Warrior 1.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_ScenesValou/S1 Arena/Corridor/DéfaiteAssuréBoss.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_ScenesValou/S1 Arena/Corridor/DéfaiteAssuréBoss.unity.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Bleu 1.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Bleu 1.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Bleu.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Bleu.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Jaune 1.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Jaune 1.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Jaune.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Jaune.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Rose 1.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Rose 1.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Rose.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Rose.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Roug 1.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Roug 1.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Roug.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Roug.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Vert 1.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Vert 1.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Vert.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/PlaceHolder/Vert.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/CanvasNStuffArene.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/CanvasNStuffArene.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/ThiefInitPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/ThiefInitPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/DungeonsManagers.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/DungeonsManagers.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/Terrain/DungeonTile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/Terrain/DungeonTile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SceneTom/Tiles/Tile_Door_Adjacent.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SceneTom/Tiles/Tile_Door_Adjacent.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/PlayerHealthPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/PlayerHealthPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/CombatStat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/CombatStat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/TurnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/TurnManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dungeons/DungeonTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dungeons/DungeonTile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/DelitschAntiqua SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/DelitschAntiqua SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_ScenesTibo/DungeonScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesTibo/DungeonScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1d3dacd00ce441dc8c61d528a2193088158400/78/99fd0fe6/Random.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -49,13 +48,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Discover.Launch.Via.Unity": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../Build/BuildDnC\Dungeons&amp;Cardboards.exe" />
@@ -118,6 +117,7 @@
       <workItem from="1677658201470" duration="6646000" />
       <workItem from="1677667280655" duration="2057000" />
       <workItem from="1677747395309" duration="1187000" />
+      <workItem from="1677751033182" duration="15149000" />
     </task>
     <servers />
   </component>

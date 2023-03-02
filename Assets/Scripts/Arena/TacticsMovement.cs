@@ -84,6 +84,7 @@ public class TacticsMovement : MonoBehaviour
         CombatStat = gameObject.GetComponent<CombatStat>();
         
         GetUnitInfo();
+        if(!CombatStat.isAlive)return;
         SetCurrentTile();
 
         halfHeight = GetComponent<Collider>().bounds.extents.y;

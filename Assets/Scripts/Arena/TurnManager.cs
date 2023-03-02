@@ -75,7 +75,6 @@ public class TurnManager : MonoBehaviour
                 {
                     SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
                     DungeonManager.SceneContainerSwitch(true); 
-                    //todo: update life
                     //UiManagerDj.playerInfoUi();
                     SceneManager.SetActiveScene(SceneManager.GetSceneByName(DungeonManager.GetDungeonSceneName()));
                 }
@@ -144,18 +143,11 @@ public class TurnManager : MonoBehaviour
     {
         if (ArePlayersAlive() && AreEnemyAlive())
         {
-            while(!turnOrder.Peek().GetComponent<CombatStat>().isUp)
+            DestroyDeadUnits();
+            while(!turnOrder.Peek().GetComponent<CombatStat>().isUp && turnOrder.Peek().CompareTag("Player"))
             {
-                if (turnOrder.Peek().CompareTag("Player"))
-                {
-                    TacticsMovement deadUnit = turnOrder.Dequeue();
-                    turnOrder.Enqueue(deadUnit);
-                }
-                else
-                {
-                    TacticsMovement deadUnit = turnOrder.Dequeue();
-                    Destroy(deadUnit.gameObject);
-                }
+                TacticsMovement deadUnit = turnOrder.Dequeue();
+                turnOrder.Enqueue(deadUnit);
             }
             //Debug.Log("Turn of : " + turnOrder.Peek().name)
 
@@ -202,6 +194,7 @@ public class TurnManager : MonoBehaviour
             }
             
             turnOrder.Peek().BeginTurn();
+            UIManager.StartTurnInitUIChangeAction(turnOrder.Peek().gameObject);
         }
         else
         {
@@ -228,6 +221,7 @@ public class TurnManager : MonoBehaviour
         }
 
         unit.EndTurn();
+        UIManager.EndTurnInitUIChangeAction(unit.gameObject);
         OnTurnEndPassiveEffect(turnOrder.Peek());
         unit.EquipCDMinus(1);
         turnOrder.Enqueue(unit);
@@ -314,10 +308,6 @@ public class TurnManager : MonoBehaviour
     {
         foreach (TacticsMovement unit in turnOrder)
         {
-            /*if (unit.gameObject.CompareTag("Player") && !unit.gameObject.GetComponent<CombatStat>().isAlive)
-            {
-                turnOrder.Dequeue();
-            }*/
             if(unit.gameObject.CompareTag("Player") && unit.gameObject.GetComponent<CombatStat>().isUp)
             {
                 return true;
@@ -337,6 +327,22 @@ public class TurnManager : MonoBehaviour
             }
         }
         return false;
+    }
+    
+    private static void DestroyDeadUnits()
+    {
+        for (int i = 0; i < turnOrder.Count; i++)
+        {
+            if(!turnOrder.Peek().gameObject.GetComponent<CombatStat>().isAlive)
+            {
+                TacticsMovement deadUnit = turnOrder.Dequeue();
+                Destroy(deadUnit.gameObject);
+            }
+        }
+        /*foreach (TacticsMovement unit in turnOrder)
+        {
+            
+        }*/
     }
     
     private static bool AreEnemyAllFriendly()
