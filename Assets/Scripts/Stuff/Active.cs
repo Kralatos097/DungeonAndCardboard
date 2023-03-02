@@ -9,7 +9,7 @@ using UnityEngine.Serialization;
 public class Active : Stuff
 {
     [SerializeField] private int range;
-    [SerializeField] private int cd;
+    [SerializeField] private int cd; //0 == pas de CD
     [SerializeField] private ActiveTarget clickTarget;
 
     [Header("Effects")]

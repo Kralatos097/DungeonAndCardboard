@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MyBox;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerMovement : TacticsMovement
@@ -14,7 +16,7 @@ public class PlayerMovement : TacticsMovement
 
     [Header("Test Zone")]
     public bool testMap;
-    [SerializeField] protected PlayerBaseInfo UnitInfo;
+    [ConditionalField(nameof(testMap))][SerializeField] protected PlayerBaseInfo UnitInfo;
 
     // Start is called before the first frame update
     void Start()
@@ -30,10 +32,12 @@ public class PlayerMovement : TacticsMovement
     {
         if(testMap)
         {
+            CombatStat.baseMaxHp = UnitInfo.maxHp;
             CombatStat.MaxHp = UnitInfo.maxHp;
             CombatStat.CurrHp = CombatStat.MaxHp;
             CombatStat.ChangeInit(UnitInfo.initiative);
 
+            baseMove = UnitInfo.movement;
             move = UnitInfo.movement;
             ActiveOne = UnitInfo.activeOne;
             ActiveTwo = UnitInfo.activeTwo;
@@ -45,10 +49,12 @@ public class PlayerMovement : TacticsMovement
             switch (charaClass)
             {
                 case Perso.Warrior:
+                    CombatStat.baseMaxHp = WarriorInfo.BaseMaxHp;
                     CombatStat.MaxHp = WarriorInfo.MaxHp;
                     CombatStat.CurrHp = WarriorInfo.CurrentHp;
                     CombatStat.ChangeInit(WarriorInfo.Init);
 
+                    baseMove = WarriorInfo.Movement;
                     move = WarriorInfo.Movement;
                     ActiveOne = WarriorInfo.ActiveOne;
                     ActiveTwo = WarriorInfo.ActiveTwo;
@@ -56,10 +62,12 @@ public class PlayerMovement : TacticsMovement
                     Consumable = WarriorInfo.Consumable;
                     break;
                 case Perso.Thief:
+                    CombatStat.baseMaxHp = ThiefInfo.BaseMaxHp;
                     CombatStat.MaxHp = ThiefInfo.MaxHp;
                     CombatStat.CurrHp = ThiefInfo.CurrentHp;
                     CombatStat.ChangeInit(ThiefInfo.Init);
 
+                    baseMove = ThiefInfo.Movement;
                     move = ThiefInfo.Movement;
                     ActiveOne = ThiefInfo.ActiveOne;
                     ActiveTwo = ThiefInfo.ActiveTwo;
@@ -67,10 +75,12 @@ public class PlayerMovement : TacticsMovement
                     Consumable = ThiefInfo.Consumable;
                     break;
                 case Perso.Cleric:
+                    CombatStat.baseMaxHp = ClericInfo.BaseMaxHp;
                     CombatStat.MaxHp = ClericInfo.MaxHp;
                     CombatStat.CurrHp = ClericInfo.CurrentHp;
                     CombatStat.ChangeInit(ClericInfo.Init);
 
+                    baseMove = ClericInfo.Movement;
                     move = ClericInfo.Movement;
                     ActiveOne = ClericInfo.ActiveOne;
                     ActiveTwo = ClericInfo.ActiveTwo;
@@ -78,10 +88,12 @@ public class PlayerMovement : TacticsMovement
                     Consumable = ClericInfo.Consumable;
                     break;
                 case Perso.Wizard:
+                    CombatStat.baseMaxHp = WizardInfo.BaseMaxHp;
                     CombatStat.MaxHp = WizardInfo.MaxHp;
                     CombatStat.CurrHp = WizardInfo.CurrentHp;
                     CombatStat.ChangeInit(WizardInfo.Init);
 
+                    baseMove = WizardInfo.Movement;
                     move = WizardInfo.Movement;
                     ActiveOne = WizardInfo.ActiveOne;
                     ActiveTwo = WizardInfo.ActiveTwo;
@@ -94,8 +106,6 @@ public class PlayerMovement : TacticsMovement
                     throw new ArgumentOutOfRangeException();
             }
         }
-
-        //Debug.Log(UnitInfo.maxHp+"\n"+CombatStat.MaxHp +"--"+ CombatStat.CurrHp);
     }
 
     public void SetUnitInfo()
@@ -277,13 +287,10 @@ public class PlayerMovement : TacticsMovement
                 else if (hit.collider.gameObject.GetComponent<TacticsMovement>() != null)
                 {
                     t = hit.collider.GetComponent<TacticsMovement>().GetCurrentTile();
-                    Debug.Log(t);
                 }
 
                 if (t != null)
                 {
-                    Debug.Log(t.GetGameObjectOnTop());
-
                     bool passAtk = false;
                     GameObject TargetGO = t.GetGameObjectOnTop();
                     if (TargetGO != null)

@@ -297,9 +297,11 @@ public class UIManager : MonoBehaviour
                     throw new ArgumentOutOfRangeException();
             }
 
-            t.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = "" + combatStat.CurrHp;
-            t.transform.GetChild(1).Find("FillHpImg").GetComponent<Image>().fillAmount =
-                (combatStat.CurrHp / (float)combatStat.MaxHp);
+            t.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>().text = "" + combatStat.CurrHp;
+            t.transform.GetChild(1).Find("FillHpFullImg").GetComponent<Image>().fillAmount =
+                (combatStat.CurrHp / (float)combatStat.baseMaxHp);
+            t.transform.GetChild(1).Find("FillHpEmptyImg").GetComponent<Image>().fillAmount =
+                (combatStat.MaxHp / (float)combatStat.baseMaxHp);
             if (playerMovement.GetPassive() == null)
             {
                 t.transform.Find("PassiveImg").gameObject.SetActive(false);
@@ -324,12 +326,23 @@ public class UIManager : MonoBehaviour
     {
         foreach(KeyValuePair<GameObject, GameObject> t in _playerPanelList)
         {
+            if (!t.Value.activeSelf) continue; //si l'UI a déjà été retiré alors on passe à la prochaine itération
+            
+            if(!t.Key.GetComponent<CombatStat>().isAlive) //si le personnage n'est pas vivant alors on désactive sont UI et on passe à l'iteration suivante
+            {
+                GameObject temp = t.Value;
+                temp.SetActive(false);
+                continue;
+            }
+
             if(t.Key.GetComponent<PlayerMovement>() != null)
             {
-                t.Value.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text =
+                t.Value.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>().text =
                     "" + t.Key.GetComponent<CombatStat>().CurrHp;
-                t.Value.transform.GetChild(1).Find("FillHpImg").GetComponent<Image>().fillAmount =
-                    (t.Key.GetComponent<CombatStat>().CurrHp / (float)t.Key.GetComponent<CombatStat>().MaxHp);
+                t.Value.transform.GetChild(1).Find("FillHpFullImg").GetComponent<Image>().fillAmount =
+                    (t.Key.GetComponent<CombatStat>().CurrHp / (float)t.Key.GetComponent<CombatStat>().baseMaxHp);
+                t.Value.transform.GetChild(1).Find("FillHpEmptyImg").GetComponent<Image>().fillAmount =
+                    (t.Key.GetComponent<CombatStat>().MaxHp / (float)t.Key.GetComponent<CombatStat>().baseMaxHp);
             
                 if (t.Key.GetComponent<PlayerMovement>().GetPassive() == null)
                 {

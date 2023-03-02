@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using MyBox;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -15,8 +16,8 @@ public class DungeonManager : MonoBehaviour
     private GameObject _sceneContainer;
     public static DungeonTile CurrentTile;
     
-    [SerializeField] private string bossScene;
-    
+    [Scene][SerializeField] private string bossScene;
+
     [Header("Players Card")]
     [SerializeField] private PlayerBaseInfo warriorCard;
     [SerializeField] private PlayerBaseInfo thiefCard;
