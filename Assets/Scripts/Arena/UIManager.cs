@@ -324,6 +324,13 @@ public class UIManager : MonoBehaviour
             t = Instantiate(EnemyInitPanel, InitPanel);
         }
 
+        if(TurnManager.CombatStarted)
+        {
+            GameObject currentPlayer = TurnManager.GetCurrentPlayerD();
+            int currentPlayerIndex = _playerPanelList[currentPlayer].transform.GetSiblingIndex();
+            t.transform.SetSiblingIndex(currentPlayerIndex);
+        }
+        
         _charaUiBaseValue = t.transform.localScale;
         _playerPanelList.Add(unit, t);
         t.transform.Find("ArmorImg").gameObject.SetActive(false);

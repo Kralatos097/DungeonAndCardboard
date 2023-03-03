@@ -70,6 +70,8 @@ public class NPCMove : TacticsMovement
             case IaType.Friendly:
                 FriendlyAI();
                 break;
+            case IaType.BossS1:
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -958,6 +960,20 @@ public class NPCMove : TacticsMovement
         if(moving) //Application du mouvement
         {
             Move();
+        }
+    }
+
+    private void BossS1AI()
+    {
+        int nbEnemy = TurnManager.GetNbEnemyD();
+
+        if(nbEnemy == 1)
+        {
+            //faire pop gob
+        }
+        else
+        {
+            DumbAI();
         }
     }
 

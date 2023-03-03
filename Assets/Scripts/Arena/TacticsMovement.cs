@@ -90,8 +90,16 @@ public class TacticsMovement : MonoBehaviour
         halfHeight = GetComponent<Collider>().bounds.extents.y;
 
         CombatStat.RollInit();
-        
-        TurnManager.AddUnit(this);
+
+
+        if(!TurnManager.CombatStarted)
+        {
+            TurnManager.AddUnit(this);
+        }
+        else
+        {
+            TurnManager.AddUnitToQueue(this);
+        }
     }
 
     protected virtual void GetUnitInfo() {}
@@ -687,7 +695,7 @@ public class TacticsMovement : MonoBehaviour
 
     protected void Attack(GameObject target, int equip)
     {
-        RemoveSelectableTile();
+        RemoveSelectableTile(); 
         int hit = GetHitChance();
 
         if(Passive != null)
