@@ -5,23 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="225202b0-c116-4b2c-8d9c-8c9a57c9d235" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/GobelinKing.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/GobelinKing.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GobelinKing.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GobelinKing.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SpawnEnemy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SpawnEnemy.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SpawnEnnemyEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SpawnEnnemyEntity.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/CanvasNStuffArene.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/CanvasNStuffArene.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Player/Cleric.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Player/Cleric.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Particules/Damage.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Particules/Damage.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/CombatStat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/CombatStat.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/NPCMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/NPCMove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/RotationArene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/RotationArene.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/TurnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/TurnManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enums.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enums.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1d3dacd00ce441dc8c61d528a2193088158400/78/99fd0fe6/Random.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpawnEnemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpawnEnnemyEntity.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

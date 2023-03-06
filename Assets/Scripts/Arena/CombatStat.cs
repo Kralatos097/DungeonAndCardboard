@@ -211,8 +211,13 @@ public class CombatStat : MonoBehaviour
         {
             case StatusEffect.Poison:
                 GetPoisonFX();
-                StatusEffect = effect;
-                StatusValue = value;
+                if(StatusEffect == effect) StatusValue += value;
+                else
+                {
+                    StatusValue = value;
+                    StatusEffect = effect;
+                }
+                
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
                 if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueTaken)
                 {
@@ -221,6 +226,13 @@ public class CombatStat : MonoBehaviour
                 break;
             case StatusEffect.Stun:
                 GetStunFX();
+                if(StatusEffect == effect) StatusValue += value;
+                else
+                {
+                    StatusValue = value;
+                    StatusEffect = effect;
+                }
+
                 StatusEffect = effect;
                 StatusValue = value;
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
@@ -231,6 +243,13 @@ public class CombatStat : MonoBehaviour
                 break;
             case StatusEffect.Burn:
                 GetBurnFX();
+                if(StatusEffect == effect) StatusValue += value;
+                else
+                {
+                    StatusValue = value;
+                    StatusEffect = effect;
+                }
+
                 StatusEffect = effect;
                 StatusValue = value;
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
@@ -241,6 +260,13 @@ public class CombatStat : MonoBehaviour
                 break;
             case StatusEffect.Freeze:
                 GetFreezeFX();
+                if(StatusEffect == effect) StatusValue += value;
+                else
+                {
+                    StatusValue = value;
+                    StatusEffect = effect;
+                }
+
                 StatusEffect = effect;
                 StatusValue = value;
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();

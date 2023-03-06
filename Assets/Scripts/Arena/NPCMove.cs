@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MyBox;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -9,13 +10,14 @@ public class NPCMove : TacticsMovement
 {
     private bool _alreadyMoved = false;
     private int _tileMoved = 0;
-    [HideInInspector] public bool firstTimePass = false;
     private int _tempMove = -1;
     
-    [SerializeField] protected EnemieBaseInfo UnitInfo;
-
-    private IaType iaType;
+    [HideInInspector] public bool firstTimePass = false;
     
+    [SerializeField] protected EnemieBaseInfo UnitInfo;
+    
+    private IaType iaType;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +73,7 @@ public class NPCMove : TacticsMovement
                 FriendlyAI();
                 break;
             case IaType.BossS1:
+                BossS1AI();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -969,7 +972,9 @@ public class NPCMove : TacticsMovement
 
         if(nbEnemy == 1)
         {
-            //faire pop gob
+            GetComponent<SpawnEnemy>().LaunchSpawn();
+            EndTurnT(); //todo: verifier que ça finit bien le tour sans passer par DumbAI
+            return; 
         }
         else
         {
