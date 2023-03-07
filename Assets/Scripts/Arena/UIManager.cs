@@ -59,6 +59,8 @@ public class UIManager : MonoBehaviour
         setInitAction = AddUnitInitUi;
         StartTurnInitUIChangeAction = StartTurnInitUIChange;
         EndTurnInitUIChangeAction = EndTurnInitUIChange;
+        
+        _playerPanelList.Clear();
     }
 
     void Update()

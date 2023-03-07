@@ -131,6 +131,7 @@ public class DungeonManager : MonoBehaviour
     {
         if (warriorCard != null)
         {
+            WarriorInfo.BaseMaxHp = warriorCard.maxHp;
             WarriorInfo.MaxHp = warriorCard.maxHp;
             WarriorInfo.CurrentHp = warriorCard.maxHp;
             WarriorInfo.Init = warriorCard.initiative;
@@ -142,6 +143,7 @@ public class DungeonManager : MonoBehaviour
         }
         if (thiefCard != null)
         {
+            ThiefInfo.BaseMaxHp = thiefCard.maxHp;
             ThiefInfo.MaxHp = thiefCard.maxHp;
             ThiefInfo.CurrentHp = thiefCard.maxHp;
             ThiefInfo.Init = thiefCard.initiative;
@@ -153,6 +155,7 @@ public class DungeonManager : MonoBehaviour
         }
         if (clericCard != null)
         {
+            ClericInfo.BaseMaxHp = clericCard.maxHp;
             ClericInfo.MaxHp = clericCard.maxHp;
             ClericInfo.CurrentHp = clericCard.maxHp;
             ClericInfo.Init = clericCard.initiative;
@@ -165,6 +168,7 @@ public class DungeonManager : MonoBehaviour
 
         if (wizardCard != null)
         {
+            WizardInfo.BaseMaxHp = wizardCard.maxHp;
             WizardInfo.MaxHp = wizardCard.maxHp;
             WizardInfo.CurrentHp = wizardCard.maxHp;
             WizardInfo.Init = wizardCard.initiative;
@@ -197,6 +201,7 @@ public class DungeonManager : MonoBehaviour
                 break;
             case RoomType.Starting:
                 DungeonUiManager.ResetArtworkUi();
+                DungeonUiManager.ResetLootActionSelectorUI();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(null);
@@ -310,17 +315,15 @@ public class DungeonManager : MonoBehaviour
     
     private void LaunchRest()
     {
-        artworkShown = true;
-        
         WarriorInfo.CurrentHp += Random.Range(1, 7);
         ThiefInfo.CurrentHp += Random.Range(1, 7);
         ClericInfo.CurrentHp += Random.Range(1, 7);
         WizardInfo.CurrentHp += Random.Range(1, 7);
         
-        Debug.Log(WarriorInfo.CurrentHp);
-        Debug.Log(ThiefInfo.CurrentHp);
-        Debug.Log(ClericInfo.CurrentHp);
-        Debug.Log(WizardInfo.CurrentHp);
+        Debug.Log(WarriorInfo.CurrentHp +
+                  " / " + ThiefInfo.CurrentHp +
+                  " / " + ClericInfo.CurrentHp +
+                  " / " + WizardInfo.CurrentHp);
     }
     
     private void LaunchTreasure()
@@ -472,6 +475,7 @@ public class DungeonManager : MonoBehaviour
     
     /*--------------------------------------------------TEST------------------------------------------*/
     
+    [ButtonMethod()]
     [ContextMenu("Trap")]
     public void TestTrapUnits()
     {

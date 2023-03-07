@@ -186,10 +186,10 @@ public class DungeonTile : MonoBehaviour
                 ChangeRoomSprite(oneWaySprite);
                 break;
             case ( false, true, false, false)://vers le bas
-                ChangeRoomSprite(oneWaySprite, Quaternion.Euler(90,90,0));
+                ChangeRoomSprite(oneWaySprite, false, true);
                 break;
             case (false, false, true, false)://vers la droite
-                ChangeRoomSprite(oneWaySprite, false, true);
+                ChangeRoomSprite(oneWaySprite, Quaternion.Euler(90,90,0));
                 break;
             case (false, false, false, true)://vers la gauche
                 ChangeRoomSprite(oneWaySprite, Quaternion.Euler(90,-90,0));
@@ -205,10 +205,10 @@ public class DungeonTile : MonoBehaviour
                 ChangeRoomSprite(angleSprite);
                 break;
             case (false, true, true, false)://angle bas-droite
-                ChangeRoomSprite(angleSprite, false, true);
+                ChangeRoomSprite(angleSprite, true, true);
                 break;
             case (false, true, false, true)://angle bas-gauche
-                ChangeRoomSprite(angleSprite, true, true);
+                ChangeRoomSprite(angleSprite, false, true);
                 break;
             case (false, false, true, true)://Couloir droite-gauche
                 ChangeRoomSprite(corridorSprite, Quaternion.Euler(90,90,0));

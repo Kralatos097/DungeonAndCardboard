@@ -306,7 +306,7 @@ public class Active : Stuff
             case 0:
                 break;
             case 1 or 2:
-                target.GetComponent<CombatStat>().ResetStatus();
+                target.GetComponent<CombatStat>().GetCured();
                 break;
         }
     }

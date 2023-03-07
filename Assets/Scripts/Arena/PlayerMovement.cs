@@ -276,12 +276,13 @@ public class PlayerMovement : TacticsMovement
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             Ray ray = Camera.main.ScreenPointToRay((Input.mousePosition));
-            bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
+            bool isOverUI = EventSystem.current.IsPointerOverGameObject();
 
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit) && !isOverUI)
             {
                 ArenaTile t = null;
+                bool pass = false;
                 if (hit.collider.CompareTag("Tile"))
                 {
                     t = hit.collider.GetComponent<ArenaTile>();
@@ -293,6 +294,9 @@ public class PlayerMovement : TacticsMovement
 
                 if (t != null)
                 {
+                    pass = t.selectable;
+                    if(!pass) return;
+                    
                     bool passAtk = false;
                     GameObject TargetGO = t.GetGameObjectOnTop();
                     if (TargetGO != null)

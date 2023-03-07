@@ -573,7 +573,7 @@ public class NPCMove : TacticsMovement
         }
 
         bool isAttacking = AttackAI(); //lance les attaques
-        if (isAttacking) return;
+        if(isAttacking) return;
 
         if(!attacking && !moving && !_alreadyMoved) //Calcul du mouvement
         {
@@ -972,6 +972,7 @@ public class NPCMove : TacticsMovement
 
         if(nbEnemy == 1)
         {
+            Debug.Log("dddddddddddd");
             GetComponent<SpawnEnemy>().LaunchSpawn();
             EndTurnT(); //todo: verifier que ça finit bien le tour sans passer par DumbAI
             return; 
@@ -984,6 +985,9 @@ public class NPCMove : TacticsMovement
 
     private bool AttackAI()
     {
+        if (CombatStat.GetStatusEffect() == StatusEffect.Stun)
+            return false;
+        
         if(target != null && _targetDistance <= atkRange && !moving && !_alreadyMoved) //Attack en début de tour si un Player est dans la range
         {
             attacking = true;

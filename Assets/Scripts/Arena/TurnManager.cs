@@ -16,9 +16,9 @@ public class TurnManager : MonoBehaviour
 
     [HideInInspector] public bool startCombat = false;
     public bool bossFight = false;
+    public static bool CombatStarted = false;
     private static bool _combatEnded = false;
     private static bool _isDefeat = false;
-    public static bool CombatStarted = false;
 
     public delegate GameObject TurnManagerDelegate();
     public static TurnManagerDelegate GetCurrentPlayerD;
@@ -36,13 +36,14 @@ public class TurnManager : MonoBehaviour
         _unitsList.Clear();
         turnOrder.Clear();
         _playerList.Clear();
+        CombatStarted = false;
+        _combatEnded = false;
     }
 
     private void Start()
     {
         FindObjectOfType<AudioManager>().Play("Fight");
         Invoke(nameof(LateStart), 1);
-        _combatEnded = false;
         _combatEndCanvas = CombatEndCanvas;
         GetCurrentPlayerD = GetCurrentPlayer;
         _combatEndPassiveEffectD = OnCombatEndPassiveEffect;
@@ -222,6 +223,10 @@ public class TurnManager : MonoBehaviour
             }
         }
         else if (unit.GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Freeze)
+        {
+            unit.GetComponent<CombatStat>().ResetStatus();
+        }
+        else if (unit.GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Stun)
         {
             unit.GetComponent<CombatStat>().ResetStatus();
         }
