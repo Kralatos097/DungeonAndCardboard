@@ -648,7 +648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4362586968786532356, guid: b7c38e69a3e50e242a54ad87b9dab84b, type: 3}
       propertyPath: roomType
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4362586968786532356, guid: b7c38e69a3e50e242a54ad87b9dab84b, type: 3}
       propertyPath: doorRight
@@ -1692,7 +1692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4362586968786532356, guid: b7c38e69a3e50e242a54ad87b9dab84b, type: 3}
       propertyPath: roomType
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4362586968786532356, guid: b7c38e69a3e50e242a54ad87b9dab84b, type: 3}
       propertyPath: doorRight
@@ -1774,7 +1774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4362586968786532356, guid: b7c38e69a3e50e242a54ad87b9dab84b, type: 3}
       propertyPath: roomType
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4362586968786532356, guid: b7c38e69a3e50e242a54ad87b9dab84b, type: 3}
       propertyPath: doorRight
@@ -1950,7 +1950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4362586968786532356, guid: b7c38e69a3e50e242a54ad87b9dab84b, type: 3}
       propertyPath: roomType
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4362586968786532356, guid: b7c38e69a3e50e242a54ad87b9dab84b, type: 3}
       propertyPath: doorRight
@@ -3070,6 +3070,14 @@ PrefabInstance:
       propertyPath: bossScene.sceneEnabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8525849390151501698, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
+      propertyPath: fightingSceneList.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525849390151501698, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
+      propertyPath: fightingSceneList.Array.data[5]
+      value: "D\xE9faiteAssur\xE9"
+      objectReference: {fileID: 0}
     - target: {fileID: 8525849390842361192, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
       propertyPath: m_Name
       value: DungeonsManagers
@@ -3739,7 +3747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4362586968786532356, guid: b7c38e69a3e50e242a54ad87b9dab84b, type: 3}
       propertyPath: roomType
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4362586968786532356, guid: b7c38e69a3e50e242a54ad87b9dab84b, type: 3}
       propertyPath: doorRight
@@ -4096,7 +4104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4362586968786532356, guid: b7c38e69a3e50e242a54ad87b9dab84b, type: 3}
       propertyPath: roomType
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4362586968786532356, guid: b7c38e69a3e50e242a54ad87b9dab84b, type: 3}
       propertyPath: doorRight
