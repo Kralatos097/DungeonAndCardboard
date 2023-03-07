@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1140774740427709286}
   - component: {fileID: 1100639542924441898}
   m_Layer: 0
-  m_Name: Square
+  m_Name: RoomSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -411404569
+  m_SortingLayerID: -1701780407
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 1365850497, guid: 94a86d4602739da40aed4bb4c2cbcd5a, type: 3}
@@ -154,7 +154,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -411404569
+  m_SortingLayerID: -1701780407
   m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 084c70f35d6de234cb7daccae113f906, type: 3}
@@ -321,7 +321,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -411404569
+  m_SortingLayerID: -1701780407
   m_SortingLayer: 1
   m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -405,7 +405,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -411404569
+  m_SortingLayerID: -1701780407
   m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 95680b558e93b294699db57d97bb3a9c, type: 3}
