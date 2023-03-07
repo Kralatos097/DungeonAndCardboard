@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using MyBox;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : TacticsMovement
 {
@@ -106,6 +107,7 @@ public class PlayerMovement : TacticsMovement
                     throw new ArgumentOutOfRangeException();
             }
         }
+        
     }
 
     public void SetUnitInfo()
@@ -114,28 +116,28 @@ public class PlayerMovement : TacticsMovement
         {
             case Perso.Warrior:
                 WarriorInfo.MaxHp = CombatStat.MaxHp;
-                WarriorInfo.CurrentHp = CombatStat.CurrHp;
+                WarriorInfo.CurrentHp = CombatStat.CurrHp <= 0 ? 1 : CombatStat.CurrHp;
                 WarriorInfo.Init = CombatStat.GetInit();
 
                 WarriorInfo.Consumable = Consumable;
                 break;
             case Perso.Thief:
                 ThiefInfo.MaxHp = CombatStat.MaxHp;
-                ThiefInfo.CurrentHp = CombatStat.CurrHp;
+                ThiefInfo.CurrentHp = CombatStat.CurrHp <= 0 ? 1 : CombatStat.CurrHp;
                 ThiefInfo.Init = CombatStat.GetInit();
 
                 ThiefInfo.Consumable = Consumable;
                 break;
             case Perso.Cleric:
                 ClericInfo.MaxHp = CombatStat.MaxHp;
-                ClericInfo.CurrentHp = CombatStat.CurrHp;
+                ClericInfo.CurrentHp = CombatStat.CurrHp <= 0 ? 1 : CombatStat.CurrHp;
                 ClericInfo.Init = CombatStat.GetInit();
 
                 ClericInfo.Consumable = Consumable;
                 break;
             case Perso.Wizard:
                 WizardInfo.MaxHp = CombatStat.MaxHp;
-                WizardInfo.CurrentHp = CombatStat.CurrHp;
+                WizardInfo.CurrentHp = CombatStat.CurrHp <= 0 ? 1 : CombatStat.CurrHp;
                 WizardInfo.Init = CombatStat.GetInit();
 
                 WizardInfo.Consumable = Consumable;
@@ -249,7 +251,7 @@ public class PlayerMovement : TacticsMovement
 
     private void CheckMove()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             Ray ray = Camera.main.ScreenPointToRay((Input.mousePosition));
 
@@ -271,7 +273,7 @@ public class PlayerMovement : TacticsMovement
 
     private void CheckAttack()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             Ray ray = Camera.main.ScreenPointToRay((Input.mousePosition));
             bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();

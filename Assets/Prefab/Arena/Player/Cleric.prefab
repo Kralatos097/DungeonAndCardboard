@@ -28,6 +28,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2552437457112604620, guid: 5285896115ac6ae4c86876f88e4df93a, type: 3}
+      propertyPath: UnitInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d18e754f8f9ad04d9a2535fdab34af1, type: 2}
+    - target: {fileID: 2552437457112604620, guid: 5285896115ac6ae4c86876f88e4df93a, type: 3}
       propertyPath: charaClass
       value: 3
       objectReference: {fileID: 0}

@@ -143,4 +143,5 @@ public enum IaType
     Ruthless,
     Perfectionist,
     Friendly,
+    BossS1,
 }

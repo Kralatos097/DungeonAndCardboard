@@ -30,6 +30,15 @@ public class CombatStat : MonoBehaviour
             }
 
             isAlive = _maxHp > 0;
+
+            if(!isAlive)
+            {
+                transform.GetChild(0).gameObject.SetActive(false);
+                transform.position = new Vector3(-100, -100, -100);
+                
+                if(!isUp) //empeche aux effets de ce lancer au début de la scene
+                    AllieDeathFX();
+            }
         }
     }
 
@@ -149,6 +158,7 @@ public class CombatStat : MonoBehaviour
         if(gameObject.CompareTag("Player"))
         {
             transform.GetChild(0).GetComponent<Renderer>().material.color = Color.grey;
+            MaxHp--;
             AllieDownFX();
         }
         else
@@ -201,8 +211,13 @@ public class CombatStat : MonoBehaviour
         {
             case StatusEffect.Poison:
                 GetPoisonFX();
-                StatusEffect = effect;
-                StatusValue = value;
+                if(StatusEffect == effect) StatusValue += value;
+                else
+                {
+                    StatusValue = value;
+                    StatusEffect = effect;
+                }
+                
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
                 if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueTaken)
                 {
@@ -211,6 +226,13 @@ public class CombatStat : MonoBehaviour
                 break;
             case StatusEffect.Stun:
                 GetStunFX();
+                if(StatusEffect == effect) StatusValue += value;
+                else
+                {
+                    StatusValue = value;
+                    StatusEffect = effect;
+                }
+
                 StatusEffect = effect;
                 StatusValue = value;
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
@@ -221,6 +243,13 @@ public class CombatStat : MonoBehaviour
                 break;
             case StatusEffect.Burn:
                 GetBurnFX();
+                if(StatusEffect == effect) StatusValue += value;
+                else
+                {
+                    StatusValue = value;
+                    StatusEffect = effect;
+                }
+
                 StatusEffect = effect;
                 StatusValue = value;
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
@@ -231,6 +260,13 @@ public class CombatStat : MonoBehaviour
                 break;
             case StatusEffect.Freeze:
                 GetFreezeFX();
+                if(StatusEffect == effect) StatusValue += value;
+                else
+                {
+                    StatusValue = value;
+                    StatusEffect = effect;
+                }
+
                 StatusEffect = effect;
                 StatusValue = value;
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();

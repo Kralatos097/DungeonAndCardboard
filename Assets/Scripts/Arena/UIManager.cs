@@ -12,7 +12,10 @@ public class UIManager : MonoBehaviour
     private bool _actionSelectorShown = false;
     [HideInInspector] public bool alreadyMoved = false;
 
-    [FormerlySerializedAs("ActionSelectorPanel")]
+    [Header("Value")]
+    [SerializeField] private float charaUiIncreaseValue = 1.15f;
+    private Vector3 _charaUiBaseValue;
+    
     [Header("Drag'n Drop")]
     [SerializeField] private GameObject actionSelectorPanel;
     [SerializeField] private Button moveButton;
@@ -38,6 +41,8 @@ public class UIManager : MonoBehaviour
     public GameObject EnemyInitPanel;
 
     public static Action<GameObject> setInitAction;
+    public static Action<GameObject> StartTurnInitUIChangeAction;
+    public static Action<GameObject> EndTurnInitUIChangeAction;
     
     private Dictionary<GameObject,GameObject> _playerPanelList = new Dictionary<GameObject, GameObject>();
 
@@ -52,6 +57,8 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         setInitAction = AddUnitInitUi;
+        StartTurnInitUIChangeAction = StartTurnInitUIChange;
+        EndTurnInitUIChangeAction = EndTurnInitUIChange;
     }
 
     void Update()
@@ -203,7 +210,6 @@ public class UIManager : MonoBehaviour
 
     public void HideEquipSelector()
     {
-        /*_equipSelectorShown = false;*/
         equipSelectorPanel.SetActive(false);
     }
 
@@ -317,9 +323,38 @@ public class UIManager : MonoBehaviour
             //todo: add NPC variations
             t = Instantiate(EnemyInitPanel, InitPanel);
         }
+
+        if(TurnManager.CombatStarted)
+        {
+            GameObject currentPlayer = TurnManager.GetCurrentPlayerD();
+            int currentPlayerIndex = _playerPanelList[currentPlayer].transform.GetSiblingIndex();
+            t.transform.SetSiblingIndex(currentPlayerIndex);
+        }
+        
+        _charaUiBaseValue = t.transform.localScale;
         _playerPanelList.Add(unit, t);
         t.transform.Find("ArmorImg").gameObject.SetActive(false);
         t.transform.Find("StatusImg").gameObject.SetActive(false);
+    }
+
+    private void StartTurnInitUIChange(GameObject unit)
+    {
+        bool containsKey = _playerPanelList.ContainsKey(unit);
+        if(containsKey)
+        {
+            GameObject playerPanel = _playerPanelList[unit];
+            playerPanel.transform.localScale = Vector3.one * charaUiIncreaseValue;
+        }
+    }
+    
+    private void EndTurnInitUIChange(GameObject unit)
+    {
+        bool containsKey = _playerPanelList.ContainsKey(unit);
+        if(containsKey)
+        {
+            GameObject playerPanel = _playerPanelList[unit];
+            playerPanel.transform.localScale = _charaUiBaseValue;
+        }
     }
 
     private void UpdateHpUi()
@@ -328,7 +363,7 @@ public class UIManager : MonoBehaviour
         {
             if (!t.Value.activeSelf) continue; //si l'UI a déjà été retiré alors on passe à la prochaine itération
             
-            if(!t.Key.GetComponent<CombatStat>().isAlive) //si le personnage n'est pas vivant alors on désactive sont UI et on passe à l'iteration suivante
+            if(t.Key == null || !t.Key.GetComponent<CombatStat>().isAlive) //si le personnage n'est pas vivant alors on désactive sont UI et on passe à l'iteration suivante
             {
                 GameObject temp = t.Value;
                 temp.SetActive(false);

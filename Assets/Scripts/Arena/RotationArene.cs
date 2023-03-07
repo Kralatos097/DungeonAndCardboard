@@ -8,8 +8,11 @@ public class RotationArene : MonoBehaviour
 {
     private Transform _camHolder;
     private int _dir = 0; //1 == right & -1 == left & 0 == stop
-
+    private float rotCounter;
+    
     [SerializeField] private float rotSpeed;
+    [SerializeField] private float rotTime;
+    
     [SerializeField] private CamButton.Direction sens;
 
     public static Action<int> TurnCamAction;
@@ -53,7 +56,20 @@ public class RotationArene : MonoBehaviour
             }
         }
 
-        if(_dir != 0) _camHolder.Rotate(Vector3.up, _dir*rotSpeed);
+        if(_dir != 0)
+        {
+            //_camHolder.Rotate(Vector3.up, _dir * rotSpeed);
+            rotCounter = rotTime;
+        }
+
+        
+        if(rotCounter >= 0)
+        {
+            rotCounter -= Time.deltaTime;
+            _camHolder.rotation = Quaternion.Lerp(_camHolder.rotation,
+                Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + rotSpeed * _dir,
+                    transform.eulerAngles.z), Time.deltaTime * 10);
+        }
     }
 
     private void TurnCam(int dir)
