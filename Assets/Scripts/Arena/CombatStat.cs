@@ -102,6 +102,7 @@ public class CombatStat : MonoBehaviour
                 _currHp = value;
                 if(_currHp > MaxHp)
                 {
+                    if(TurnManager.CombatStarted) GetHealFX();
                     _currHp = MaxHp;
                 }
 
@@ -184,7 +185,6 @@ public class CombatStat : MonoBehaviour
             passive.Effect(gameObject);
         }
         
-        TakeDamageFX();
         CurrHp-=value;
         
         Debug.Log(name+" is damaged for : " + value + " remaining " + CurrHp +"/"+ MaxHp);
@@ -198,7 +198,6 @@ public class CombatStat : MonoBehaviour
             passive.Effect(gameObject);
         }
         
-        GetHealFX();
         CurrHp+=value;
         
         Debug.Log(name+" is healed for : " + value + " remaining " + CurrHp +"/"+ MaxHp);
