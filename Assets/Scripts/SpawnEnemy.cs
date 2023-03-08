@@ -59,7 +59,7 @@ public class SpawnEnemy : MonoBehaviour
 
             if(tile.GetGameObjectOnTop() == null)
             {
-                Vector3 pos = new Vector3(tile.transform.GetSiblingIndex(), retGo.transform.position.y, tile.transform.position.z);
+                Vector3 pos = new Vector3(tile.transform.position.x, retGo.transform.position.y, tile.transform.position.z);
                 Instantiate(retGo, pos, quaternion.identity);
                 pass = false;
             }
