@@ -213,7 +213,7 @@ public class
 
         _sfxSource.volume = s.volume * volumeSfx;
         _sfxSource.pitch = s.pitch * alea;
-        _sfxSource.PlayOneShot(s.clip);
+        _sfxSource.PlayOneShot(s.clip, _sfxSource.volume);
     }
 
     //Je n'est pas mis de fonction pour jouer de voix

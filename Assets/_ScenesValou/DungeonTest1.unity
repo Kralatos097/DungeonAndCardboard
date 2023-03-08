@@ -1527,6 +1527,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0b6ad0cf1d018c84fbd023afd5a816b5, type: 3}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0b6ad0cf1d018c84fbd023afd5a816b5, type: 3}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0b6ad0cf1d018c84fbd023afd5a816b5, type: 3}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[4].volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[5].volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[7].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[9].volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[10].volume
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
 --- !u!1 &830004361
@@ -3060,7 +3092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8525849390151501698, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
       propertyPath: bossScene
-      value: "D\xE9faiteAssur\xE9"
+      value: KingRoom
       objectReference: {fileID: 0}
     - target: {fileID: 8525849390151501698, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
       propertyPath: bossScene.Scene
