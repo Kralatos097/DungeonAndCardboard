@@ -270,6 +270,7 @@ public class TacticsMovement : MonoBehaviour
     public void EndTurn()
     {
         Turn = false;
+        EndTurnResetValues();
     }
 
     protected ArenaTile FindEndTile(ArenaTile t)
@@ -849,5 +850,13 @@ public class TacticsMovement : MonoBehaviour
     public void ChangeMove(int value)
     {
         move = baseMove + value;
+    }
+
+    private void EndTurnResetValues()
+    {
+        target = null;
+        ActualTargetTile = null;
+        _selectableTiles.Clear();
+        _currentTile = null;
     }
 }

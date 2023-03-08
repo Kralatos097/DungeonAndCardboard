@@ -75,7 +75,7 @@ public class CombatStat : MonoBehaviour
                     }
                     else
                     {
-                        TakeDamageFX();
+                        if(TurnManager.CombatStarted) TakeDamageFX();
                         _currHp = value;
                     }
 
@@ -128,7 +128,7 @@ public class CombatStat : MonoBehaviour
             statusValue = value;
             if(statusValue <= 0)
             {
-                StatusEffect = StatusEffect.Nothing;
+                ResetStatus();
             }
         }
     }
@@ -154,9 +154,10 @@ public class CombatStat : MonoBehaviour
                 return;
             }
         }
-        
+
         if(gameObject.CompareTag("Player"))
         {
+            ResetStatus();
             transform.GetChild(0).GetComponent<Renderer>().material.color = Color.grey;
             MaxHp--;
             AllieDownFX();
@@ -206,6 +207,9 @@ public class CombatStat : MonoBehaviour
     public void ChangeStatus(StatusEffect effect, int value)
     {
         FindObjectOfType<FXManager>().StopAll(transform);
+
+        if(!isUp) return; //todo: a test dans le doute a clean
+        
         Passive passive;
         switch(effect)
         {
@@ -309,11 +313,16 @@ public class CombatStat : MonoBehaviour
         ActivateBurnFX();
         StatusValue = 0;
     }
+
+    public void GetCured()
+    {
+        ResetStatus();
+        GetCuredFX();
+    }
     
     public void ResetStatus()
     {
         FindObjectOfType<FXManager>().StopAll(transform);
-        GetCuredFX();
         Passive passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
         if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueClean)
         {
@@ -322,7 +331,6 @@ public class CombatStat : MonoBehaviour
         
         StatusEffect = StatusEffect.Nothing;
         statusValue = 0;
-        GetCuredFX();
     }
 
     public int GetInit()
@@ -510,7 +518,7 @@ public class CombatStat : MonoBehaviour
     [ContextMenu("Cure Unit")]
     public void CureTest()
     {
-        ResetStatus();
+        GetCured();
     }
 #endif
 }
