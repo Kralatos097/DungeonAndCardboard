@@ -207,6 +207,9 @@ public class CombatStat : MonoBehaviour
     public void ChangeStatus(StatusEffect effect, int value)
     {
         FindObjectOfType<FXManager>().StopAll(transform);
+
+        if(!isUp) return; //todo: a test dans le doute a clean
+        
         Passive passive;
         switch(effect)
         {
