@@ -320,6 +320,8 @@ public class DungeonManager : MonoBehaviour
         ClericInfo.CurrentHp += Random.Range(1, 7);
         WizardInfo.CurrentHp += Random.Range(1, 7);
         
+        RestFX();
+        
         Debug.Log(WarriorInfo.CurrentHp +
                   " / " + ThiefInfo.CurrentHp +
                   " / " + ClericInfo.CurrentHp +
@@ -456,6 +458,11 @@ public class DungeonManager : MonoBehaviour
     private void PositiveLootFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("PositiveLoot");
+    }
+    
+    private void RestFX()
+    {
+        FindObjectOfType<AudioManager>().OneShot("Rest");
     }
 
     private void NegativeLootFX()

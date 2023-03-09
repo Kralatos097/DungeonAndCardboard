@@ -112,3 +112,8 @@ public class WizardInfo
     public static Passive Passive = null;
     public static Consumable Consumable = null;
 }
+
+public static class EndGameInfo
+{
+    public static bool IsVictory;
+}
