@@ -131,7 +131,6 @@ public class TurnManager : MonoBehaviour
             _combatEndCanvas.GetChild(1).gameObject.SetActive(true);
             DefeatFx();
         }
-        FindObjectOfType<AudioManager>().AllMusicStop();
     }
     
     private static void SetPlayersInfo()
