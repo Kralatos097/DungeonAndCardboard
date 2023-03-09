@@ -67,7 +67,7 @@ public class TurnManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0) && _combatEnded)
+        if(Input.GetMouseButtonUp(0) && _combatEnded)
         {
             
             if(!bossFight)
@@ -85,6 +85,7 @@ public class TurnManager : MonoBehaviour
                     DungeonManager.SceneContainerSwitch(true); 
                     //UiManagerDj.playerInfoUi();
                     SceneManager.SetActiveScene(SceneManager.GetSceneByName(DungeonManager.GetDungeonSceneName()));
+                    DungeonManager.LaunchRoomEffectAction(RoomEffect.EndFightLoot);
                 }
                 
             }

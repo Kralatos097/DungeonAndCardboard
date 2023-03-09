@@ -13,9 +13,12 @@ public class DungeonManager : MonoBehaviour
 
     private static string _dungeonSceneName;
     
+    [SerializeField] private int restAmbushBaseValue = 20;
+    
     private GameObject _sceneContainer;
     public static DungeonTile CurrentTile;
     
+    [Space]
     [Scene][SerializeField] private string bossScene;
 
     [Header("Players Card")]
@@ -37,6 +40,19 @@ public class DungeonManager : MonoBehaviour
 
     public static Action<bool> SceneContainerSwitch;
     
+    private int restAmbushValue;
+    private int RestAmbushValue
+    {
+        get => restAmbushValue;
+
+        set
+        {
+            restAmbushValue = value;
+            if (restAmbushValue < 0)
+                restAmbushValue = 0;
+        }
+    }
+
     private void Awake()
     {
         _dungeonSceneName = SceneManager.GetActiveScene().name;
@@ -53,6 +69,8 @@ public class DungeonManager : MonoBehaviour
         AssignPlayerInfo();
         DungeonUiManager.PlayerInfoUi();
         FindObjectOfType<AudioManager>().Play("Dungeon");
+
+        restAmbushValue = restAmbushBaseValue;
     }
 
     private void SceneContainerSwitchFunc(bool obj)
@@ -83,6 +101,20 @@ public class DungeonManager : MonoBehaviour
                     break;
                 case RoomEffect.Treasure:
                     switch (treasureEffect)
+                    {
+                        case TreasureEffect.Stuff:
+                            StuffSelection();
+                            break;
+                        case TreasureEffect.Consumable:
+                            ConsumableSelection();
+                            break;
+                        case TreasureEffect.Default:
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                    break;
+                case RoomEffect.EndFightLoot:
+                    switch(treasureEffect)
                     {
                         case TreasureEffect.Stuff:
                             StuffSelection();
@@ -233,6 +265,9 @@ public class DungeonManager : MonoBehaviour
             case RoomEffect.Loot:
                 LaunchLoot();
                 break;
+            case RoomEffect.EndFightLoot:
+                LaunchFightLoot();
+                break;
             case RoomEffect.Default:
             default:
                 throw new ArgumentOutOfRangeException(nameof(roomEffect), roomEffect, null);
@@ -321,11 +356,17 @@ public class DungeonManager : MonoBehaviour
         WizardInfo.CurrentHp += Random.Range(1, 7);
         
         RestFX();
-        
-        Debug.Log(WarriorInfo.CurrentHp +
-                  " / " + ThiefInfo.CurrentHp +
-                  " / " + ClericInfo.CurrentHp +
-                  " / " + WizardInfo.CurrentHp);
+
+        int res = Random.Range(0, RestAmbushValue+1);
+
+        if(res == 0)
+        {
+            LaunchAmbush();
+        }
+        else
+        {
+            RestAmbushValue--;
+        }
     }
     
     private void LaunchTreasure()
@@ -346,7 +387,26 @@ public class DungeonManager : MonoBehaviour
             newStuff = PickStuff();
             treasureEffect = TreasureEffect.Stuff;
         }
-        //DungeonUiManager.StuffChoiceAction(newStuff);
+    }
+    
+    private void LaunchFightLoot()
+    {
+        artworkShown = true;
+        Stuff newStuff;
+        int rand = Random.Range(0, 5);
+        PositiveLootFX();
+        if(rand <= 2)
+        {
+            DungeonUiManager.TreasureConsumableUi();
+            newStuff = PickConsumable();
+            treasureEffect = TreasureEffect.Consumable;
+        }
+        else
+        {
+            DungeonUiManager.TreasureStuffUi();
+            newStuff = PickStuff();
+            treasureEffect = TreasureEffect.Stuff;
+        }
     }
     
     private void LaunchTrap()
