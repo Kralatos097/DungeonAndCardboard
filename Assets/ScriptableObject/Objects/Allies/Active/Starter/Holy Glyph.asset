@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Holy Glyph
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: f5d0f1d21d9ecff4b8ef4b3630c35079, type: 3}
+  logo: {fileID: 21300000, guid: 474e3f7c7b7b299429b1c7cd0dbf1fad, type: 3}
   description: Heal 3 HP
   range: 2
   cd: 1

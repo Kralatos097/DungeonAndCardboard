@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Magic Pebble
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 7e440c14012296741b640d9f0b881eec, type: 3}
+  logo: {fileID: 21300000, guid: b4bb843f3a890654f8b0f977e1117318, type: 3}
   description: Inflict 1 Damage
   range: 5
   cd: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shield of Blocking
   m_EditorClassIdentifier: 
   stuffType: Passive
-  logo: {fileID: 21300000, guid: 37e268398dd20d748b7b9d96f99f5b0b, type: 3}
+  logo: {fileID: 21300000, guid: 56f14eb0000832541a444c0b420f35b4, type: 3}
   description: Ignore the first damages taken of each fight
   passiveTrigger: 1
   passiveEffectList:

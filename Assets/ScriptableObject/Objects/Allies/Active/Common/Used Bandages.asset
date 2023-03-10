@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Used Bandages
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: eb0dce7bc2869994ea2cc4a6b0f39d53, type: 3}
+  logo: {fileID: 21300000, guid: 1b4001a66fbbaa14393b42e74b7ff387, type: 3}
   description: Heal 3 HP
   range: 0
   cd: 0

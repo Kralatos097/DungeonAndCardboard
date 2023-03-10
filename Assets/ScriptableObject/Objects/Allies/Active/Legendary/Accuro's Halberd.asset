@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Accuro's Halberd
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 4c34d95562431df4a989d93d51ad1d53, type: 3}
+  logo: {fileID: 21300000, guid: f70ec7e563300e440baed5d05502ea57, type: 3}
   description: Inflict 7 Damages & Never Miss
   range: 1
   cd: 2

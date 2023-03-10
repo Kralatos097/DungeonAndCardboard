@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Multicolore stone Necklace
   m_EditorClassIdentifier: 
   stuffType: Passive
-  logo: {fileID: 21300000, guid: 4b1d6fbd857910d4295d7aa0c7dccf97, type: 3}
+  logo: {fileID: 21300000, guid: e902874abbc253f4fa90575902244bea, type: 3}
   description: Add +2 Level on Status Attack
   passiveTrigger: 10
   passiveEffectList:

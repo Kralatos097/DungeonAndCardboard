@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Small Dagger
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 462542ae5dcf4084b8c130015a1b1683, type: 3}
+  logo: {fileID: 21300000, guid: ea7e82d09b34f204685ce4ea3545fca5, type: 3}
   description: Inflict 2 Damages & 3 Poison on Critic
   range: 1
   cd: 0

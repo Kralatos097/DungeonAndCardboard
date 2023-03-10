@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Iron Sword
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 2bd49e99cdf14724a96cbb3d9677186b, type: 3}
+  logo: {fileID: 21300000, guid: 86b171ddc5346224daf0f3644ae1f6e9, type: 3}
   description: Inflict 3 Damages
   range: 1
   cd: 0

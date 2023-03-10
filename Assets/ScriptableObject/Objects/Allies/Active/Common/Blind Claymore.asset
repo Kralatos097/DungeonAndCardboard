@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Blind Claymore
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 307c9062f7cc6984eb8947b4177f2d5e, type: 3}
+  logo: {fileID: 21300000, guid: 0dd541eecbe094f4680ae272047dd962, type: 3}
   description: Inflict 20 Damages on Critic
   range: 1
   cd: 0

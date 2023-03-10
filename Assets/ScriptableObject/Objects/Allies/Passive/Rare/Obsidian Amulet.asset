@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Obsidian Amulet
   m_EditorClassIdentifier: 
   stuffType: Passive
-  logo: {fileID: 21300000, guid: a47b3f320b5339947b51e0fac24c73a9, type: 3}
+  logo: {fileID: 21300000, guid: 72b3b7d70a92fd94799747b5a62bdfeb, type: 3}
   description: Immunity to Froze and Burn
   passiveTrigger: 10
   passiveEffectList:

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bead of Movement
   m_EditorClassIdentifier: 
   stuffType: Passive
-  logo: {fileID: 21300000, guid: 3513fc5b2b4f9de4588529a66e088b68, type: 3}
+  logo: {fileID: 21300000, guid: 5242c1beb294f654f80f7ea0d8b09e21, type: 3}
   description: Gain +1 Movement & +1 Initiative
   passiveTrigger: 0
   passiveEffectList:

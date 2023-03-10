@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Blue Book
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 4df8e2f800150d245b8f77a721ffc864, type: 3}
+  logo: {fileID: 21300000, guid: 524089ba5ea11d14eac0bda63d41231b, type: 3}
   description: Inflict 2 Froze
   range: 2
   cd: 0

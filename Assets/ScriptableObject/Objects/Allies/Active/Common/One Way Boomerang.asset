@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: One Way Boomerang
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 158ec4e9dcc79f3458586dc58af67c44, type: 3}
+  logo: {fileID: 21300000, guid: 68bdc0655bb32854ab2f5e989851eb96, type: 3}
   description: Inflict 1 Damage & Stun
   range: 3
   cd: 3

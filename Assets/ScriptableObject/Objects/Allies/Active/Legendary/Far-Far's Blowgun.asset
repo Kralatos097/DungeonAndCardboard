@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Far-Far's Blowgun
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 53ee8486916d71c4db9897501ce33359, type: 3}
+  logo: {fileID: 21300000, guid: 363163fad6b0ee24aa84b793fdbe962e, type: 3}
   description: Inflict 5 Damages
   range: 5
   cd: 1

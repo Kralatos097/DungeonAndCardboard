@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Golden Luth
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 00daa17e032323343b466040f2d5448e, type: 3}
+  logo: {fileID: 21300000, guid: 00a898ab10d900245a5e4f41ed650ca6, type: 3}
   description: Heal 3 HP & 2 Splash HP
   range: 0
   cd: 1

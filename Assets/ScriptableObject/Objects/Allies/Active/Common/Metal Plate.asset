@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Metal Plate
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 2f798e5634cc7e9429324bbfd7f700ea, type: 3}
+  logo: {fileID: 21300000, guid: 431ec4ce58152844081dd1cebd9b064b, type: 3}
   description: Gain 2 Armors
   range: 1
   cd: 0

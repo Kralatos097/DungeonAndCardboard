@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sacred Mace
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 0daa97c01febf17499499c6f42a82fdd, type: 3}
+  logo: {fileID: 21300000, guid: e27dbfe10f369484686fa4ee8d343c2d, type: 3}
   description: Inflict 2 Damages on Ennemies or Heal 1 HP on Allies
   range: 1
   cd: 0

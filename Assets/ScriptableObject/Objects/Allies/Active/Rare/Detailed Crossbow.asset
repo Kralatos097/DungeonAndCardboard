@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Detailed Crossbow
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 577f25ec81847304db53ff2bfb0b4946, type: 3}
+  logo: {fileID: 21300000, guid: 81a90705f04709b4d866761630c35e26, type: 3}
   description: Inflict 4 Damages
   range: 4
   cd: 1

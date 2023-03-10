@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: White Stick
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 05ffec314a0943e498c508b4cc08c8a2, type: 3}
+  logo: {fileID: 21300000, guid: 120ecb016e46e1746a09e4267d0ab3f6, type: 3}
   description: Heal 2 HP
   range: 2
   cd: 0

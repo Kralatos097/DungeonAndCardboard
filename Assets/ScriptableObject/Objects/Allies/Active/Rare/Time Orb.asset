@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Time Orb
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 3c505ab8e726a2b4f9ced6c3b9b9d749, type: 3}
+  logo: {fileID: 21300000, guid: 55f3b15f8dc6ab0488c275103d3406c3, type: 3}
   description: Gain 1 charge every turn start. When use, Damages = number of charge
     and reset charge
   range: 2

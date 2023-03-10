@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stone Greatclub
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 4d14c30032c34a0408497e2099058a84, type: 3}
+  logo: {fileID: 21300000, guid: dc9cb7a21cfafc34f866953511366c8d, type: 3}
   description: Inflict 4 Damages
   range: 1
   cd: 1

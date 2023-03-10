@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wizard's Guide
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 216b64cac7d427941a83e5de23b26f3a, type: 3}
+  logo: {fileID: 21300000, guid: a9d81d6d2b03f6b499c7236a04268c96, type: 3}
   description: Inflict 2 Burn
   range: 4
   cd: 0

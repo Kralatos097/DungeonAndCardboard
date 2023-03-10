@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Elementary Pouette
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: a5963d60e94d904428a718c5476b72fc, type: 3}
+  logo: {fileID: 21300000, guid: fa1b842ab9e11e84bb062116db65ddac, type: 3}
   description: Double the actual status of the target
   range: 2
   cd: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Long Spear
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 1ed1a3bd71f95d94e9118ecc4cd568af, type: 3}
+  logo: {fileID: 21300000, guid: 5cd8a8155b5ee094d9d26fee29a7e6bb, type: 3}
   description: Inflict 3 Damages & 2 Damages behind target
   range: 1
   cd: 1

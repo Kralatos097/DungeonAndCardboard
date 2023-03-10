@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rusty Sickle
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 12b523e6abaef3a4cbd3ff569a50d171, type: 3}
+  logo: {fileID: 21300000, guid: 1e403f28f175845449c1a1e3c07afa28, type: 3}
   description: Inflict 1 Damage & 2 Poison
   range: 1
   cd: 0

@@ -75,9 +75,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: WarriorPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 2866687278255427386, guid: 3fee4182a797f1d4e9ce8f07679ef922, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1551d39bd954b224da601c686118c05a, type: 3}
+    - target: {fileID: 2866687278272630100, guid: 3fee4182a797f1d4e9ce8f07679ef922, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 676b26befd8c0854980307f67ffe3bb1, type: 3}
     - target: {fileID: 2866687279345344546, guid: 3fee4182a797f1d4e9ce8f07679ef922, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5b2765ce25b221c4791b5bb49322a908, type: 3}
+      objectReference: {fileID: 21300000, guid: 7c4fe4ecacba20c46b276ae7c43e1ba7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fee4182a797f1d4e9ce8f07679ef922, type: 3}

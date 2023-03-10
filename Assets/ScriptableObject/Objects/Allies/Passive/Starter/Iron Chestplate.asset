@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Iron Chestplate
   m_EditorClassIdentifier: 
   stuffType: Passive
-  logo: {fileID: 21300000, guid: 47db9a86af339c9498ddbef1266a8cf6, type: 3}
+  logo: {fileID: 21300000, guid: ad246854fa7468844b8aaf55cbdb7006, type: 3}
   description: Gain +3 Armors each start of fight
   passiveTrigger: 1
   passiveEffectList:

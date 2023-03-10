@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wooden Club
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: c3468fef5f1e6f442808c20ae7612749, type: 3}
+  logo: {fileID: 21300000, guid: e7b534b9423c52a4db3261d7db0073d9, type: 3}
   description: Inflict 1 Damage & Stun
   range: 1
   cd: 1

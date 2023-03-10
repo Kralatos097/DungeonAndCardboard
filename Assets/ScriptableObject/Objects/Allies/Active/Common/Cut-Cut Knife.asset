@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cut-Cut Knife
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: e1609ffda8ca7394da8d029c8761ae2b, type: 3}
+  logo: {fileID: 21300000, guid: 80a71faca23270e4eb780da4e01f05f0, type: 3}
   description: Inflict 2 X 1 Damages
   range: 1
   cd: 0

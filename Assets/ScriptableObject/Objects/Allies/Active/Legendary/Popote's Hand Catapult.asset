@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Popote's Hand Catapult
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: 0d99b453399461944a0f3d0f0c40b4b7, type: 3}
+  logo: {fileID: 21300000, guid: 3afaafa4e4a79e74ba12064ac3fe75fb, type: 3}
   description: Heal 5 HP & Cure the target
   range: 3
   cd: 2

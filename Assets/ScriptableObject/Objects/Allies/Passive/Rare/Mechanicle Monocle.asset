@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mechanicle Monocle
   m_EditorClassIdentifier: 
   stuffType: Passive
-  logo: {fileID: 21300000, guid: 7db58f6c37c258947a53f89dd78ca162, type: 3}
+  logo: {fileID: 21300000, guid: c05c64f250dd5f343859381125b7591a, type: 3}
   description: Tile +1 on each ranged Active
   passiveTrigger: 0
   passiveEffectList:

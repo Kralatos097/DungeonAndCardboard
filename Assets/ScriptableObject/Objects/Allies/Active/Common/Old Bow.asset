@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Old Bow
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: f42ef78cb0b5e59488c2da7fba7e671d, type: 3}
+  logo: {fileID: 21300000, guid: 41a29069e4a16884d8c246b23e233bfb, type: 3}
   description: Inflict 3 Damages
   range: 3
   cd: 0

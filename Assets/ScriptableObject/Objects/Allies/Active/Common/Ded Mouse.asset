@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ded Mouse
   m_EditorClassIdentifier: 
   stuffType: Active
-  logo: {fileID: 21300000, guid: b70cb82a73e617c40a560a3260828d47, type: 3}
+  logo: {fileID: 21300000, guid: db53442186f69ce4595b1aa20b045935, type: 3}
   description: Inflict 3 Poison
   range: 2
   cd: 0

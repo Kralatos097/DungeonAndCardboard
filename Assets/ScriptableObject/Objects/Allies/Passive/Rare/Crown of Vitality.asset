@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Crown of Vitality
   m_EditorClassIdentifier: 
   stuffType: Passive
-  logo: {fileID: 21300000, guid: 1821c72322a14074cad3d6212d6651b0, type: 3}
+  logo: {fileID: 21300000, guid: 20f8c3468f1a3b0468cad62e7e5d997f, type: 3}
   description: Gain +2 Heals on Active with heals
   passiveTrigger: 7
   passiveEffectList:
