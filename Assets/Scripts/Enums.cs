@@ -17,6 +17,7 @@ public enum RoomEffect
     Fight,
     Rest,
     Loot,
+    EndFightLoot,
 }
 
 public enum LootEffect
