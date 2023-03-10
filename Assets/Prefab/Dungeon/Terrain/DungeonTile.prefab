@@ -74,12 +74,12 @@ SpriteRenderer:
   m_SortingLayerID: -1701780407
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1365850497, guid: 94a86d4602739da40aed4bb4c2cbcd5a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d3a4784d40e6c3140be0e6ac9f4d62c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.2047058, y: 1.2047058}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -158,12 +158,12 @@ SpriteRenderer:
   m_SortingLayerID: -1701780407
   m_SortingLayer: 1
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 084c70f35d6de234cb7daccae113f906, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 36d0286e0576c8e4a95a743a52e3dc49, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.32, y: 0.33}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -230,15 +230,15 @@ MonoBehaviour:
   doorDown: 0
   doorRight: 0
   doorLeft: 0
-  bossRoomSprite: {fileID: 21300000, guid: 1bf13581b4d3cda4fa7fff69f0925102, type: 3}
-  treasureRoomSprite: {fileID: 21300000, guid: 16083fe2ebd21f942b55d6913e08c81d, type: 3}
-  startingRoomSprite: {fileID: 21300000, guid: dd36afa4f27f6d048ab0c25ded59ce1f, type: 3}
-  nonWalkedRoomSprite: {fileID: 21300000, guid: c9c0b19d3482ae749971cdde870f4c2f, type: 3}
-  oneWaySprite: {fileID: 21300000, guid: 415bba0ed7ac07b4bbedca78580b055d, type: 3}
+  bossRoomSprite: {fileID: 21300000, guid: 20a43e755a0457548b27d8309bea0605, type: 3}
+  treasureRoomSprite: {fileID: 21300000, guid: e72d5fe6a635a744d830bec0ee391158, type: 3}
+  startingRoomSprite: {fileID: 21300000, guid: 07f9cc9356fd26e4b955c6e92ff9bf2a, type: 3}
+  nonWalkedRoomSprite: {fileID: 21300000, guid: d3a4784d40e6c3140be0e6ac9f4d62c5, type: 3}
+  oneWaySprite: {fileID: 21300000, guid: 559ca3a67e267a54b8a34f30c59da6e7, type: 3}
   corridorSprite: {fileID: 21300000, guid: 3cac59094939e0b45a57d41b6bad054e, type: 3}
   angleSprite: {fileID: 21300000, guid: 8f7aa035acedd7a4e900567da9f2f422, type: 3}
-  threeWaySprite: {fileID: 21300000, guid: 279ea1b63c191944d9073abad09e0a90, type: 3}
-  fourWaySprite: {fileID: 21300000, guid: 2bdcc8da16fee5d40bfba00a7fa30fcd, type: 3}
+  threeWaySprite: {fileID: 21300000, guid: 7a346c990d05caf42a572b3a96ba703c, type: 3}
+  fourWaySprite: {fileID: 21300000, guid: 7f1fc2fc0962f6847a668d055900f257, type: 3}
 --- !u!65 &8965797190154314435
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -409,7 +409,7 @@ SpriteRenderer:
   m_SortingLayerID: -1701780407
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 95680b558e93b294699db57d97bb3a9c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 20a43e755a0457548b27d8309bea0605, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0

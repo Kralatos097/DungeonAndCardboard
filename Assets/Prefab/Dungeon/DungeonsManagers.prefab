@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0053d01daba30a4a99ef3addc28eb88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  restAmbushBaseValue: 20
   bossScene: BossFight
   warriorCard: {fileID: 11400000, guid: 287459fea8edc334ea7857cdd46ee0bf, type: 2}
   thiefCard: {fileID: 11400000, guid: f11278d1bce38214289b7b109317e023, type: 2}
@@ -129,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69bdc3f1ab0a72c479f118f37d5420f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emptyIcon: {fileID: 21300000, guid: 084c70f35d6de234cb7daccae113f906, type: 3}
+  emptyIcon: {fileID: 21300000, guid: 6faeb02d08f20f5439bccf58fe3275cf, type: 3}
   bossPanel: {fileID: 991877361319708518}
   lootTrapPanel: {fileID: 991877359410365860}
   lootAmbushPanel: {fileID: 7355465914151854028}
