@@ -6,13 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="225202b0-c116-4b2c-8d9c-8c9a57c9d235" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/TurnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/TurnManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dungeons/DungeonManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dungeons/DungeonManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enums.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enums.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_ScenesTibo/DungeonScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesTibo/DungeonScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_ScenesValou/EndSession.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesValou/EndSession.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D/UIs/Button_Action.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D/UIs/Button_Action.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D/UIs/Button_Move.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D/UIs/Button_Move.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D/UIs/Button_Stay.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D/UIs/Button_Stay.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D/UIs/Roue des Actions.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D/UIs/Roue des Actions.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/CanvasNStuffArene.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/CanvasNStuffArene.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/NPCMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/NPCMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/DelitschAntiqua SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/DelitschAntiqua SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,10 +33,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="Discover.Launch.Via.Unity" value="true" />
-    <property name="rider.run.widget.enabled.cache" value="false" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../Build/BuildDnC\Dungeons&amp;Cardboards.exe" />
@@ -101,6 +107,7 @@
       <workItem from="1678177350215" duration="13481000" />
       <workItem from="1678267161427" duration="1958000" />
       <workItem from="1678350019342" duration="15677000" />
+      <workItem from="1678454704386" duration="4873000" />
     </task>
     <servers />
   </component>

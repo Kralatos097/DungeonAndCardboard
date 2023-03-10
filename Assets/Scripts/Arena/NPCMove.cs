@@ -972,7 +972,6 @@ public class NPCMove : TacticsMovement
 
         if(nbEnemy == 1)
         {
-            Debug.Log("dddddddddddd");
             GetComponent<SpawnEnemy>().LaunchSpawn();
             EndTurnT(); //todo: verifier que ça finit bien le tour sans passer par DumbAI
             return; 
