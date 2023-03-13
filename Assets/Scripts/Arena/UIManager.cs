@@ -106,7 +106,7 @@ public class UIManager : MonoBehaviour
                             break;
                         case Action.Equip:
                             actionSelected = Action.Default;
-                            HideEquipSelector();
+                            //HideEquipSelector();
                             stuffSelected = StuffSelected.Default;
                             ShowActionSelector();
                             break;
@@ -125,14 +125,20 @@ public class UIManager : MonoBehaviour
         actionSelectorPanel.SetActive(true);
         
         moveButton.GetComponentInChildren<TextMeshProUGUI>().text = alreadyMoved ? "Return" : "Move";
-
+        
         ShowEquipSelector();
 
-        actionSelectorPanel.transform.Find("AttackButton").GetComponent<Button>().interactable = false;
-        /*if(TurnManager.GetCurrentPlayerD().GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Stun)
-            actionSelectorPanel.transform.Find("AttackButton").GetComponent<Button>().interactable = false;
-        else
-            actionSelectorPanel.transform.Find("AttackButton").GetComponent<Button>().interactable = true;*/
+        bool isStun = TurnManager.GetCurrentPlayerD().GetComponent<CombatStat>().GetStatusEffect() ==
+                          StatusEffect.Stun;//si on est stun alors rend désactives les bouton
+        if(isStun) ActivateActions(false); 
+    }
+    
+    private void ActivateActions(bool state)
+    {
+        for (int i = 0; i < equipSelectorPanel.transform.childCount; i++)
+        {
+            equipSelectorPanel.transform.GetChild(i).GetComponent<Button>().interactable = state;
+        }
     }
 
     public void HideActionSelector()
@@ -140,14 +146,13 @@ public class UIManager : MonoBehaviour
         _actionSelectorShown = false;
         actionSelectorPanel.SetActive(false);
         
-        HideEquipSelector();
+        //HideEquipSelector();
     }
-    
-    public void ShowEquipSelector()
+
+    private void ShowEquipSelector()
     {
-        /*_equipSelectorShown = true;*/
-        equipSelectorPanel.SetActive(true);
-        Transform equipButton = equipSelectorPanel.transform.GetChild(1); //virer GetChild(1) pour version précedente de cet UI
+        /*equipSelectorPanel.SetActive(true);*/
+        Transform equipButton = equipSelectorPanel.transform;
 
         if (_activeOne == null)
         {
@@ -335,12 +340,12 @@ public class UIManager : MonoBehaviour
             t = Instantiate(EnemyInitPanel, InitPanel);
         }
 
-        if(TurnManager.CombatStarted)
+        /*if(TurnManager.CombatStarted)
         {
             GameObject currentPlayer = TurnManager.GetCurrentPlayerD();
             int currentPlayerIndex = _playerPanelList[currentPlayer].transform.GetSiblingIndex();
             t.transform.SetSiblingIndex(currentPlayerIndex);
-        }
+        }*/
         
         _charaUiBaseValue = t.transform.localScale;
         _playerPanelList.Add(unit, t);
@@ -365,6 +370,9 @@ public class UIManager : MonoBehaviour
         {
             GameObject playerPanel = _playerPanelList[unit];
             playerPanel.transform.localScale = _charaUiBaseValue;
+
+            int childCount = playerPanel.transform.parent.childCount;
+            playerPanel.transform.SetSiblingIndex(childCount);
         }
     }
 

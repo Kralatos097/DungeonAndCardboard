@@ -215,6 +215,10 @@ public class TurnManager : MonoBehaviour
 
     private void EndTurn()
     {
+        if(turnOrder.Count <= 0)
+        {
+            StartTurn();
+        }
         TacticsMovement unit = turnOrder.Dequeue();
 
         if(unit.GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Burn)
@@ -223,7 +227,10 @@ public class TurnManager : MonoBehaviour
             if(!unit.GetComponent<CombatStat>().isUp)
             {
                 TacticsMovement.PlayersTurn = false;
+                unit.EndTurn();
+                UIManager.EndTurnInitUIChangeAction(unit.gameObject);
                 StartTurn();
+                return;
             }
         }
         else if (unit.GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Freeze)

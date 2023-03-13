@@ -984,8 +984,15 @@ public class NPCMove : TacticsMovement
 
     private bool AttackAI()
     {
-        if (CombatStat.GetStatusEffect() == StatusEffect.Stun)
+        if (CombatStat.GetStatusEffect() == StatusEffect.Stun && _alreadyMoved)
+        {
+            EndTurnT();
+            return true;
+        }
+        else if (CombatStat.GetStatusEffect() == StatusEffect.Stun)
+        {
             return false;
+        }
         
         if(target != null && _targetDistance <= atkRange && !moving && !_alreadyMoved) //Attack en début de tour si un Player est dans la range
         {

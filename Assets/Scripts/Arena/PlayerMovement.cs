@@ -240,7 +240,7 @@ public class PlayerMovement : TacticsMovement
 
                 if (_uiManager.stuffSelected != StuffSelected.Default)
                 {
-                    _uiManager.HideEquipSelector();
+                    //_uiManager.HideEquipSelector();
                     AffAttackRange();
                     CheckAttack();
                 }
@@ -377,6 +377,7 @@ public class PlayerMovement : TacticsMovement
         base.EndOfAttack();
         _lastPos = transform.position;
         _lastRot = transform.rotation;
+        pass = false;
         _uiManager.Reset();
         TurnManager.EndTurnD();
     }

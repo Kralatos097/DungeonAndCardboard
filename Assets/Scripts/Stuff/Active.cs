@@ -39,6 +39,7 @@ public class Active : Stuff
                 break;
         }
 
+        bool pass = false;
         foreach(ActiveEffect activeEffect in activeEffectList)
         {
             GameObject go = activeEffect.onSelf ? user : target;
@@ -47,19 +48,22 @@ public class Active : Stuff
             else if (activeEffect.critOnly && hitParam != 2) hit = 0;
             else hit = hitParam;
 
-            switch(hit)
+            if (!pass)
             {
-                case 0 :
-                    MissFx();
-                    break;
-                case 1 :
-                    HitFx();
-                    break;
-                case 2 :
-                    CritFx();
-                    break;
-                default:
-                    break;
+                switch (hit)
+                {
+                    case 0:
+                        MissFx();
+                        break;
+                    case 1:
+                        HitFx();
+                        break;
+                    case 2:
+                        CritFx();
+                        break;
+                    default:
+                        break;
+                }
             }
 
             switch(activeEffect.activeType)
