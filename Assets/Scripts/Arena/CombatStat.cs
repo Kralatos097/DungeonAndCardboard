@@ -189,6 +189,11 @@ public class CombatStat : MonoBehaviour
         
         Debug.Log(name+" is damaged for : " + value + " remaining " + CurrHp +"/"+ MaxHp);
     }
+
+    public void TakeDamagePassive(int value)
+    {
+        CurrHp-=value;
+    }
     
     public void TakeHeal(int value)
     {
@@ -201,6 +206,11 @@ public class CombatStat : MonoBehaviour
         CurrHp+=value;
         
         Debug.Log(name+" is healed for : " + value + " remaining " + CurrHp +"/"+ MaxHp);
+    }
+    
+    public void TakeHealPassive(int value)
+    {
+        CurrHp+=value;
     }
 
     public void ChangeStatus(StatusEffect effect, int value)
@@ -511,7 +521,7 @@ public class CombatStat : MonoBehaviour
     [ContextMenu("Freeze Unit")]
     public void FreezeTest()
     {
-        ChangeStatus(StatusEffect.Freeze, 2);
+        ChangeStatus(StatusEffect.Freeze, 5);
     }
     
     [ContextMenu("Cure Unit")]

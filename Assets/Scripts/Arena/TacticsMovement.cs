@@ -56,11 +56,10 @@ public class TacticsMovement : MonoBehaviour
 
         set
         {
-            //todo: faire en sorte que les effets leseffets s'annulent lorsque l'on retire le passif
-            /*if (_passive != null && _passive.GetPassiveTrigger() == PassiveTrigger.OnObtained)
+            if(_passive != null && _passive.GetPassiveTrigger() == PassiveTrigger.OnObtained)
             {
-                _passive.Effect(gameObject);
-            }*/
+                _passive.ReverseEffect(gameObject);
+            }
             
             _passive = value;
 
@@ -847,9 +846,15 @@ public class TacticsMovement : MonoBehaviour
         return Passive;
     }
 
-    public void ChangeMove(int value)
+    public void SetMove(int value)
     {
         move = baseMove + value;
+    }
+    
+    public void ChangeMove(int value)
+    {
+        move += value;
+        if (move < 0) move = 0;
     }
 
     private void EndTurnResetValues()

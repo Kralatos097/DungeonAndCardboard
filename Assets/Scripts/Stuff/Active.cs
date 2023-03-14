@@ -48,8 +48,9 @@ public class Active : Stuff
             else if (activeEffect.critOnly && hitParam != 2) hit = 0;
             else hit = hitParam;
 
-            if (!pass)
+            if(!pass)
             {
+                pass = true;
                 switch (hit)
                 {
                     case 0:
@@ -121,16 +122,19 @@ public class Active : Stuff
     
     private void MissFx()
     {
+        Debug.Log("Miss");
         FindObjectOfType<AudioManager>().RandomPitch("Miss");
     }
     
     private void HitFx()
     {
+        Debug.Log("Hit");
         FindObjectOfType<AudioManager>().RandomPitch("Hit");
     }
     
     private void CritFx()
     {
+        Debug.Log("Crit");
         FindObjectOfType<AudioManager>().RandomPitch("Critical");
     }
 
