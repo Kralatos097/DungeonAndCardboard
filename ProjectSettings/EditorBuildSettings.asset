@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_ScenesValou/MainMenu.unity
+    path: Assets/_MainScenes/MainMenu.unity
     guid: cd4f62d06c2042545a6ab735ef75c6cd
   - enabled: 0
     path: Assets/_ScenesValou/ParticleWorld.unity
@@ -18,22 +18,22 @@ EditorBuildSettings:
     path: Assets/_ScenesValou/DungeonTest1.unity
     guid: 7db56e33168e0864eb97d7fcce38fbb7
   - enabled: 1
-    path: Assets/_ScenesValou/S1 Arena/8x8/ZoneGrise.unity
+    path: Assets/_MainScenes/S1 Arena/8x8/ZoneGrise.unity
     guid: 8246ce1beb40d1740831717fb7c5aa15
   - enabled: 1
-    path: "Assets/_ScenesValou/S1 Arena/8x9/Rang\xE9Arm\xE9.unity"
+    path: "Assets/_MainScenes/S1 Arena/8x9/Rang\xE9Arm\xE9.unity"
     guid: 050b1ae3f92e7494a8057bc2b1c2db72
   - enabled: 1
-    path: Assets/_ScenesValou/S1 Arena/9x8/BonResto.unity
+    path: Assets/_MainScenes/S1 Arena/9x8/BonResto.unity
     guid: 85ee6dd0f3100f648a7d6131c961d6c9
   - enabled: 1
-    path: Assets/_ScenesValou/S1 Arena/9x9/DuelsVide.unity
+    path: Assets/_MainScenes/S1 Arena/9x9/DuelsVide.unity
     guid: 1e620482c07c4cd49b55187c02b4f99f
   - enabled: 1
-    path: "Assets/_ScenesValou/S1 Arena/Corridor/D\xE9faiteAssur\xE9.unity"
+    path: "Assets/_MainScenes/S1 Arena/Corridor/D\xE9faiteAssur\xE9.unity"
     guid: d66db7a3fd0856b429d8b48147c7f8a2
   - enabled: 1
-    path: Assets/_ScenesValou/S1 Arena/KingRoom.unity
+    path: Assets/_MainScenes/S1 Arena/KingRoom.unity
     guid: a8767045aa12c2345aba6bb80c74c516
   - enabled: 0
     path: Assets/_ScenesTibo/MainMenu.unity
