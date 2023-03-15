@@ -537,24 +537,28 @@ public class NPCMove : TacticsMovement
 
     private bool CalculatePathFull()
     {
+        if (target == null) return false;
         ArenaTile targetTile = GetTargetTile(target);
         return FindPathFull(targetTile);
     }
     
     private bool CalculatePathWoTrap()
     {
+        if (target == null) return false;
         ArenaTile targetTile = GetTargetTile(target);
         return FindPathWoTrap(targetTile);
     }
     
     private bool CalculatePathWoCrate()
     {
+        if (target == null) return false;
         ArenaTile targetTile = GetTargetTile(target);
         return FindPathWoCrate(targetTile);
     }
     
     private bool CalculatePathWoAll()
     {
+        if (target == null) return false;
         ArenaTile targetTile = GetTargetTile(target);
         return FindPathWoAll(targetTile);
     }
@@ -590,26 +594,22 @@ public class NPCMove : TacticsMovement
             {
                 if (tDist <= tDistV2) //On compare la longueur des trajets et on prend le plus court
                 {
-                    Debug.Log("full");
                     CalculatePathFull();
                     MoveToTile(ActualTargetTile);
                 }
                 else
                 {
-                    Debug.Log("trap");
                     CalculatePathWoTrap();
                     MoveToTile(ActualTargetTile);
                 }
             }
             else if (findPath) //Si seul le 1er trajet et valide
             {
-                Debug.Log("full 2");
                 CalculatePathFull();
                 MoveToTile(ActualTargetTile);
             }
             else if (findPathV2) //Si seul le 2eme trajet et valide
             {
-                Debug.Log("trap 2");
                 CalculatePathWoTrap();
                 MoveToTile(ActualTargetTile);
             }
@@ -618,7 +618,6 @@ public class NPCMove : TacticsMovement
                 findPath = CalculatePathWoCrate();
                 if (findPath)
                 {
-                    Debug.Log("crate");
                     MoveToTile(ActualTargetTile);
                 }
                 else
@@ -627,7 +626,6 @@ public class NPCMove : TacticsMovement
                     findPath = CalculatePathWoAll();
                     if(findPath)
                     {
-                        Debug.Log("Aled");
                         MoveToTile(ActualTargetTile);
                     }                 
                     else
@@ -734,8 +732,6 @@ public class NPCMove : TacticsMovement
                                 transform.GetChild(0).Translate(0, -MoveY, 0);
                                 EndTurnT();
                             }
-                            /*transform.GetChild(0).Translate(0, -MoveY, 0);
-                            EndTurnT();*/
                         }
                     }
                 }
@@ -743,8 +739,6 @@ public class NPCMove : TacticsMovement
                 _tileMoved = _path.Count-1;
             }
         }
-        
-        Debug.Log(target);
         
         if(_alreadyMoved) //Attack après avoir bougé si un Player est dans la range
         {
@@ -865,7 +859,6 @@ public class NPCMove : TacticsMovement
             
             if (findPath) //Si seul le 1er trajet et valide
             {
-                Debug.Log("full");
                 CalculatePathFull();
                 MoveToTile(ActualTargetTile);
             }
@@ -875,7 +868,6 @@ public class NPCMove : TacticsMovement
                 findPath = CalculatePathWoTrap();
                 if (findPath)
                 {
-                    Debug.Log("trap");
                     MoveToTile(ActualTargetTile);
                 }
                 else
@@ -884,7 +876,6 @@ public class NPCMove : TacticsMovement
                     findPath = CalculatePathWoCrate();
                     if (findPath)
                     {
-                        Debug.Log("crate");
                         MoveToTile(ActualTargetTile);
                     }
                     else
@@ -893,7 +884,6 @@ public class NPCMove : TacticsMovement
                         findPath = CalculatePathWoAll();
                         if (findPath)
                         {
-                            Debug.Log("ALed");
                             MoveToTile(ActualTargetTile);
                         }
                         else
