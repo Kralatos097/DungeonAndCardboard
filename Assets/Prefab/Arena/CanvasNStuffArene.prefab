@@ -2798,10 +2798,10 @@ MonoBehaviour:
   ClericInitPanel: {fileID: 4010798564356627436, guid: bec88c9a8ad8cdd4d8170dec5a6064f3, type: 3}
   WizardInitPanel: {fileID: 2241815680737116179, guid: 6673e6f5719b8fb4d8208e5dd95f3323, type: 3}
   EnemyInitPanel: {fileID: 1984626649158495593, guid: f3d36d99b4e87f349a7f993f811304d8, type: 3}
-  BurnIcon: {fileID: 21300000, guid: db1be32f950d4494e83283169778ce43, type: 3}
-  StunIcon: {fileID: 21300000, guid: 972a6cf7015528a4bb3636d1736dd795, type: 3}
-  PoisonIcon: {fileID: 21300000, guid: fd89bc7856a347341b0887b98f0dd60b, type: 3}
-  FreezeIcon: {fileID: 21300000, guid: 9a032764b4d916848a855aadccbfb285, type: 3}
+  BurnIcon: {fileID: 21300000, guid: cb608f5ebfc7bff4db6ec1574546b87b, type: 3}
+  StunIcon: {fileID: 21300000, guid: 2748cce198d5ebf46a7e88761d2c70b6, type: 3}
+  PoisonIcon: {fileID: 21300000, guid: ce01542dcdc3fd0478bd5803f4b1bd9f, type: 3}
+  FreezeIcon: {fileID: 21300000, guid: fbe8b00d3e90fcf44b20702a7ad264ec, type: 3}
 --- !u!1 &8645692054957483773
 GameObject:
   m_ObjectHideFlags: 0
