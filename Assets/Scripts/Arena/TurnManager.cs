@@ -159,6 +159,7 @@ public class TurnManager : MonoBehaviour
             {
                 TacticsMovement deadUnit = turnOrder.Dequeue();
                 turnOrder.Enqueue(deadUnit);
+                UIManager.EndTurnInitUIChangeAction(deadUnit.gameObject);
             }
             //Debug.Log("Turn of : " + turnOrder.Peek().name)
 

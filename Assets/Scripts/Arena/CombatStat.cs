@@ -503,7 +503,7 @@ public class CombatStat : MonoBehaviour
     [ContextMenu("Burn Unit")]
     public void BurnTest()
     {
-        ChangeStatus(StatusEffect.Burn, 2);
+        ChangeStatus(StatusEffect.Burn, 15);
     }
     
     [ContextMenu("Poison Unit")]
