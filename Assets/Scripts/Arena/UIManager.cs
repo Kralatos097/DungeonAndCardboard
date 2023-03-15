@@ -106,7 +106,7 @@ public class UIManager : MonoBehaviour
                             break;
                         case Action.Equip:
                             actionSelected = Action.Default;
-                            HideEquipSelector();
+                            //HideEquipSelector();
                             stuffSelected = StuffSelected.Default;
                             ShowActionSelector();
                             break;
@@ -125,87 +125,98 @@ public class UIManager : MonoBehaviour
         actionSelectorPanel.SetActive(true);
         
         moveButton.GetComponentInChildren<TextMeshProUGUI>().text = alreadyMoved ? "Return" : "Move";
+        
+        ShowEquipSelector();
 
-        if(TurnManager.GetCurrentPlayerD().GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Stun)
-            actionSelectorPanel.transform.Find("AttackButton").GetComponent<Button>().interactable = false;
-        else
-            actionSelectorPanel.transform.Find("AttackButton").GetComponent<Button>().interactable = true;
+        bool isStun = TurnManager.GetCurrentPlayerD().GetComponent<CombatStat>().GetStatusEffect() ==
+                          StatusEffect.Stun;//si on est stun alors rend désactives les bouton
+        if(isStun) ActivateActions(false); 
+    }
+    
+    private void ActivateActions(bool state)
+    {
+        for (int i = 0; i < equipSelectorPanel.transform.childCount; i++)
+        {
+            equipSelectorPanel.transform.GetChild(i).GetComponent<Button>().interactable = state;
+        }
     }
 
     public void HideActionSelector()
     {
         _actionSelectorShown = false;
         actionSelectorPanel.SetActive(false);
+        
+        //HideEquipSelector();
     }
-    
-    public void ShowEquipSelector()
+
+    private void ShowEquipSelector()
     {
-        /*_equipSelectorShown = true;*/
-        equipSelectorPanel.SetActive(true);
+        /*equipSelectorPanel.SetActive(true);*/
+        Transform equipButton = equipSelectorPanel.transform;
 
         if (_activeOne == null)
         {
-            equipSelectorPanel.transform.GetChild(0).gameObject.GetComponent<Button>().interactable = false;
-            equipSelectorPanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "";
-            equipSelectorPanel.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
-            equipSelectorPanel.transform.GetChild(0).GetComponent<StuffButtonOver>().enabled = false;
+            equipButton.GetChild(0).gameObject.GetComponent<Button>().interactable = false;
+            equipButton.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "";
+            equipButton.GetChild(0).gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            equipButton.GetChild(0).GetComponent<StuffButtonOver>().enabled = false;
         }
         else if(_activeOneCd > 0)
         {
-            equipSelectorPanel.transform.GetChild(0).gameObject.GetComponent<Button>().interactable = false;
-            equipSelectorPanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = ""+_activeOneCd;
-            equipSelectorPanel.transform.GetChild(0).gameObject.GetComponent<Image>().color = Color.white;
-            equipSelectorPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = _activeOne.logo;
-            equipSelectorPanel.transform.GetChild(0).GetComponent<StuffButtonOver>().enabled = true;
-            equipSelectorPanel.transform.GetChild(0).GetComponent<StuffButtonOver>().ChangeStuff(_activeOne);
+            equipButton.GetChild(0).gameObject.GetComponent<Button>().interactable = false;
+            equipButton.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = ""+_activeOneCd;
+            equipButton.GetChild(0).gameObject.GetComponent<Image>().color = Color.white;
+            equipButton.GetChild(0).gameObject.GetComponent<Image>().sprite = _activeOne.logo;
+            equipButton.GetChild(0).GetComponent<StuffButtonOver>().enabled = true;
+            equipButton.GetChild(0).GetComponent<StuffButtonOver>().ChangeStuff(_activeOne);
         }
         else
         {
-            equipSelectorPanel.transform.GetChild(0).gameObject.GetComponent<Button>().interactable = true;
-            equipSelectorPanel.transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "";
-            equipSelectorPanel.transform.GetChild(0).gameObject.GetComponent<Image>().color = Color.white;
-            equipSelectorPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = _activeOne.logo;
-            equipSelectorPanel.transform.GetChild(0).GetComponent<StuffButtonOver>().enabled = true;
-            equipSelectorPanel.transform.GetChild(0).GetComponent<StuffButtonOver>().ChangeStuff(_activeOne);
+            equipButton.GetChild(0).gameObject.GetComponent<Button>().interactable = true;
+            equipButton.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "";
+            equipButton.GetChild(0).gameObject.GetComponent<Image>().color = Color.white;
+            equipButton.GetChild(0).gameObject.GetComponent<Image>().sprite = _activeOne.logo;
+            equipButton.GetChild(0).GetComponent<StuffButtonOver>().enabled = true;
+            equipButton.GetChild(0).GetComponent<StuffButtonOver>().ChangeStuff(_activeOne);
         }
         if (_activeTwo == null)
         {
-            equipSelectorPanel.transform.GetChild(1).gameObject.GetComponent<Button>().interactable = false;
-            equipSelectorPanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "";
-            equipSelectorPanel.transform.GetChild(1).gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
-            equipSelectorPanel.transform.GetChild(1).GetComponent<StuffButtonOver>().enabled = false;
+            equipButton.GetChild(1).gameObject.GetComponent<Button>().interactable = false;
+            equipButton.GetChild(1).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "";
+            equipButton.GetChild(1).gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            equipButton.GetChild(1).GetComponent<StuffButtonOver>().enabled = false;
         }
         else if (_activeTwoCd > 0)
         {
-            equipSelectorPanel.transform.GetChild(1).gameObject.GetComponent<Button>().interactable = false;
-            equipSelectorPanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = ""+_activeTwoCd;
-            equipSelectorPanel.transform.GetChild(1).gameObject.GetComponent<Image>().color = Color.white;
-            equipSelectorPanel.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = _activeTwo.logo;
-            equipSelectorPanel.transform.GetChild(1).GetComponent<StuffButtonOver>().ChangeStuff(_activeTwo);
-            equipSelectorPanel.transform.GetChild(1).GetComponent<StuffButtonOver>().enabled = true;
+            equipButton.GetChild(1).gameObject.GetComponent<Button>().interactable = false;
+            equipButton.GetChild(1).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = ""+_activeTwoCd;
+            equipButton.GetChild(1).gameObject.GetComponent<Image>().color = Color.white;
+            equipButton.GetChild(1).gameObject.GetComponent<Image>().sprite = _activeTwo.logo;
+            equipButton.GetChild(1).GetComponent<StuffButtonOver>().ChangeStuff(_activeTwo);
+            equipButton.GetChild(1).GetComponent<StuffButtonOver>().enabled = true;
         }
         else
         {
-            equipSelectorPanel.transform.GetChild(1).gameObject.GetComponent<Button>().interactable = true;
-            equipSelectorPanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "";
-            equipSelectorPanel.transform.GetChild(1).gameObject.GetComponent<Image>().color = Color.white;
-            equipSelectorPanel.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = _activeTwo.logo;
-            equipSelectorPanel.transform.GetChild(1).GetComponent<StuffButtonOver>().ChangeStuff(_activeTwo);
-            equipSelectorPanel.transform.GetChild(1).GetComponent<StuffButtonOver>().enabled = true;
+            equipButton.GetChild(1).gameObject.GetComponent<Button>().interactable = true;
+            equipButton.GetChild(1).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "";
+            equipButton.GetChild(1).gameObject.GetComponent<Image>().color = Color.white;
+            equipButton.GetChild(1).gameObject.GetComponent<Image>().sprite = _activeTwo.logo;
+            equipButton.GetChild(1).GetComponent<StuffButtonOver>().ChangeStuff(_activeTwo);
+            equipButton.GetChild(1).GetComponent<StuffButtonOver>().enabled = true;
         }
         if (_consumable == null)
         {
-            equipSelectorPanel.transform.GetChild(2).gameObject.GetComponent<Button>().interactable = false;
-            equipSelectorPanel.transform.GetChild(2).gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
-            equipSelectorPanel.transform.GetChild(2).GetComponent<StuffButtonOver>().enabled = false;
+            equipButton.GetChild(2).gameObject.GetComponent<Button>().interactable = false;
+            equipButton.GetChild(2).gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            equipButton.GetChild(2).GetComponent<StuffButtonOver>().enabled = false;
         }
         else
         {
-            equipSelectorPanel.transform.GetChild(2).gameObject.GetComponent<Button>().interactable = true;
-            equipSelectorPanel.transform.GetChild(2).gameObject.GetComponent<Image>().color = Color.white;
-            equipSelectorPanel.transform.GetChild(2).gameObject.GetComponent<Image>().sprite = _consumable.logo;
-            equipSelectorPanel.transform.GetChild(2).GetComponent<StuffButtonOver>().enabled = true;
-            equipSelectorPanel.transform.GetChild(2).GetComponent<StuffButtonOver>().ChangeStuff(_consumable);
+            equipButton.GetChild(2).gameObject.GetComponent<Button>().interactable = true;
+            equipButton.GetChild(2).gameObject.GetComponent<Image>().color = Color.white;
+            equipButton.GetChild(2).gameObject.GetComponent<Image>().sprite = _consumable.logo;
+            equipButton.GetChild(2).GetComponent<StuffButtonOver>().enabled = true;
+            equipButton.GetChild(2).GetComponent<StuffButtonOver>().ChangeStuff(_consumable);
         }
     }
 
@@ -252,16 +263,19 @@ public class UIManager : MonoBehaviour
     public void WeaponSelectionEquipOne()
     {
         stuffSelected = StuffSelected.EquipOne;
+        actionSelected = Action.Equip;
     }
 
     public void WeaponSelectionEquipTwo()
     {
         stuffSelected = StuffSelected.EquipTwo;
+        actionSelected = Action.Equip;
     }
 
     public void WeaponSelectionEquipConsum()
     {
         stuffSelected = StuffSelected.Consum;
+        actionSelected = Action.Equip;
     }
 
     public void SetStuff(Active equipOne, Active equipTwo, Consumable consum)
@@ -326,12 +340,12 @@ public class UIManager : MonoBehaviour
             t = Instantiate(EnemyInitPanel, InitPanel);
         }
 
-        if(TurnManager.CombatStarted)
+        /*if(TurnManager.CombatStarted)
         {
             GameObject currentPlayer = TurnManager.GetCurrentPlayerD();
             int currentPlayerIndex = _playerPanelList[currentPlayer].transform.GetSiblingIndex();
             t.transform.SetSiblingIndex(currentPlayerIndex);
-        }
+        }*/
         
         _charaUiBaseValue = t.transform.localScale;
         _playerPanelList.Add(unit, t);
@@ -356,6 +370,9 @@ public class UIManager : MonoBehaviour
         {
             GameObject playerPanel = _playerPanelList[unit];
             playerPanel.transform.localScale = _charaUiBaseValue;
+
+            int childCount = playerPanel.transform.parent.childCount;
+            playerPanel.transform.SetSiblingIndex(childCount);
         }
     }
 

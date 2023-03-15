@@ -565,7 +565,10 @@ public class NPCMove : TacticsMovement
         {
             FindNearestTargetInRangeAlive();
             
-            if (target == null) FindNearestTarget();
+            bool findPath = CalculatePathFull();
+            bool findPathV2 = CalculatePathWoTrap();
+
+            if (target == null || (!findPath && !findPathV2)) FindNearestTarget();
 
             Debug.Log(target);
             RemoveSelectableTile();
@@ -587,22 +590,26 @@ public class NPCMove : TacticsMovement
             {
                 if (tDist <= tDistV2) //On compare la longueur des trajets et on prend le plus court
                 {
+                    Debug.Log("full");
                     CalculatePathFull();
                     MoveToTile(ActualTargetTile);
                 }
                 else
                 {
+                    Debug.Log("trap");
                     CalculatePathWoTrap();
                     MoveToTile(ActualTargetTile);
                 }
             }
             else if (findPath) //Si seul le 1er trajet et valide
             {
+                Debug.Log("full 2");
                 CalculatePathFull();
                 MoveToTile(ActualTargetTile);
             }
             else if (findPathV2) //Si seul le 2eme trajet et valide
             {
+                Debug.Log("trap 2");
                 CalculatePathWoTrap();
                 MoveToTile(ActualTargetTile);
             }
@@ -611,6 +618,7 @@ public class NPCMove : TacticsMovement
                 findPath = CalculatePathWoCrate();
                 if (findPath)
                 {
+                    Debug.Log("crate");
                     MoveToTile(ActualTargetTile);
                 }
                 else
@@ -619,6 +627,7 @@ public class NPCMove : TacticsMovement
                     findPath = CalculatePathWoAll();
                     if(findPath)
                     {
+                        Debug.Log("Aled");
                         MoveToTile(ActualTargetTile);
                     }                 
                     else
@@ -829,11 +838,15 @@ public class NPCMove : TacticsMovement
         if(!firstTimePass)
         {
             FindFarthestTargetInRangeAlive();
-            if (target == null)
+            
+            bool findPath = CalculatePathFull();
+            
+            if (target == null || !findPath)
             {
                 FindFarthestTargetInRange();
+                findPath = CalculatePathFull();
             }
-            if(target == null)
+            if(target == null || !findPath)
             {
                 FindFarthestTarget();
             }
@@ -852,6 +865,7 @@ public class NPCMove : TacticsMovement
             
             if (findPath) //Si seul le 1er trajet et valide
             {
+                Debug.Log("full");
                 CalculatePathFull();
                 MoveToTile(ActualTargetTile);
             }
@@ -861,6 +875,7 @@ public class NPCMove : TacticsMovement
                 findPath = CalculatePathWoTrap();
                 if (findPath)
                 {
+                    Debug.Log("trap");
                     MoveToTile(ActualTargetTile);
                 }
                 else
@@ -869,6 +884,7 @@ public class NPCMove : TacticsMovement
                     findPath = CalculatePathWoCrate();
                     if (findPath)
                     {
+                        Debug.Log("crate");
                         MoveToTile(ActualTargetTile);
                     }
                     else
@@ -877,6 +893,7 @@ public class NPCMove : TacticsMovement
                         findPath = CalculatePathWoAll();
                         if (findPath)
                         {
+                            Debug.Log("ALed");
                             MoveToTile(ActualTargetTile);
                         }
                         else
@@ -972,7 +989,6 @@ public class NPCMove : TacticsMovement
 
         if(nbEnemy == 1)
         {
-            Debug.Log("dddddddddddd");
             GetComponent<SpawnEnemy>().LaunchSpawn();
             EndTurnT(); //todo: verifier que ça finit bien le tour sans passer par DumbAI
             return; 
@@ -985,8 +1001,15 @@ public class NPCMove : TacticsMovement
 
     private bool AttackAI()
     {
-        if (CombatStat.GetStatusEffect() == StatusEffect.Stun)
+        if (CombatStat.GetStatusEffect() == StatusEffect.Stun && _alreadyMoved)
+        {
+            EndTurnT();
+            return true;
+        }
+        else if (CombatStat.GetStatusEffect() == StatusEffect.Stun)
+        {
             return false;
+        }
         
         if(target != null && _targetDistance <= atkRange && !moving && !_alreadyMoved) //Attack en début de tour si un Player est dans la range
         {

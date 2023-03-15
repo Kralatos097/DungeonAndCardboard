@@ -15,7 +15,7 @@ MonoBehaviour:
   stuffType: Passive
   logo: {fileID: 21300000, guid: 3422a9f22ae93a349bc72ceb02f255f4, type: 3}
   description: Reroll the Active dice when it's a 1 (work one time per turn)
-  passiveTrigger: 0
+  passiveTrigger: 9
   passiveEffectList:
   - value: 1
     onEveryAllies: 0

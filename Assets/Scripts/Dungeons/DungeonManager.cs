@@ -14,6 +14,7 @@ public class DungeonManager : MonoBehaviour
     private static string _dungeonSceneName;
     
     [SerializeField] private int restAmbushBaseValue = 20;
+    [SerializeField] private RangedInt trapValue;
     
     private GameObject _sceneContainer;
     public static DungeonTile CurrentTile;
@@ -412,7 +413,7 @@ public class DungeonManager : MonoBehaviour
     private void LaunchTrap()
     {
         int comp = WarriorInfo.CurrentHp;
-        int minus = Random.Range(1, 4);
+        int minus = Random.Range(trapValue.Min, trapValue.Max+1);
         if (comp - minus > 0)
         {
             WarriorInfo.CurrentHp -= minus;
@@ -421,7 +422,7 @@ public class DungeonManager : MonoBehaviour
             WarriorInfo.CurrentHp = 1;
         
         comp = ThiefInfo.CurrentHp;
-        minus = Random.Range(1, 4);
+        minus = Random.Range(trapValue.Min, trapValue.Max+1);
         if (comp - minus > 0)
         {
             ThiefInfo.CurrentHp -= minus;
@@ -430,7 +431,7 @@ public class DungeonManager : MonoBehaviour
             ThiefInfo.CurrentHp = 1;
         
         comp = ClericInfo.CurrentHp;
-        minus = Random.Range(1, 4);
+        minus = Random.Range(trapValue.Min, trapValue.Max+1);
         if (comp - minus > 0)
         {
             ClericInfo.CurrentHp -= minus;
@@ -439,7 +440,7 @@ public class DungeonManager : MonoBehaviour
             ClericInfo.CurrentHp = 1;
         
         comp = WizardInfo.CurrentHp;
-        minus = Random.Range(1, 4);
+        minus = Random.Range(trapValue.Min, trapValue.Max+1);
         if (comp - minus > 0)
         {
             WizardInfo.CurrentHp -= minus;

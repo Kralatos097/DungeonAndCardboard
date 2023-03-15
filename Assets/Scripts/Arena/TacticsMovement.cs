@@ -56,11 +56,10 @@ public class TacticsMovement : MonoBehaviour
 
         set
         {
-            //todo: faire en sorte que les effets leseffets s'annulent lorsque l'on retire le passif
-            /*if (_passive != null && _passive.GetPassiveTrigger() == PassiveTrigger.OnObtained)
+            if(_passive != null && _passive.GetPassiveTrigger() == PassiveTrigger.OnObtained)
             {
-                _passive.Effect(gameObject);
-            }*/
+                _passive.ReverseEffect(gameObject);
+            }
             
             _passive = value;
 
@@ -376,10 +375,12 @@ public class TacticsMovement : MonoBehaviour
 
             if (t == targetTile)
             {
-                ActualTargetTile = FindEndTile(t);
+                ArenaTile obstTile = GetFirstObstacleOnPath(t);
+
+                ActualTargetTile = FindEndTile(obstTile == null ? t : obstTile);
                 return true;
             }
-
+            
             foreach (ArenaTile tile in t.adjacencyList)
             {
                 GameObject tileGo = tile.GetGameObjectOnTop();
@@ -445,6 +446,10 @@ public class TacticsMovement : MonoBehaviour
                 ActualTargetTile = FindEndTile(crateTile);
                 return true;
             }
+            if(t.GetGameObjectOnTop().CompareTag(target.tag))
+            {
+                continue;
+            }
 
             foreach(ArenaTile tile in t.adjacencyList)
             {
@@ -505,6 +510,13 @@ public class TacticsMovement : MonoBehaviour
             {
                 ArenaTile obstTile = GetFirstObstacleOnPath(t);
                 ActualTargetTile = FindEndTile(obstTile);
+
+                if(ActualTargetTile.GetGameObjectOnTop().CompareTag("Player"))
+                {
+                    target = ActualTargetTile.GetGameObjectOnTop();
+                    _targetDistance = ActualTargetTile.distance;
+                }
+                
                 return true;
             }
 
@@ -847,9 +859,15 @@ public class TacticsMovement : MonoBehaviour
         return Passive;
     }
 
-    public void ChangeMove(int value)
+    public void SetMove(int value)
     {
         move = baseMove + value;
+    }
+    
+    public void ChangeMove(int value)
+    {
+        move += value;
+        if (move < 0) move = 0;
     }
 
     private void EndTurnResetValues()

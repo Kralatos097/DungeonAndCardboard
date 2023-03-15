@@ -157,18 +157,20 @@ public class PlayerMovement : TacticsMovement
         //display action Selector on turn start
         if(!pass)
         {
+            _uiManager.SetStuff(ActiveOne, ActiveTwo, Consumable);
+            _uiManager.SetCd(ActiveOneCd, ActiveTwoCd);
             _uiManager.ShowActionSelector();
             pass = true;
         }
 
         switch (_uiManager.actionSelected)
         {
-            case Action.Attack:
-                _uiManager.HideActionSelector();
+            case Action.Attack: //Obsolete
+                /*_uiManager.HideActionSelector();
                 _uiManager.SetStuff(ActiveOne, ActiveTwo, Consumable);
                 _uiManager.SetCd(ActiveOneCd, ActiveTwoCd);
                 _uiManager.ShowEquipSelector();
-                _uiManager.actionSelected = Action.Equip;
+                _uiManager.actionSelected = Action.Equip;*/
                 break;
             case Action.Move:
                 _uiManager.HideActionSelector();
@@ -238,7 +240,7 @@ public class PlayerMovement : TacticsMovement
 
                 if (_uiManager.stuffSelected != StuffSelected.Default)
                 {
-                    _uiManager.HideEquipSelector();
+                    //_uiManager.HideEquipSelector();
                     AffAttackRange();
                     CheckAttack();
                 }
@@ -375,6 +377,7 @@ public class PlayerMovement : TacticsMovement
         base.EndOfAttack();
         _lastPos = transform.position;
         _lastRot = transform.rotation;
+        pass = false;
         _uiManager.Reset();
         TurnManager.EndTurnD();
     }
