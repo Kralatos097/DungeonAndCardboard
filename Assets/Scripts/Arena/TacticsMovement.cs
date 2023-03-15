@@ -446,10 +446,10 @@ public class TacticsMovement : MonoBehaviour
                 ActualTargetTile = FindEndTile(crateTile);
                 return true;
             }
-            if(t.GetGameObjectOnTop().CompareTag(target.tag))
+            /*if(t.GetGameObjectOnTop() != null && t.GetGameObjectOnTop().CompareTag(target.tag))
             {
                 continue;
-            }
+            }*/
 
             foreach(ArenaTile tile in t.adjacencyList)
             {
@@ -511,11 +511,11 @@ public class TacticsMovement : MonoBehaviour
                 ArenaTile obstTile = GetFirstObstacleOnPath(t);
                 ActualTargetTile = FindEndTile(obstTile);
 
-                if(ActualTargetTile.GetGameObjectOnTop().CompareTag("Player"))
+                /*if(ActualTargetTile.GetGameObjectOnTop().CompareTag("Player"))
                 {
                     target = ActualTargetTile.GetGameObjectOnTop();
                     _targetDistance = ActualTargetTile.distance;
-                }
+                }*/
                 
                 return true;
             }

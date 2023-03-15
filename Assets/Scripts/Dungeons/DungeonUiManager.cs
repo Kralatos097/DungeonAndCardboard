@@ -450,7 +450,6 @@ public class DungeonUiManager : MonoBehaviour
 
     public void CancelCharaSelection()
     {
-        Debug.Log(_baseStuffs);
         switch(_charaSelected)
         {
             case Perso.Warrior:

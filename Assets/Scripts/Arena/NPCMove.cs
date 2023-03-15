@@ -551,6 +551,7 @@ public class NPCMove : TacticsMovement
     
     private bool CalculatePathWoCrate()
     {
+        Debug.Log(target);
         if (target == null) return false;
         ArenaTile targetTile = GetTargetTile(target);
         return FindPathWoCrate(targetTile);
@@ -558,6 +559,7 @@ public class NPCMove : TacticsMovement
     
     private bool CalculatePathWoAll()
     {
+        
         if (target == null) return false;
         ArenaTile targetTile = GetTargetTile(target);
         return FindPathWoAll(targetTile);

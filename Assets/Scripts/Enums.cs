@@ -84,6 +84,7 @@ public enum ActiveType
     Cure,
     Splash,
     SacredMace,
+    RandomPotionEffect
 }
 
 public enum PassiveTrigger

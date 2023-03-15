@@ -282,7 +282,6 @@ public class DungeonManager : MonoBehaviour
         
         Debug.Log(scene);
         fightingSceneList.Remove(scene);
-        Debug.Log(fightingSceneList.Count);
         _sceneContainer.SetActive(false);
         AsyncOperation op = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
         op.completed += operation =>
@@ -317,7 +316,6 @@ public class DungeonManager : MonoBehaviour
     {
         artworkShown = true;
         int rand = Random.Range(0, 20);
-        Debug.Log(rand);
         if(rand == 0)
         {
             DungeonUiManager.LootAmbushedUi();
@@ -447,11 +445,6 @@ public class DungeonManager : MonoBehaviour
         }
         else
             WizardInfo.CurrentHp = 1;
-        
-        Debug.Log(WarriorInfo.CurrentHp);
-        Debug.Log(ThiefInfo.CurrentHp);
-        Debug.Log(ClericInfo.CurrentHp);
-        Debug.Log(WizardInfo.CurrentHp);
     }
 
     private string SelectFightScene()
