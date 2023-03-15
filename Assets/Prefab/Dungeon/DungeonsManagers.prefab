@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restAmbushBaseValue: 20
+  trapValue:
+    Min: 1
+    Max: 2
   bossScene: BossFight
   warriorCard: {fileID: 11400000, guid: 287459fea8edc334ea7857cdd46ee0bf, type: 2}
   thiefCard: {fileID: 11400000, guid: f11278d1bce38214289b7b109317e023, type: 2}
