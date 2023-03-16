@@ -1018,6 +1018,11 @@ public class NPCMove : TacticsMovement
         return iaType;
     }
 
+    public Sprite GetUiSprite()
+    {
+        return UnitInfo.charaUiIcon;
+    }
+
     public void FriendlyTransform()
     {
         FriendlyTransformFx();

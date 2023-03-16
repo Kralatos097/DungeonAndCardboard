@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 public class UIManager : MonoBehaviour
 {
@@ -32,13 +33,17 @@ public class UIManager : MonoBehaviour
     private Consumable _consumable = null;
 
     [Header("Init Aff")]
-    public Transform InitPanel;
-    public GameObject PlayerInitPanel;
-    public GameObject WarriorInitPanel;
-    public GameObject ThiefInitPanel;
-    public GameObject ClericInitPanel;
-    public GameObject WizardInitPanel;
-    public GameObject EnemyInitPanel;
+    [SerializeField] private Transform InitPanel;
+    [SerializeField] private GameObject PlayerInitPanel;
+    [SerializeField] private GameObject WarriorInitPanel;
+    [SerializeField] private GameObject ThiefInitPanel;
+    [SerializeField] private GameObject ClericInitPanel;
+    [SerializeField] private GameObject WizardInitPanel;
+    [SerializeField] private GameObject EnemyInitPanel;
+    [SerializeField] private GameObject EnemyEliteInitPanel;
+
+    [Space]
+    [SerializeField] private List<Sprite> DamageSprites;
 
     public static Action<GameObject> setInitAction;
     public static Action<GameObject> StartTurnInitUIChangeAction;
@@ -337,7 +342,21 @@ public class UIManager : MonoBehaviour
         else
         {
             //todo: add NPC variations
-            t = Instantiate(EnemyInitPanel, InitPanel);
+            NPCMove npcMove = unit.GetComponent<NPCMove>();
+
+            Sprite npcSprite = npcMove.GetUiSprite();
+
+            if(npcSprite.name.Contains("Elite"))
+            {
+                t = Instantiate(EnemyEliteInitPanel, InitPanel);
+            }
+            else
+            {
+                t = Instantiate(EnemyInitPanel, InitPanel);
+            }
+            
+
+            t.transform.GetChild(0).GetComponent<Image>().sprite = npcSprite;
         }
 
         /*if(TurnManager.CombatStarted)
@@ -389,6 +408,28 @@ public class UIManager : MonoBehaviour
                 continue;
             }
 
+            CombatStat combatStat = t.Key.GetComponent<CombatStat>();
+            if(combatStat.MaxHp == 0) return;
+            if(combatStat.CurrHp/(float)combatStat.MaxHp >= .75f)
+            {
+                t.Value.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            }
+            else if(combatStat.CurrHp/(float)combatStat.MaxHp >= .5f)
+            {
+                t.Value.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+                t.Value.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = DamageSprites[0];
+            }
+            else if(combatStat.CurrHp/(float)combatStat.MaxHp >= .25f)
+            {
+                t.Value.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+                t.Value.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = DamageSprites[1];
+            }
+            else
+            {
+                t.Value.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+                t.Value.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = DamageSprites[2];
+            }
+            
             if(t.Key.GetComponent<PlayerMovement>() != null)
             {
                 t.Value.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>().text =
@@ -397,7 +438,7 @@ public class UIManager : MonoBehaviour
                     (t.Key.GetComponent<CombatStat>().CurrHp / (float)t.Key.GetComponent<CombatStat>().baseMaxHp);
                 t.Value.transform.GetChild(1).Find("FillHpEmptyImg").GetComponent<Image>().fillAmount =
                     (t.Key.GetComponent<CombatStat>().MaxHp / (float)t.Key.GetComponent<CombatStat>().baseMaxHp);
-            
+
                 if (t.Key.GetComponent<PlayerMovement>().GetPassive() == null)
                 {
                     t.Value.transform.Find("PassiveImg").gameObject.SetActive(false);
