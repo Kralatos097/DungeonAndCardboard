@@ -6,19 +6,29 @@
   <component name="ChangeListManager">
     <list default="true" id="225202b0-c116-4b2c-8d9c-8c9a57c9d235" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D/UIs/Button_Move.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D/UIs/Button_Move.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D/UIs/Button_Stay.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D/UIs/Button_Stay.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D/Materials/Material Menu/Material_Livre.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Materials/Material Menu/Material_Livre.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/CanvasNStuffArene.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/CanvasNStuffArene.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/ActionSelectorCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/ActionSelectorCanvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Decors/Textures_sol/sol_1001_BaseMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Decors/Textures_sol/sol_1001_BaseMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Decors/Textures_sol/sol_1001_MaskMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Decors/Textures_sol/sol_1001_MaskMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Armored Goblin/Modele_Armored Goblin_1001_BaseMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Armored Goblin/Modele_Armored Goblin_1001_BaseMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Armored Goblin/Modele_Armored Goblin_1001_MaskMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Armored Goblin/Modele_Armored Goblin_1001_MaskMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Chief/Modele_Goblin Chief_1001_BaseMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Chief/Modele_Goblin Chief_1001_BaseMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Chief/Modele_Goblin Chief_1001_MaskMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Chief/Modele_Goblin Chief_1001_MaskMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Chief_Elite/Modele_Goblin Chief-Elite_1001_BaseMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Chief_Elite/Modele_Goblin Chief-Elite_1001_BaseMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Chief_Elite/Modele_Goblin Chief-Elite_1001_MaskMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Chief_Elite/Modele_Goblin Chief-Elite_1001_MaskMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Slinger/Modele_Goblin Slinger_1001_BaseMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Slinger/Modele_Goblin Slinger_1001_BaseMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Slinger/Modele_Goblin Slinger_1001_MaskMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Slinger/Modele_Goblin Slinger_1001_MaskMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Slinger_Elite/Modele_Goblin Slinger-Elite_1001_BaseMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Slinger_Elite/Modele_Goblin Slinger-Elite_1001_BaseMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Slinger_Elite/Modele_Goblin Slinger-Elite_1001_MaskMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Slinger_Elite/Modele_Goblin Slinger-Elite_1001_MaskMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Thief/Modele_Goblin Thief_1001_BaseMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Thief/Modele_Goblin Thief_1001_BaseMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Thief/Modele_Goblin Thief_1001_MaskMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Thief/Modele_Goblin Thief_1001_MaskMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Thief_Elite/Modele_Goblin Thief-Elite_1001_BaseMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Thief_Elite/Modele_Goblin Thief-Elite_1001_BaseMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Thief_Elite/Modele_Goblin Thief-Elite_1001_MaskMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin Thief_Elite/Modele_Goblin Thief-Elite_1001_MaskMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin/Goblin_1001_BaseMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin/Goblin_1001_BaseMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin/Goblin_1001_MaskMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin/Goblin_1001_MaskMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin_Elite/Goblin-Elite_1001_BaseMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin_Elite/Goblin-Elite_1001_BaseMap.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin_Elite/Goblin-Elite_1001_MaskMap.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D/Textures/Texture Goblins/Texture_Goblin_Elite/Goblin-Elite_1001_MaskMap.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/NPCMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/NPCMove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dungeons/DungeonManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dungeons/DungeonManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dungeons/DungeonUiManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dungeons/DungeonUiManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enums.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enums.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Stuff/Active.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Stuff/Active.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/9x8/BonResto.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/9x8/BonResto.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
@@ -44,18 +54,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="Discover.Launch.Via.Unity" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="rider.run.widget.enabled.cache" value="false" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../Build/BuildDnC\Dungeons&amp;Cardboards.exe" />
@@ -124,6 +129,7 @@
       <workItem from="1678267161427" duration="1958000" />
       <workItem from="1678353580960" duration="1100000" />
       <workItem from="1678894754370" duration="325000" />
+      <workItem from="1678955683009" duration="6056000" />
     </task>
     <servers />
   </component>

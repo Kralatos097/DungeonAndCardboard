@@ -79,76 +79,7 @@ public class NPCMove : TacticsMovement
                 throw new ArgumentOutOfRangeException();
         }
     }
-
-    /*void UpdateV1()
-    {
-        if(!Turn) return;
-        PlayersTurn = false;
-
-        atkRange = ActiveOne.GetAtkRange();
-        bool canAtk = true;
-
-        GameObject temp = AlliesInAttackRange();
-        RemoveSelectableTile();
-        if(temp != null && !moving)
-        {
-            //Debug.Log("Ennemi Atk !");
-            attacking = true;
-            Attack(temp, 1);
-            return;
-        }
-        else
-        {
-            canAtk = false;
-        }
-        if(!_alreadyMoved && !attacking)
-        {
-            if(!moving)
-            {
-                //Début du Soulevement du pion lors du mouvement
-                if (!passM)
-                {
-                    transform.GetChild(0).Translate(0, MoveY, 0);
-                    passM = true;
-                }
-
-                /*FindLowestHpTarget();
-                //FindFarthestTarget();
-                //FindNearestTarget();
-                Debug.Log(target.name);
-                CalculatePathFull();
-                FindSelectableTile();
-                ActualTargetTile.target = true;
-                MoveToTile(ActualTargetTile);#1#
-                switch(iaType)
-                {
-                    case IaType.Dumb:
-                        DumbAI();
-                        break;
-                    case IaType.Coward:
-                        break;
-                    case IaType.Ruthless:
-                        break;
-                    case IaType.Perfectionist:
-                        break;
-                    case IaType.Friendly:
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
-            else
-            {
-                Move();
-                canAtk = true;
-            }
-        }
-        if (_alreadyMoved && !canAtk)
-        {
-            EndTurnT();
-        }
-    }*/
-
+    
     private ArenaTile FindFarthestFromTarget()
     {
         ComputeAdjacencyListAtk();
@@ -587,11 +518,12 @@ public class NPCMove : TacticsMovement
         if(!attacking && !moving && !_alreadyMoved) //Calcul du mouvement
         {
             transform.GetChild(0).Translate(0, MoveY, 0);
+            ArenaTile targetTile = target.GetComponent<TacticsMovement>().GetCurrentTile();
             bool findPath = CalculatePathFull(); //Calcul du trajet normal
-            int tDist = _targetDistance;
+            int tDist = GetTravelDist(targetTile);
             bool findPathV2 = CalculatePathWoTrap(); //Calcul du trajet sans les pieges
-            int tDistV2 = _targetDistance;
-
+            int tDistV2 = GetTravelDist(targetTile);
+                
             if (findPath && findPathV2) //Si les 2 on des trajets valides
             {
                 if (tDist <= tDistV2) //On compare la longueur des trajets et on prend le plus court
@@ -644,7 +576,19 @@ public class NPCMove : TacticsMovement
             Move();
         }
     }
-    
+
+    private int GetTravelDist(ArenaTile arenaTile)
+    {
+        int d = 0;
+        while(arenaTile != _currentTile)
+        {
+            d++;
+            arenaTile = arenaTile.parent;
+        }
+
+        return d;
+    }
+
     private void CowardAI()
     {
         if(!firstTimePass)
@@ -1011,17 +955,31 @@ public class NPCMove : TacticsMovement
         }
         if(_alreadyMoved) //Attack après avoir bougé si un Player est dans la range
         {
-            if(target != null && _targetDistance <= atkRange)
+            if (target != null)
             {
-                attacking = true;
-                Attack(target, 1);
-                return true;
+                if (atkRange > 1)
+                {
+                    if (_targetDistance <= atkRange)
+                    {
+                        attacking = true;
+                        Attack(target, 1);
+                        return true;
+                    }
+                }
+                else
+                {
+                    _currentTile = GetCurrentTile();
+                    if (GetTravelDist(target.GetComponent<TacticsMovement>().GetCurrentTile()) <= atkRange)
+                    {
+                        attacking = true;
+                        Attack(target, 1);
+                        return true;
+                    }
+                }
             }
-            else
-            {
-                EndTurnT();
-                return true;
-            }
+
+            EndTurnT();
+            return true;
         }
 
         return false;
