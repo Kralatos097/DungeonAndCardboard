@@ -13,4 +13,6 @@ public class EnemieBaseInfo : ScriptableObject
     public Passive passive;
     public Consumable consumable;
     public IaType iaType;
+    
+    public Sprite charaUiIcon;
 }

@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="225202b0-c116-4b2c-8d9c-8c9a57c9d235" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_MainScenes/SampleScene.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_MainScenes/SampleScene.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/CharaUiOverButton.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Temporaire/Canvas.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Temporaire/Canvas.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/NPCMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/NPCMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/EnemyPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/EnemyPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/PlayerInitPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/PlayerInitPanel.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/8x8/ZoneGrise.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/8x8/ZoneGrise.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/UIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,14 +38,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="Discover.Launch.Via.Unity" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="vue.rearranger.settings.migration" value="true" />
+    <property name="rider.run.widget.enabled.cache" value="false" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
@@ -114,6 +107,10 @@
       <workItem from="1678177350215" duration="13481000" />
       <workItem from="1678267161427" duration="1958000" />
       <workItem from="1678353580960" duration="1100000" />
+      <workItem from="1678894754370" duration="325000" />
+      <workItem from="1678955683009" duration="6056000" />
+      <workItem from="1678974394378" duration="4133000" />
+      <workItem from="1679059514854" duration="3078000" />
     </task>
     <servers />
   </component>

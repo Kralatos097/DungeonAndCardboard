@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/ActiveCard", order = 2)]
 public class Active : Stuff
@@ -98,6 +99,9 @@ public class Active : Stuff
                     break;
                 case ActiveType.SacredMace:
                     SacredMace(user, go, activeEffect, hit);
+                    break;
+                case ActiveType.RandomPotionEffect:
+                    RandomPotionEffect(user, activeEffect, hit);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -328,6 +332,35 @@ public class Active : Stuff
             ActiveEffect tempAE = new ActiveEffect(activeEffect.activeType, activeEffect.value / 2, activeEffect.onSelf,
                 activeEffect.noMiss, activeEffect.critOnly);
             Heal(target, tempAE, hit);
+        }
+    }
+
+    private void RandomPotionEffect(GameObject user, ActiveEffect activeEffect, int hit)
+    {
+        int rand = Random.Range(0, 6);
+
+        switch (rand)
+        {
+            case 0: //Burn
+                Burn(user, activeEffect, hit);
+                break;
+            case 1: //Freeze
+                Freeze(user, activeEffect, hit);
+                break;
+            case 2: //Poison
+                Poison(user, activeEffect, hit);
+                break;
+            case 3: //Heal
+                Heal(user, activeEffect, hit);
+                break;
+            case 4: //Armor
+                Armor(user, activeEffect, hit);
+                break;
+            case 5: //Cure
+                Cure(user, hit);
+                break;
+            default:
+                break;
         }
     }
 

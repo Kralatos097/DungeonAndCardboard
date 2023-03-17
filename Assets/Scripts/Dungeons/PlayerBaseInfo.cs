@@ -14,4 +14,6 @@ public class PlayerBaseInfo : ScriptableObject
     public Active activeTwo;
     public Passive passive;
     public Consumable consumable;
+
+    /*public Sprite charaUiIcon;*/
 }

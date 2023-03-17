@@ -20,3 +20,4 @@ MonoBehaviour:
   passive: {fileID: 0}
   consumable: {fileID: 0}
   iaType: 1
+  charaUiIcon: {fileID: 21300000, guid: 8dce69e3e93917748b4ce5cbcdc3c23e, type: 3}
