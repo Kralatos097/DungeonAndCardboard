@@ -3240,12 +3240,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8525849390151501698, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
+      propertyPath: ambushedSceneList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525849390151501698, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
       propertyPath: fightingSceneList.Array.size
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8525849390151501698, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
+      propertyPath: ambushedSceneList.Array.data[0]
+      value: JoyeuxBordel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525849390151501698, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
+      propertyPath: ambushedSceneList.Array.data[1]
+      value: "D\xE9potoirInfecte"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525849390151501698, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
       propertyPath: fightingSceneList.Array.data[2]
-      value: ZoneGrise
+      value: BonResto
       objectReference: {fileID: 0}
     - target: {fileID: 8525849390151501698, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
       propertyPath: fightingSceneList.Array.data[5]
