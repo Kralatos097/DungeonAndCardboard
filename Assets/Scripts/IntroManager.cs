@@ -13,7 +13,7 @@ public class IntroManager : MonoBehaviour
     [Header("Assign some things")] 
     [SerializeField] private Image CircleSkip;
     [SerializeField] private string SceneToLoad;
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if(CircleSkip.fillAmount == 0) CircleSkip.gameObject.SetActive(false);
         else CircleSkip.gameObject.SetActive(true);
@@ -22,5 +22,10 @@ public class IntroManager : MonoBehaviour
         else CircleSkip.fillAmount -= SpeedUnClick;
 
         if (CircleSkip.fillAmount == 1) SceneManager.LoadScene(SceneToLoad);
+    }
+
+    public void ToTheMainMenu()
+    {
+        SceneManager.LoadScene(SceneToLoad);
     }
 }
