@@ -5,29 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="225202b0-c116-4b2c-8d9c-8c9a57c9d235" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/EnemyElitePanel.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/EnemyElitePanel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/CharaUiOverButton.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/CanvasNStuffArene.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/CanvasNStuffArene.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/ClericInitPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/ClericInitPanel.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/EnemyPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/EnemyPanel.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/PlayerInitPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/PlayerInitPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/ThiefInitPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/ThiefInitPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/DarkSlingerGoblin.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/DarkSlingerGoblin.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/Goblin.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/Goblin.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinArmored.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinArmored.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinChief.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinChief.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinSlinger.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinSlinger.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinThief.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/GoblinThief.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/OverArmoredGoblin.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/OverArmoredGoblin.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/SadisticGoblinThief.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/SadisticGoblinThief.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/StarredGoblinChief.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/StarredGoblinChief.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/StrongGoblin.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/StrongGoblin.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/NPCMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/NPCMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/TacticsMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dungeons/EnemieBaseInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dungeons/EnemieBaseInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dungeons/PlayerBaseInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dungeons/PlayerBaseInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,13 +36,10 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="rider.run.widget.enabled.cache" value="false" />
+  </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../Build/BuildDnC\Dungeons&amp;Cardboards.exe" />
@@ -129,6 +110,7 @@
       <workItem from="1678894754370" duration="325000" />
       <workItem from="1678955683009" duration="6056000" />
       <workItem from="1678974394378" duration="4133000" />
+      <workItem from="1679059514854" duration="3078000" />
     </task>
     <servers />
   </component>

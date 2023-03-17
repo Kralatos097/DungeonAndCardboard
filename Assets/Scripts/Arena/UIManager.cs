@@ -370,6 +370,7 @@ public class UIManager : MonoBehaviour
         _playerPanelList.Add(unit, t);
         t.transform.Find("ArmorImg").gameObject.SetActive(false);
         t.transform.Find("StatusImg").gameObject.SetActive(false);
+        t.GetComponentInChildren<CharaUiOverButton>().SetUnit(unit.GetComponent<TacticsMovement>());
     }
 
     private void StartTurnInitUIChange(GameObject unit)
