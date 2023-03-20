@@ -85,6 +85,6 @@ public class DialogueManager : MonoBehaviour
         
         int nb = Random.Range(0, SceneToLoad.Count);
 
-        SceneManager.LoadSceneAsync(SceneToLoad[nb]);
+        SceneManager.LoadScene(SceneToLoad[nb]);
     }
 }

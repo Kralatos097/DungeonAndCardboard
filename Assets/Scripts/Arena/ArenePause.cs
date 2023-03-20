@@ -9,6 +9,7 @@ public class ArenePause : MonoBehaviour
     {
         /*SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(DungeonManager.GetDungeonSceneName()));*/
-        SceneManager.LoadSceneAsync("_MainScenes/MainMenu");
+        SceneManager.LoadScene("_MainScenes/MainMenu");
+        SceneManager.LoadScene("_MainScenes/MainMenu");
     }
 }

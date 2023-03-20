@@ -924,6 +924,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127286, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3743040489013127287, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2203,7 +2207,7 @@ Transform:
   - {fileID: 974254061}
   - {fileID: 1248069657}
   - {fileID: 830004362}
-  - {fileID: 1414681455}
+  - {fileID: 8525849389438199299}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2688,11 +2692,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
---- !u!4 &1414681455 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8525849390842361195, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
-  m_PrefabInstance: {fileID: 1414681448}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1606151533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3525,4 +3524,9 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4362586968786532359, guid: b7c38e69a3e50e242a54ad87b9dab84b, type: 3}
   m_PrefabInstance: {fileID: 2145428954}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8525849389438199299 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8525849390842361195, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
+  m_PrefabInstance: {fileID: 1414681448}
   m_PrefabAsset: {fileID: 0}

@@ -509,6 +509,12 @@ public class DungeonManager : MonoBehaviour
         SceneManager.LoadSceneAsync("_MainScenes/MainMenu");
     }
 
+    private void OnDestroy()
+    {
+        _dungeonSceneName = null;
+        CurrentTile = null;
+    }
+
     private void PositiveLootFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("PositiveLoot");

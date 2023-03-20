@@ -67,41 +67,41 @@ public class DungeonUiManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LootTrapUi += DisplayTrapArtwork;
+        LootTrapUi = DisplayTrapArtwork;
         LootTrapUi += InChoiceChange;
         
-        LootAmbushedUi += DisplayAmbushArtwork;
+        LootAmbushedUi = DisplayAmbushArtwork;
         LootAmbushedUi += InChoiceChange;
         
-        LootConsumableUi += DisplayLootConsumableArtwork;
+        LootConsumableUi = DisplayLootConsumableArtwork;
         LootConsumableUi += InChoiceChange;
         
-        LootStuffUi += DisplayLootStuffArtwork;
+        LootStuffUi = DisplayLootStuffArtwork;
         LootStuffUi += InChoiceChange;
 
-        LootNothingUi += DisplayLootNothingArtwork;
+        LootNothingUi = DisplayLootNothingArtwork;
         LootNothingUi += InChoiceChange;
 
-        BossUi += DisplayBossArtwork;
+        BossUi = DisplayBossArtwork;
         BossUi += InChoiceChange;
 
-        FightUi += DisplayFightArtwork;
+        FightUi = DisplayFightArtwork;
         FightUi += InChoiceChange;
 
-        RestUi += DisplayRestArtwork;
+        RestUi = DisplayRestArtwork;
         RestUi += InChoiceChange;
 
-        TreasureConsumableUi += DisplayTreasureConsuArtwork;
+        TreasureConsumableUi = DisplayTreasureConsuArtwork;
         TreasureConsumableUi += InChoiceChange;
 
-        TreasureStuffUi += DisplayTreasureStuffArtwork;
+        TreasureStuffUi = DisplayTreasureStuffArtwork;
         TreasureStuffUi += InChoiceChange;
 
-        ResetArtworkUi += ResetArtwork;
+        ResetArtworkUi = ResetArtwork;
 
-        DisplayLootActionSelectorUI += DisplayLootActionSelector;
+        DisplayLootActionSelectorUI = DisplayLootActionSelector;
 
-        ResetLootActionSelectorUI += ResetLootActionSelector;
+        ResetLootActionSelectorUI = ResetLootActionSelector;
         
         StuffChoiceAction = StuffChoice;
     }
@@ -586,5 +586,10 @@ public class DungeonUiManager : MonoBehaviour
         }
         else
             playerPanel.gameObject.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        inChoice = false;
     }
 }

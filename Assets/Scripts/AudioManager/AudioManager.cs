@@ -6,8 +6,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-public class 
-    AudioManager : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
     
     public float volumeMusic, volumeSfx, volumeVoice;
@@ -37,6 +36,14 @@ public class
     
     private void Awake()
     {
+        if (instance == null) instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
+        
         if (PlayerPrefs.HasKey("MusicVolume"))
             volumeMusic = PlayerPrefs.GetFloat("MusicVolume", 0);
         
@@ -45,14 +52,6 @@ public class
         
         if (PlayerPrefs.HasKey("VoiceVolume"))
             volumeVoice = PlayerPrefs.GetFloat("VoiceVolume", 0);
-        
-        if (instance == null) instance = this;
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-        DontDestroyOnLoad(gameObject);
         
         _musicSource = gameObject.AddComponent<AudioSource>();
         _musicSourceTwo = gameObject.AddComponent<AudioSource>();
