@@ -506,7 +506,7 @@ public class DungeonManager : MonoBehaviour
 
     public void ToMainMenu()
     {
-        SceneManager.LoadSceneAsync("_ScenesValou/MainMenu");
+        SceneManager.LoadSceneAsync("_MainScenes/MainMenu");
     }
 
     private void PositiveLootFX()

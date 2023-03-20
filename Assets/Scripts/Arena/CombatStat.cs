@@ -174,7 +174,7 @@ public class CombatStat : MonoBehaviour
 
     private void ReviveUnit()
     {
-        transform.GetChild(0).GetComponent<Renderer>().material.color = Color.blue;
+        transform.GetChild(0).GetComponent<Renderer>().material.color = Color.white;
     }
 
     public void TakeDamage(int value)
