@@ -1635,10 +1635,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3663142197185203379, guid: d7edd192a14fe3145bf39d2d7b38785a, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663142197185203381, guid: d7edd192a14fe3145bf39d2d7b38785a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3663142197298111254, guid: d7edd192a14fe3145bf39d2d7b38785a, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 204457980}
+    - target: {fileID: 3663142198289013740, guid: d7edd192a14fe3145bf39d2d7b38785a, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 392960
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663142198446266240, guid: d7edd192a14fe3145bf39d2d7b38785a, type: 3}
+      propertyPath: m_fontColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663142198446266240, guid: d7edd192a14fe3145bf39d2d7b38785a, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 255
+      objectReference: {fileID: 0}
     - target: {fileID: 3663142198758422936, guid: d7edd192a14fe3145bf39d2d7b38785a, type: 3}
       propertyPath: m_RootOrder
       value: 27
