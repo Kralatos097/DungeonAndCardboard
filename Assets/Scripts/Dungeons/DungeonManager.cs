@@ -506,7 +506,13 @@ public class DungeonManager : MonoBehaviour
 
     public void ToMainMenu()
     {
-        SceneManager.LoadSceneAsync("_ScenesValou/MainMenu");
+        SceneManager.LoadSceneAsync("_MainScenes/MainMenu");
+    }
+
+    private void OnDestroy()
+    {
+        _dungeonSceneName = null;
+        CurrentTile = null;
     }
 
     private void PositiveLootFX()
