@@ -371,7 +371,7 @@ public class DungeonManager : MonoBehaviour
     protected virtual void LaunchTreasure()
     {
         artworkShown = true;
-        Stuff newStuff;
+        //Stuff newStuff;
         int rand = Random.Range(0, 5);
         PositiveLootFX();
         if(rand == 0)
@@ -391,7 +391,7 @@ public class DungeonManager : MonoBehaviour
     private void LaunchFightLoot()
     {
         artworkShown = true;
-        Stuff newStuff;
+        //Stuff newStuff;
         int rand = Random.Range(0, 5);
         PositiveLootFX();
         if(rand <= 2)

@@ -580,6 +580,8 @@ public class NPCMove : TacticsMovement
     private int GetTravelDist(ArenaTile arenaTile)
     {
         int d = 0;
+        if (arenaTile.parent == null) return 100;
+        
         while(arenaTile != _currentTile)
         {
             d++;
