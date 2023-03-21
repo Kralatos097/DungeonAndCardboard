@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   atkRange: 0
+  firstTimePass: 0
   UnitInfo: {fileID: 11400000, guid: 572f3b222cddff0469dd68f5083e1515, type: 2}
 --- !u!114 &3377682630542870395
 MonoBehaviour:
@@ -145,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b367e9d0baa6194ca7ceffcf520b726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseMaxHp: 0
   currInit: 0
   isUp: 1
   isAlive: 1

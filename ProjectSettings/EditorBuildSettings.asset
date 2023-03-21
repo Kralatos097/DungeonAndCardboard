@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/_ScenesTibo/_preload.unity
+    path: 
     guid: 41b2a7e5da2e0af43a01c257cb3abbc0
   - enabled: 1
     path: Assets/_MainScenes/MainMenu.unity
@@ -68,4 +68,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_ScenesValou/Jeu Test.unity
     guid: c1bc632563ee8a042b200c82c0dc75d3
+  - enabled: 1
+    path: Assets/_MainScenes/S0 Arena/TutoFight.unity
+    guid: 932f056285ab2254f9da4204e54eb9b5
+  - enabled: 1
+    path: Assets/_MainScenes/S0 Arena/TutoBoss.unity
+    guid: d0047f00752026443a74057990fd3191
   m_configObjects: {}

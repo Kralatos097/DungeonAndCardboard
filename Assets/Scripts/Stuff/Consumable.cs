@@ -8,6 +8,6 @@ public class Consumable : Active
     public override void OnEnable()
     {
         base.OnEnable();
-        stuffType = "consumable";
+        stuffType = "Consumable";
     }
 }

@@ -34,10 +34,10 @@ public class DungeonManager : MonoBehaviour
     [SerializeField] private List<Stuff> stuffList;
     [SerializeField] private List<Consumable> consumableList;
 
-    private bool artworkShown = false;
+    protected bool artworkShown = false;
     private RoomEffect _roomEffect;
     private LootEffect lootEffect = LootEffect.Default;
-    private TreasureEffect treasureEffect = TreasureEffect.Default;
+    protected TreasureEffect treasureEffect = TreasureEffect.Default;
 
     public static Action<bool> SceneContainerSwitch;
     
@@ -368,7 +368,7 @@ public class DungeonManager : MonoBehaviour
         }
     }
     
-    private void LaunchTreasure()
+    protected virtual void LaunchTreasure()
     {
         artworkShown = true;
         Stuff newStuff;
@@ -377,13 +377,13 @@ public class DungeonManager : MonoBehaviour
         if(rand == 0)
         {
             DungeonUiManager.TreasureConsumableUi();
-            newStuff = PickConsumable();
+            /*newStuff = PickConsumable();*/
             treasureEffect = TreasureEffect.Consumable;
         }
         else
         {
             DungeonUiManager.TreasureStuffUi();
-            newStuff = PickStuff();
+            /*newStuff = PickStuff();*/
             treasureEffect = TreasureEffect.Stuff;
         }
     }
@@ -397,13 +397,13 @@ public class DungeonManager : MonoBehaviour
         if(rand <= 2)
         {
             DungeonUiManager.TreasureConsumableUi();
-            newStuff = PickConsumable();
+            //newStuff = PickConsumable();
             treasureEffect = TreasureEffect.Consumable;
         }
         else
         {
             DungeonUiManager.TreasureStuffUi();
-            newStuff = PickStuff();
+            //newStuff = PickStuff();
             treasureEffect = TreasureEffect.Stuff;
         }
     }
@@ -463,13 +463,13 @@ public class DungeonManager : MonoBehaviour
         return sceneName;
     }
 
-    private Stuff PickStuff()
+    protected virtual Stuff PickStuff()
     {
         int ind = Random.Range(0, stuffList.Count);
         return stuffList[ind];
     }
-    
-    private Consumable PickConsumable()
+
+    protected virtual Consumable PickConsumable()
     {
         int ind = Random.Range(0, consumableList.Count);
         return consumableList[ind];
@@ -515,7 +515,7 @@ public class DungeonManager : MonoBehaviour
         CurrentTile = null;
     }
 
-    private void PositiveLootFX()
+    protected void PositiveLootFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("PositiveLoot");
     }
