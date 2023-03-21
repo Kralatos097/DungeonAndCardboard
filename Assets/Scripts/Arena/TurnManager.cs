@@ -69,7 +69,7 @@ public class TurnManager : MonoBehaviour
     {
         if(Input.GetMouseButtonUp(0) && _combatEnded)
         {
-            
+            Debug.Log(bossFight + " - " + _isDefeat);
             if(!bossFight)
             {
                 if(_isDefeat)
@@ -130,6 +130,7 @@ public class TurnManager : MonoBehaviour
         if(pStatue)
         {
             Debug.Log("Victiore");
+            _isDefeat = false;
             _combatEndCanvas.GetChild(0).gameObject.SetActive(true);
             SetPlayersInfo();
             VictoryFx();
@@ -467,7 +468,12 @@ public class TurnManager : MonoBehaviour
             passive.Effect(user.gameObject);
         }
     }
-    
+
+    private void OnDestroy()
+    {
+        _isDefeat = false;
+    }
+
     //---------------------------------- FX Zone ------------------------------------------
 
     private void AllieStartTurnFx()

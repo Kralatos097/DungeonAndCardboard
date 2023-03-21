@@ -15,6 +15,8 @@ public class EndSession : MonoBehaviour
     
     public void LoadMainMenu()
     {
+        EndGameInfo.IsVictory = false;
+        EndGameInfo.IsTuto = false;
         SceneManager.LoadScene(SceneNameToLoad);
     }
     
@@ -47,17 +49,29 @@ public class EndSession : MonoBehaviour
         chara.GetChild(0).GetChild(0).gameObject.SetActive(
             WarriorInfo.MaxHp <= 0 || !EndGameInfo.IsVictory);
 
-        chara.GetChild(1).GetComponent<StuffButtonOver>().ChangeStuff(WarriorInfo.ActiveOne);
-        chara.GetChild(1).GetComponent<Image>().sprite = WarriorInfo.ActiveOne.logo;
-        
-        chara.GetChild(2).GetComponent<StuffButtonOver>().ChangeStuff(WarriorInfo.ActiveTwo);
-        chara.GetChild(2).GetComponent<Image>().sprite = WarriorInfo.ActiveTwo.logo;
-        
-        chara.GetChild(3).GetComponent<StuffButtonOver>().ChangeStuff(WarriorInfo.Passive);
-        chara.GetChild(3).GetComponent<Image>().sprite = WarriorInfo.Passive.logo;
-        
-        chara.GetChild(4).GetComponent<StuffButtonOver>().ChangeStuff(WarriorInfo.Consumable);
-        chara.GetChild(4).GetComponent<Image>().sprite = WarriorInfo.Consumable.logo;
+        if (WarriorInfo.ActiveOne != null)
+        {
+            chara.GetChild(1).GetComponent<StuffButtonOver>().ChangeStuff(WarriorInfo.ActiveOne);
+            chara.GetChild(1).GetComponent<Image>().sprite = WarriorInfo.ActiveOne.logo;
+        }
+
+        if (WarriorInfo.ActiveTwo != null)
+        {
+            chara.GetChild(2).GetComponent<StuffButtonOver>().ChangeStuff(WarriorInfo.ActiveTwo);
+            chara.GetChild(2).GetComponent<Image>().sprite = WarriorInfo.ActiveTwo.logo;
+        }
+
+        if (WarriorInfo.Passive != null)
+        {
+            chara.GetChild(3).GetComponent<StuffButtonOver>().ChangeStuff(WarriorInfo.Passive);
+            chara.GetChild(3).GetComponent<Image>().sprite = WarriorInfo.Passive.logo;
+        }
+
+        if (WarriorInfo.Consumable != null)
+        {
+            chara.GetChild(4).GetComponent<StuffButtonOver>().ChangeStuff(WarriorInfo.Consumable);
+            chara.GetChild(4).GetComponent<Image>().sprite = WarriorInfo.Consumable.logo;
+        }
     }
 
     private void SetupThiefStat(Transform chara)
@@ -65,17 +79,29 @@ public class EndSession : MonoBehaviour
         chara.GetChild(0).GetChild(0).gameObject.SetActive(
             ThiefInfo.MaxHp <= 0 || !EndGameInfo.IsVictory);
 
-        chara.GetChild(1).GetComponent<StuffButtonOver>().ChangeStuff(ThiefInfo.ActiveOne);
-        chara.GetChild(1).GetComponent<Image>().sprite = ThiefInfo.ActiveOne.logo;
-        
-        chara.GetChild(2).GetComponent<StuffButtonOver>().ChangeStuff(ThiefInfo.ActiveTwo);
-        chara.GetChild(2).GetComponent<Image>().sprite = ThiefInfo.ActiveTwo.logo;
-        
-        chara.GetChild(3).GetComponent<StuffButtonOver>().ChangeStuff(ThiefInfo.Passive);
-        chara.GetChild(3).GetComponent<Image>().sprite = ThiefInfo.Passive.logo;
-        
-        chara.GetChild(4).GetComponent<StuffButtonOver>().ChangeStuff(ThiefInfo.Consumable);
-        chara.GetChild(4).GetComponent<Image>().sprite = ThiefInfo.Consumable.logo;
+        if (ThiefInfo.ActiveOne != null)
+        {
+            chara.GetChild(1).GetComponent<StuffButtonOver>().ChangeStuff(ThiefInfo.ActiveOne);
+            chara.GetChild(1).GetComponent<Image>().sprite = ThiefInfo.ActiveOne.logo;
+        }
+
+        if (ThiefInfo.ActiveTwo != null)
+        {
+            chara.GetChild(2).GetComponent<StuffButtonOver>().ChangeStuff(ThiefInfo.ActiveTwo);
+            chara.GetChild(2).GetComponent<Image>().sprite = ThiefInfo.ActiveTwo.logo;
+        }
+
+        if (ThiefInfo.Passive != null)
+        {
+            chara.GetChild(3).GetComponent<StuffButtonOver>().ChangeStuff(ThiefInfo.Passive);
+            chara.GetChild(3).GetComponent<Image>().sprite = ThiefInfo.Passive.logo;
+        }
+
+        if (ThiefInfo.Consumable != null)
+        {
+            chara.GetChild(4).GetComponent<StuffButtonOver>().ChangeStuff(ThiefInfo.Consumable);
+            chara.GetChild(4).GetComponent<Image>().sprite = ThiefInfo.Consumable.logo;
+        }
     }
 
     private void SetupClericStat(Transform chara)
@@ -83,17 +109,30 @@ public class EndSession : MonoBehaviour
         chara.GetChild(0).GetChild(0).gameObject.SetActive(
             ClericInfo.MaxHp <= 0 || !EndGameInfo.IsVictory);
 
-        chara.GetChild(1).GetComponent<StuffButtonOver>().ChangeStuff(ClericInfo.ActiveOne);
-        chara.GetChild(1).GetComponent<Image>().sprite = ClericInfo.ActiveOne.logo;
-        
-        chara.GetChild(2).GetComponent<StuffButtonOver>().ChangeStuff(ClericInfo.ActiveTwo);
-        chara.GetChild(2).GetComponent<Image>().sprite = ClericInfo.ActiveTwo.logo;
-        
-        chara.GetChild(3).GetComponent<StuffButtonOver>().ChangeStuff(ClericInfo.Passive);
-        chara.GetChild(3).GetComponent<Image>().sprite = ClericInfo.Passive.logo;
-        
-        chara.GetChild(4).GetComponent<StuffButtonOver>().ChangeStuff(ClericInfo.Consumable);
-        chara.GetChild(4).GetComponent<Image>().sprite = ClericInfo.Consumable.logo;
+
+        if (ClericInfo.ActiveOne != null)
+        {
+            chara.GetChild(1).GetComponent<StuffButtonOver>().ChangeStuff(ClericInfo.ActiveOne);
+            chara.GetChild(1).GetComponent<Image>().sprite = ClericInfo.ActiveOne.logo;
+        }
+
+        if (ClericInfo.ActiveTwo != null)
+        {
+            chara.GetChild(2).GetComponent<StuffButtonOver>().ChangeStuff(ClericInfo.ActiveTwo);
+            chara.GetChild(2).GetComponent<Image>().sprite = ClericInfo.ActiveTwo.logo;
+        }
+
+        if (ClericInfo.Passive != null)
+        {
+            chara.GetChild(3).GetComponent<StuffButtonOver>().ChangeStuff(ClericInfo.Passive);
+            chara.GetChild(3).GetComponent<Image>().sprite = ClericInfo.Passive.logo;
+        }
+
+        if (ClericInfo.Consumable != null)
+        {
+            chara.GetChild(4).GetComponent<StuffButtonOver>().ChangeStuff(ClericInfo.Consumable);
+            chara.GetChild(4).GetComponent<Image>().sprite = ClericInfo.Consumable.logo;
+        }
     }
 
     private void SetupWizardStat(Transform chara)
@@ -101,17 +140,29 @@ public class EndSession : MonoBehaviour
         chara.GetChild(0).GetChild(0).gameObject.SetActive(
             WizardInfo.MaxHp <= 0 || !EndGameInfo.IsVictory);
 
-        chara.GetChild(1).GetComponent<StuffButtonOver>().ChangeStuff(WizardInfo.ActiveOne);
-        chara.GetChild(1).GetComponent<Image>().sprite = WizardInfo.ActiveOne.logo;
-        
-        chara.GetChild(2).GetComponent<StuffButtonOver>().ChangeStuff(WizardInfo.ActiveTwo);
-        chara.GetChild(2).GetComponent<Image>().sprite = WizardInfo.ActiveTwo.logo;
-        
-        chara.GetChild(3).GetComponent<StuffButtonOver>().ChangeStuff(WizardInfo.Passive);
-        chara.GetChild(3).GetComponent<Image>().sprite = WizardInfo.Passive.logo;
-        
-        chara.GetChild(4).GetComponent<StuffButtonOver>().ChangeStuff(WizardInfo.Consumable);
-        chara.GetChild(4).GetComponent<Image>().sprite = WizardInfo.Consumable.logo;
+        if (WizardInfo.ActiveOne != null)
+        {
+            chara.GetChild(1).GetComponent<StuffButtonOver>().ChangeStuff(WizardInfo.ActiveOne);
+            chara.GetChild(1).GetComponent<Image>().sprite = WizardInfo.ActiveOne.logo;
+        }
+
+        if (WizardInfo.ActiveTwo != null)
+        {
+            chara.GetChild(2).GetComponent<StuffButtonOver>().ChangeStuff(WizardInfo.ActiveTwo);
+            chara.GetChild(2).GetComponent<Image>().sprite = WizardInfo.ActiveTwo.logo;
+        }
+
+        if (WizardInfo.Passive != null)
+        {
+            chara.GetChild(3).GetComponent<StuffButtonOver>().ChangeStuff(WizardInfo.Passive);
+            chara.GetChild(3).GetComponent<Image>().sprite = WizardInfo.Passive.logo;
+        }
+
+        if (WizardInfo.Consumable != null)
+        {
+            chara.GetChild(4).GetComponent<StuffButtonOver>().ChangeStuff(WizardInfo.Consumable);
+            chara.GetChild(4).GetComponent<Image>().sprite = WizardInfo.Consumable.logo;
+        }
     }
 
     private void SetupVictoryState()
