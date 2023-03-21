@@ -7028,7 +7028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf4d47bd4ee0b14297a62fd1a93ee19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Session0: IntroTest
+  Session0: Tuto Dungeons
   Session1: IntroS1
   TransitionCam: {fileID: 1082306310}
   TableFlip: {fileID: 1612605278}
@@ -9657,7 +9657,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1513295157}
   m_OnClick:
     m_PersistentCalls:
@@ -10382,7 +10382,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1592094221}
   m_OnClick:
     m_PersistentCalls:

@@ -76,7 +76,10 @@ public class TurnManager : MonoBehaviour
                 {
                     //todo: loose screen
                     SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(DungeonManager.GetDungeonSceneName()));
+                    
                     EndGameInfo.IsVictory = !_isDefeat;
+                    EndGameInfo.IsTuto = SceneManager.GetActiveScene().name.Contains("Tuto");
+                    
                     SceneManager.LoadScene("EndSession");
                 }
                 else
@@ -95,12 +98,16 @@ public class TurnManager : MonoBehaviour
                 {
                     //todo: loose screen
                     EndGameInfo.IsVictory = !_isDefeat;
+                    EndGameInfo.IsTuto = SceneManager.GetActiveScene().name.Contains("Tuto");
+                    
                     SceneManager.LoadScene("EndSession");
                 }
                 else
                 {
                     //todo: Session end
                     EndGameInfo.IsVictory = !_isDefeat;
+                    EndGameInfo.IsTuto = SceneManager.GetActiveScene().name.Contains("Tuto");
+                    
                     SceneManager.LoadScene("EndSession");
                 }
             }
@@ -133,6 +140,7 @@ public class TurnManager : MonoBehaviour
             Debug.Log("Defeat");
             _isDefeat = true;
             _combatEndCanvas.GetChild(1).gameObject.SetActive(true);
+            SetPlayersInfo();
             DefeatFx();
         }
     }

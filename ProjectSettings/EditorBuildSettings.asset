@@ -74,4 +74,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_MainScenes/S0 Arena/TutoBoss.unity
     guid: d0047f00752026443a74057990fd3191
+  - enabled: 1
+    path: Assets/_ScenesValou/EndSession.unity
+    guid: 3d12f6bdfc16387498a9c1e0733b8461
+  - enabled: 1
+    path: Assets/_MainScenes/S0 Dungeons/Tuto Dungeons.unity
+    guid: 8108c45ee82bb884aa889af2a89cd9fd
   m_configObjects: {}

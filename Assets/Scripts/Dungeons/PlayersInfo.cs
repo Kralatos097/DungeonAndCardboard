@@ -116,4 +116,5 @@ public class WizardInfo
 public static class EndGameInfo
 {
     public static bool IsVictory;
+    public static bool IsTuto;
 }

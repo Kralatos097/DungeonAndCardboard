@@ -1,12 +1,13 @@
 using System;
+using MyBox;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
     [Header("Sessions Name")]
-    [SerializeField] private string Session0;
-    [SerializeField] private string Session1;
+    [Scene][SerializeField] private string Session0;
+    [Scene][SerializeField] private string Session1;
     [Header("Animators")]
     [SerializeField] private Animator TransitionCam;
     [SerializeField] private Animator TableFlip;
