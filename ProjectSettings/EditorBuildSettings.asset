@@ -24,28 +24,28 @@ EditorBuildSettings:
     path: Assets/_ScenesValou/DungeonTest1.unity
     guid: 7db56e33168e0864eb97d7fcce38fbb7
   - enabled: 1
-    path: Assets/_MainScenes/S1 Arena/8x8/ZoneGrise.unity
+    path: Assets/_MainScenes/S1 Arena/Fight/ZoneGrise.unity
     guid: 8246ce1beb40d1740831717fb7c5aa15
   - enabled: 1
-    path: "Assets/_MainScenes/S1 Arena/8x9/Rang\xE9Arm\xE9.unity"
+    path: "Assets/_MainScenes/S1 Arena/Fight/Rang\xE9Arm\xE9.unity"
     guid: 050b1ae3f92e7494a8057bc2b1c2db72
   - enabled: 1
-    path: Assets/_MainScenes/S1 Arena/9x8/BonResto.unity
+    path: Assets/_MainScenes/S1 Arena/Fight/BonResto.unity
     guid: 85ee6dd0f3100f648a7d6131c961d6c9
   - enabled: 1
-    path: Assets/_MainScenes/S1 Arena/9x9/DuelsVide.unity
+    path: Assets/_MainScenes/S1 Arena/Fight/DuelsVide.unity
     guid: 1e620482c07c4cd49b55187c02b4f99f
   - enabled: 1
-    path: "Assets/_MainScenes/S1 Arena/Corridor/D\xE9faiteAssur\xE9.unity"
+    path: "Assets/_MainScenes/S1 Arena/Fight/D\xE9faiteAssur\xE9.unity"
     guid: d66db7a3fd0856b429d8b48147c7f8a2
   - enabled: 1
     path: Assets/_MainScenes/S1 Arena/KingRoom.unity
     guid: a8767045aa12c2345aba6bb80c74c516
   - enabled: 1
-    path: Assets/_MainScenes/S1 Arena/Embush/8x8/JoyeuxBordel.unity
+    path: Assets/_MainScenes/S1 Arena/Embush/JoyeuxBordel.unity
     guid: e75b0a2c3d7b58e449aa8fb9df6248ed
   - enabled: 1
-    path: "Assets/_MainScenes/S1 Arena/Embush/8x9/D\xE9potoirInfecte.unity"
+    path: "Assets/_MainScenes/S1 Arena/Embush/D\xE9potoirInfecte.unity"
     guid: 049a2fdb00d3b044b82fbc2bd5c8e8a3
   - enabled: 0
     path: Assets/_ScenesTibo/MainMenu.unity
