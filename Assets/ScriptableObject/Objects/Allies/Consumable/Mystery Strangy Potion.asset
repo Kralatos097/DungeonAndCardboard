@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b558f03138c7d742a6740924d0b1ea3, type: 3}
   m_Name: Mystery Strangy Potion
   m_EditorClassIdentifier: 
-  stuffName: 
-  logo: {fileID: 21300000, guid: 1c0f2e5d694a5e546b5259173f70829a, type: 3}
+  stuffType: Consumable
+  logo: {fileID: 21300000, guid: 90b7ae4e288d067489232bbdf5f688d9, type: 3}
   description: 'Random effect of any potion '
   range: 0
   cd: 0
