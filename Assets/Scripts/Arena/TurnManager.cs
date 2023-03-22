@@ -256,8 +256,16 @@ public class TurnManager : MonoBehaviour
         OnTurnEndPassiveEffect(turnOrder.Peek());
         unit.EquipCDMinus(1);
         turnOrder.Enqueue(unit);
-        TacticsMovement.PlayersTurn = false;
-        StartTurn();
+        if(!TacticsMovement.PlayersTurn)
+        {
+            Invoke("StartTurn", .75f);
+            TacticsMovement.PlayersTurn = false;
+        }
+        else
+        {
+            TacticsMovement.PlayersTurn = false;
+            StartTurn();
+        }
     }
 
     private static void ListToQueue()
