@@ -374,5 +374,5 @@ MonoBehaviour:
   stuffList: []
   consumableList: []
   stuffs:
-  - {fileID: 11400000, guid: c06f8ba356e865040a845f659df02920, type: 2}
+  - {fileID: 11400000, guid: 6e9eb7164ec42ad4abd4ca37a0263f1f, type: 2}
   - {fileID: 11400000, guid: fcbac5a82be2de045ac3d54757904592, type: 2}

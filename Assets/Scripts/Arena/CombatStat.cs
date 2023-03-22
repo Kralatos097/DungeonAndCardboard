@@ -1,10 +1,15 @@
 using System;
+using System.Collections.Generic;
 using MyBox;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class CombatStat : MonoBehaviour
 {
+    [SerializeField] private GameObject popUpDamagePrefab;
+    
     private int _initiative;
 
     [HideInInspector] public int baseMaxHp;
@@ -138,6 +143,9 @@ public class CombatStat : MonoBehaviour
 
     [HideInInspector] public bool isUp = true;
     [HideInInspector] public bool isAlive = true;
+    
+    [HideInInspector] public int lastAtkReceivedInfoValue;
+    [HideInInspector] public int lastAtkReceivedInfoIsCrit; //0 -> miss, 1 -> hit, 2 -> crit
 
     public void RollInit()
     {
@@ -177,17 +185,18 @@ public class CombatStat : MonoBehaviour
         transform.GetChild(0).GetComponent<Renderer>().material.color = Color.white;
     }
 
-    public void TakeDamage(int value)
+    public void TakeDamage(int value, int hit)
     {
         Passive passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
-        if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnDamageTaken)
+        if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnDamageTaken && hit != 0)
         {
             passive.Effect(gameObject);
         }
         
-        CurrHp-=value;
+        InstantiatePopUpDamage(value*hit, hit, false);
+        CurrHp-=value * hit;
         
-        Debug.Log(name+" is damaged for : " + value + " remaining " + CurrHp +"/"+ MaxHp);
+        Debug.Log(name+" is damaged for : " + value*hit + " remaining " + CurrHp +"/"+ MaxHp);
     }
 
     public void TakeDamagePassive(int value)
@@ -195,17 +204,18 @@ public class CombatStat : MonoBehaviour
         CurrHp-=value;
     }
     
-    public void TakeHeal(int value)
+    public void TakeHeal(int value, int hit)
     {
         Passive passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
-        if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnHealTaken)
+        if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnHealTaken && hit != 0)
         {
             passive.Effect(gameObject);
         }
         
-        CurrHp+=value;
+        InstantiatePopUpDamage(value*hit, hit, true);
+        CurrHp+=value * hit;
         
-        Debug.Log(name+" is healed for : " + value + " remaining " + CurrHp +"/"+ MaxHp);
+        Debug.Log(name+" is healed for : " + value*hit + " remaining " + CurrHp +"/"+ MaxHp);
     }
     
     public void TakeHealPassive(int value)
@@ -307,7 +317,7 @@ public class CombatStat : MonoBehaviour
 
     public void ActivatePoison()
     {
-        TakeDamage(1);
+        TakeDamage(1, 1);
         ActivatePoisonFX();
         StatusValue--;
         if(StatusEffect == StatusEffect.Nothing)
@@ -318,7 +328,7 @@ public class CombatStat : MonoBehaviour
     
     public void ActivateBurn()
     {
-        TakeDamage(StatusValue);
+        TakeDamage(StatusValue, 1);
         ActivateBurnFX();
         StatusValue = 0;
     }
@@ -406,6 +416,40 @@ public class CombatStat : MonoBehaviour
         FindObjectOfType<AudioManager>().RandomPitch(gameObject.CompareTag("Player") ? "AllieHealed" : "EnemyHealed");
         FindObjectOfType<FXManager>().Play("Healed", transform);
     }
+
+    private void InstantiatePopUpDamage(int value, int hit, bool isHeal)
+    {
+        Vector3 inst = new Vector3(transform.position.x, popUpDamagePrefab.transform.position.y, transform.position.z);
+        GameObject pop = Instantiate(popUpDamagePrefab, inst, Quaternion.identity);
+
+        
+        pop.transform.GetChild(0).GetChild(3).gameObject.SetActive(!isHeal);
+        pop.transform.GetChild(0).GetChild(4).gameObject.SetActive(isHeal);
+        switch (hit)
+        {
+            case 0:
+                pop.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+                pop.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+                pop.transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
+                pop.transform.GetChild(0).GetChild(3).gameObject.SetActive(false);
+                pop.transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
+                break;
+            case 1:
+                pop.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+                pop.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+                pop.transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
+                break;
+            case 2:
+                pop.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+                pop.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+                pop.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
+                break;
+            default:
+                break;
+        }
+        
+        pop.transform.GetChild(0).GetChild(isHeal ? 4 : 3).GetComponent<TextMeshProUGUI>().text = value.ToString();
+    }
     
     private void GetReviveFX()
     {
@@ -485,13 +529,13 @@ public class CombatStat : MonoBehaviour
     [ContextMenu("Kill Unit")]
     public void KillUnit()
     {
-        TakeDamage(100);
+        TakeDamage(100, 1);
     }
     
     [ContextMenu("Heal Unit")]
     public void HealUnit()
     {
-        TakeHeal(100);
+        TakeHeal(100, 1);
     }
     
     [ContextMenu("Armor Unit")]

@@ -164,7 +164,7 @@ public class Active : Stuff
                 }
                 break;
         }
-        target.GetComponent<CombatStat>().TakeDamage(hit * activeEffect.value);
+        target.GetComponent<CombatStat>().TakeDamage(activeEffect.value, hit);
     }
     
     private void Heal(GameObject target, ActiveEffect activeEffect, int hit)
@@ -189,7 +189,7 @@ public class Active : Stuff
                 }
                 break;
         }
-        target.GetComponent<CombatStat>().TakeHeal(hit*activeEffect.value);
+        target.GetComponent<CombatStat>().TakeHeal(activeEffect.value, hit);
     }
 
     private void Burn(GameObject target, ActiveEffect activeEffect, int hit)

@@ -870,11 +870,9 @@ MonoBehaviour:
   stuffList:
   - {fileID: 11400000, guid: 99e57c81efeaeca4bb9ea8cba1e9c6c5, type: 2}
   - {fileID: 11400000, guid: f8cc711971c91a6448e3fd6d0144d162, type: 2}
-  - {fileID: 11400000, guid: 1d06f6d5909fcda4092ec719aab100dd, type: 2}
   - {fileID: 11400000, guid: e78815dc23ecc674c8b87dd197810317, type: 2}
   - {fileID: 11400000, guid: 420ce2c8690510a428bc63f5c6d86740, type: 2}
   - {fileID: 11400000, guid: d83355a8a1f82474ab4d66b74f9f3d16, type: 2}
-  - {fileID: 11400000, guid: dc039e27cec63964185d1a9ec18b95c2, type: 2}
   - {fileID: 11400000, guid: c06f8ba356e865040a845f659df02920, type: 2}
   - {fileID: 11400000, guid: 7aa849b19fc6012459868f05ef959e02, type: 2}
   - {fileID: 11400000, guid: 6e9eb7164ec42ad4abd4ca37a0263f1f, type: 2}
@@ -888,7 +886,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5d31a170e571ee2429a2e93583aa59b5, type: 2}
   - {fileID: 11400000, guid: 84edfefc698beb544b2816cdefc314b3, type: 2}
   - {fileID: 11400000, guid: 925ea13f9c6923749b0af71a73e2de96, type: 2}
-  - {fileID: 11400000, guid: 009d8fa610322c44c9d3ee55701a13ac, type: 2}
   - {fileID: 11400000, guid: 2619ae9456f1a7d4fbac492974f19058, type: 2}
   - {fileID: 11400000, guid: 70f10c6b2a471c44cb41d0e930de6e97, type: 2}
   - {fileID: 11400000, guid: 6375b94a8f7c4f3439a777d5d1eb14f5, type: 2}
@@ -938,7 +935,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69bdc3f1ab0a72c479f118f37d5420f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emptyIcon: {fileID: 21300000, guid: 8fa1e9884b03fc54e93a8ea7c92a5dfa, type: 3}
+  emptyActiveIcon: {fileID: 21300000, guid: 8fa1e9884b03fc54e93a8ea7c92a5dfa, type: 3}
+  emptyPassiveIcon: {fileID: 21300000, guid: e9a7a53139500d146bae09148186ebf3, type: 3}
+  emptyConsumableIcon: {fileID: 21300000, guid: afbe32685bb78d848973d8f7552f0690, type: 3}
   bossPanel: {fileID: 991877361319708518}
   lootTrapPanel: {fileID: 991877359410365860}
   lootAmbushPanel: {fileID: 7355465914151854028}

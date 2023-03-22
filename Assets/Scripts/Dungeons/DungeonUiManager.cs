@@ -16,7 +16,9 @@ public class DungeonUiManager : MonoBehaviour
     private Perso _charaSelected;
     private Stuff _changedStuff;
 
-    [SerializeField] private Sprite emptyIcon;
+    [SerializeField] private Sprite emptyActiveIcon;
+    [SerializeField] private Sprite emptyPassiveIcon;
+    [SerializeField] private Sprite emptyConsumableIcon;
     
     [Header("ArtworksPanel")]
     [SerializeField] private GameObject bossPanel;
@@ -204,10 +206,10 @@ public class DungeonUiManager : MonoBehaviour
         {
             case 0: //Warrior
                 _charaSelected = Perso.Warrior;
-                EquipChoiceIconChange(WarriorInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).gameObject);
-                EquipChoiceIconChange(WarriorInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject);
-                EquipChoiceIconChange(WarriorInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject);
-                EquipChoiceIconChange(WarriorInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject);
+                EquipChoiceIconChange(WarriorInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).gameObject, "Active");
+                EquipChoiceIconChange(WarriorInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject, "Active");
+                EquipChoiceIconChange(WarriorInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject, "Passive");
+                EquipChoiceIconChange(WarriorInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject, "Consumable");
                 _baseStuffs[0] = WarriorInfo.ActiveOne;
                 _baseStuffs[1] = WarriorInfo.ActiveTwo;
                 _baseStuffs[2] = WarriorInfo.Passive;
@@ -216,10 +218,10 @@ public class DungeonUiManager : MonoBehaviour
             
             case 1: //Thief
                 _charaSelected = Perso.Thief;
-                EquipChoiceIconChange(ThiefInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).gameObject);
-                EquipChoiceIconChange(ThiefInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject);
-                EquipChoiceIconChange(ThiefInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject);
-                EquipChoiceIconChange(ThiefInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject);
+                EquipChoiceIconChange(ThiefInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).gameObject, "Active");
+                EquipChoiceIconChange(ThiefInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject, "Active");
+                EquipChoiceIconChange(ThiefInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject, "Passive");
+                EquipChoiceIconChange(ThiefInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject, "Consumable");
                 _baseStuffs[0] = ThiefInfo.ActiveOne;
                 _baseStuffs[1] = ThiefInfo.ActiveTwo;
                 _baseStuffs[2] = ThiefInfo.Passive;
@@ -228,10 +230,10 @@ public class DungeonUiManager : MonoBehaviour
             
             case 2: //Cleric
                 _charaSelected = Perso.Cleric;
-                EquipChoiceIconChange(ClericInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).gameObject);
-                EquipChoiceIconChange(ClericInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject);
-                EquipChoiceIconChange(ClericInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject);
-                EquipChoiceIconChange(ClericInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject);
+                EquipChoiceIconChange(ClericInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).gameObject, "Active");
+                EquipChoiceIconChange(ClericInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject, "Active");
+                EquipChoiceIconChange(ClericInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject, "Passive");
+                EquipChoiceIconChange(ClericInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject, "Consumable");
                 _baseStuffs[0] = ClericInfo.ActiveOne;
                 _baseStuffs[1] = ClericInfo.ActiveTwo;
                 _baseStuffs[2] = ClericInfo.Passive;
@@ -240,10 +242,10 @@ public class DungeonUiManager : MonoBehaviour
             
             case 3: //Wizard
                 _charaSelected = Perso.Wizard;
-                EquipChoiceIconChange(WizardInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).gameObject);
-                EquipChoiceIconChange(WizardInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject);
-                EquipChoiceIconChange(WizardInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject);
-                EquipChoiceIconChange(WizardInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject);
+                EquipChoiceIconChange(WizardInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).gameObject, "Active");
+                EquipChoiceIconChange(WizardInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject, "Active");
+                EquipChoiceIconChange(WizardInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject, "Passive");
+                EquipChoiceIconChange(WizardInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject, "Consumable");
                 _baseStuffs[0] = WizardInfo.ActiveOne;
                 _baseStuffs[1] = WizardInfo.ActiveTwo;
                 _baseStuffs[2] = WizardInfo.Passive;
@@ -256,7 +258,7 @@ public class DungeonUiManager : MonoBehaviour
         stuffReplaceSelectPanel.SetActive(true);
     }
 
-    private void EquipChoiceIconChange(Stuff stuff, GameObject Go)
+    private void EquipChoiceIconChange(Stuff stuff, GameObject Go, string type)
     {
         if (stuff != null)
         {
@@ -266,7 +268,20 @@ public class DungeonUiManager : MonoBehaviour
         else
         {
             Go.GetComponent<StuffButtonOver>().ChangeStuff(null);
-            Go.GetComponent<Image>().sprite = emptyIcon;
+            switch(type)
+            {
+                case "Active":
+                    Go.GetComponent<Image>().sprite = emptyActiveIcon;
+                    break;
+                case "Passive":
+                    Go.GetComponent<Image>().sprite = emptyPassiveIcon;
+                    break;
+                case "Consumable":
+                    Go.GetComponent<Image>().sprite = emptyConsumableIcon;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
@@ -330,8 +345,8 @@ public class DungeonUiManager : MonoBehaviour
 
         GameObject buttonClicked = EventSystem.current.currentSelectedGameObject;
 
-        EquipChoiceIconChange(_newStuff, buttonClicked);
-        EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject);
+        EquipChoiceIconChange(_newStuff, buttonClicked, "Active");
+        EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject, "Active");
         
         ChangeStuffFx();
         _newStuff = stuff;
@@ -367,8 +382,8 @@ public class DungeonUiManager : MonoBehaviour
         
         GameObject buttonClicked = EventSystem.current.currentSelectedGameObject;
         
-        EquipChoiceIconChange(_newStuff, buttonClicked);
-        EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject);
+        EquipChoiceIconChange(_newStuff, buttonClicked, "Active");
+        EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject, "Active");
         
         ChangeStuffFx();
         _newStuff = stuff;
@@ -404,8 +419,8 @@ public class DungeonUiManager : MonoBehaviour
         
         GameObject buttonClicked = EventSystem.current.currentSelectedGameObject;
         
-        EquipChoiceIconChange(_newStuff, buttonClicked);
-        EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject);
+        EquipChoiceIconChange(_newStuff, buttonClicked, "Passive");
+        EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject, "Passive");
         
         ChangeStuffFx();
         _newStuff = stuff;
@@ -441,8 +456,8 @@ public class DungeonUiManager : MonoBehaviour
         
         GameObject buttonClicked = EventSystem.current.currentSelectedGameObject;
 
-        EquipChoiceIconChange(_newStuff, buttonClicked);
-        EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject);
+        EquipChoiceIconChange(_newStuff, buttonClicked, "Consumable");
+        EquipChoiceIconChange(stuff, stuffIconPanel.transform.GetChild(0).gameObject, "Consumable");
         
         ChangeStuffFx();
         _newStuff = stuff;

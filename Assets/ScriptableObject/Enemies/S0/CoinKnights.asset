@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: {x: 1, y: 1}
   initiative: -10
-  movement: 5
+  movement: 3
   activeOne: {fileID: 11400000, guid: 51395884bbfc76d47a8db6a3ee4be527, type: 2}
   activeTwo: {fileID: 0}
   passive: {fileID: 0}
