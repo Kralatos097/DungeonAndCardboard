@@ -102,12 +102,12 @@ public class CombatStat : MonoBehaviour
                     }
                 }
             }
-            else
+            else if(value > _currHp)
             {
                 _currHp = value;
+                if(TurnManager.CombatStarted) GetHealFX();
                 if(_currHp > MaxHp)
                 {
-                    if(TurnManager.CombatStarted) GetHealFX();
                     _currHp = MaxHp;
                 }
 
@@ -187,13 +187,14 @@ public class CombatStat : MonoBehaviour
 
     public void TakeDamage(int value, int hit)
     {
+        InstantiatePopUpDamage(value*hit, hit, false);
+        if (value * hit == 0) return;
         Passive passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
         if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnDamageTaken && hit != 0)
         {
             passive.Effect(gameObject);
         }
         
-        InstantiatePopUpDamage(value*hit, hit, false);
         CurrHp-=value * hit;
         
         Debug.Log(name+" is damaged for : " + value*hit + " remaining " + CurrHp +"/"+ MaxHp);
@@ -206,13 +207,14 @@ public class CombatStat : MonoBehaviour
     
     public void TakeHeal(int value, int hit)
     {
+        InstantiatePopUpDamage(value*hit, hit, true);
+        if (value * hit == 0) return;
         Passive passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
         if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnHealTaken && hit != 0)
         {
             passive.Effect(gameObject);
         }
         
-        InstantiatePopUpDamage(value*hit, hit, true);
         CurrHp+=value * hit;
         
         Debug.Log(name+" is healed for : " + value*hit + " remaining " + CurrHp +"/"+ MaxHp);
@@ -220,6 +222,7 @@ public class CombatStat : MonoBehaviour
     
     public void TakeHealPassive(int value)
     {
+        if (value == 0) return;
         CurrHp+=value;
     }
 

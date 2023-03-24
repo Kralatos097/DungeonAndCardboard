@@ -388,7 +388,7 @@ public class DungeonManager : MonoBehaviour
         }
     }
     
-    private void LaunchFightLoot()
+    protected virtual void LaunchFightLoot()
     {
         artworkShown = true;
         //Stuff newStuff;
