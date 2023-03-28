@@ -42,7 +42,15 @@ public class TurnManager : MonoBehaviour
 
     private void Start()
     {
-        FindObjectOfType<AudioManager>().Play("Fight");
+        if(!bossFight)
+        {
+            FindObjectOfType<AudioManager>().Play("Fight");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("Boss");
+        }
+        
         Invoke(nameof(LateStart), 1);
         _combatEndCanvas = CombatEndCanvas;
         GetCurrentPlayerD = GetCurrentPlayer;
