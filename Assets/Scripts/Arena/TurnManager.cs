@@ -69,7 +69,6 @@ public class TurnManager : MonoBehaviour
     {
         if(Input.GetMouseButtonUp(0) && _combatEnded)
         {
-            Debug.Log(bossFight + " - " + _isDefeat);
             if(!bossFight)
             {
                 if(_isDefeat)

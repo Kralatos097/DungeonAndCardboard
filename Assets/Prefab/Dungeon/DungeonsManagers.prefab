@@ -865,8 +865,13 @@ MonoBehaviour:
   - BonResto
   - DuelsVide
   - "D\xE9faiteAssur\xE9"
+  - "D\xE9faiteAssur\xE9"
   ambushedSceneList:
-  - ZoneGrise
+  - ApocalypseVerdatre
+  - CassisAventure
+  - "D\xE9potoirInfecte"
+  - FaussePrincesse
+  - JoyeuxBordel
   stuffList:
   - {fileID: 11400000, guid: 99e57c81efeaeca4bb9ea8cba1e9c6c5, type: 2}
   - {fileID: 11400000, guid: f8cc711971c91a6448e3fd6d0144d162, type: 2}

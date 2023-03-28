@@ -29,6 +29,28 @@ public class DungeonManagerTuto : DungeonManager
 
 		Stuff stuff = stuffs[StuffCnt];
 		string type = stuff.stuffType;
+		Debug.Log(StuffCnt + " - " + stuff);
+		
+		if(type == "Consumable")
+		{
+			DungeonUiManager.TreasureConsumableUi();
+			treasureEffect = TreasureEffect.Consumable;
+		}
+		else
+		{
+			DungeonUiManager.TreasureStuffUi();
+			treasureEffect = TreasureEffect.Stuff;
+		}
+	}
+    
+	protected override void LaunchFightLoot()
+	{
+		artworkShown = true;
+		PositiveLootFX();
+
+		Stuff stuff = stuffs[StuffCnt];
+		string type = stuff.stuffType;
+		Debug.Log(StuffCnt + " - " + stuff);
 		
 		if(type == "Consumable")
 		{
