@@ -5,20 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="225202b0-c116-4b2c-8d9c-8c9a57c9d235" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/S0/MrGom.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/S0/MrGom.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/S1/GobelinKing.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Enemies/S1/GobelinKing.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Mystery Strangy Potion.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Mystery Strangy Potion.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Potion of Armor.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Potion of Armor.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Potion of Burn.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Potion of Burn.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Potion of Cure.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Potion of Cure.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Potion of Freeze.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Potion of Freeze.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Potion of Healing.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Potion of Healing.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Potion of Poison.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Potion of Poison.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Scroll of Fire.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Scroll of Fire.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Scroll of Freeze.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Scroll of Freeze.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Scroll of Heal.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Scroll of Heal.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Scroll of Poison.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Scroll of Poison.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Scroll of Stun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Consumable/Scroll of Stun.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/CanvasNStuffArene.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/CanvasNStuffArene.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/TurnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/TurnManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/DelitschAntiqua SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/DelitschAntiqua SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S0 Arena/TutoFight.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S0 Arena/TutoFight.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,13 +36,10 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="rider.run.widget.enabled.cache" value="false" />
+  </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../Build/BuildDnC\Dungeons&amp;Cardboards.exe" />
@@ -124,6 +114,7 @@
       <workItem from="1679302678028" duration="12236000" />
       <workItem from="1679391682552" duration="6941000" />
       <workItem from="1679479471304" duration="11233000" />
+      <workItem from="1679991558942" duration="3461000" />
     </task>
     <servers />
   </component>
