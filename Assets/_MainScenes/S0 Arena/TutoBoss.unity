@@ -278,6 +278,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3872659958094860907, guid: ca5a7ed29c3d34247a42c47bf95fe0fb, type: 3}
+      propertyPath: antialiasingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4636592046916025257, guid: ca5a7ed29c3d34247a42c47bf95fe0fb, type: 3}
       propertyPath: m_Name
       value: CanvasNStuffArene

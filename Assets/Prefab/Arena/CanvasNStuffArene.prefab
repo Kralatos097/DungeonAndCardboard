@@ -2634,10 +2634,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 671e05c623845e04d970a553fcfeee5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popUpDamagePrefab: {fileID: 0}
   baseMaxHp: 0
   currInit: 0
   isUp: 1
   isAlive: 1
+  lastAtkReceivedInfoValue: 0
+  lastAtkReceivedInfoIsCrit: 0
   maxHp: 400
 --- !u!1 &4636592046916025257
 GameObject:
@@ -3559,7 +3562,7 @@ MonoBehaviour:
   subpixelMorphologicalAntialiasing:
     quality: 2
   fastApproximateAntialiasing:
-    fastMode: 0
+    fastMode: 1
     keepAlpha: 0
   fog:
     enabled: 1
