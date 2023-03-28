@@ -15,14 +15,26 @@ EditorBuildSettings:
     path: Assets/_MainScenes/MainMenu.unity
     guid: cd4f62d06c2042545a6ab735ef75c6cd
   - enabled: 1
-    path: Assets/_ScenesTibo/DungeonScene.unity
-    guid: ccb7a2d6859b8014ebba39c90567f593
+    path: Assets/_ScenesValou/DungeonTest1.unity
+    guid: 7db56e33168e0864eb97d7fcce38fbb7
   - enabled: 1
     path: Assets/_MainScenes/Cinematque/IntroS1.unity
     guid: ec5401cc652db2a41bbeefba55c905de
   - enabled: 1
-    path: Assets/_ScenesValou/DungeonTest1.unity
-    guid: 7db56e33168e0864eb97d7fcce38fbb7
+    path: Assets/_MainScenes/S1 Arena/Fight/CuisineCauchemardesque.unity
+    guid: 0c33d0f27cb596541bad5e83a51f041e
+  - enabled: 1
+    path: "Assets/_MainScenes/S1 Arena/Fight/MurInqui\xE9tant.unity"
+    guid: 884e2bf652a6bfe4db701fbdd875fbd3
+  - enabled: 1
+    path: "Assets/_MainScenes/S1 Arena/Fight/CibleEmpoison\xE9.unity"
+    guid: 7f5f20e384dfe674cae9816255742674
+  - enabled: 1
+    path: "Assets/_MainScenes/S1 Arena/Fight/CheminR\xE9strinc.unity"
+    guid: 9266b31c06e1ff248857cee3dac31f05
+  - enabled: 1
+    path: Assets/_MainScenes/S1 Arena/Fight/CampsDentrainement.unity
+    guid: 07f4b949e472c7c47bd18b7dfc10f20c
   - enabled: 1
     path: Assets/_MainScenes/S1 Arena/Fight/ZoneGrise.unity
     guid: 8246ce1beb40d1740831717fb7c5aa15
@@ -39,35 +51,26 @@ EditorBuildSettings:
     path: "Assets/_MainScenes/S1 Arena/Fight/D\xE9faiteAssur\xE9.unity"
     guid: d66db7a3fd0856b429d8b48147c7f8a2
   - enabled: 1
-    path: Assets/_MainScenes/S1 Arena/KingRoom.unity
-    guid: a8767045aa12c2345aba6bb80c74c516
-  - enabled: 1
     path: Assets/_MainScenes/S1 Arena/Embush/JoyeuxBordel.unity
     guid: e75b0a2c3d7b58e449aa8fb9df6248ed
   - enabled: 1
     path: "Assets/_MainScenes/S1 Arena/Embush/D\xE9potoirInfecte.unity"
     guid: 049a2fdb00d3b044b82fbc2bd5c8e8a3
-  - enabled: 0
-    path: Assets/_ScenesTibo/MainMenu.unity
-    guid: 3da0cb404a1ce2e43971efbf6ec46c9e
-  - enabled: 0
-    path: Assets/_ScenesTibo/VictoryScene.unity
-    guid: b1a6897996fc7ad40ad6644282257fc1
-  - enabled: 0
-    path: Assets/_ScenesTibo/DefeatScene.unity
-    guid: 5f380e46323a8af45b9fdcf65e87fe5b
   - enabled: 1
-    path: Assets/_ScenesTibo/CommonFights/BossFight.unity
-    guid: 0e6ef59d1c6ed994eb475265b5f81390
-  - enabled: 0
-    path: Assets/_ScenesTibo/CommonFights/Fight.unity
-    guid: b14bce233c26ffb41914af6c7949c82f
+    path: Assets/_MainScenes/S1 Arena/Embush/ApocalypseVerdatre.unity
+    guid: a8106f15b11734c40bd1ed122bdd0292
   - enabled: 1
-    path: Assets/_ScenesValou/IntroTest.unity
-    guid: d1d2690c8f4624a439dce00127c52657
+    path: Assets/_MainScenes/S1 Arena/Embush/FaussePrincesse.unity
+    guid: ce9b0dfcaa6a23e4a9f7bd1e9ba2a563
   - enabled: 1
-    path: Assets/_ScenesValou/Jeu Test.unity
-    guid: c1bc632563ee8a042b200c82c0dc75d3
+    path: Assets/_MainScenes/S1 Arena/Embush/CassisAventure.unity
+    guid: af4765852a4f67c4ca9451bfd4f7a043
+  - enabled: 1
+    path: Assets/_MainScenes/S1 Arena/KingRoom.unity
+    guid: a8767045aa12c2345aba6bb80c74c516
+  - enabled: 1
+    path: Assets/_MainScenes/S0 Dungeons/Tuto Dungeons.unity
+    guid: 8108c45ee82bb884aa889af2a89cd9fd
   - enabled: 1
     path: Assets/_MainScenes/S0 Arena/TutoFight.unity
     guid: 932f056285ab2254f9da4204e54eb9b5
@@ -77,7 +80,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_ScenesValou/EndSession.unity
     guid: 3d12f6bdfc16387498a9c1e0733b8461
-  - enabled: 1
-    path: Assets/_MainScenes/S0 Dungeons/Tuto Dungeons.unity
-    guid: 8108c45ee82bb884aa889af2a89cd9fd
   m_configObjects: {}
