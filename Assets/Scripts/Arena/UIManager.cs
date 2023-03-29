@@ -468,6 +468,7 @@ public class UIManager : MonoBehaviour
             if(status != StatusEffect.Nothing)
             {
                 t.Value.transform.Find("StatusImg").gameObject.SetActive(true);
+                t.Value.transform.Find("StatusImg").GetComponent<StuffButtonOver>().ChangeStatus(status);
                 t.Value.transform.Find("StatusImg").GetComponentInChildren<TextMeshProUGUI>().text =
                     t.Key.GetComponent<CombatStat>().StatusValue.ToString();
                 

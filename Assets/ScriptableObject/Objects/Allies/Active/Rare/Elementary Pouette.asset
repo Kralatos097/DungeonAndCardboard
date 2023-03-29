@@ -19,7 +19,7 @@ MonoBehaviour:
   cd: 1
   clickTarget: 1
   activeEffectList:
-  - activeType: 0
+  - activeType: 11
     value: 0
     onSelf: 0
     noMiss: 0
