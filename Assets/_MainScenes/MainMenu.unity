@@ -6882,7 +6882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf4d47bd4ee0b14297a62fd1a93ee19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Session0: Tuto Dungeons
+  Session0: IntroS0
   Session1: IntroS1
   TransitionCam: {fileID: 1082306310}
   TableFlip: {fileID: 1612605278}
