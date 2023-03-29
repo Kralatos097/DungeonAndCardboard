@@ -505,13 +505,20 @@ public class TurnManager : MonoBehaviour
 
     private void VictoryFx()
     {
-        FindObjectOfType<AudioManager>().RandomPitch("Victory");
+        if(bossFight)
+        {
+            FindObjectOfType<AudioManager>().Play("FanfareWin");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("ArenaWin");
+        }
         //Todo: Add Animation
     }
     
     private void DefeatFx()
     {
-        FindObjectOfType<AudioManager>().RandomPitch("Defeat");
+        FindObjectOfType<AudioManager>().RandomPitch("FanfareLoose");
         //Todo: Add Animation
     }
 }

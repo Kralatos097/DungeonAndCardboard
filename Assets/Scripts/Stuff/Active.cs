@@ -103,9 +103,40 @@ public class Active : Stuff
                 case ActiveType.RandomPotionEffect:
                     RandomPotionEffect(user, activeEffect, hit);
                     break;
+                case ActiveType.ElementaryPouet:
+                    ElementaryPouet(go, activeEffect, hit);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+    }
+
+    private void ElementaryPouet(GameObject target, ActiveEffect activeEffect, int hit)
+    {
+        StatusEffect statusEffect = target.GetComponent<CombatStat>().GetStatusEffect();
+        int statusValue = target.GetComponent<CombatStat>().GetStatusValue();
+
+        activeEffect.value = statusValue * 2;
+
+        switch (statusEffect)
+        {
+            case StatusEffect.Nothing:
+                break;
+            case StatusEffect.Poison:
+                Poison(target, activeEffect, hit);
+                break;
+            case StatusEffect.Stun:
+                Stun(target, activeEffect, hit);
+                break;
+            case StatusEffect.Burn:
+                Burn(target, activeEffect, hit);
+                break;
+            case StatusEffect.Freeze:
+                Freeze(target, activeEffect, hit);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720dd80e5193a704192370146364f395, type: 3}
   m_Name: Warrior 1
   m_EditorClassIdentifier: 
-  maxHp: 0
+  maxHp: 12
   initiative: 3
   movement: 3
   activeOne: {fileID: 11400000, guid: cf35bb4672971bc4991ebd1ee3e9b5cc, type: 2}
-  activeTwo: {fileID: 0}
+  activeTwo: {fileID: 11400000, guid: 2619ae9456f1a7d4fbac492974f19058, type: 2}
   passive: {fileID: 11400000, guid: 94269ff8916a17c46948de8dae9815a0, type: 2}
   consumable: {fileID: 0}

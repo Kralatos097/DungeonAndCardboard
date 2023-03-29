@@ -170,12 +170,12 @@ public class EndSession : MonoBehaviour
         if(EndGameInfo.IsVictory)
         {
             //todo: victory setup
-            audioManager.Play("VictoryFanfare");
+            audioManager.Play("EndSessionWin");
         }
         else
         {
             //todo: defeat setup
-            audioManager.Play("DefeatFanfare");
+            audioManager.Play("EndSessionLose");
         }
     }
 }
