@@ -3106,7 +3106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 671e05c623845e04d970a553fcfeee5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popUpDamagePrefab: {fileID: 0}
+  popUpDamagePrefab: {fileID: 3663142198758422937, guid: d7edd192a14fe3145bf39d2d7b38785a, type: 3}
   baseMaxHp: 0
   currInit: 0
   isUp: 1

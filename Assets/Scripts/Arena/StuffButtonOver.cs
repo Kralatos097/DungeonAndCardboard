@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class StuffButtonOver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private Stuff stuff;
-    private StatusEffect statusEffect;
+    private StatusEffect statusEffect = StatusEffect.Nothing;
     
     private RectTransform descriptionPanel;
 
@@ -27,7 +27,7 @@ public class StuffButtonOver : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(stuff == null) return;
+        if(stuff == null && statusEffect == StatusEffect.Nothing) return;
         InsertInfo();
         
         var menuCorners = new Vector3[4];
@@ -90,7 +90,7 @@ public class StuffButtonOver : MonoBehaviour, IPointerEnterHandler, IPointerExit
     
     private void InsertInfo()
     {
-        if (stuff == null)
+        if(stuff != null)
         {
             descriptionPanel.GetChild(0).GetComponent<TextMeshProUGUI>().text = stuff.name;
             descriptionPanel.GetChild(1).GetComponent<TextMeshProUGUI>().text = stuff.description;
