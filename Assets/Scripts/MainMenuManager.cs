@@ -112,8 +112,9 @@ public class MainMenuManager : MonoBehaviour
     //Quit le jeu
     public void TableFlipBeforeQuit()
     {
-        TableFlip.SetTrigger("TableFlip");
-        Invoke("QuitTheGame",0.5f);
+        QuitTheGame();
+        //TableFlip.SetTrigger("TableFlip");
+        //Invoke("QuitTheGame",0.5f);
     }
     public void QuitTheGame()
     {

@@ -52,34 +52,34 @@ MonoBehaviour:
   pitchMinMax: {x: 0.9, y: 1.1}
   music:
   - name: MainMenu
-    clip: {fileID: 8300000, guid: 74077659f8ffbf347a609714be7efac0, type: 3}
+    clip: {fileID: 8300000, guid: 7a622316c8c79574f8fb5c3345a1008f, type: 3}
     volume: 1
     loop: 1
     source: {fileID: 0}
   - name: Fight
-    clip: {fileID: 8300000, guid: 5ce538083c1e6714da26f2843c4a4501, type: 3}
+    clip: {fileID: 8300000, guid: 00a2df173539af745821b940bf553625, type: 3}
     volume: 1
     loop: 1
     source: {fileID: 0}
   - name: Dungeon
-    clip: {fileID: 8300000, guid: 7aaacbe5dd9790b438c272db8ff93c99, type: 3}
+    clip: {fileID: 8300000, guid: 243cb9304749d7649b8c285df7af1da2, type: 3}
     volume: 1
     loop: 1
     source: {fileID: 0}
   - name: Boss
-    clip: {fileID: 8300000, guid: ee1c0ca586afa8442aa7e4660834e0dd, type: 3}
+    clip: {fileID: 8300000, guid: 9f040e877b8a345428afd18164fcb52c, type: 3}
     volume: 1
     loop: 1
     source: {fileID: 0}
   - name: DefeatFanfare
-    clip: {fileID: 8300000, guid: 75737c0f5ebe9754b99fa5e893b98539, type: 3}
+    clip: {fileID: 8300000, guid: 4c85b88b76baec74ea6a59bf76a6b28b, type: 3}
     volume: 1
     loop: 1
     source: {fileID: 0}
   - name: VictoryFanfare
-    clip: {fileID: 8300000, guid: 82536857ab60c2b4198831d42c71bab2, type: 3}
+    clip: {fileID: 8300000, guid: e2d1835b5de956749bee2d22b0890741, type: 3}
     volume: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: Intro
     clip: {fileID: 8300000, guid: 74077659f8ffbf347a609714be7efac0, type: 3}
@@ -99,47 +99,47 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: AllieStartTurn
     clip: {fileID: 8300000, guid: 5f86f261bd13d7448ad7ac98ccb1272f, type: 3}
-    volume: 1
+    volume: 0.7
     pitch: 1
     source: {fileID: 0}
   - name: EnemyStartTurn
     clip: {fileID: 8300000, guid: 5f86f261bd13d7448ad7ac98ccb1272f, type: 3}
-    volume: 1
+    volume: 0.7
     pitch: 1
     source: {fileID: 0}
   - name: StepArena
     clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     source: {fileID: 0}
   - name: UiClic
     clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     source: {fileID: 0}
   - name: RangeAction
-    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    clip: {fileID: 8300000, guid: 0b6ad0cf1d018c84fbd023afd5a816b5, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: CaCAction
-    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    clip: {fileID: 8300000, guid: 0b6ad0cf1d018c84fbd023afd5a816b5, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: SelfAction
-    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    clip: {fileID: 8300000, guid: 0b6ad0cf1d018c84fbd023afd5a816b5, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: EnemyDamaged
     clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     source: {fileID: 0}
   - name: AllieDamaged
     clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     source: {fileID: 0}
   - name: EnemyHealed
@@ -154,12 +154,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: ArmorDamaged
     clip: {fileID: 8300000, guid: 0a8caecfd8387b046a48956524c9dbe6, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     source: {fileID: 0}
   - name: ArmorGained
     clip: {fileID: 8300000, guid: 337c413bbd8ec0741a6854764acbb382, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     source: {fileID: 0}
   - name: Revive
@@ -229,7 +229,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: CrateDamage
     clip: {fileID: 8300000, guid: f2100f6d7233dde4b8e0a3264b2cb0ce, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     source: {fileID: 0}
   - name: CrateDeath
@@ -278,7 +278,7 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: Defeat
-    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
+    clip: {fileID: 8300000, guid: d3665dd8bb9543843aa2530e71eea63e, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
@@ -322,6 +322,11 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: Rest
+    clip: {fileID: 8300000, guid: aa66c89f4079f2146b1b2af603918f80, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
   voice: []
   fadeDuration: 2
 --- !u!114 &5566258208821927673
@@ -339,6 +344,10 @@ MonoBehaviour:
   particules:
   - name: Damaged
     particule: {fileID: 5298821903193847754, guid: 49a752e9929c5a044b2c8db289a0e8e2, type: 3}
+  - name: Crit
+    particule: {fileID: 0}
+  - name: Miss
+    particule: {fileID: 0}
   - name: Healed
     particule: {fileID: 4500085554803695389, guid: c5925d4c0e318b84899ca171d43305f4, type: 3}
   - name: Cured
@@ -369,8 +378,6 @@ MonoBehaviour:
     particule: {fileID: 5758658489581617538, guid: b0a59cf8a4dcdbd41ad60473214408fd, type: 3}
   - name: Dead
     particule: {fileID: 7420029356290824026, guid: b2fd26a5e6187894d97f0a65c1a8540a, type: 3}
-  - name: DamagedPopUp
-    particule: {fileID: 3663142198758422937, guid: d7edd192a14fe3145bf39d2d7b38785a, type: 3}
 --- !u!81 &2263537129894144590
 AudioListener:
   m_ObjectHideFlags: 0
