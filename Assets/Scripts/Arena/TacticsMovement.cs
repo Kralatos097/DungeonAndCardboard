@@ -756,11 +756,11 @@ public class TacticsMovement : MonoBehaviour
 	//return 0 for a miss, 1 for a hit, 2 for a critical
 	private int GetHitChance()
 	{
-		int nb = Random.Range(1, 7);
+		int nb = Random.Range(1, 11);
 		return nb switch
 		{
 			1 => 0,
-			6 => 2,
+			2 => 2,
 			_ => 1
 		};
 	}

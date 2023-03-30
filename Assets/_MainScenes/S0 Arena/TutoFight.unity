@@ -284,22 +284,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoinRanger
       objectReference: {fileID: 0}
-    - target: {fileID: 1665206683758302091, guid: 7b6319b090d3a5342860a0aa18137121, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1665206683758302091, guid: 7b6319b090d3a5342860a0aa18137121, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1665206683758302091, guid: 7b6319b090d3a5342860a0aa18137121, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1665206683758302091, guid: 7b6319b090d3a5342860a0aa18137121, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b6319b090d3a5342860a0aa18137121, type: 3}
 --- !u!1001 &1530478788

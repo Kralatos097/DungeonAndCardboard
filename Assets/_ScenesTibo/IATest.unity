@@ -1719,6 +1719,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EquipPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 8645692054120925654, guid: ca5a7ed29c3d34247a42c47bf95fe0fb, type: 3}
+      propertyPath: bossFight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8645692054957483773, guid: ca5a7ed29c3d34247a42c47bf95fe0fb, type: 3}
       propertyPath: m_IsActive
       value: 0
