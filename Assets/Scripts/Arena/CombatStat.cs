@@ -22,13 +22,13 @@ public class CombatStat : MonoBehaviour
         set
         {
             _maxHp = value;
-            if(isUp)
+            /*if(isUp)
             {
                 if(_maxHp > _currHp)
                 {
                     _currHp = _maxHp;
                 }
-            }
+            }*/
             if(_maxHp < 0)
             {
                 _maxHp = 0;
