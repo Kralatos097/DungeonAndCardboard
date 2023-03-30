@@ -287,15 +287,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[0].Text
-      value: Vous entrez dans le donjon de...
+      value: You enter in the Dungeon of...
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[1].Text
-      value: Mais je ne sais pas jouer moi...
+      value: But I don't know how to play...
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[2].Text
-      value: "Quoi ?! Comment \xE7a tu ne sais pas jou\xE9 ?!"
+      value: 'What?!
+
+        What do you mean you don''t know how to play?!'
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[3].Text
@@ -303,15 +305,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[4].Text
-      value: Bon, alors...
+      value: Well, then...
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[5].Text
-      value: Tenez...
+      value: Here you go...
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[6].Text
-      value: "\xE7a fera l'affaire !"
+      value: This will do the trick!
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[0].LeftSprite

@@ -287,12 +287,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[0].Text
-      value: "Apr\xE8s avoir vaincu le Roi Gobelin, vous f\xEAtez comme il se doit,
-        votre victoire..."
+      value: After defeating the goblin king, you celebrate your victory as it should
+        be...
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[1].Text
-      value: "G\xE9nial ! On a d\xE9truit les gobelins ! "
+      value: 'Great! We''ve defeated the Gobelin King! '
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[2].Text
@@ -300,11 +300,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[3].Text
-      value: "Euuh, les gars vous m'avez oubli\xE9..."
+      value: Uuuh, guys you forgot me...
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[4].Text
-      value: LES GAAAAARS !!!
+      value: GUUUUUYS!!!
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[5].Text

@@ -6,12 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="225202b0-c116-4b2c-8d9c-8c9a57c9d235" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/CanvasNStuffArene.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/CanvasNStuffArene.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/EnemyPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/EnemyPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/PlayerInitPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/UI/PlayerInitPanel.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/AudioManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/AudioManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/StuffButtonOver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/StuffButtonOver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesTibo/IATest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/ArtworkCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/ArtworkCanvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/LootSelectCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/LootSelectCanvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/StuffSelectCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Dungeon/UI/StuffSelectCanvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/DelitschAntiqua SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/DelitschAntiqua SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/Cinematque/IntroS0.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/Cinematque/IntroS0.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/Cinematque/IntroS1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/Cinematque/IntroS1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/Cinematque/OutroS1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/Cinematque/OutroS1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
@@ -39,7 +42,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
@@ -117,6 +126,8 @@
       <workItem from="1679479471304" duration="11233000" />
       <workItem from="1679991558942" duration="4061000" />
       <workItem from="1680076535546" duration="8984000" />
+      <workItem from="1680162864710" duration="995000" />
+      <workItem from="1680168216843" duration="358000" />
     </task>
     <servers />
   </component>
@@ -136,6 +147,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

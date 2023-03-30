@@ -71,12 +71,27 @@ MonoBehaviour:
     volume: 1
     loop: 1
     source: {fileID: 0}
-  - name: DefeatFanfare
+  - name: FanfareLose
+    clip: {fileID: 8300000, guid: d3665dd8bb9543843aa2530e71eea63e, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FanfareWin
+    clip: {fileID: 8300000, guid: c60a06ca43c729941bcd3f76d1a13308, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ArenaWin
+    clip: {fileID: 8300000, guid: 121be606f4de41a4284c081b63642c43, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EndSessionLose
     clip: {fileID: 8300000, guid: 4c85b88b76baec74ea6a59bf76a6b28b, type: 3}
     volume: 1
     loop: 1
     source: {fileID: 0}
-  - name: VictoryFanfare
+  - name: EndSessionWin
     clip: {fileID: 8300000, guid: e2d1835b5de956749bee2d22b0890741, type: 3}
     volume: 1
     loop: 1

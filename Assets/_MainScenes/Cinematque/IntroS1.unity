@@ -283,55 +283,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[0].Text
-      value: 'On reprend...
+      value: 'Let''s start again...
 
-        Vous entrez dans le donjon de Zat''tou Aard.'
+        You enter the Dungeon of Zat''tou Aard.'
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[1].Text
-      value: "Vous avez entendu parler d'une princesse kidnapp\xE9e par un groupe
-        de..."
+      value: You've heard about a princess who was kidnapped by a gang of...
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[2].Text
-      value: Elle s'appelle comment la princesse ?
+      value: What is the name of the princess?
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[3].Text
-      value: Princesse...
+      value: Princess...
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[4].Text
-      value: Elle s'appelle Princesse...
+      value: Her name is Princess...
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[5].Text
-      value: "Maintenant arr\xEAtez de me couper la parole."
+      value: Now stop interrupting me!
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[6].Text
-      value: Je disais donc...
+      value: So I was saying...
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[7].Text
-      value: "Vous avez entendu parler, que la princesse Princesse a \xE9t\xE9 enlev\xE9e
-        par un groupe de Gobelins."
+      value: You have heard, that the princess Princess has been kidnapped by a group
+        of Goblins.
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[8].Text
-      value: "Il est de votre devoir\u2026"
+      value: It is your duty...
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[9].Text
-      value: Enfin, de votre avarice...
+      value: At least, of your avarice...
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[10].Text
-      value: d'aller sauver la princesse.
+      value: To go and rescue the princess.
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[11].Text
-      value: Bon courage aventurier !
+      value: Good luck, adventurers!
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[0].LeftSprite
