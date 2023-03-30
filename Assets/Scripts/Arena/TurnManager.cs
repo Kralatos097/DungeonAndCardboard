@@ -29,7 +29,8 @@ public class TurnManager : MonoBehaviour
     
     public delegate int TurnManagerDelegateI();
     public static TurnManagerDelegateI GetNbEnemyD;
-
+    
+    [SerializeField][Range(0.1f, 3f)] private float endScreenTime;
 
     private void Awake()
     {
@@ -131,7 +132,7 @@ public class TurnManager : MonoBehaviour
 
     private void EndCombat(bool pStatue)
     {
-        _combatEnded = true;
+        Invoke(nameof(SwitchCombatEnded), 2/*endScreenTime*/);
         _combatEndPassiveEffectD();
         //Victoire player
         if(pStatue)
@@ -151,6 +152,11 @@ public class TurnManager : MonoBehaviour
             SetPlayersInfo();
             DefeatFx();
         }
+    }
+
+    private void SwitchCombatEnded()
+    {
+        _combatEnded = true;
     }
     
     private static void SetPlayersInfo()
@@ -513,12 +519,10 @@ public class TurnManager : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("ArenaWin");
         }
-        //Todo: Add Animation
     }
     
     private void DefeatFx()
     {
-        FindObjectOfType<AudioManager>().RandomPitch("FanfareLoose");
-        //Todo: Add Animation
+        FindObjectOfType<AudioManager>().Play("FanfareLose");
     }
 }
