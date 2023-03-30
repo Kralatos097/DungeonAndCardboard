@@ -513,16 +513,16 @@ public class TurnManager : MonoBehaviour
     {
         if(bossFight)
         {
-            FindObjectOfType<AudioManager>().Play("FanfareWin");
+            FindObjectOfType<AudioManager>().PlayWtFade("FanfareWin");
         }
         else
         {
-            FindObjectOfType<AudioManager>().Play("ArenaWin");
+            FindObjectOfType<AudioManager>().PlayWtFade("ArenaWin");
         }
     }
     
     private void DefeatFx()
     {
-        FindObjectOfType<AudioManager>().Play("FanfareLose");
+        FindObjectOfType<AudioManager>().PlayWtFade("FanfareLose");
     }
 }

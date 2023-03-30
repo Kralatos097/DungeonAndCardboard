@@ -28,10 +28,10 @@ public class AudioManager : MonoBehaviour
     private static AudioSource _musicSourceTwo;
     private static AudioSource _sfxSource;
     
-    private float _timer = 0;
+    private static float _timer = 0;
     [SerializeField] private float fadeDuration;
-    private bool _isFading = false;
-    private int _currTrack = 2;
+    private static bool _isFading;
+    private static int _currTrack = 2;
     private float[] _trackVolume = new float[]{0,0};
     
     private void Awake()
@@ -81,6 +81,7 @@ public class AudioManager : MonoBehaviour
             _musicSourceTwo.volume = Mathf.Lerp(_trackVolume[0], 0, _timer);
             if(_musicSourceTwo.volume == 0)
             {
+                _musicSourceTwo.Stop();
                 _isFading = false;
             }
         }
@@ -90,6 +91,7 @@ public class AudioManager : MonoBehaviour
             _musicSourceTwo.volume = Mathf.Lerp(0, _trackVolume[1], _timer);
             if(_musicSource.volume == 0)
             {
+                _musicSource.Stop();
                 _isFading = false;
             }
         }
@@ -104,13 +106,14 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("La Musique : " + name + " n'existe pas... Oublier de le mettre ou mal écrit");
             return;
         }
+        
+        Debug.Log(_currTrack);
 
         if(_currTrack == 1)
         {
             _trackVolume[0] = _musicSource.volume;
             _trackVolume[1] = s.volume * volumeMusic;
             _musicSourceTwo.clip = s.clip;
-            _musicSourceTwo.volume = s.volume * volumeMusic;
             _musicSourceTwo.loop = s.loop;
             _musicSourceTwo.Play();
             _currTrack = 2;
@@ -126,6 +129,39 @@ public class AudioManager : MonoBehaviour
         }
         _timer = 0;
         _isFading = true;
+    }
+    
+    public void PlayWtFade(string name)
+    {
+        Music s = Array.Find(music, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("La Musique : " + name + " n'existe pas... Oublier de le mettre ou mal écrit");
+            return;
+        }
+
+        if(_currTrack == 1)
+        {
+            _trackVolume[0] = _musicSource.volume;
+            _trackVolume[1] = s.volume * volumeMusic;
+            _musicSourceTwo.clip = s.clip;
+            _musicSource.volume = 0;
+            _musicSourceTwo.volume = s.volume * volumeMusic;
+            _musicSourceTwo.loop = s.loop;
+            _musicSourceTwo.Play();
+            _currTrack = 2;
+        }
+        else
+        {
+            _trackVolume[0] = s.volume * volumeMusic;
+            _trackVolume[1] = _musicSourceTwo.volume;
+            _musicSource.clip = s.clip;
+            _musicSource.volume = s.volume * volumeMusic;
+            _musicSourceTwo.volume = 0;
+            _musicSource.loop = s.loop;
+            _musicSource.Play();
+            _currTrack = 1;
+        }
     }
 
     //Arrête une musique : FindObjectOfType<AudioManager>().Stop("NomDuSon");

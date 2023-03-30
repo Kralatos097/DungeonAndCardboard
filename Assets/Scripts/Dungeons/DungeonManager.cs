@@ -76,6 +76,9 @@ public class DungeonManager : MonoBehaviour
 
     private void SceneContainerSwitchFunc(bool obj)
     {
+        if(obj)
+            FindObjectOfType<AudioManager>().Play("Dungeon");
+        
         _sceneContainer.SetActive(obj);
     }
 

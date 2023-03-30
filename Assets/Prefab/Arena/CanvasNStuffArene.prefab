@@ -4685,6 +4685,7 @@ MonoBehaviour:
   CombatEndCanvas: {fileID: 1163222644915762792}
   startCombat: 0
   bossFight: 0
+  endScreenTime: 2
 --- !u!114 &8645692054120925655
 MonoBehaviour:
   m_ObjectHideFlags: 0
