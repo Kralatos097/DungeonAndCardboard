@@ -15,11 +15,17 @@ EditorBuildSettings:
     path: Assets/_MainScenes/MainMenu.unity
     guid: cd4f62d06c2042545a6ab735ef75c6cd
   - enabled: 1
-    path: Assets/_ScenesValou/DungeonTest1.unity
-    guid: 7db56e33168e0864eb97d7fcce38fbb7
-  - enabled: 1
     path: Assets/_MainScenes/Cinematque/IntroS1.unity
     guid: ec5401cc652db2a41bbeefba55c905de
+  - enabled: 1
+    path: Assets/_MainScenes/S1 Dungeons/Dungeon1.unity
+    guid: 7db56e33168e0864eb97d7fcce38fbb7
+  - enabled: 1
+    path: Assets/_MainScenes/S1 Dungeons/Dungeon2.unity
+    guid: 6426e4b2c28022c47b1c36d8730b5e7d
+  - enabled: 1
+    path: Assets/_MainScenes/S1 Dungeons/Dungeon3.unity
+    guid: 4e14cf6dd945d0b42a028d4e52aa62df
   - enabled: 1
     path: Assets/_MainScenes/S1 Arena/Fight/CuisineCauchemardesque.unity
     guid: 0c33d0f27cb596541bad5e83a51f041e

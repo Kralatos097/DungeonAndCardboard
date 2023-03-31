@@ -83,6 +83,8 @@ MonoBehaviour:
   currInit: 0
   isUp: 1
   isAlive: 1
+  lastAtkReceivedInfoValue: 0
+  lastAtkReceivedInfoIsCrit: 0
 --- !u!1 &3435540120990747437
 GameObject:
   m_ObjectHideFlags: 0
