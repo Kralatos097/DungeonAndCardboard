@@ -5,26 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="225202b0-c116-4b2c-8d9c-8c9a57c9d235" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/EZ Camera Shake.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/EZ Camera Shake/CameraShakeInstance.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/EZ Camera Shake/CameraShakeInstance.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/EZ Camera Shake/CameraShakePresets.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/EZ Camera Shake/CameraShakePresets.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/EZ Camera Shake/CameraShaker.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/EZ Camera Shake/CameraShaker.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/EZ Camera Shake/Utilities.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/EZ Camera Shake/Utilities/CameraUtilities.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/EZ Camera Shake/Utilities/CameraUtilities.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_ScenesValou/TestShake.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_ScenesValou/TestShake.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Character.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Character/Attack.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Character/Attack.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Character/AttackDistance.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Character/AttackDistance.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Character/Figurine.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Character/Figurine.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Character/Idle.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Character/Idle.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Character/TakeDamage.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Character/TakeDamage.anim.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S0 Arena/TutoBoss.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S0 Arena/TutoBoss.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S0 Arena/TutoFight.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S0 Arena/TutoFight.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S0 Dungeons/Tuto Dungeons.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S0 Dungeons/Tuto Dungeons.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_ScenesValou/Ligthning.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScenesValou/Ligthning.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +135,7 @@
       <workItem from="1680076535546" duration="8984000" />
       <workItem from="1680162864710" duration="995000" />
       <workItem from="1680168216843" duration="358000" />
-      <workItem from="1680250824043" duration="1857000" />
+      <workItem from="1680250824043" duration="2452000" />
     </task>
     <servers />
   </component>
