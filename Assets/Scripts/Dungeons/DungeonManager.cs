@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using EZCameraShake;
 using MyBox;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -252,6 +253,7 @@ public class DungeonManager : MonoBehaviour
         switch(roomEffect)
         {
             case RoomEffect.Boss:
+                CameraShaker.Instance.ShakeOnce(1f, 10f, .1f,1f);
                 artworkShown = true;
                 DungeonUiManager.BossUi();
                 break;
@@ -259,6 +261,7 @@ public class DungeonManager : MonoBehaviour
                 LaunchTreasure();
                 break;
             case RoomEffect.Fight:
+                CameraShaker.Instance.ShakeOnce(1f, 10f, .1f,1f);
                 artworkShown = true;
                 DungeonUiManager.FightUi();
                 break;
@@ -530,6 +533,7 @@ public class DungeonManager : MonoBehaviour
 
     private void NegativeLootFX()
     {
+        CameraShaker.Instance.ShakeOnce(1f, 3f, .1f, 0.4f);
         FindObjectOfType<AudioManager>().RandomPitch("NegativeLoot");
     }
 
