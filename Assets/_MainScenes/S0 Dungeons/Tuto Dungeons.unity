@@ -1065,6 +1065,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -227.84999
       objectReference: {fileID: 0}
+    - target: {fileID: 8525849390151501698, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
+      propertyPath: bossScene
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8525849390842361192, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
       propertyPath: m_Name
       value: DungeonsManagers

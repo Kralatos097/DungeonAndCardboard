@@ -394,6 +394,29 @@ public class Active : Stuff
                 break;
         }
     }
+    
+    private void RandomStatusEffect(GameObject user, ActiveEffect activeEffect, int hit)
+    {
+        int rand = Random.Range(0, 4);
+
+        switch (rand)
+        {
+            case 0: //Burn
+                Burn(user, activeEffect, hit);
+                break;
+            case 1: //Freeze
+                Freeze(user, activeEffect, hit);
+                break;
+            case 2: //Poison
+                Poison(user, activeEffect, hit);
+                break;
+            case 3: //Stun
+                Stun(user, activeEffect, hit);
+                break;
+            default:
+                break;
+        }
+    }
 
     public int GetCd()
     {

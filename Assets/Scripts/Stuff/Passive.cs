@@ -120,6 +120,7 @@ public class Passive : Stuff
                 break;
             case PassiveType.ChangeMaxHp:
                 userCombatStat.MaxHp += effectValue;
+                userCombatStat.maxHpUpgraded = effectValue > 0;
                 break;
             case PassiveType.ChangeInitiative:
                 userCombatStat.currInit += effectValue;
@@ -198,5 +199,17 @@ public class Passive : Stuff
     public PassiveTrigger GetPassiveTrigger()
     {
         return passiveTrigger;
+    }
+
+    public bool HasType(PassiveType type)
+    {
+        foreach (PassiveEffect effect in passiveEffectList)
+        {
+            if(effect.passiveType == type)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

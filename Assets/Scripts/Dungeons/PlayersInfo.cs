@@ -2,6 +2,7 @@ public class WarriorInfo
 {
     public static int BaseMaxHp = 0;
     public static int MaxHp = 0;
+    public static bool MaxHpUpgraded = false;
     private static int _currentHp = 0;
     public static int CurrentHp
     {
@@ -33,6 +34,7 @@ public class ThiefInfo
 {
     public static int BaseMaxHp = 0;
     public static int MaxHp = 0;
+    public static bool MaxHpUpgraded = false;
     private static int _currentHp = 0;
     public static int CurrentHp
     {
@@ -61,6 +63,7 @@ public class ClericInfo
 {
     public static int BaseMaxHp = 0;
     public static int MaxHp = 0;
+    public static bool MaxHpUpgraded = false;
     private static int _currentHp = 0;
     public static int CurrentHp
     {
@@ -89,6 +92,7 @@ public class WizardInfo
 {
     public static int BaseMaxHp = 0;
     public static int MaxHp = 0;
+    public static bool MaxHpUpgraded = false;
     private static int _currentHp = 0;
     public static int CurrentHp
     {

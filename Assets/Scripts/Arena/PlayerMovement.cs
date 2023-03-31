@@ -50,6 +50,7 @@ public class PlayerMovement : TacticsMovement
             switch (charaClass)
             {
                 case Perso.Warrior:
+                    CombatStat.maxHpUpgraded = WarriorInfo.MaxHpUpgraded;
                     CombatStat.baseMaxHp = WarriorInfo.BaseMaxHp;
                     CombatStat.MaxHp = WarriorInfo.MaxHp;
                     CombatStat.CurrHp = WarriorInfo.CurrentHp;
@@ -63,6 +64,7 @@ public class PlayerMovement : TacticsMovement
                     Consumable = WarriorInfo.Consumable;
                     break;
                 case Perso.Thief:
+                    CombatStat.maxHpUpgraded = ThiefInfo.MaxHpUpgraded;
                     CombatStat.baseMaxHp = ThiefInfo.BaseMaxHp;
                     CombatStat.MaxHp = ThiefInfo.MaxHp;
                     CombatStat.CurrHp = ThiefInfo.CurrentHp;
@@ -76,6 +78,7 @@ public class PlayerMovement : TacticsMovement
                     Consumable = ThiefInfo.Consumable;
                     break;
                 case Perso.Cleric:
+                    CombatStat.maxHpUpgraded = ClericInfo.MaxHpUpgraded;
                     CombatStat.baseMaxHp = ClericInfo.BaseMaxHp;
                     CombatStat.MaxHp = ClericInfo.MaxHp;
                     CombatStat.CurrHp = ClericInfo.CurrentHp;
@@ -89,6 +92,7 @@ public class PlayerMovement : TacticsMovement
                     Consumable = ClericInfo.Consumable;
                     break;
                 case Perso.Wizard:
+                    CombatStat.maxHpUpgraded = WizardInfo.MaxHpUpgraded;
                     CombatStat.baseMaxHp = WizardInfo.BaseMaxHp;
                     CombatStat.MaxHp = WizardInfo.MaxHp;
                     CombatStat.CurrHp = WizardInfo.CurrentHp;
@@ -115,6 +119,7 @@ public class PlayerMovement : TacticsMovement
         switch (charaClass)
         {
             case Perso.Warrior:
+                WarriorInfo.MaxHpUpgraded = CombatStat.maxHpUpgraded;
                 WarriorInfo.MaxHp = CombatStat.MaxHp;
                 WarriorInfo.CurrentHp = CombatStat.CurrHp <= 0 ? 1 : CombatStat.CurrHp;
                 WarriorInfo.Init = CombatStat.GetInit();
@@ -122,6 +127,7 @@ public class PlayerMovement : TacticsMovement
                 WarriorInfo.Consumable = Consumable;
                 break;
             case Perso.Thief:
+                ThiefInfo.MaxHpUpgraded = CombatStat.maxHpUpgraded;
                 ThiefInfo.MaxHp = CombatStat.MaxHp;
                 ThiefInfo.CurrentHp = CombatStat.CurrHp <= 0 ? 1 : CombatStat.CurrHp;
                 ThiefInfo.Init = CombatStat.GetInit();
@@ -129,6 +135,7 @@ public class PlayerMovement : TacticsMovement
                 ThiefInfo.Consumable = Consumable;
                 break;
             case Perso.Cleric:
+                ClericInfo.MaxHpUpgraded = CombatStat.maxHpUpgraded;
                 ClericInfo.MaxHp = CombatStat.MaxHp;
                 ClericInfo.CurrentHp = CombatStat.CurrHp <= 0 ? 1 : CombatStat.CurrHp;
                 ClericInfo.Init = CombatStat.GetInit();
@@ -136,6 +143,7 @@ public class PlayerMovement : TacticsMovement
                 ClericInfo.Consumable = Consumable;
                 break;
             case Perso.Wizard:
+                WizardInfo.MaxHpUpgraded = CombatStat.maxHpUpgraded;
                 WizardInfo.MaxHp = CombatStat.MaxHp;
                 WizardInfo.CurrentHp = CombatStat.CurrHp <= 0 ? 1 : CombatStat.CurrHp;
                 WizardInfo.Init = CombatStat.GetInit();

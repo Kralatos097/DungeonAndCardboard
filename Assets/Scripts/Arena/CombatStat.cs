@@ -14,6 +14,8 @@ public class CombatStat : MonoBehaviour
 
     [HideInInspector] public int baseMaxHp;
 
+    public bool maxHpUpgraded = false;
+
     private int _maxHp;
     public int MaxHp
     {
@@ -22,13 +24,13 @@ public class CombatStat : MonoBehaviour
         set
         {
             _maxHp = value;
-            /*if(isUp)
+            if(isUp)
             {
                 if(_maxHp > _currHp)
                 {
                     _currHp = _maxHp;
                 }
-            }*/
+            }
             if(_maxHp < 0)
             {
                 _maxHp = 0;

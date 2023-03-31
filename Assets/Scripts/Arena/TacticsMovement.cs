@@ -68,6 +68,8 @@ public class TacticsMovement : MonoBehaviour
 
 			if (_passive != null && _passive.GetPassiveTrigger() == PassiveTrigger.OnObtained)
 			{
+				if(gameObject.GetComponent<CombatStat>().maxHpUpgraded) return;
+				
 				_passive.Effect(gameObject);
 			}
 		}
