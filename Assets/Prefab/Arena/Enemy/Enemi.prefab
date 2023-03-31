@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3377682628808166842}
   - component: {fileID: 3377682628808166836}
   - component: {fileID: 3377682628808166837}
+  - component: {fileID: 3707885633501722919}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -83,6 +84,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3377682628808166843}
   m_Mesh: {fileID: 2514270573848426643, guid: 1546e1e122de3694a8a0fcf714c600d0, type: 3}
+--- !u!95 &3707885633501722919
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3377682628808166843}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 78d795993e3aff74e80b77bf40cfd6f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3377682630542870396
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,9 +169,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popUpDamagePrefab: {fileID: 3663142198758422937, guid: d7edd192a14fe3145bf39d2d7b38785a, type: 3}
   baseMaxHp: 0
+  maxHpUpgraded: 0
   currInit: 0
   isUp: 1
   isAlive: 1
+  lastAtkReceivedInfoValue: 0
+  lastAtkReceivedInfoIsCrit: 0
 --- !u!65 &4763881386593351290
 BoxCollider:
   m_ObjectHideFlags: 0

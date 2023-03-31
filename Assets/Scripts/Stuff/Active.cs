@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using EZCameraShake;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -27,13 +28,13 @@ public class Active : Stuff
         switch (range)
         {
             case 0:
-                SelfAtkFx();
+                SelfAtkFx(user);
                 break;
             case 1:
-                CacAtkFx();
+                CacAtkFx(user);
                 break;
             case > 1:
-                RangeAtkFx();
+                RangeAtkFx(user);
                 break;
             default:
                 Debug.LogWarning("Out of range");
@@ -140,18 +141,21 @@ public class Active : Stuff
         }
     }
 
-    private void CacAtkFx()
+    private void CacAtkFx(GameObject user)
     {
+        user.GetComponentInChildren<Animator>().SetTrigger("Attack");
         FindObjectOfType<AudioManager>().RandomPitch("CaCAction");
     }
     
-    private void RangeAtkFx()
+    private void RangeAtkFx(GameObject user)
     {
+        user.GetComponentInChildren<Animator>().SetTrigger("Distance");
         FindObjectOfType<AudioManager>().RandomPitch("RangeAction");
     }
     
-    private void SelfAtkFx()
+    private void SelfAtkFx(GameObject user)
     {
+        user.GetComponentInChildren<Animator>().SetTrigger("Distance");
         FindObjectOfType<AudioManager>().RandomPitch("SelfAction");
     }
     
@@ -160,17 +164,19 @@ public class Active : Stuff
         Debug.Log("Miss");
         FindObjectOfType<AudioManager>().RandomPitch("Miss");
     }
-    
+
     private void HitFx()
     {
         Debug.Log("Hit");
         FindObjectOfType<AudioManager>().RandomPitch("Hit");
+        CameraShaker.Instance.ShakeOnce(1f, 3f, .1f, 0.4f);
     }
-    
+
     private void CritFx()
     {
         Debug.Log("Crit");
         FindObjectOfType<AudioManager>().RandomPitch("Critical");
+        CameraShaker.Instance.ShakeOnce(1f, 10f, .1f,1f);
     }
 
     private void Damage(GameObject target, ActiveEffect activeEffect, int hit)

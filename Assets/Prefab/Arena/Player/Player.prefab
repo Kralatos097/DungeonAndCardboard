@@ -80,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popUpDamagePrefab: {fileID: 3663142198758422937, guid: d7edd192a14fe3145bf39d2d7b38785a, type: 3}
   baseMaxHp: 0
+  maxHpUpgraded: 0
   currInit: 0
   isUp: 1
   isAlive: 1
@@ -96,6 +97,7 @@ GameObject:
   - component: {fileID: 2659003005272183191}
   - component: {fileID: 1389772460320022066}
   - component: {fileID: 3795832970039667448}
+  - component: {fileID: 13702544926419571}
   m_Layer: 0
   m_Name: Modele
   m_TagString: Untagged
@@ -168,3 +170,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &13702544926419571
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3435540120990747437}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 78d795993e3aff74e80b77bf40cfd6f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
