@@ -86,6 +86,7 @@ public enum ActiveType
     SacredMace,
     RandomPotionEffect,
     ElementaryPouet,
+    RandomStatusEffect,
 }
 
 public enum PassiveTrigger
