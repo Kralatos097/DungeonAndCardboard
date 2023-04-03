@@ -371,7 +371,7 @@ PrefabInstance:
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[5].LeftSprite
       value: 
-      objectReference: {fileID: 21300000, guid: e6000309bde74cc47afb249cf6e3e81a, type: 3}
+      objectReference: {fileID: 21300000, guid: 55d26e42e64801740a548daa1bab604f, type: 3}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[6].LeftSprite
       value: 
