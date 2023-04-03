@@ -131,6 +131,7 @@ public enum PassiveType
     ImmunBurn,
     ImmunPoison,
     ImmunFreeze,
+    AmplifyStatus,
 }
 
 public enum ActiveTarget

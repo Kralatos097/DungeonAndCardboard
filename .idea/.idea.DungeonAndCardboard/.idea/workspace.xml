@@ -6,13 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="225202b0-c116-4b2c-8d9c-8c9a57c9d235" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dungeons/DungeonManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dungeons/DungeonManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S0 Dungeons/Tuto Dungeons.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S0 Dungeons/Tuto Dungeons.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S1 Dungeons/Dungeon1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S1 Dungeons/Dungeon1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S1 Dungeons/Dungeon2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S1 Dungeons/Dungeon2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S1 Dungeons/Dungeon3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S1 Dungeons/Dungeon3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/S0/MrGom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Enemy/S0/MrGom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Passive/Rare/Multicolore stone Necklace.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Objects/Allies/Passive/Rare/Multicolore stone Necklace.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/temp/Warrior 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/temp/Warrior 1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/temp/Wizard 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/temp/Wizard 1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/CombatStat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/CombatStat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Arena/TurnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Arena/TurnManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enums.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enums.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Stuff/Active.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Stuff/Active.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Stuff/Passive.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Stuff/Passive.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S0 Arena/TutoBoss.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S0 Arena/TutoBoss.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +131,8 @@
       <workItem from="1680076535546" duration="8984000" />
       <workItem from="1680162864710" duration="995000" />
       <workItem from="1680168216843" duration="358000" />
-      <workItem from="1680247850238" duration="9549000" />
+      <workItem from="1680247850238" duration="10385000" />
+      <workItem from="1680507759078" duration="8201000" />
     </task>
     <servers />
   </component>

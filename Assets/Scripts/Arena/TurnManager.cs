@@ -255,7 +255,13 @@ public class TurnManager : MonoBehaviour
                 return;
             }
         }
-        else if (unit.GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Freeze)
+        else if (unit.GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Freeze && unit.GetComponent<CombatStat>().freezeLastTurn != 0)
+        {
+            unit.GetComponent<CombatStat>().ResetStatus();
+            unit.GetComponent<CombatStat>().EndTurnFreeze(unit.GetComponent<CombatStat>().freezeLastTurn);
+            unit.GetComponent<CombatStat>().freezeLastTurn = 0;
+        }
+        else if (unit.GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Freeze && unit.GetComponent<CombatStat>().freezeLastTurn == 0)
         {
             unit.GetComponent<CombatStat>().ResetStatus();
         }
@@ -397,10 +403,6 @@ public class TurnManager : MonoBehaviour
                 Destroy(deadUnit.gameObject);
             }
         }
-        /*foreach (TacticsMovement unit in turnOrder)
-        {
-            
-        }*/
     }
     
     private static bool AreEnemyAllFriendly()

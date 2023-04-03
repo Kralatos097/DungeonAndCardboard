@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: UnitInfo
       value: 
       objectReference: {fileID: 11400000, guid: fec4dc4e0ea4b5c48ab95cf5e64c00eb, type: 2}
+    - target: {fileID: 3377682630542870394, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
+      propertyPath: moveSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3377682630542870396, guid: 109b9a43bccac90458515c8467bdf908, type: 3}
       propertyPath: m_Name
       value: MrGom

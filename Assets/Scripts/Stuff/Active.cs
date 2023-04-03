@@ -48,6 +48,7 @@ public class Active : Stuff
             int hit;
             if (activeEffect.noMiss && hitParam == 0) hit = 1;
             else if (activeEffect.critOnly && hitParam != 2) hit = 0;
+            else if (activeEffect.critOnly && hitParam == 2) hit = 1;
             else hit = hitParam;
 
             if(!pass)
@@ -72,22 +73,22 @@ public class Active : Stuff
             switch(activeEffect.activeType)
             {
                 case ActiveType.Damage:
-                    Damage(go,activeEffect, hit);
+                    Damage(user, go,activeEffect, hit);
                     break;
                 case ActiveType.Heal:
-                    Heal(go,activeEffect, hit);
+                    Heal(user, go,activeEffect, hit);
                     break;
                 case ActiveType.Burn:
-                    Burn(go,activeEffect, hit);
+                    Burn(user, go,activeEffect, hit);
                     break;
                 case ActiveType.Stun:
-                    Stun(go,activeEffect, hit);
+                    Stun(user, go,activeEffect, hit);
                     break;
                 case ActiveType.Freeze:
-                    Freeze(go,activeEffect, hit);
+                    Freeze(user, go,activeEffect, hit);
                     break;
                 case ActiveType.Poison:
-                    Poison(go,activeEffect, hit);
+                    Poison(user, go,activeEffect, hit);
                     break;
                 case ActiveType.Armor:
                     Armor(go,activeEffect, hit);
@@ -105,7 +106,10 @@ public class Active : Stuff
                     RandomPotionEffect(user, activeEffect, hit);
                     break;
                 case ActiveType.ElementaryPouet:
-                    ElementaryPouet(go, activeEffect, hit);
+                    ElementaryPouet(user, go, activeEffect, hit);
+                    break;
+                case ActiveType.RandomStatusEffect:
+                    RandomStatusEffect(go, activeEffect, hit);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -113,7 +117,7 @@ public class Active : Stuff
         }
     }
 
-    private void ElementaryPouet(GameObject target, ActiveEffect activeEffect, int hit)
+    private void ElementaryPouet(GameObject user, GameObject target, ActiveEffect activeEffect, int hit)
     {
         StatusEffect statusEffect = target.GetComponent<CombatStat>().GetStatusEffect();
         int statusValue = target.GetComponent<CombatStat>().GetStatusValue();
@@ -125,16 +129,16 @@ public class Active : Stuff
             case StatusEffect.Nothing:
                 break;
             case StatusEffect.Poison:
-                Poison(target, activeEffect, hit);
+                Poison(user, target, activeEffect, hit);
                 break;
             case StatusEffect.Stun:
-                Stun(target, activeEffect, hit);
+                Stun(user, target, activeEffect, hit);
                 break;
             case StatusEffect.Burn:
-                Burn(target, activeEffect, hit);
+                Burn(user, target, activeEffect, hit);
                 break;
             case StatusEffect.Freeze:
-                Freeze(target, activeEffect, hit);
+                Freeze(user, target, activeEffect, hit);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -179,7 +183,7 @@ public class Active : Stuff
         CameraShaker.Instance.ShakeOnce(1f, 10f, .1f,1f);
     }
 
-    private void Damage(GameObject target, ActiveEffect activeEffect, int hit)
+    private void Damage(GameObject user, GameObject target, ActiveEffect activeEffect, int hit)
     {
         Passive passive;
         switch(hit)
@@ -187,14 +191,14 @@ public class Active : Stuff
             case 0:
                 break;
             case 1:
-                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnDamageGiven)
                 {
                     passive.Effect(target);
                 }
                 break;
             case 2:
-                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnDamageGiven)
                 {
                     passive.Effect(target, true);
@@ -204,7 +208,7 @@ public class Active : Stuff
         target.GetComponent<CombatStat>().TakeDamage(activeEffect.value, hit);
     }
     
-    private void Heal(GameObject target, ActiveEffect activeEffect, int hit)
+    private void Heal(GameObject user, GameObject target, ActiveEffect activeEffect, int hit)
     {
         Passive passive;
         switch(hit)
@@ -212,14 +216,14 @@ public class Active : Stuff
             case 0:
                 break;
             case 1:
-                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnHealGiven)
                 {
                     passive.Effect(target);
                 }
                 break;
             case 2:
-                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnHealGiven)
                 {
                     passive.Effect(target, true);
@@ -229,15 +233,16 @@ public class Active : Stuff
         target.GetComponent<CombatStat>().TakeHeal(activeEffect.value, hit);
     }
 
-    private void Burn(GameObject target, ActiveEffect activeEffect, int hit)
+    private void Burn(GameObject user, GameObject target, ActiveEffect activeEffect, int hit)
     {
         Passive passive;
+        Debug.Log("dd");
         switch(hit)
         {
             case 0:
                 break;
             case 1:
-                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
                     passive.Effect(target);
@@ -245,7 +250,7 @@ public class Active : Stuff
                 target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Burn, activeEffect.value);
                 break;
             case 2:
-                 passive = target.GetComponent<TacticsMovement>().GetPassive();
+                 passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
                     passive.Effect(target, true);
@@ -255,7 +260,7 @@ public class Active : Stuff
         }
     }
     
-    private void Freeze(GameObject target, ActiveEffect activeEffect, int hit)
+    private void Freeze(GameObject user, GameObject target, ActiveEffect activeEffect, int hit)
     {
         Passive passive;
         switch(hit)
@@ -263,7 +268,7 @@ public class Active : Stuff
             case 0:
                 break;
             case 1:
-                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
                     passive.Effect(target);
@@ -271,7 +276,7 @@ public class Active : Stuff
                 target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Freeze, activeEffect.value);
                 break;
             case 2:
-                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
                     passive.Effect(target, true);
@@ -281,7 +286,7 @@ public class Active : Stuff
         }
     }
     
-    private void Poison(GameObject target, ActiveEffect activeEffect, int hit)
+    private void Poison(GameObject user, GameObject target, ActiveEffect activeEffect, int hit)
     {
         Passive passive;
         switch(hit)
@@ -289,7 +294,7 @@ public class Active : Stuff
             case 0:
                 break;
             case 1:
-                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
                     passive.Effect(target);
@@ -297,7 +302,7 @@ public class Active : Stuff
                 target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Poison, activeEffect.value);
                 break;
             case 2:
-                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
                     passive.Effect(target, true);
@@ -307,7 +312,7 @@ public class Active : Stuff
         }
     }
     
-    private void Stun(GameObject target, ActiveEffect activeEffect, int hit)
+    private void Stun(GameObject user, GameObject target, ActiveEffect activeEffect, int hit)
     {
         Passive passive;
         switch(hit)
@@ -315,7 +320,7 @@ public class Active : Stuff
             case 0:
                 break;
             case 1:
-                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
                     passive.Effect(target);
@@ -323,7 +328,7 @@ public class Active : Stuff
                 target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Stun, activeEffect.value);
                 break;
             case 2:
-                passive = target.GetComponent<TacticsMovement>().GetPassive();
+                passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
                     passive.Effect(target, true);
@@ -363,12 +368,12 @@ public class Active : Stuff
     private void SacredMace(GameObject user, GameObject target, ActiveEffect activeEffect, int hit)
     {
         if(!user.CompareTag(target.tag))
-            Damage(target,activeEffect,hit);
+            Damage(user, target,activeEffect,hit);
         else
         {
             ActiveEffect tempAE = new ActiveEffect(activeEffect.activeType, activeEffect.value / 2, activeEffect.onSelf,
                 activeEffect.noMiss, activeEffect.critOnly);
-            Heal(target, tempAE, hit);
+            Heal(user, target, tempAE, hit);
         }
     }
 
@@ -379,16 +384,16 @@ public class Active : Stuff
         switch (rand)
         {
             case 0: //Burn
-                Burn(user, activeEffect, hit);
+                Burn(user, user, activeEffect, hit);
                 break;
             case 1: //Freeze
-                Freeze(user, activeEffect, hit);
+                Freeze(user, user, activeEffect, hit);
                 break;
             case 2: //Poison
-                Poison(user, activeEffect, hit);
+                Poison(user, user, activeEffect, hit);
                 break;
             case 3: //Heal
-                Heal(user, activeEffect, hit);
+                Heal(user, user, activeEffect, hit);
                 break;
             case 4: //Armor
                 Armor(user, activeEffect, hit);
@@ -408,16 +413,16 @@ public class Active : Stuff
         switch (rand)
         {
             case 0: //Burn
-                Burn(user, activeEffect, hit);
+                Burn(user, user, activeEffect, hit);
                 break;
             case 1: //Freeze
-                Freeze(user, activeEffect, hit);
+                Freeze(user, user, activeEffect, hit);
                 break;
             case 2: //Poison
-                Poison(user, activeEffect, hit);
+                Poison(user, user, activeEffect, hit);
                 break;
             case 3: //Stun
-                Stun(user, activeEffect, hit);
+                Stun(user, user, activeEffect, hit);
                 break;
             default:
                 break;

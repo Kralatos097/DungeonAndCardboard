@@ -19,10 +19,4 @@ MonoBehaviour:
   passiveEffectList:
   - value: 2
     onEveryAllies: 0
-    passiveType: 11
-  - value: 2
-    onEveryAllies: 0
-    passiveType: 12
-  - value: 2
-    onEveryAllies: 0
-    passiveType: 13
+    passiveType: 22

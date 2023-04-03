@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -163,6 +164,26 @@ public class Passive : Stuff
                 break;
             case PassiveType.GainRevive:
                 userCombatStat.ActivateRevive(passiveEffect.value);
+                break;
+            case PassiveType.AmplifyStatus:
+                Debug.Log("sdddd");
+                switch(userCombatStat.GetStatusEffect())
+                {
+                    case StatusEffect.Nothing:
+                    case StatusEffect.Stun:
+                        break;
+                    case StatusEffect.Poison:
+                        userCombatStat.ChangeStatus(StatusEffect.Poison, effectValue);
+                        break;
+                    case StatusEffect.Burn:
+                        userCombatStat.ChangeStatus(StatusEffect.Burn, effectValue);
+                        break;
+                    case StatusEffect.Freeze:
+                        userCombatStat.ChangeStatus(StatusEffect.Freeze, effectValue);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
                 break;
             case PassiveType.ImmunStun:
             case PassiveType.ImmunBurn:

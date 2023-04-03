@@ -705,7 +705,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7086492957519213600, guid: b7a4d0e06e2032a4f868b4fb7d411f00, type: 3}
       propertyPath: testMap
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7086492957519213606, guid: b7a4d0e06e2032a4f868b4fb7d411f00, type: 3}
       propertyPath: m_RootOrder
@@ -763,10 +763,6 @@ PrefabInstance:
     - target: {fileID: 4388539803653949810, guid: 89b8fec2a82c7c74c9a0695263d3f0dc, type: 3}
       propertyPath: m_Name
       value: MrGom
-      objectReference: {fileID: 0}
-    - target: {fileID: 4388539803653949812, guid: 89b8fec2a82c7c74c9a0695263d3f0dc, type: 3}
-      propertyPath: moveSpeed
-      value: 2.15
       objectReference: {fileID: 0}
     - target: {fileID: 4388539803653949814, guid: 89b8fec2a82c7c74c9a0695263d3f0dc, type: 3}
       propertyPath: m_RootOrder

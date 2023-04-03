@@ -36,7 +36,10 @@ public class CombatStat : MonoBehaviour
                 _maxHp = 0;
             }
 
-            isAlive = _maxHp > 0;
+            if (GetComponent<PlayerMovement>() != null)
+            {
+                isAlive = _maxHp > 0;
+            }
 
             if(!isAlive)
             {
@@ -141,6 +144,8 @@ public class CombatStat : MonoBehaviour
         }
     }
 
+    [HideInInspector] public int freezeLastTurn = 0;
+
     [HideInInspector] public int currInit;
 
     [HideInInspector] public bool isUp = true;
@@ -168,7 +173,7 @@ public class CombatStat : MonoBehaviour
 
         if(gameObject.CompareTag("Player"))
         {
-            ResetStatus();
+            ResetStatus(); 
             transform.GetChild(0).GetComponent<Renderer>().material.color = Color.grey;
             MaxHp--;
             AllieDownFX();
@@ -245,7 +250,6 @@ public class CombatStat : MonoBehaviour
                     StatusValue = value;
                     StatusEffect = effect;
                 }
-                
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
                 if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueTaken)
                 {
@@ -260,9 +264,6 @@ public class CombatStat : MonoBehaviour
                     StatusValue = value;
                     StatusEffect = effect;
                 }
-
-                StatusEffect = effect;
-                StatusValue = value;
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
                 if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueTaken)
                 {
@@ -277,9 +278,6 @@ public class CombatStat : MonoBehaviour
                     StatusValue = value;
                     StatusEffect = effect;
                 }
-
-                StatusEffect = effect;
-                StatusValue = value;
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
                 if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueTaken)
                 {
@@ -288,15 +286,13 @@ public class CombatStat : MonoBehaviour
                 break;
             case StatusEffect.Freeze:
                 GetFreezeFX();
+                if(TurnManager.GetCurrentPlayerD() == gameObject) freezeLastTurn = value;
                 if(StatusEffect == effect) StatusValue += value;
                 else
                 {
                     StatusValue = value;
                     StatusEffect = effect;
                 }
-
-                StatusEffect = effect;
-                StatusValue = value;
                 passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
                 if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueTaken)
                 {
@@ -306,6 +302,12 @@ public class CombatStat : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException(nameof(effect), effect, null);
         }
+    }
+
+    public void EndTurnFreeze(int value)
+    {
+        StatusValue = value;
+        StatusEffect = StatusEffect.Freeze;
     }
     
     public int GetArmor()
