@@ -17,6 +17,6 @@ MonoBehaviour:
   description: Ignore the first damages taken of each fight
   passiveTrigger: 1
   passiveEffectList:
-  - value: 0
+  - value: 1
     onEveryAllies: 0
     passiveType: 2
