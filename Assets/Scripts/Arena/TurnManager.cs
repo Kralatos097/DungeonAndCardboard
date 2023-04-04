@@ -175,14 +175,13 @@ public class TurnManager : MonoBehaviour
     {
         if (ArePlayersAlive() && AreEnemyAlive())
         {
-            DestroyDeadUnits();
-            while(!turnOrder.Peek().GetComponent<CombatStat>().isUp && turnOrder.Peek().CompareTag("Player"))
+            bool a = true, b = true;
+
+            while(a || b)
             {
-                TacticsMovement deadUnit = turnOrder.Dequeue();
-                turnOrder.Enqueue(deadUnit);
-                UIManager.EndTurnInitUIChangeAction(deadUnit.gameObject);
+                a = DestroyDeadUnits();
+                b = PassPlayerTurn();
             }
-            //Debug.Log("Turn of : " + turnOrder.Peek().name)
 
             if (AreEnemyAllFriendly())
             {
@@ -233,6 +232,31 @@ public class TurnManager : MonoBehaviour
         {
             EndCombat(ArePlayersAlive());
         }
+    }
+    
+    private bool DestroyDeadUnits()
+    {
+        bool ret = false;
+        while(!turnOrder.Peek().gameObject.GetComponent<CombatStat>().isAlive)
+        {
+            TacticsMovement deadUnit = turnOrder.Dequeue();
+            Destroy(deadUnit.gameObject);
+            ret = true;
+        }
+        return ret;
+    }
+    
+    private bool PassPlayerTurn()
+    {
+        bool ret = false;
+        while(!turnOrder.Peek().GetComponent<CombatStat>().isUp && turnOrder.Peek().CompareTag("Player"))
+        {
+            TacticsMovement deadUnit = turnOrder.Dequeue();
+            turnOrder.Enqueue(deadUnit);
+            UIManager.EndTurnInitUIChangeAction(deadUnit.gameObject);
+            ret = true;
+        }
+        return ret;
     }
 
     private void EndTurn()
@@ -393,15 +417,6 @@ public class TurnManager : MonoBehaviour
         return false;
     }
     
-    private static void DestroyDeadUnits()
-    {
-        while(!turnOrder.Peek().gameObject.GetComponent<CombatStat>().isAlive)
-        {
-            TacticsMovement deadUnit = turnOrder.Dequeue();
-            Destroy(deadUnit.gameObject);
-        }
-    }
-    
     private static bool AreEnemyAllFriendly()
     {
         foreach (TacticsMovement unit in turnOrder)
@@ -436,7 +451,7 @@ public class TurnManager : MonoBehaviour
         int ret = 0;
         foreach (TacticsMovement unit in turnOrder)
         {
-            if(unit.GetComponent<NPCMove>())
+            if(unit.GetComponent<NPCMove>() && unit.GetComponent<CombatStat>().isAlive)
             {
                 ret++;
             }

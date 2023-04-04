@@ -59,7 +59,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnNb:
-    Min: 0
-    Max: 0
-  spawnEntityList: []
-  spawnPosition: []
+    Min: 2
+    Max: 4
+  spawnEntityList:
+  - enemyPrefab: {fileID: 7543537207179104407, guid: e91879be90144c4488a655f0eae3de1e, type: 3}
+    spawnRate: 50
+  - enemyPrefab: {fileID: 8372886538233425294, guid: dc217eb278f65014db8cb6d101af1a09, type: 3}
+    spawnRate: 25
+  - enemyPrefab: {fileID: 8933346213011803916, guid: f8c8e7a94373aee4e82494675f703b84, type: 3}
+    spawnRate: 20
+  - enemyPrefab: {fileID: 1045323575255033003, guid: dff6e5cb49525d642a7c9da5249d2b2d, type: 3}
+    spawnRate: 5
+  spawnPosition:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
