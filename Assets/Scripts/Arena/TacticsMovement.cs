@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -521,7 +522,8 @@ public class TacticsMovement : MonoBehaviour
 				ArenaTile obstTile = GetFirstObstacleOnPath(t);
 				ActualTargetTile = FindEndTile(obstTile);
 
-				if(ActualTargetTile.GetGameObjectOnTop().CompareTag("Player"))
+				Debug.Log(ActualTargetTile);
+				if(ActualTargetTile.GetGameObjectOnTop() != null && ActualTargetTile.GetGameObjectOnTop().CompareTag("Player"))
 				{
 				    target = ActualTargetTile.GetGameObjectOnTop();
 				    _targetDistance = ActualTargetTile.distance;
