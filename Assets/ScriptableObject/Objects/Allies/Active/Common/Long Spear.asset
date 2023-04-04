@@ -14,18 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stuffType: Active
   logo: {fileID: 21300000, guid: 5cd8a8155b5ee094d9d26fee29a7e6bb, type: 3}
-  description: Inflict 3 Damages & 2 Damages behind target
-  range: 1
+  description: Inflict 3 Damages
+  range: 2
   cd: 1
   clickTarget: 1
   activeEffectList:
   - activeType: 0
     value: 3
-    onSelf: 0
-    noMiss: 0
-    critOnly: 0
-  - activeType: 0
-    value: 2
     onSelf: 0
     noMiss: 0
     critOnly: 0

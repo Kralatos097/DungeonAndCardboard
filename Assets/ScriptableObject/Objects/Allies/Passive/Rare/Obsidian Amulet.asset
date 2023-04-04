@@ -15,7 +15,7 @@ MonoBehaviour:
   stuffType: Passive
   logo: {fileID: 21300000, guid: 72b3b7d70a92fd94799747b5a62bdfeb, type: 3}
   description: Immunity to Froze and Burn
-  passiveTrigger: 10
+  passiveTrigger: 11
   passiveEffectList:
   - value: 0
     onEveryAllies: 0

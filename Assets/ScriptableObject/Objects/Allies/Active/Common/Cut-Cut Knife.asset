@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stuffType: Active
   logo: {fileID: 21300000, guid: 80a71faca23270e4eb780da4e01f05f0, type: 3}
-  description: Inflict 2 X 1 Damages
+  description: Inflict 2 Damages & 1 Poison
   range: 1
   cd: 0
   clickTarget: 1
   activeEffectList:
   - activeType: 0
-    value: 1
+    value: 2
     onSelf: 0
     noMiss: 0
     critOnly: 0
-  - activeType: 0
+  - activeType: 5
     value: 1
     onSelf: 0
     noMiss: 0

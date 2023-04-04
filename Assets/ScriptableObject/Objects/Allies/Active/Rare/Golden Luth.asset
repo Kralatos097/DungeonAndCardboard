@@ -14,18 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stuffType: Active
   logo: {fileID: 21300000, guid: 00a898ab10d900245a5e4f41ed650ca6, type: 3}
-  description: Heal 3 HP & 2 Splash HP
-  range: 0
-  cd: 1
-  clickTarget: 0
+  description: Heal 2 HP & Cure the target and self
+  range: 1
+  cd: 0
+  clickTarget: 1
   activeEffectList:
   - activeType: 1
-    value: 3
+    value: 2
+    onSelf: 0
+    noMiss: 0
+    critOnly: 0
+  - activeType: 7
+    value: 1
+    onSelf: 0
+    noMiss: 0
+    critOnly: 0
+  - activeType: 1
+    value: 2
     onSelf: 1
     noMiss: 0
     critOnly: 0
-  - activeType: 8
-    value: 2
-    onSelf: 0
+  - activeType: 7
+    value: 1
+    onSelf: 1
     noMiss: 0
     critOnly: 0

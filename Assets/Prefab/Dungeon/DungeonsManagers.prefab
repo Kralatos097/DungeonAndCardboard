@@ -854,7 +854,7 @@ MonoBehaviour:
   trapValue:
     Min: 1
     Max: 2
-  bossScene: BossFight
+  bossScene: 
   warriorCard: {fileID: 11400000, guid: 287459fea8edc334ea7857cdd46ee0bf, type: 2}
   thiefCard: {fileID: 11400000, guid: f11278d1bce38214289b7b109317e023, type: 2}
   clericCard: {fileID: 11400000, guid: 2d18e754f8f9ad04d9a2535fdab34af1, type: 2}
@@ -877,6 +877,8 @@ MonoBehaviour:
   - FaussePrincesse
   - JoyeuxBordel
   stuffList:
+  - {fileID: 11400000, guid: 1d06f6d5909fcda4092ec719aab100dd, type: 2}
+  - {fileID: 11400000, guid: dc039e27cec63964185d1a9ec18b95c2, type: 2}
   - {fileID: 11400000, guid: 99e57c81efeaeca4bb9ea8cba1e9c6c5, type: 2}
   - {fileID: 11400000, guid: f8cc711971c91a6448e3fd6d0144d162, type: 2}
   - {fileID: 11400000, guid: e78815dc23ecc674c8b87dd197810317, type: 2}
@@ -897,10 +899,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 925ea13f9c6923749b0af71a73e2de96, type: 2}
   - {fileID: 11400000, guid: 2619ae9456f1a7d4fbac492974f19058, type: 2}
   - {fileID: 11400000, guid: 70f10c6b2a471c44cb41d0e930de6e97, type: 2}
+  - {fileID: 11400000, guid: 009d8fa610322c44c9d3ee55701a13ac, type: 2}
   - {fileID: 11400000, guid: 6375b94a8f7c4f3439a777d5d1eb14f5, type: 2}
   - {fileID: 11400000, guid: 40771e9cbb7641a42b2d41331f641217, type: 2}
   - {fileID: 11400000, guid: 2f92d906674362446ae28dba178765a6, type: 2}
-  - {fileID: 11400000, guid: 411ae4264f4bfc943ae6b1d5d6f025db, type: 2}
   - {fileID: 11400000, guid: b0aebf51c37352a46bbd9d687516c39f, type: 2}
   - {fileID: 11400000, guid: 5c674f62a4f45eb4e975aa3b24b2b087, type: 2}
   - {fileID: 11400000, guid: 27b019c078e7aa84b83455a2eac42395, type: 2}
@@ -914,7 +916,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 66ee509052498f84083ccde67cb89045, type: 2}
   - {fileID: 11400000, guid: 918ef57c96d039f4d998405b5ab0bb42, type: 2}
   - {fileID: 11400000, guid: cfbcc47b916235b4099fdbf8da0a978f, type: 2}
-  - {fileID: 11400000, guid: 0d2fe7c0ef39172489b770dc740dbfe4, type: 2}
   - {fileID: 11400000, guid: 78404f3d4e3649542bd0362dbf899746, type: 2}
   - {fileID: 11400000, guid: 2caaae6b207cb604199de1458d6d5420, type: 2}
   - {fileID: 11400000, guid: 1f0ee883916cc9644bacefb1833a9a5a, type: 2}
