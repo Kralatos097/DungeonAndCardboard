@@ -3109,6 +3109,7 @@ MonoBehaviour:
   popUpDamagePrefab: {fileID: 3663142198758422937, guid: d7edd192a14fe3145bf39d2d7b38785a, type: 3}
   baseMaxHp: 0
   maxHpUpgraded: 0
+  freezeLastTurn: 0
   currInit: 0
   isUp: 1
   isAlive: 1
@@ -3126,7 +3127,7 @@ GameObject:
   - component: {fileID: 7876031477534270857}
   - component: {fileID: 6899403940830650918}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: CamShakeHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4577,7 +4578,7 @@ MonoBehaviour:
     m_Bits: 64
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
-  antialiasingMode: 0
+  antialiasingMode: 1
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
