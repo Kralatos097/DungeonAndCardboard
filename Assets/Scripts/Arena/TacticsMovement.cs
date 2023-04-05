@@ -82,6 +82,8 @@ public class TacticsMovement : MonoBehaviour
 
 	protected CombatStat CombatStat;
 
+	protected Animator animator;
+
 	protected void Init()
 	{
 		_tiles = GameObject.FindGameObjectsWithTag("Tile");
@@ -625,7 +627,7 @@ public class TacticsMovement : MonoBehaviour
 	protected virtual void EndOfMovement()
 	{
 		//Fin du Soulevement du pion lors du mouvement
-		transform.GetChild(0).Translate(0, -MoveY, 0);
+		animator.SetBool("IsGrounded", true);
 		EndOfMovementFX();
 		passM = false;
 		moving = false;

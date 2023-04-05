@@ -27,6 +27,8 @@ public class PlayerMovement : TacticsMovement
         TurnManager.AddPlayerToList(this);
         _lastPos = transform.position;
         _lastRot = transform.rotation;
+
+        animator = GetComponentInChildren<Animator>();
     }
 
     protected override void GetUnitInfo()
@@ -188,7 +190,7 @@ public class PlayerMovement : TacticsMovement
                     //Début du Soulevement du pion lors du mouvement
                     if(!passM)
                     {
-                        transform.GetChild(0).Translate(0, MoveY, 0);
+                        animator.SetBool("IsGrounded", false);
                         passM = true;
                     }
 
@@ -214,7 +216,8 @@ public class PlayerMovement : TacticsMovement
                 if (passM)
                 {
                     //Fin du Soulevement du pion lors du mouvement
-                    transform.GetChild(0).Translate(0, -MoveY, 0);
+                    Debug.Log("ddd");
+                    animator.SetBool("IsGrounded", true);
                     passM = false;
                 }
 

@@ -21,6 +21,7 @@ public class NPCMove : TacticsMovement
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         Init();
     }
 
@@ -517,7 +518,7 @@ public class NPCMove : TacticsMovement
 
         if(!attacking && !moving && !_alreadyMoved) //Calcul du mouvement
         {
-            transform.GetChild(0).Translate(0, MoveY, 0);
+            animator.SetBool("IsGrounded", false);
             ArenaTile targetTile = target.GetComponent<TacticsMovement>().GetCurrentTile();
             bool findPath = CalculatePathFull(); //Calcul du trajet normal
             int tDist = GetTravelDist(targetTile);
@@ -564,7 +565,7 @@ public class NPCMove : TacticsMovement
                     }                 
                     else
                     {
-                        transform.GetChild(0).Translate(0, -MoveY, 0);
+                        animator.SetBool("IsGrounded", true);
                         EndTurnT();
                     }
                 }
@@ -631,7 +632,7 @@ public class NPCMove : TacticsMovement
                 }
                 else
                 {
-                    transform.GetChild(0).Translate(0, MoveY, 0);
+                    animator.SetBool("IsGrounded", false);
                     MoveToTile(ActualTargetTile);
                 }
             }
@@ -643,7 +644,7 @@ public class NPCMove : TacticsMovement
                     move = _tempMove;
                 }
                 
-                transform.GetChild(0).Translate(0, MoveY, 0);
+                animator.SetBool("IsGrounded", false);
             
                 bool findPath = CalculatePathFull(); //Calcul du trajet normal
                 if (findPath) //Si seul le 1er trajet et valide
@@ -677,7 +678,7 @@ public class NPCMove : TacticsMovement
                             }
                             else
                             {
-                                transform.GetChild(0).Translate(0, -MoveY, 0);
+                                animator.SetBool("IsGrounded", true);
                                 EndTurnT();
                             }
                         }
@@ -724,7 +725,7 @@ public class NPCMove : TacticsMovement
         
         if(!attacking && !moving && !_alreadyMoved) //Calcul du mouvement
         {
-            transform.GetChild(0).Translate(0, MoveY, 0);
+            animator.SetBool("IsGrounded", false);
             bool findPath = CalculatePathFull(); //Calcul du trajet normal
             
             if (findPath) //Si seul le 1er trajet et valide
@@ -758,10 +759,10 @@ public class NPCMove : TacticsMovement
                         }
                         else
                         {
-                            transform.GetChild(0).Translate(0, -MoveY, 0);
+                            animator.SetBool("IsGrounded", true);
                             EndTurnT();
                         }
-                        /*transform.GetChild(0).Translate(0, -MoveY, 0);
+                        /*animator.SetBool("IsGrounded", true);
                         EndTurnT();*/
                     }
                 }
@@ -802,7 +803,7 @@ public class NPCMove : TacticsMovement
         
         if(!attacking && !moving && !_alreadyMoved) //Calcul du mouvement
         {
-            transform.GetChild(0).Translate(0, MoveY, 0);
+            animator.SetBool("IsGrounded", false);
             bool findPath = CalculatePathFull(); //Calcul du trajet normal
             
             if (findPath) //Si seul le 1er trajet et valide
@@ -836,10 +837,10 @@ public class NPCMove : TacticsMovement
                         }
                         else
                         {
-                            transform.GetChild(0).Translate(0, -MoveY, 0);
+                            animator.SetBool("IsGrounded", true);
                             EndTurnT();
                         }
-                        /*transform.GetChild(0).Translate(0, -MoveY, 0);
+                        /*animator.SetBool("IsGrounded", true);
                         EndTurnT();*/
                     }
                 }
@@ -872,7 +873,7 @@ public class NPCMove : TacticsMovement
         
         if(!attacking && !moving && !_alreadyMoved) //Calcul du mouvement
         {
-            transform.GetChild(0).Translate(0, MoveY, 0);
+            animator.SetBool("IsGrounded", false);
             bool findPath = CalculatePathFull(); //Calcul du trajet normal
             
             if (findPath) //Si le trajet et valide
@@ -906,7 +907,7 @@ public class NPCMove : TacticsMovement
                         }
                         else
                         {
-                            transform.GetChild(0).Translate(0, -MoveY, 0);
+                            animator.SetBool("IsGrounded", true);
                             EndTurnT();
                         }
                     }
