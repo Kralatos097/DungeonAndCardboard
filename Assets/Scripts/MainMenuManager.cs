@@ -8,6 +8,7 @@ public class MainMenuManager : MonoBehaviour
     [Header("Sessions Name")]
     [Scene][SerializeField] private string Session0;
     [Scene][SerializeField] private string Session1;
+    [Scene][SerializeField] private string Credit;
     [Header("Animators")]
     [SerializeField] private Animator TransitionCam;
     [SerializeField] private Animator TableFlip;
@@ -91,6 +92,11 @@ public class MainMenuManager : MonoBehaviour
     public void SessionOne()
     {
         SceneManager.LoadScene(Session1);
+    }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene(Credit);
     }
     
     //SetActiveFalse tout les sous menus
