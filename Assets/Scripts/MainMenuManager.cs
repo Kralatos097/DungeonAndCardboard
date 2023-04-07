@@ -11,14 +11,16 @@ public class MainMenuManager : MonoBehaviour
     [Scene][SerializeField] private string Credit;
     [Header("Animators")]
     [SerializeField] private Animator TransitionCam;
-    [SerializeField] private Animator TableFlip;
     [Header("GameObjects")]
     [SerializeField] private GameObject QuitQuestion;
     [SerializeField] private GameObject Settings;
     [SerializeField] private GameObject WikiDisplay;
     [SerializeField] private GameObject Session0Display;
     [SerializeField] private GameObject Session1Display;
-
+    [Header("Values")]
+    [SerializeField] private float timeToIntro = 5;
+    private float _timeToIntroCnt = 0;
+    [Space]
     public bool AsSessionDisplay;
     public bool IsInMenu;
     
@@ -33,10 +35,16 @@ public class MainMenuManager : MonoBehaviour
     private void Start()
     {
         FindObjectOfType<AudioManager>().Play("MainMenu");
+        _timeToIntroCnt = 0;
     }
 
     private void Update()
     {
+        if(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+        {
+            _timeToIntroCnt = 0;
+        }
+        
         if (!IsInMenu && Input.GetMouseButtonDown(1) || !IsInMenu && Input.GetMouseButtonDown(0))
         {
             IsInMenu = true;
@@ -53,6 +61,11 @@ public class MainMenuManager : MonoBehaviour
             AsSessionDisplay = false;
             SetFalseAllMenu();
         }
+
+        if(_timeToIntroCnt >= timeToIntro)
+            BackToIntro();
+        else
+            _timeToIntroCnt += Time.deltaTime;
     }
     
     //Anim event
@@ -129,5 +142,10 @@ public class MainMenuManager : MonoBehaviour
         #else
             Application.Quit();
         #endif
+    }
+
+    private void BackToIntro()
+    {
+        SceneManager.LoadScene(0);
     }
 }

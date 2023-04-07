@@ -18,7 +18,7 @@ public class IntroManager : MonoBehaviour
         if(CircleSkip.fillAmount == 0) CircleSkip.gameObject.SetActive(false);
         else CircleSkip.gameObject.SetActive(true);
         
-        if (Input.GetMouseButton(0)) CircleSkip.fillAmount += SpeedOnClick;
+        if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) CircleSkip.fillAmount += SpeedOnClick;
         else CircleSkip.fillAmount -= SpeedUnClick;
 
         if (CircleSkip.fillAmount == 1) SceneManager.LoadScene(SceneToLoad);

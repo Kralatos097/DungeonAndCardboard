@@ -7270,12 +7270,12 @@ MonoBehaviour:
   Session1: IntroS1
   Credit: Credits
   TransitionCam: {fileID: 1082306310}
-  TableFlip: {fileID: 1612605278}
   QuitQuestion: {fileID: 1186852157}
   Settings: {fileID: 50857611}
   WikiDisplay: {fileID: 1037768930}
   Session0Display: {fileID: 1920019772}
   Session1Display: {fileID: 883118654}
+  timeToIntro: 25
   AsSessionDisplay: 0
   IsInMenu: 0
 --- !u!114 &1082306312
