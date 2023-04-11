@@ -319,7 +319,7 @@ public class CombatStat : MonoBehaviour
     {
         if (CurrHp <= 0) return;
         gameObject.GetComponent<CombatStat>().armor += value;
-        GainArmorFX();
+        if (TurnManager.CombatStarted) GainArmorFX();
     }
 
     public void ActivatePoison()
