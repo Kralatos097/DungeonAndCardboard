@@ -292,7 +292,7 @@ public class NPCMove : TacticsMovement
         }
     }
     
-    private void FindNearestEnemyInRange()
+    private void FindLowestLifeEnemyInRange()
     {
         int distAtk = atkRange + move;
 
@@ -324,7 +324,18 @@ public class NPCMove : TacticsMovement
                     GameObject TGO = tile.GetGameObjectOnTop();
                     if (TGO != null)
                     {
-                        if (TGO.CompareTag("Enemy") && tile.distance >= _targetDistance)
+                        bool comp = true;
+                        if (target != null)
+                        {
+                            CombatStat targetCs = target.GetComponent<CombatStat>();
+                            CombatStat TgoCs = TGO.GetComponent<CombatStat>();
+                            if ((targetCs.CurrHp / targetCs.MaxHp)<=(TgoCs.CurrHp / TgoCs.MaxHp))
+                            {
+                                comp = false;
+                            }
+                        }
+                        
+                        if (TGO.CompareTag("Enemy") && comp)
                         {
                             target = TGO;
                             _targetDistance = tile.distance;
@@ -335,7 +346,7 @@ public class NPCMove : TacticsMovement
         }
     }
     
-    private void FindNearestEnemy()
+    private void FindLowestLifeEnemy()
     {
 
         ComputeAdjacencyListAtk();
@@ -365,7 +376,18 @@ public class NPCMove : TacticsMovement
                     GameObject TGO = tile.GetGameObjectOnTop();
                     if (TGO != null)
                     {
-                        if (TGO.CompareTag("Enemy"))
+                        bool comp = true;
+                        if (target != null)
+                        {
+                            CombatStat targetCs = target.GetComponent<CombatStat>();
+                            CombatStat TgoCs = TGO.GetComponent<CombatStat>();
+                            if ((targetCs.CurrHp / targetCs.MaxHp)<=(TgoCs.CurrHp / TgoCs.MaxHp))
+                            {
+                                comp = false;
+                            }
+                        }
+                        
+                        if (TGO.CompareTag("Enemy") && comp)
                         {
                             target = TGO;
                             _targetDistance = tile.distance;
@@ -858,10 +880,10 @@ public class NPCMove : TacticsMovement
     {
         if(!firstTimePass)
         {
-            FindNearestEnemyInRange();
+            FindLowestLifeEnemyInRange();
             if(target == null)
             {
-                FindNearestEnemy();
+                FindLowestLifeEnemy();
             }
             
             RemoveSelectableTile();
