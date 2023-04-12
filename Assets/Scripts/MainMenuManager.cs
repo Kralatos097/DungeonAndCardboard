@@ -109,6 +109,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void Credits()
     {
+        FindObjectOfType<AudioManager>().Play("EndSessionWin");
         SceneManager.LoadScene(Credit);
     }
     
