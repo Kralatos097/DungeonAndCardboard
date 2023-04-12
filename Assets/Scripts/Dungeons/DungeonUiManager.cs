@@ -514,9 +514,9 @@ public class DungeonUiManager : MonoBehaviour
         Transform playerPanel = playerInfoPanel.GetChild(0);
         if (WarriorInfo.MaxHp > 0)
         {
-            playerPanel.GetChild(1).GetChild(0).GetComponent<Image>().fillAmount =
+            playerPanel.GetChild(2).GetChild(0).GetComponent<Image>().fillAmount =
                 WarriorInfo.CurrentHp / (float)WarriorInfo.MaxHp;
-            playerPanel.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = WarriorInfo.CurrentHp.ToString();
+            playerPanel.GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>().text = WarriorInfo.CurrentHp.ToString();
 
             GameObject passiveImg = playerPanel.transform.Find("PassifImg").gameObject;
             if (WarriorInfo.Passive == null)
@@ -537,9 +537,9 @@ public class DungeonUiManager : MonoBehaviour
         playerPanel = playerInfoPanel.GetChild(1);
         if (ThiefInfo.MaxHp > 0)
         {
-            playerPanel.GetChild(1).GetChild(0).GetComponent<Image>().fillAmount =
+            playerPanel.GetChild(2).GetChild(0).GetComponent<Image>().fillAmount =
                 ThiefInfo.CurrentHp / (float)ThiefInfo.MaxHp;
-            playerPanel.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = ThiefInfo.CurrentHp.ToString();
+            playerPanel.GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>().text = ThiefInfo.CurrentHp.ToString();
 
             GameObject passiveImg = playerPanel.transform.Find("PassifImg").gameObject;
             if (ThiefInfo.Passive == null)
@@ -560,9 +560,9 @@ public class DungeonUiManager : MonoBehaviour
         playerPanel = playerInfoPanel.GetChild(2);
         if (ClericInfo.MaxHp > 0)
         {
-            playerPanel.GetChild(1).GetChild(0).GetComponent<Image>().fillAmount =
+            playerPanel.GetChild(2).GetChild(0).GetComponent<Image>().fillAmount =
                 ClericInfo.CurrentHp / (float)ClericInfo.MaxHp;
-            playerPanel.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = ClericInfo.CurrentHp.ToString();
+            playerPanel.GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>().text = ClericInfo.CurrentHp.ToString();
             
             GameObject passiveImg = playerPanel.transform.Find("PassifImg").gameObject;
             if (ClericInfo.Passive == null)
@@ -583,9 +583,9 @@ public class DungeonUiManager : MonoBehaviour
         playerPanel = playerInfoPanel.GetChild(3);
         if (WizardInfo.MaxHp > 0)
         {
-            playerPanel.GetChild(1).GetChild(0).GetComponent<Image>().fillAmount =
+            playerPanel.GetChild(2).GetChild(0).GetComponent<Image>().fillAmount =
                 WizardInfo.CurrentHp / (float)WizardInfo.MaxHp;
-            playerPanel.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = WizardInfo.CurrentHp.ToString();
+            playerPanel.GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>().text = WizardInfo.CurrentHp.ToString();
 
             GameObject passiveImg = playerPanel.transform.Find("PassifImg").gameObject;
             if (WizardInfo.Passive == null)

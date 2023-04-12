@@ -329,10 +329,10 @@ public class UIManager : MonoBehaviour
                     throw new ArgumentOutOfRangeException();
             }
 
-            t.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>().text = "" + combatStat.CurrHp;
-            t.transform.GetChild(1).Find("FillHpFullImg").GetComponent<Image>().fillAmount =
+            t.transform.GetChild(2).GetComponentInChildren<TextMeshProUGUI>().text = "" + combatStat.CurrHp;
+            t.transform.GetChild(2).Find("FillHpFullImg").GetComponent<Image>().fillAmount =
                 (combatStat.CurrHp / (float)combatStat.baseMaxHp);
-            t.transform.GetChild(1).Find("FillHpEmptyImg").GetComponent<Image>().fillAmount =
+            t.transform.GetChild(2).Find("FillHpEmptyImg").GetComponent<Image>().fillAmount =
                 (combatStat.MaxHp / (float)combatStat.baseMaxHp);
             if (playerMovement.GetPassive() == null)
             {
@@ -361,7 +361,7 @@ public class UIManager : MonoBehaviour
             }
             
 
-            t.transform.GetChild(0).GetComponent<Image>().sprite = npcSprite;
+            t.transform.GetChild(1).GetComponent<Image>().sprite = npcSprite;
         }
 
         /*if(TurnManager.CombatStarted)
@@ -418,31 +418,31 @@ public class UIManager : MonoBehaviour
             if(combatStat.MaxHp == 0) return;
             if(combatStat.CurrHp/(float)combatStat.MaxHp >= .75f)
             {
-                t.Value.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+                t.Value.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
             }
             else if(combatStat.CurrHp/(float)combatStat.MaxHp >= .5f)
             {
-                t.Value.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-                t.Value.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = DamageSprites[0];
+                t.Value.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
+                t.Value.transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = DamageSprites[0];
             }
             else if(combatStat.CurrHp/(float)combatStat.MaxHp >= .25f)
             {
-                t.Value.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-                t.Value.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = DamageSprites[1];
+                t.Value.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
+                t.Value.transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = DamageSprites[1];
             }
             else
             {
-                t.Value.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-                t.Value.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = DamageSprites[2];
+                t.Value.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
+                t.Value.transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = DamageSprites[2];
             }
             
             if(t.Key.GetComponent<PlayerMovement>() != null)
             {
-                t.Value.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>().text =
+                t.Value.transform.GetChild(2).GetComponentInChildren<TextMeshProUGUI>().text =
                     "" + t.Key.GetComponent<CombatStat>().CurrHp;
-                t.Value.transform.GetChild(1).Find("FillHpFullImg").GetComponent<Image>().fillAmount =
+                t.Value.transform.GetChild(2).Find("FillHpFullImg").GetComponent<Image>().fillAmount =
                     (t.Key.GetComponent<CombatStat>().CurrHp / (float)t.Key.GetComponent<CombatStat>().baseMaxHp);
-                t.Value.transform.GetChild(1).Find("FillHpEmptyImg").GetComponent<Image>().fillAmount =
+                t.Value.transform.GetChild(2).Find("FillHpEmptyImg").GetComponent<Image>().fillAmount =
                     (t.Key.GetComponent<CombatStat>().MaxHp / (float)t.Key.GetComponent<CombatStat>().baseMaxHp);
 
                 if (t.Key.GetComponent<PlayerMovement>().GetPassive() == null)
