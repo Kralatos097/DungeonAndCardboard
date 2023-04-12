@@ -193,8 +193,8 @@ public class DungeonUiManager : MonoBehaviour
         _lootedStuff = stuff;
         stuffCharaSelectPanel.SetActive(true);
         stuffReplaceSelectPanel.SetActive(false);
-        stuffCharaSelectPanel.transform.GetChild(0).gameObject.GetComponent<StuffButtonOver>().ChangeStuff(_newStuff);
-        stuffCharaSelectPanel.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = stuff.logo;
+        stuffCharaSelectPanel.transform.GetChild(1).gameObject.GetComponent<StuffButtonOver>().ChangeStuff(_newStuff);
+        stuffCharaSelectPanel.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = stuff.logo;
     }
     
     public void CharaSelect(int nb)
@@ -206,10 +206,10 @@ public class DungeonUiManager : MonoBehaviour
         {
             case 0: //Warrior
                 _charaSelected = Perso.Warrior;
-                EquipChoiceIconChange(WarriorInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).gameObject, "Active");
-                EquipChoiceIconChange(WarriorInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject, "Active");
-                EquipChoiceIconChange(WarriorInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject, "Passive");
-                EquipChoiceIconChange(WarriorInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject, "Consumable");
+                EquipChoiceIconChange(WarriorInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).GetChild(0).gameObject, "Active");
+                EquipChoiceIconChange(WarriorInfo.ActiveTwo, stuffIconPanel.transform.GetChild(1).GetChild(1).gameObject, "Active");
+                EquipChoiceIconChange(WarriorInfo.Passive, stuffIconPanel.transform.GetChild(1).GetChild(2).gameObject, "Passive");
+                EquipChoiceIconChange(WarriorInfo.Consumable, stuffIconPanel.transform.GetChild(1).GetChild(3).gameObject, "Consumable");
                 _baseStuffs[0] = WarriorInfo.ActiveOne;
                 _baseStuffs[1] = WarriorInfo.ActiveTwo;
                 _baseStuffs[2] = WarriorInfo.Passive;
@@ -218,10 +218,10 @@ public class DungeonUiManager : MonoBehaviour
             
             case 1: //Thief
                 _charaSelected = Perso.Thief;
-                EquipChoiceIconChange(ThiefInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).gameObject, "Active");
-                EquipChoiceIconChange(ThiefInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject, "Active");
-                EquipChoiceIconChange(ThiefInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject, "Passive");
-                EquipChoiceIconChange(ThiefInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject, "Consumable");
+                EquipChoiceIconChange(ThiefInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).GetChild(0).gameObject, "Active");
+                EquipChoiceIconChange(ThiefInfo.ActiveTwo, stuffIconPanel.transform.GetChild(1).GetChild(1).gameObject, "Active");
+                EquipChoiceIconChange(ThiefInfo.Passive, stuffIconPanel.transform.GetChild(1).GetChild(2).gameObject, "Passive");
+                EquipChoiceIconChange(ThiefInfo.Consumable, stuffIconPanel.transform.GetChild(1).GetChild(3).gameObject, "Consumable");
                 _baseStuffs[0] = ThiefInfo.ActiveOne;
                 _baseStuffs[1] = ThiefInfo.ActiveTwo;
                 _baseStuffs[2] = ThiefInfo.Passive;
@@ -230,10 +230,10 @@ public class DungeonUiManager : MonoBehaviour
             
             case 2: //Cleric
                 _charaSelected = Perso.Cleric;
-                EquipChoiceIconChange(ClericInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).gameObject, "Active");
-                EquipChoiceIconChange(ClericInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject, "Active");
-                EquipChoiceIconChange(ClericInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject, "Passive");
-                EquipChoiceIconChange(ClericInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject, "Consumable");
+                EquipChoiceIconChange(ClericInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).GetChild(0).gameObject, "Active");
+                EquipChoiceIconChange(ClericInfo.ActiveTwo, stuffIconPanel.transform.GetChild(1).GetChild(1).gameObject, "Active");
+                EquipChoiceIconChange(ClericInfo.Passive, stuffIconPanel.transform.GetChild(1).GetChild(2).gameObject, "Passive");
+                EquipChoiceIconChange(ClericInfo.Consumable, stuffIconPanel.transform.GetChild(1).GetChild(3).gameObject, "Consumable");
                 _baseStuffs[0] = ClericInfo.ActiveOne;
                 _baseStuffs[1] = ClericInfo.ActiveTwo;
                 _baseStuffs[2] = ClericInfo.Passive;
@@ -242,10 +242,10 @@ public class DungeonUiManager : MonoBehaviour
             
             case 3: //Wizard
                 _charaSelected = Perso.Wizard;
-                EquipChoiceIconChange(WizardInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).gameObject, "Active");
-                EquipChoiceIconChange(WizardInfo.ActiveTwo, stuffIconPanel.transform.GetChild(2).gameObject, "Active");
-                EquipChoiceIconChange(WizardInfo.Passive, stuffIconPanel.transform.GetChild(3).gameObject, "Passive");
-                EquipChoiceIconChange(WizardInfo.Consumable, stuffIconPanel.transform.GetChild(4).gameObject, "Consumable");
+                EquipChoiceIconChange(WizardInfo.ActiveOne, stuffIconPanel.transform.GetChild(1).GetChild(0).gameObject, "Active");
+                EquipChoiceIconChange(WizardInfo.ActiveTwo, stuffIconPanel.transform.GetChild(1).GetChild(1).gameObject, "Active");
+                EquipChoiceIconChange(WizardInfo.Passive, stuffIconPanel.transform.GetChild(1).GetChild(2).gameObject, "Passive");
+                EquipChoiceIconChange(WizardInfo.Consumable, stuffIconPanel.transform.GetChild(1).GetChild(3).gameObject, "Consumable");
                 _baseStuffs[0] = WizardInfo.ActiveOne;
                 _baseStuffs[1] = WizardInfo.ActiveTwo;
                 _baseStuffs[2] = WizardInfo.Passive;
@@ -289,24 +289,24 @@ public class DungeonUiManager : MonoBehaviour
     {
         if(_newStuff.GetType() == typeof(Consumable))
         {
-            stuffIconPanel.transform.GetChild(1).gameObject.GetComponent<Button>().interactable = false;
-            stuffIconPanel.transform.GetChild(2).gameObject.GetComponent<Button>().interactable = false;
-            stuffIconPanel.transform.GetChild(3).gameObject.GetComponent<Button>().interactable = false;
-            stuffIconPanel.transform.GetChild(4).gameObject.GetComponent<Button>().interactable = true;
+            stuffIconPanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Button>().interactable = false;
+            stuffIconPanel.transform.GetChild(1).GetChild(1).gameObject.GetComponent<Button>().interactable = false;
+            stuffIconPanel.transform.GetChild(1).GetChild(2).gameObject.GetComponent<Button>().interactable = false;
+            stuffIconPanel.transform.GetChild(1).GetChild(3).gameObject.GetComponent<Button>().interactable = true;
         }
         else if(_newStuff.GetType() == typeof(Passive))
         {
-            stuffIconPanel.transform.GetChild(1).gameObject.GetComponent<Button>().interactable = false;
-            stuffIconPanel.transform.GetChild(2).gameObject.GetComponent<Button>().interactable = false;
-            stuffIconPanel.transform.GetChild(3).gameObject.GetComponent<Button>().interactable = true;
-            stuffIconPanel.transform.GetChild(4).gameObject.GetComponent<Button>().interactable = false;
+            stuffIconPanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Button>().interactable = false;
+            stuffIconPanel.transform.GetChild(1).GetChild(1).gameObject.GetComponent<Button>().interactable = false;
+            stuffIconPanel.transform.GetChild(1).GetChild(2).gameObject.GetComponent<Button>().interactable = true;
+            stuffIconPanel.transform.GetChild(1).GetChild(3).gameObject.GetComponent<Button>().interactable = false;
         }
         else if(_newStuff.GetType() == typeof(Active))
         {
-            stuffIconPanel.transform.GetChild(1).gameObject.GetComponent<Button>().interactable = true;
-            stuffIconPanel.transform.GetChild(2).gameObject.GetComponent<Button>().interactable = true;
-            stuffIconPanel.transform.GetChild(3).gameObject.GetComponent<Button>().interactable = false;
-            stuffIconPanel.transform.GetChild(4).gameObject.GetComponent<Button>().interactable = false;
+            stuffIconPanel.transform.GetChild(1).GetChild(0).gameObject.GetComponent<Button>().interactable = true;
+            stuffIconPanel.transform.GetChild(1).GetChild(1).gameObject.GetComponent<Button>().interactable = true;
+            stuffIconPanel.transform.GetChild(1).GetChild(2).gameObject.GetComponent<Button>().interactable = false;
+            stuffIconPanel.transform.GetChild(1).GetChild(3).gameObject.GetComponent<Button>().interactable = false;
         }
     }
 
