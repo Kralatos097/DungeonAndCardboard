@@ -22,6 +22,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button moveButton;
     [SerializeField] private GameObject equipSelectorPanel;
     
+    [Space]
+    [SerializeField] private Sprite moveSprite;
+    [SerializeField] private Sprite returnSprite;
+    
     [HideInInspector] public StuffSelected stuffSelected = StuffSelected.Default;
 
     private Active _activeOne = null;
@@ -129,6 +133,7 @@ public class UIManager : MonoBehaviour
         _actionSelectorShown = true;
         actionSelectorPanel.SetActive(true);
         
+        moveButton.GetComponent<Image>().sprite = alreadyMoved ? returnSprite : moveSprite;
         moveButton.GetComponentInChildren<TextMeshProUGUI>().text = alreadyMoved ? "Return" : "Move";
         
         ShowEquipSelector();

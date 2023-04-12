@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b76767f04f44ae544840b94dd327edb1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a61972fd86574dd4db03e938acd5697b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b76767f04f44ae544840b94dd327edb1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a61972fd86574dd4db03e938acd5697b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1423,6 +1423,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8525849390842361195}
     m_Modifications:
+    - target: {fileID: 2906654811565257840, guid: 1af877687cff47d4583be5884b54182b, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2906654811755024204, guid: 1af877687cff47d4583be5884b54182b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1430,6 +1434,18 @@ PrefabInstance:
     - target: {fileID: 2906654811755024204, guid: 1af877687cff47d4583be5884b54182b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DungeonManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906654811755024205, guid: 1af877687cff47d4583be5884b54182b, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906654811755024205, guid: 1af877687cff47d4583be5884b54182b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3189224a7acab0b488a329912e1b9ec3, type: 3}
+    - target: {fileID: 2906654811755024205, guid: 1af877687cff47d4583be5884b54182b, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2906654811755024211, guid: 1af877687cff47d4583be5884b54182b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1454,6 +1470,10 @@ PrefabInstance:
     - target: {fileID: 2906654811755024211, guid: 1af877687cff47d4583be5884b54182b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -168.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906654811946803853, guid: 1af877687cff47d4583be5884b54182b, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2906654812378292116, guid: 1af877687cff47d4583be5884b54182b, type: 3}
       propertyPath: m_MatchWidthOrHeight
@@ -1594,6 +1614,18 @@ PrefabInstance:
     - target: {fileID: 2906654812883388742, guid: 1af877687cff47d4583be5884b54182b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DungeonManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906654812883388743, guid: 1af877687cff47d4583be5884b54182b, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906654812883388743, guid: 1af877687cff47d4583be5884b54182b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 59d578099ae73f24abe3858cd9d2ae0e, type: 3}
+    - target: {fileID: 2906654812883388743, guid: 1af877687cff47d4583be5884b54182b, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1af877687cff47d4583be5884b54182b, type: 3}
@@ -2081,6 +2113,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8039464473723792555, guid: f8fd66c320729104a80079e94337f50c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 1864eac2798a8574f9e594395d96a7fc, type: 2}
     - target: {fileID: 8039464473751960104, guid: f8fd66c320729104a80079e94337f50c, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2233,6 +2269,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8039464475368053696, guid: f8fd66c320729104a80079e94337f50c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 1864eac2798a8574f9e594395d96a7fc, type: 2}
     - target: {fileID: 8039464475368053697, guid: f8fd66c320729104a80079e94337f50c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2293,6 +2333,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8039464475626987942, guid: f8fd66c320729104a80079e94337f50c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 1864eac2798a8574f9e594395d96a7fc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8fd66c320729104a80079e94337f50c, type: 3}
 --- !u!224 &1855496795482097957 stripped
