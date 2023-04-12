@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2865555101672584016, guid: fd015fc2027f3ea4a9bbd6dc7d7273ca, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2865555101672584016, guid: fd015fc2027f3ea4a9bbd6dc7d7273ca, type: 3}
+      propertyPath: m_Color.r
+      value: 0.25490198
+      objectReference: {fileID: 0}
     - target: {fileID: 3648971545672378673, guid: fd015fc2027f3ea4a9bbd6dc7d7273ca, type: 3}
       propertyPath: m_Name
       value: WizardInitPanel
