@@ -4,7 +4,89 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="225202b0-c116-4b2c-8d9c-8c9a57c9d235" name="Changes" comment="" />
+    <list default="true" id="225202b0-c116-4b2c-8d9c-8c9a57c9d235" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonAndCardboard/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/ApocalypseVerdatre.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/ApocalypseVerdatre.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/ApocalypseVerdatre/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/ApocalypseVerdatre/LightingData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/ApocalypseVerdatre/LightingData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/ApocalypseVerdatre/LightingData.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/ApocalypseVerdatre/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/ApocalypseVerdatre/Lightmap-0_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/ApocalypseVerdatre/Lightmap-0_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/ApocalypseVerdatre/Lightmap-0_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/ApocalypseVerdatre/ReflectionProbe-0.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/ApocalypseVerdatre/ReflectionProbe-0.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/BonResto.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/BonResto.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/BonResto/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/BonResto/LightingData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/BonResto/LightingData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/BonResto/LightingData.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/BonResto/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/BonResto/Lightmap-0_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/BonResto/Lightmap-0_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/BonResto/Lightmap-0_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/BonResto/ReflectionProbe-0.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/BonResto/ReflectionProbe-0.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/CampsDentrainement.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/CampsDentrainement.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/CampsDentrainement/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/CampsDentrainement/LightingData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/CampsDentrainement/LightingData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/CampsDentrainement/LightingData.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/CampsDentrainement/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/CampsDentrainement/Lightmap-0_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/CampsDentrainement/Lightmap-0_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/CampsDentrainement/Lightmap-0_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/CampsDentrainement/ReflectionProbe-0.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/CampsDentrainement/ReflectionProbe-0.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/CassisAventure.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/CassisAventure.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/CassisAventure/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/CassisAventure/LightingData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/CassisAventure/LightingData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/CassisAventure/LightingData.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/CassisAventure/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/CassisAventure/Lightmap-0_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/CassisAventure/Lightmap-0_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/CassisAventure/Lightmap-0_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/CassisAventure/ReflectionProbe-0.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/CassisAventure/ReflectionProbe-0.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/CuisineCauchemardesque.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/CuisineCauchemardesque.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/CuisineCauchemardesque/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/CuisineCauchemardesque/LightingData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/CuisineCauchemardesque/LightingData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/CuisineCauchemardesque/LightingData.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/CuisineCauchemardesque/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/CuisineCauchemardesque/Lightmap-0_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/CuisineCauchemardesque/Lightmap-0_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/CuisineCauchemardesque/Lightmap-0_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/CuisineCauchemardesque/ReflectionProbe-0.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/CuisineCauchemardesque/ReflectionProbe-0.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/DépotoirInfecte.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/DépotoirInfecte.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/DépotoirInfecte/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/DépotoirInfecte/LightingData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/DépotoirInfecte/LightingData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/DépotoirInfecte/LightingData.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/DépotoirInfecte/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/DépotoirInfecte/Lightmap-0_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/DépotoirInfecte/Lightmap-0_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/DépotoirInfecte/Lightmap-0_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/DépotoirInfecte/ReflectionProbe-0.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/DépotoirInfecte/ReflectionProbe-0.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/LightingData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/LightingData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/LightingData.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-0_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-0_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-0_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-10_comp_light.exr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-10_comp_light.exr.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-1_comp_light.exr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-1_comp_light.exr.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-2_comp_light.exr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-2_comp_light.exr.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-3_comp_light.exr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-3_comp_light.exr.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-4_comp_light.exr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-4_comp_light.exr.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-5_comp_light.exr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-5_comp_light.exr.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-7_comp_light.exr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-7_comp_light.exr.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-8_comp_light.exr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-8_comp_light.exr.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-9_comp_light.exr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/Lightmap-9_comp_light.exr.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/ReflectionProbe-0.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/KingRoom/ReflectionProbe-0.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/RangéArmé.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/RangéArmé.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/RangéArmé/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/RangéArmé/LightingData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/RangéArmé/LightingData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/RangéArmé/LightingData.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/RangéArmé/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/RangéArmé/Lightmap-0_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/RangéArmé/Lightmap-0_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/RangéArmé/Lightmap-0_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lighting/LightMap/RangéArmé/ReflectionProbe-0.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lighting/LightMap/RangéArmé/ReflectionProbe-0.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/WoodenCrate.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Arena/Terrain/WoodenCrate.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenuManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/Credits.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/Credits.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/Embush/ApocalypseVerdatre.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/Embush/ApocalypseVerdatre.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/Embush/CassisAventure.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/Embush/CassisAventure.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/Embush/DépotoirInfecte.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/Embush/DépotoirInfecte.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/Fight/BonResto.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/Fight/BonResto.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/Fight/CampsDentrainement.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/Fight/CampsDentrainement.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/Fight/CuisineCauchemardesque.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/Fight/CuisineCauchemardesque.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/Fight/RangéArmé.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/Fight/RangéArmé.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/KingRoom.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MainScenes/S1 Arena/KingRoom.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,9 +124,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\t.chevillard\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\t.chevillard\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\t.chevillard\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\v.plancq\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\v.plancq\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\v.plancq\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -147,6 +229,7 @@
       <workItem from="1680593671409" duration="13573000" />
       <workItem from="1680698440261" duration="3024000" />
       <workItem from="1680866739052" duration="766000" />
+      <workItem from="1681288905700" duration="710000" />
     </task>
     <servers />
   </component>
