@@ -166,7 +166,6 @@ public class Passive : Stuff
                 userCombatStat.ActivateRevive(passiveEffect.value);
                 break;
             case PassiveType.AmplifyStatus:
-                Debug.Log("sdddd");
                 switch(userCombatStat.GetStatusEffect())
                 {
                     case StatusEffect.Nothing:

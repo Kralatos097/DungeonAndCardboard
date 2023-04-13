@@ -58,6 +58,8 @@ public class Active : Stuff
                 {
                     case 0:
                         MissFx();
+                        if(go.GetComponent<CombatStat>() != null)
+                            go.GetComponent<CombatStat>().InstantiatePopUpDamage(0,0,false);
                         break;
                     case 1:
                         HitFx();

@@ -194,7 +194,9 @@ public class CombatStat : MonoBehaviour
 
     public void TakeDamage(int value, int hit)
     {
-        InstantiatePopUpDamage(value*hit, hit, false);
+        if(hit != 0)
+            InstantiatePopUpDamage(value*hit, hit, false);
+            
         if (value * hit == 0) return;
         Passive passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
         if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnDamageTaken && hit != 0)
@@ -453,7 +455,7 @@ public class CombatStat : MonoBehaviour
         GetComponentInChildren<Animator>().SetTrigger("Damage");
     }
 
-    private void InstantiatePopUpDamage(int value, int hit, bool isHeal)
+    public void InstantiatePopUpDamage(int value, int hit, bool isHeal)
     {
         Vector3 inst = new Vector3(transform.position.x, popUpDamagePrefab.transform.position.y, transform.position.z);
         GameObject pop = Instantiate(popUpDamagePrefab, inst, Quaternion.identity);
