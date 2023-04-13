@@ -72,6 +72,21 @@ EditorBuildSettings:
     path: Assets/_MainScenes/S1 Arena/Embush/CassisAventure.unity
     guid: af4765852a4f67c4ca9451bfd4f7a043
   - enabled: 1
+    path: Assets/_MainScenes/S1 Arena/Fight/AnniversaireSurprise.unity
+    guid: 2d98832ce804b694d95d0fe14b565578
+  - enabled: 1
+    path: Assets/_MainScenes/S1 Arena/Fight/CouloirMirroir.unity
+    guid: 522a61d1f590ebf4687f924a63442569
+  - enabled: 1
+    path: Assets/_MainScenes/S1 Arena/Fight/EchequierBizzare.unity
+    guid: 42c935ee19ff38048a5c1aaf79e3b382
+  - enabled: 1
+    path: Assets/_MainScenes/S1 Arena/Fight/EntrepotGobelin.unity
+    guid: 63a458aed94738c49b566d18b06c9465
+  - enabled: 1
+    path: Assets/_MainScenes/S1 Arena/Fight/PluieDecharde.unity
+    guid: 7312e6354010cd9439280a17a76f839b
+  - enabled: 1
     path: Assets/_MainScenes/S1 Arena/KingRoom.unity
     guid: a8767045aa12c2345aba6bb80c74c516
   - enabled: 1
