@@ -342,6 +342,11 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: Immun
+    clip: {fileID: 8300000, guid: 337c413bbd8ec0741a6854764acbb382, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
   voice: []
   fadeDuration: 2
 --- !u!114 &5566258208821927673
@@ -393,6 +398,8 @@ MonoBehaviour:
     particule: {fileID: 5758658489581617538, guid: b0a59cf8a4dcdbd41ad60473214408fd, type: 3}
   - name: Dead
     particule: {fileID: 7420029356290824026, guid: b2fd26a5e6187894d97f0a65c1a8540a, type: 3}
+  - name: Immun
+    particule: {fileID: 5456244774970856577, guid: ade1a8119fee54b428b1f897181f317a, type: 3}
 --- !u!81 &2263537129894144590
 AudioListener:
   m_ObjectHideFlags: 0

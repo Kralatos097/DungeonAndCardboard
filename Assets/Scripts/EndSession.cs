@@ -12,6 +12,25 @@ public class EndSession : MonoBehaviour
     [SerializeField] private Transform charaPanel;
 
     private AudioManager audioManager;
+
+    public void ToOutro()
+    {
+        if (EndGameInfo.SessionNb == 0)
+        {
+            SceneManager.LoadSceneAsync("OutroS0");
+        }
+        else
+        {
+            if (EndGameInfo.IsVictory)
+            {
+                SceneManager.LoadSceneAsync("OutroS"+EndGameInfo.SessionNb);
+            }
+            else
+            {
+                LoadMainMenu();
+            }
+        }
+    }
     
     public void LoadMainMenu()
     {
