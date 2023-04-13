@@ -31,8 +31,8 @@ public class EndSession : MonoBehaviour
             }
         }
     }
-    
-    public void LoadMainMenu()
+
+    private void LoadMainMenu()
     {
         EndGameInfo.IsVictory = false;
         EndGameInfo.IsTuto = false;
