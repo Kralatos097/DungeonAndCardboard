@@ -27,6 +27,15 @@ EditorBuildSettings:
     path: Assets/_MainScenes/S1 Dungeons/Dungeon3.unity
     guid: 4e14cf6dd945d0b42a028d4e52aa62df
   - enabled: 1
+    path: Assets/_MainScenes/S1 Dungeons/Dungeon4.unity
+    guid: cf8a1f17bbc3a504aaf1ca2152a0b94f
+  - enabled: 1
+    path: Assets/_MainScenes/S1 Dungeons/Dungeon5.unity
+    guid: f00b47f1c12248f44bf888326234b79e
+  - enabled: 1
+    path: Assets/_MainScenes/S1 Dungeons/Dungeon6.unity
+    guid: 8adc2079b57a3e740b1d440480bc648f
+  - enabled: 1
     path: Assets/_MainScenes/S1 Arena/Fight/CuisineCauchemardesque.unity
     guid: 0c33d0f27cb596541bad5e83a51f041e
   - enabled: 1
