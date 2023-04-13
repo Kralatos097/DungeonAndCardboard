@@ -240,23 +240,37 @@ public class CombatStat : MonoBehaviour
         if(!isUp) return; //todo: a test dans le doute a clean
         
         Passive passive;
+        passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
         switch(effect)
         {
             case StatusEffect.Poison:
+                if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueTaken)
+                    if(passive.HasType(PassiveType.ImmunPoison))
+                    {
+                        ImmunFx();
+                        return;
+                    }
+
                 GetPoisonFX();
                 if(StatusEffect == effect) StatusValue += value;
-                else
-                {
-                    StatusValue = value;
-                    StatusEffect = effect;
-                }
-                passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
-                if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueTaken)
-                {
-                    passive.Effect(gameObject);
-                }
+                    else
+                    {
+                        StatusValue = value;
+                        StatusEffect = effect;
+                    }
+                    if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueTaken)
+                    {
+                        passive.Effect(gameObject);
+                    }
                 break;
             case StatusEffect.Stun:
+                if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueTaken)
+                    if(passive.HasType(PassiveType.ImmunStun))
+                    {
+                        ImmunFx();
+                        return;
+                    }
+
                 GetStunFX();
                 if(StatusEffect == effect) StatusValue += value;
                 else
@@ -264,13 +278,19 @@ public class CombatStat : MonoBehaviour
                     StatusValue = value;
                     StatusEffect = effect;
                 }
-                passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
                 if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueTaken)
                 {
                     passive.Effect(gameObject);
                 }
                 break;
             case StatusEffect.Burn:
+                if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueTaken)
+                    if(passive.HasType(PassiveType.ImmunBurn))
+                    {
+                        ImmunFx();
+                        return;
+                    }
+
                 GetBurnFX();
                 if(StatusEffect == effect) StatusValue += value;
                 else
@@ -278,13 +298,19 @@ public class CombatStat : MonoBehaviour
                     StatusValue = value;
                     StatusEffect = effect;
                 }
-                passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
                 if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueTaken)
                 {
                     passive.Effect(gameObject);
                 }
                 break;
             case StatusEffect.Freeze:
+                if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueTaken)
+                    if(passive.HasType(PassiveType.ImmunFreeze))
+                    {
+                        ImmunFx();
+                        return;
+                    }
+
                 GetFreezeFX();
                 if(TurnManager.GetCurrentPlayerD() == gameObject) freezeLastTurn = value;
                 if(StatusEffect == effect) StatusValue += value;
@@ -293,7 +319,6 @@ public class CombatStat : MonoBehaviour
                     StatusValue = value;
                     StatusEffect = effect;
                 }
-                passive = gameObject.GetComponent<TacticsMovement>().GetPassive();
                 if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueTaken)
                 {
                     passive.Effect(gameObject);
@@ -536,8 +561,12 @@ public class CombatStat : MonoBehaviour
         FindObjectOfType<AudioManager>().RandomPitch("EnemyDeath");
         FindObjectOfType<FXManager>().Play("Dead", transform);
     }
-    
-    //todo: Add more FX
+
+    private void ImmunFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("Immun");
+        FindObjectOfType<FXManager>().Play("Immun", transform);
+    }
     
     //-------------- TEST FUNCTION -------------
 #if UNITY_EDITOR

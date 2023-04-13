@@ -121,4 +121,5 @@ public static class EndGameInfo
 {
     public static bool IsVictory;
     public static bool IsTuto;
+    public static int SessionNb;
 }
