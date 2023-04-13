@@ -10,22 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
-  m_Name: StrongGoblin
+  m_Name: StarredGoblinChiefA
   m_EditorClassIdentifier: 
   stuffType: Active
   logo: {fileID: 0}
   description: 
-  range: 1
+  range: 3
   cd: 0
   clickTarget: 1
   activeEffectList:
-  - activeType: 0
-    value: 2
+  - activeType: 1
+    value: 3
     onSelf: 0
     noMiss: 0
     critOnly: 0
-  - activeType: 3
-    value: 0
-    onSelf: 0
-    noMiss: 0
-    critOnly: 1

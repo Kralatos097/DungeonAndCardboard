@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
-  m_Name: GoblinSlinger
+  m_Name: CoinKnightsA
   m_EditorClassIdentifier: 
   stuffType: Active
   logo: {fileID: 0}
   description: 
-  range: 3
+  range: 1
   cd: 0
   clickTarget: 1
   activeEffectList:

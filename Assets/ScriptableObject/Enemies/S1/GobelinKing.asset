@@ -15,9 +15,9 @@ MonoBehaviour:
   maxHp: {x: 50, y: 50}
   initiative: 1
   movement: 2
-  activeOne: {fileID: 11400000, guid: 009d8fa610322c44c9d3ee55701a13ac, type: 2}
+  activeOne: {fileID: 11400000, guid: a7fdca2437bfda64fa445e0e4d59d93f, type: 2}
   activeTwo: {fileID: 0}
-  passive: {fileID: 0}
+  passive: {fileID: 11400000, guid: 8cc3cfd1508f3a84794d55ff9cf76d81, type: 2}
   consumable: {fileID: 0}
   iaType: 5
   charaUiIcon: {fileID: 21300000, guid: 3947339d461f9ba429123a49cab65bab, type: 3}

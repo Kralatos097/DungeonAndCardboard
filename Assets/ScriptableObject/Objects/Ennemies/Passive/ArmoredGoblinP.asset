@@ -9,23 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8129d959219fa284fa96ae7789a04a40, type: 3}
-  m_Name: GoblinThief
+  m_Script: {fileID: 11500000, guid: 2cad211d6ef0d754c988201d13a6208f, type: 3}
+  m_Name: ArmoredGoblinP
   m_EditorClassIdentifier: 
-  stuffType: Active
+  stuffType: Passive
   logo: {fileID: 0}
   description: 
-  range: 1
-  cd: 0
-  clickTarget: 1
-  activeEffectList:
-  - activeType: 0
-    value: 1
-    onSelf: 0
-    noMiss: 0
-    critOnly: 0
-  - activeType: 0
-    value: 1
-    onSelf: 0
-    noMiss: 0
-    critOnly: 0
+  passiveTrigger: 1
+  passiveEffectList:
+  - value: 3
+    onEveryAllies: 0
+    passiveType: 4
