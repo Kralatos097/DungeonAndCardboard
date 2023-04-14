@@ -106,7 +106,7 @@ public class MainMenuManager : MonoBehaviour
     public void SessionOne()
     {
         SceneManager.LoadScene(Session1);
-        EndGameInfo.SessionNb = 0;
+        EndGameInfo.SessionNb = 1;
     }
 
     public void Credits()

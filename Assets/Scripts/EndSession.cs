@@ -15,7 +15,7 @@ public class EndSession : MonoBehaviour
 
     public void ToOutro()
     {
-        if (EndGameInfo.SessionNb == 0)
+        if(EndGameInfo.SessionNb == 0)
         {
             SceneManager.LoadSceneAsync("OutroS0");
         }
