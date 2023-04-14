@@ -870,6 +870,11 @@ MonoBehaviour:
   - "CibleEmpoison\xE9"
   - "CheminR\xE9strinc"
   - CampsDentrainement
+  - AnniversaireSurprise
+  - CouloirMirroir
+  - EchequierBizzare
+  - EntrepotGobelin
+  - PluieDecharde
   ambushedSceneList:
   - ApocalypseVerdatre
   - CassisAventure
