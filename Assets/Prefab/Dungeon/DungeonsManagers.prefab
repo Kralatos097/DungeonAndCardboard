@@ -950,9 +950,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69bdc3f1ab0a72c479f118f37d5420f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emptyActiveIcon: {fileID: 21300000, guid: 8fa1e9884b03fc54e93a8ea7c92a5dfa, type: 3}
-  emptyPassiveIcon: {fileID: 21300000, guid: e9a7a53139500d146bae09148186ebf3, type: 3}
-  emptyConsumableIcon: {fileID: 21300000, guid: afbe32685bb78d848973d8f7552f0690, type: 3}
+  emptyActiveIcon: {fileID: 21300000, guid: 221bc05e68fff9846ae21f6a41d66e62, type: 3}
+  emptyPassiveIcon: {fileID: 21300000, guid: d220be5686665a14281b4c662b872dcd, type: 3}
+  emptyConsumableIcon: {fileID: 21300000, guid: 24040e3682741bf4586dd5d0c0383bba, type: 3}
   bossPanel: {fileID: 991877361319708518}
   lootTrapPanel: {fileID: 991877359410365860}
   lootAmbushPanel: {fileID: 7355465914151854028}
