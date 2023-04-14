@@ -1396,9 +1396,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4655170603747649084, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655170603747649084, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5201210037091741449, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: UnityEngine.Behaviour, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220514996482158296, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
+      propertyPath: m_fontSize
+      value: 58.5
       objectReference: {fileID: 0}
     - target: {fileID: 5584465786357441153, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1647,6 +1659,14 @@ PrefabInstance:
     - target: {fileID: 5726558313600029630, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
       propertyPath: m_Name
       value: LootConsumablePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096158026887115260, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096158026887115260, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6775496312927284550, guid: 74e26e1adbd44fd49a5a4776a8ff2db4, type: 3}
       propertyPath: m_IsActive
