@@ -189,7 +189,6 @@ public class NPCMove : TacticsMovement
                     tile.distance = 1 + t.distance;
                     
                     if (tile.distance > atkRange + move) return;
-                    process.Enqueue(tile);
 
                     GameObject TGO = tile.GetGameObjectOnTop();
                     if (TGO != null)
@@ -201,6 +200,7 @@ public class NPCMove : TacticsMovement
                             return;
                         }
                     }
+                    else process.Enqueue(tile);
                 }
             }
         }

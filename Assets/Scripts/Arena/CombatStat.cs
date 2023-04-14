@@ -412,7 +412,8 @@ public class CombatStat : MonoBehaviour
         
         holyShield = true;
         FindObjectOfType<AudioManager>().RandomPitch("GainHolyShield");
-        //Todo: Add VFX
+        if(GetComponentInChildren<Animator>() != null)
+            GetComponentInChildren<Animator>().SetTrigger("Damage");
     }
 
     public void ActivateRevive(int value)
@@ -424,35 +425,38 @@ public class CombatStat : MonoBehaviour
     private void DamageHolyShieldFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("DamageHolyShield");
-        //Todo: Add VFX
+        if(GetComponentInChildren<Animator>() != null)
+            GetComponentInChildren<Animator>().SetTrigger("Damage");
     }
 
     private void TakeArmorDamageFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("ArmorDamaged");
-        //Todo: Add VFX
-        GetComponentInChildren<Animator>().SetTrigger("Damage");
+        if(GetComponentInChildren<Animator>() != null)
+            GetComponentInChildren<Animator>().SetTrigger("Damage");
     }
     
     private void GainArmorFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("ArmorGained");
-        //Todo: Add VFX
-        GetComponentInChildren<Animator>().SetTrigger("Damage");
+        if(GetComponentInChildren<Animator>() != null)
+            GetComponentInChildren<Animator>().SetTrigger("Damage");
     }
 
     private void TakeDamageFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch(gameObject.CompareTag("Player") ? "AllieDamaged" : "EnemyDamaged");
         FindObjectOfType<FXManager>().Play("Damaged", transform);
-        GetComponentInChildren<Animator>().SetTrigger("Damage");
+        if(GetComponentInChildren<Animator>() != null)
+            GetComponentInChildren<Animator>().SetTrigger("Damage");
     }
 
     private void GetHealFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch(gameObject.CompareTag("Player") ? "AllieHealed" : "EnemyHealed");
         FindObjectOfType<FXManager>().Play("Healed", transform);
-        GetComponentInChildren<Animator>().SetTrigger("Damage");
+        if(GetComponentInChildren<Animator>() != null)
+            GetComponentInChildren<Animator>().SetTrigger("Damage");
     }
 
     public void InstantiatePopUpDamage(int value, int hit, bool isHeal)
@@ -500,7 +504,8 @@ public class CombatStat : MonoBehaviour
         FindObjectOfType<AudioManager>().RandomPitch("GetBurn");
         FindObjectOfType<FXManager>().Play("GetBurn", transform);
         FindObjectOfType<FXManager>().Play("Burn", transform);
-        GetComponentInChildren<Animator>().SetTrigger("Damage");
+        if(GetComponentInChildren<Animator>() != null)
+            GetComponentInChildren<Animator>().SetTrigger("Damage");
     }
 
     private void GetFreezeFX()
@@ -508,7 +513,8 @@ public class CombatStat : MonoBehaviour
         FindObjectOfType<AudioManager>().RandomPitch("GetFreeze");
         FindObjectOfType<FXManager>().Play("GetFreeze", transform);
         FindObjectOfType<FXManager>().Play("Freeze", transform);
-        GetComponentInChildren<Animator>().SetTrigger("Damage");
+        if(GetComponentInChildren<Animator>() != null)
+            GetComponentInChildren<Animator>().SetTrigger("Damage");
     }
 
     private void GetStunFX()
@@ -516,7 +522,8 @@ public class CombatStat : MonoBehaviour
         FindObjectOfType<AudioManager>().RandomPitch("GetStun");
         FindObjectOfType<FXManager>().Play("GetStun", transform);
         FindObjectOfType<FXManager>().Play("Stun", transform);
-        GetComponentInChildren<Animator>().SetTrigger("Damage");
+        if(GetComponentInChildren<Animator>() != null)
+            GetComponentInChildren<Animator>().SetTrigger("Damage");
     }
 
     private void GetPoisonFX()
@@ -524,14 +531,16 @@ public class CombatStat : MonoBehaviour
         FindObjectOfType<AudioManager>().RandomPitch("GetPoison");
         FindObjectOfType<FXManager>().Play("GetPoison", transform);
         FindObjectOfType<FXManager>().Play("Poison", transform);
-        GetComponentInChildren<Animator>().SetTrigger("Damage");
+        if(GetComponentInChildren<Animator>() != null)
+            GetComponentInChildren<Animator>().SetTrigger("Damage");
     }
     
     private void GetCuredFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("GetCured");
         FindObjectOfType<FXManager>().Play("Cured", transform);
-        GetComponentInChildren<Animator>().SetTrigger("Damage");
+        if(GetComponentInChildren<Animator>() != null)
+            GetComponentInChildren<Animator>().SetTrigger("Damage");
     }
 
     private void ActivatePoisonFX()

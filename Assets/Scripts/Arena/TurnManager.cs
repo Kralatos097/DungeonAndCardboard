@@ -43,15 +43,8 @@ public class TurnManager : MonoBehaviour
 
     private void Start()
     {
-        if(!bossFight)
-        {
-            FindObjectOfType<AudioManager>().Play("Fight");
-        }
-        else
-        {
-            FindObjectOfType<AudioManager>().Play("Boss");
-        }
-        
+        FindObjectOfType<AudioManager>().Play(!bossFight ? "Fight" : "Boss");
+
         Invoke(nameof(LateStart), 1);
         _combatEndCanvas = CombatEndCanvas;
         GetCurrentPlayerD = GetCurrentPlayer;
@@ -191,10 +184,18 @@ public class TurnManager : MonoBehaviour
             if(turnOrder.Peek().GetComponent<CombatStat>().GetStatusEffect() == StatusEffect.Poison)
             {
                 turnOrder.Peek().GetComponent<CombatStat>().ActivatePoison();
-                if(!turnOrder.Peek().GetComponent<CombatStat>().isUp)
+                bool pass = false;
+                if(!turnOrder.Peek().GetComponent<CombatStat>().isAlive)
                 {
-                    TacticsMovement deadUnit = turnOrder.Dequeue();
-                    Destroy(deadUnit.gameObject);
+                    pass = DestroyDeadUnits();
+                }
+                else if(!turnOrder.Peek().GetComponent<CombatStat>().isUp)
+                {
+                    pass = PassPlayerTurn();
+                }
+
+                if (pass)
+                {
                     if(!ArePlayersAlive() && !AreEnemyAlive())
                     {
                         EndCombat(ArePlayersAlive());
