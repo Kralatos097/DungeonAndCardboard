@@ -14,7 +14,7 @@ public class MainMenuManager : MonoBehaviour
     [Header("GameObjects")]
     [SerializeField] private GameObject QuitQuestion;
     [SerializeField] private GameObject Settings;
-    [SerializeField] private GameObject WikiDisplay;
+    [SerializeField] private GameObject TitleScreen;
     [SerializeField] private GameObject Session0Display;
     [SerializeField] private GameObject Session1Display;
     [Header("Values")]
@@ -47,6 +47,7 @@ public class MainMenuManager : MonoBehaviour
         
         if (!IsInMenu && Input.GetMouseButtonDown(1) || !IsInMenu && Input.GetMouseButtonDown(0))
         {
+            Destroy(TitleScreen.gameObject);
             IsInMenu = true;
             TransitionCam.SetBool("Menu", true);
         }
@@ -120,7 +121,6 @@ public class MainMenuManager : MonoBehaviour
     {
         QuitQuestion.SetActive(false);
         Settings.SetActive(false);
-        WikiDisplay.SetActive(false);
         Session0Display.SetActive(false);
         Session1Display.SetActive(false);
     }
