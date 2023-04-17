@@ -233,13 +233,13 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: AllieDeath
-    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: c651a02495e41144e97ae808f596d3cd, type: 3}
+    volume: 0.2
     pitch: 1
     source: {fileID: 0}
   - name: EnemyDeath
-    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: c651a02495e41144e97ae808f596d3cd, type: 3}
+    volume: 0.2
     pitch: 1
     source: {fileID: 0}
   - name: CrateDamage
@@ -343,8 +343,8 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: Immun
-    clip: {fileID: 8300000, guid: 337c413bbd8ec0741a6854764acbb382, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: f5d9417f80bedf142b1fb001cc3b81e4, type: 3}
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
   voice: []
