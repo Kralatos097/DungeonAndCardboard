@@ -72,7 +72,7 @@ public class CombatStat : MonoBehaviour
                 }
                 else
                 {
-                    if (armor > 0)
+                    if(armor > 0 && !_isPoisonDamage)
                     {
                         armor -= (_currHp - value);
                         TakeArmorDamageFX();
@@ -150,9 +150,7 @@ public class CombatStat : MonoBehaviour
 
     [HideInInspector] public bool isUp = true;
     [HideInInspector] public bool isAlive = true;
-    
-    [HideInInspector] public int lastAtkReceivedInfoValue;
-    [HideInInspector] public int lastAtkReceivedInfoIsCrit; //0 -> miss, 1 -> hit, 2 -> crit
+    private bool _isPoisonDamage = false;
 
     public void RollInit()
     {
@@ -351,7 +349,9 @@ public class CombatStat : MonoBehaviour
 
     public void ActivatePoison()
     {
+        _isPoisonDamage = true;
         TakeDamage(1, 1);
+        _isPoisonDamage = false;
         ActivatePoisonFX();
         StatusValue--;
         if(StatusEffect == StatusEffect.Nothing)
