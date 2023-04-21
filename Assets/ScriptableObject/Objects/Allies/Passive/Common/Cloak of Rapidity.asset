@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stuffType: Passive
   logo: {fileID: 21300000, guid: 90ec7bafa12ce084896c39ea6d79fcff, type: 3}
-  description: Gain +2 Initiatives
+  description: Gain +4 Initiatives
   passiveTrigger: 0
   passiveEffectList:
-  - value: 2
+  - value: 4
     onEveryAllies: 0
     passiveType: 7

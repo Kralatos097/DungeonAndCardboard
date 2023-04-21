@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stuffType: Passive
   logo: {fileID: 21300000, guid: 4f814279f70f9f04997744dff51b8ed0, type: 3}
-  description: Gain +2 Max HP
+  description: Gain +3 Max HP
   passiveTrigger: 0
   passiveEffectList:
-  - value: 2
+  - value: 3
     onEveryAllies: 0
     passiveType: 6

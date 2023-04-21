@@ -25,7 +25,7 @@ MonoBehaviour:
     noMiss: 0
     critOnly: 0
   - activeType: 5
-    value: 4
+    value: 3
     onSelf: 0
     noMiss: 0
     critOnly: 1

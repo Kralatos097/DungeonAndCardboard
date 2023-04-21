@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151f7073a45793d43b3a318e58feea8d, type: 3}
   m_Name: GoblinThief
   m_EditorClassIdentifier: 
-  maxHp: {x: 3, y: 6}
+  maxHp: {x: 3, y: 5}
   initiative: 3
   movement: 4
   activeOne: {fileID: 11400000, guid: 8b81ea74ab5a1684586e1dbcdef9a060, type: 2}

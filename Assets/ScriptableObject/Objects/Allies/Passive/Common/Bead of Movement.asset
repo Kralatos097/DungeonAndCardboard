@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stuffType: Passive
   logo: {fileID: 21300000, guid: 5242c1beb294f654f80f7ea0d8b09e21, type: 3}
-  description: Gain +1 Movement & +1 Initiative
+  description: Gain +1 Movement & +2 Initiative
   passiveTrigger: 0
   passiveEffectList:
   - value: 1
     onEveryAllies: 0
     passiveType: 5
-  - value: 1
+  - value: 2
     onEveryAllies: 0
     passiveType: 7

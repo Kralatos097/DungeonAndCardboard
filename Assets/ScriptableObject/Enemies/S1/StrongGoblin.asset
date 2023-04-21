@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151f7073a45793d43b3a318e58feea8d, type: 3}
   m_Name: StrongGoblin
   m_EditorClassIdentifier: 
-  maxHp: {x: 5, y: 7}
+  maxHp: {x: 6, y: 8}
   initiative: 3
   movement: 3
   activeOne: {fileID: 11400000, guid: 58714bd31f743764abdd31961aaebfb8, type: 2}
   activeTwo: {fileID: 0}
-  passive: {fileID: 11400000, guid: 7b4d1f29812b4514292cd8798190c6dd, type: 2}
+  passive: {fileID: 0}
   consumable: {fileID: 0}
   iaType: 0
   charaUiIcon: {fileID: 21300000, guid: 2464ab9b9d0a7bf40b62350962fa6043, type: 3}

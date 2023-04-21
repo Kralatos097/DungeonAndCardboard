@@ -20,7 +20,7 @@ MonoBehaviour:
   clickTarget: 1
   activeEffectList:
   - activeType: 0
-    value: 2
+    value: 3
     onSelf: 0
     noMiss: 0
     critOnly: 0

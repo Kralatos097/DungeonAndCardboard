@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stuffType: Active
   logo: {fileID: 21300000, guid: f103984c00110be44914356cd68bade0, type: 3}
-  description: Inflict 2 Damages & 2 Froze
+  description: Inflict 2 Damages & 3 Froze
   range: 3
   cd: 1
   clickTarget: 1
@@ -25,7 +25,7 @@ MonoBehaviour:
     noMiss: 0
     critOnly: 0
   - activeType: 4
-    value: 2
+    value: 3
     onSelf: 0
     noMiss: 0
     critOnly: 0
