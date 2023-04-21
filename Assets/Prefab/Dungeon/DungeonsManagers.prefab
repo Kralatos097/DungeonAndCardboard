@@ -850,6 +850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0053d01daba30a4a99ef3addc28eb88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endArtworkTimer: 0.1
   restAmbushBaseValue: 20
   trapValue:
     Min: 1
