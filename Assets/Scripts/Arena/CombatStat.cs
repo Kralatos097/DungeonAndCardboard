@@ -63,6 +63,7 @@ public class CombatStat : MonoBehaviour
                 if (_currHp <= 0)
                 {
                     MaxHp-=1;
+                    TakeDamageFX();
                     return;
                 }
                 if (holyShield)
