@@ -179,16 +179,8 @@ public class AudioManager : MonoBehaviour
     
     public void AllMusicStop()
     {
-        foreach (Music s in music)
-        {
-            if (s == null)
-            {
-                Debug.LogWarning("La Musique : " + name + " n'existe pas... Oublier de le mettre ou mal écrit");
-                return;
-            }
-            
-            s.source.Stop();
-        }
+        _musicSource.Stop();
+        _musicSourceTwo.Stop();
     }
     
     //Met en pause une musique : FindObjectOfType<AudioManager>().Pause("NomDuSon");

@@ -149,6 +149,7 @@ public class MainMenuManager : MonoBehaviour
 
     private void BackToIntro()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadSceneAsync(0);
+        FindObjectOfType<AudioManager>().AllMusicStop();
     }
 }
