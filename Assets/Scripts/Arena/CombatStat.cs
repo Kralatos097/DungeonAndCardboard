@@ -204,8 +204,6 @@ public class CombatStat : MonoBehaviour
         }
         
         CurrHp-=value * hit;
-        
-        Debug.Log(name+" is damaged for : " + value*hit + " remaining " + CurrHp +"/"+ MaxHp);
     }
 
     public void TakeDamagePassive(int value)

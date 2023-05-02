@@ -50,9 +50,10 @@ public class Active : Stuff
             else if (activeEffect.critOnly && hitParam != 2) hit = 0;
             else if (activeEffect.critOnly && hitParam == 2) hit = 1;
             else hit = hitParam;
-
+            
             if(!pass)
             {
+                Debug.Log("hit by "+user+"\n hit : " +hit);
                 pass = true;
                 switch (hit)
                 {
@@ -167,20 +168,18 @@ public class Active : Stuff
     
     private void MissFx()
     {
-        Debug.Log("Miss");
         FindObjectOfType<AudioManager>().RandomPitch("Miss");
     }
 
     private void HitFx()
     {
-        Debug.Log("Hit");
+        Debug.Log("hit fx");
         FindObjectOfType<AudioManager>().RandomPitch("Hit");
         CameraShaker.Instance.ShakeOnce(1f, 3f, .1f, 0.4f);
     }
 
     private void CritFx()
     {
-        Debug.Log("Crit");
         FindObjectOfType<AudioManager>().RandomPitch("Critical");
         CameraShaker.Instance.ShakeOnce(1f, 10f, .1f,1f);
     }
@@ -238,7 +237,6 @@ public class Active : Stuff
     private void Burn(GameObject user, GameObject target, ActiveEffect activeEffect, int hit)
     {
         Passive passive;
-        Debug.Log("dd");
         switch(hit)
         {
             case 0:

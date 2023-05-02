@@ -232,8 +232,7 @@ public class NPCMove : TacticsMovement
                     tile.visited = true;
                     tile.distance = 1 + t.distance;
 
-                    if (tile.distance > distAtk) return;
-                    process.Enqueue(tile);
+                    if (tile.distance > atkRange + move) return;
 
                     GameObject TGO = tile.GetGameObjectOnTop();
                     if (TGO != null)
@@ -244,6 +243,7 @@ public class NPCMove : TacticsMovement
                             _targetDistance = tile.distance;
                         }
                     }
+                    else process.Enqueue(tile);
                 }
             }
         }
@@ -276,7 +276,6 @@ public class NPCMove : TacticsMovement
                     tile.distance = 1 + t.distance;
 
                     if (tile.distance > distAtk) return;
-                    process.Enqueue(tile);
 
                     GameObject TGO = tile.GetGameObjectOnTop();
                     if (TGO != null)
@@ -287,6 +286,7 @@ public class NPCMove : TacticsMovement
                             _targetDistance = tile.distance;
                         }
                     }
+                    else process.Enqueue(tile);
                 }
             }
         }
@@ -808,11 +808,13 @@ public class NPCMove : TacticsMovement
             
             if (target == null || !findPath)
             {
+                _targetDistance = 0;
                 FindFarthestTargetInRange();
                 findPath = CalculatePathFull();
             }
             if(target == null || !findPath)
             {
+                _targetDistance = 0;
                 FindFarthestTarget();
             }
             
@@ -1036,6 +1038,7 @@ public class NPCMove : TacticsMovement
         firstTimePass = false;
         attacking = false;
         _alreadyMoved = false;
+        _targetDistance = 0;
     }
 
     public IaType GetIaType()

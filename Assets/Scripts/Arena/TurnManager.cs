@@ -130,7 +130,6 @@ public class TurnManager : MonoBehaviour
         //Victoire player
         if(pStatue)
         {
-            Debug.Log("Victiore");
             _isDefeat = false;
             _combatEndCanvas.GetChild(0).gameObject.SetActive(true);
             SetPlayersInfo();
@@ -138,8 +137,7 @@ public class TurnManager : MonoBehaviour
         }
         //Défaite player
         else
-        { 
-            Debug.Log("Defeat");
+        {
             _isDefeat = true;
             _combatEndCanvas.GetChild(1).gameObject.SetActive(true);
             SetPlayersInfo();
