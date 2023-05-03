@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using EZCameraShake;
 using MyBox;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -13,7 +14,9 @@ public class DungeonManager : MonoBehaviour
     public static Action<RoomType> LaunchRoomTypeAction;
 
     private static string _dungeonSceneName;
-    
+
+    [Header("Values")]
+    [SerializeField] [Range(0, 1)] private float endArtworkTimer;
     [SerializeField] private int restAmbushBaseValue = 20;
     [SerializeField] private RangedInt trapValue;
     
@@ -94,15 +97,15 @@ public class DungeonManager : MonoBehaviour
             {
                 case RoomEffect.Boss:
                     LaunchBoss();
-                    DungeonUiManager.InChoiceChange();
+                    Invoke("InChoiceChangeIn", endArtworkTimer);
                     break;
                 case RoomEffect.Fight:
                     LaunchFight();
-                    DungeonUiManager.InChoiceChange();
+                    Invoke("InChoiceChangeIn", endArtworkTimer);
                     break;
                 case RoomEffect.Rest:
                     LaunchRest();
-                    DungeonUiManager.InChoiceChange();
+                    Invoke("InChoiceChangeIn", endArtworkTimer);
                     break;
                 case RoomEffect.Treasure:
                     switch (treasureEffect)
@@ -137,11 +140,11 @@ public class DungeonManager : MonoBehaviour
                     {
                         case LootEffect.Trap:
                             LaunchTrap();
-                            DungeonUiManager.InChoiceChange();
+                            Invoke("InChoiceChangeIn", endArtworkTimer);
                             break;
                         case LootEffect.Ambush:
                             LaunchAmbush();
-                            DungeonUiManager.InChoiceChange();
+                            Invoke("InChoiceChangeIn", endArtworkTimer);
                             break;
                         case LootEffect.Stuff:
                             StuffSelection();
@@ -150,7 +153,7 @@ public class DungeonManager : MonoBehaviour
                             ConsumableSelection();
                             break;
                         case LootEffect.Nothing:
-                            DungeonUiManager.InChoiceChange();
+                            Invoke("InChoiceChangeIn", endArtworkTimer);
                             break;
                         case LootEffect.Default:
                         default:
@@ -162,6 +165,11 @@ public class DungeonManager : MonoBehaviour
                     throw new ArgumentOutOfRangeException();
             }
         }
+    }
+
+    private void InChoiceChangeIn()
+    {
+        DungeonUiManager.InChoiceChange();
     }
     
     private void AssignPlayerInfo()
