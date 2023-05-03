@@ -222,8 +222,6 @@ public class CombatStat : MonoBehaviour
         }
         
         CurrHp+=value * hit;
-        
-        Debug.Log(name+" is healed for : " + value*hit + " remaining " + CurrHp +"/"+ MaxHp);
     }
     
     public void TakeHealPassive(int value)
@@ -444,7 +442,7 @@ public class CombatStat : MonoBehaviour
 
     private void TakeDamageFX()
     {
-        FindObjectOfType<AudioManager>().RandomPitch(gameObject.CompareTag("Player") ? "AllieDamaged" : "EnemyDamaged");
+        //FindObjectOfType<AudioManager>().RandomPitch(gameObject.CompareTag("Player") ? "AllieDamaged" : "EnemyDamaged");
         FindObjectOfType<FXManager>().Play("Damaged", transform);
         if(GetComponentInChildren<Animator>() != null)
             GetComponentInChildren<Animator>().SetTrigger("Damage");

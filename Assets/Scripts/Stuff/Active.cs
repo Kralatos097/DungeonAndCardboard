@@ -53,7 +53,6 @@ public class Active : Stuff
             
             if(!pass)
             {
-                Debug.Log("hit by "+user+"\n hit : " +hit);
                 pass = true;
                 switch (hit)
                 {
@@ -173,7 +172,6 @@ public class Active : Stuff
 
     private void HitFx()
     {
-        Debug.Log("hit fx");
         FindObjectOfType<AudioManager>().RandomPitch("Hit");
         CameraShaker.Instance.ShakeOnce(1f, 3f, .1f, 0.4f);
     }

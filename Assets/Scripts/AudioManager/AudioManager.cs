@@ -227,9 +227,9 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        _sfxSource.volume = s.volume * volumeSfx;
+        _sfxSource.volume = 1;
         _sfxSource.pitch = s.pitch;
-        _sfxSource.PlayOneShot(s.clip);
+        _sfxSource.PlayOneShot(s.clip, s.volume * volumeSfx);
         
         
     }
@@ -246,9 +246,9 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        _sfxSource.volume = s.volume * volumeSfx;
+        _sfxSource.volume = 1;
         _sfxSource.pitch = s.pitch * alea;
-        _sfxSource.PlayOneShot(s.clip, _sfxSource.volume);
+        _sfxSource.PlayOneShot(s.clip, s.volume * volumeSfx);
     }
 
     //Je n'est pas mis de fonction pour jouer de voix
