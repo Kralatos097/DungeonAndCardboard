@@ -203,7 +203,13 @@ MonoBehaviour:
   SpeedOnClick: 0.02
   SpeedUnClick: 0.04
   SceneToLoad:
-  - 
+  - Dungeon1
+  - Dungeon2
+  - Dungeon3
+  - Dungeon4
+  - Dungeon5
+  - Dungeon6
+  - Dungeon7
 --- !u!1 &8473584522945338785
 GameObject:
   m_ObjectHideFlags: 0

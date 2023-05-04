@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stuffType: Consumable
   logo: {fileID: 21300000, guid: b67ebdec030f0554cb81a038315b8fce, type: 3}
-  description: Heals 5 HP
+  description: Heal 5 HP
   range: 0
   cd: 0
   clickTarget: 0
