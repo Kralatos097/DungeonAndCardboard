@@ -964,6 +964,7 @@ MonoBehaviour:
   treasureStuffPanel: {fileID: 2531304521275056689}
   fightPanel: {fileID: 991877360386510761}
   restPanel: {fileID: 991877361070866965}
+  restAmbushPanel: {fileID: 216756811191227624}
   lootSelectCanvas: {fileID: 719148209276666439}
   stuffCharaSelectPanel: {fileID: 5584465787537229083}
   stuffReplaceSelectPanel: {fileID: 5584465787560276079}
@@ -2651,6 +2652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d9e630bc8cd0bf4a95d292015d5b719, type: 3}
+--- !u!1 &216756811191227624 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8454371347937798528, guid: 3d9e630bc8cd0bf4a95d292015d5b719, type: 3}
+  m_PrefabInstance: {fileID: 8525849391362325864}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &991877359410365860 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8904247503407937740, guid: 3d9e630bc8cd0bf4a95d292015d5b719, type: 3}
