@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 362
+  controlID: 14703
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 363
+  controlID: 14704
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 364
+  controlID: 14705
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -235,22 +235,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/2D/Cinematique
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/2D/Cinematique
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\v.plancq\Desktop\LocalReprository\DungeonAndCardboard
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 60720000
-    m_LastClickedID: 29280
-    m_ExpandedIDs: 000000005a7200005c7200005e72000060720000627200006472000066720000687200006a7200006c72000000ca9a3b
+    m_SelectedIDs: 8e8b0000
+    m_LastClickedID: 35726
+    m_ExpandedIDs: 000000005c7200005e72000060720000627200006472000066720000687200006a7200006c720000987200009c72000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -278,7 +278,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005a7200005c7200005e72000060720000627200006472000066720000687200006a7200006c72000000ca9a3b
+    m_ExpandedIDs: 000000005c7200005e72000060720000627200006472000066720000687200006a7200006c7200009c72000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -393,7 +393,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 3cf2ffff
+      m_ExpandedIDs: 6e0efdff5a13fdffc813fdffdc21fdffc201feff8c06feff0a14feff1e20feffa62cfeff743bfeff965cfeff7c6ffeff0cbcfefff0c6feff62d2feff46ddfeffaaeafeff84fcfeff1efdfeff6e0bffff5216ffffea20ffff102bfffff435ffffd840ffff404affff2455ffff0860ffffba69ffff9e74ffff827fffff888affff3cf2fffff8cb00007acc0000c0cd00006ece000098ce00000ecf000032cf000076d00000a0d00000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -715,7 +715,7 @@ MonoBehaviour:
       index: 3
       layout: 4
   m_WindowGUID: e08af96f91acefc4d8114f2218afdf41
-  m_Gizmos: 1
+  m_Gizmos: 0
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
   m_SceneLighting: 1
@@ -724,9 +724,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.957749, y: -2.4498835, z: 2.1294003}
+    m_Target: {x: 0.30548277, y: -2.621593, z: 1.2664597}
     speed: 2
-    m_Value: {x: -0.957749, y: -2.4498835, z: 2.1294003}
+    m_Value: {x: 0.30548277, y: -2.621593, z: 1.2664597}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -760,7 +760,7 @@ MonoBehaviour:
         m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
-      m_Size: {x: 1, y: 1}
+      m_Size: {x: 0.5, y: 0.5}
     zGrid:
       m_Fade:
         m_Target: 0
@@ -773,13 +773,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.38046965, y: 0.0060994094, z: -0.0025093441, w: -0.9247807}
+    m_Target: {x: -0.6840582, y: -0.002847868, z: 0.0026713233, w: -0.72943103}
     speed: 2
-    m_Value: {x: -0.38046584, y: 0.0060993484, z: -0.002509319, w: -0.9247715}
+    m_Value: {x: -0.68405116, y: -0.002847839, z: 0.0026712958, w: -0.7294236}
   m_Size:
-    m_Target: 10.015948
+    m_Target: 5.0811677
     speed: 2
-    m_Value: 10.015948
+    m_Value: 5.0811677
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -909,7 +909,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 288
+  controlID: 14681
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1048,7 +1048,7 @@ MonoBehaviour:
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
-    m_CachedPref: -151
+    m_CachedPref: 151
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
