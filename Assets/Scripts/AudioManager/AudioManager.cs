@@ -106,8 +106,6 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("La Musique : " + name + " n'existe pas... Oublier de le mettre ou mal écrit");
             return;
         }
-        
-        Debug.Log(_currTrack);
 
         if(_currTrack == 1)
         {

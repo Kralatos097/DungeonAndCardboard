@@ -530,7 +530,6 @@ public class NPCMove : TacticsMovement
 
             if (target == null || (!findPath && !findPathV2)) FindNearestTarget();
 
-            Debug.Log(target);
             RemoveSelectableTile();
             firstTimePass = true;
         }
@@ -614,6 +613,31 @@ public class NPCMove : TacticsMovement
         return d;
     }
 
+    protected int GetDistToTarget(ArenaTile arenaTile)
+    {
+        int ret = 0;
+
+        
+        
+        return ret;
+    }
+    
+    protected int GetDistToTargetRec(ArenaTile target, ArenaTile arenaTile, int nb)
+    {
+
+
+        if (target == arenaTile)
+        {
+            return nb++;
+        }
+        else
+        {
+            int ret = GetDistToTargetRec(target, arenaTile, nb);
+
+            return ret;
+        }
+    }
+
     private void CowardAI()
     {
         if(!firstTimePass)
@@ -627,7 +651,7 @@ public class NPCMove : TacticsMovement
 
             RemoveSelectableTile();
             firstTimePass = true;
-
+            
             if(_targetDistance == atkRange)
             {
                 attacking = true;
@@ -643,8 +667,6 @@ public class NPCMove : TacticsMovement
                 }
                 
                 ActualTargetTile = FindFarthestFromTarget();
-
-                Debug.Log(ActualTargetTile);
                 
                 if (ActualTargetTile == null)
                 {
@@ -665,6 +687,7 @@ public class NPCMove : TacticsMovement
                 {
                     move = _tempMove;
                 }
+                Debug.Log(move);
                 
                 animator.SetBool("IsGrounded", false);
             
@@ -713,6 +736,7 @@ public class NPCMove : TacticsMovement
         
         if(_alreadyMoved) //Attack après avoir bougé si un Player est dans la range
         {
+            Debug.Log(target +"\n"+ _targetDistance +" - "+ atkRange);
             if(target != null && _targetDistance <= atkRange)
             {
                 attacking = true;
@@ -1014,7 +1038,10 @@ public class NPCMove : TacticsMovement
 
     protected override void EndOfMovement()
     {
-        _targetDistance -= _tileMoved;
+        /*_targetDistance -= _tileMoved;*/
+        FindNearestTarget();
+        _targetDistance = target.GetComponent<TacticsMovement>().GetCurrentTile().distance;
+        
         _alreadyMoved = true;
 
         if(_tempMove != -1)

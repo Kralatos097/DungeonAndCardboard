@@ -524,7 +524,6 @@ public class TacticsMovement : MonoBehaviour
 				ArenaTile obstTile = GetFirstObstacleOnPath(t);
 				ActualTargetTile = FindEndTile(obstTile);
 
-				Debug.Log(ActualTargetTile);
 				if(ActualTargetTile.GetGameObjectOnTop() != null && ActualTargetTile.GetGameObjectOnTop().CompareTag("Player"))
 				{
 				    target = ActualTargetTile.GetGameObjectOnTop();

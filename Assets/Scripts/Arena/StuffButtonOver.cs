@@ -105,16 +105,44 @@ public class StuffButtonOver : MonoBehaviour, IPointerEnterHandler, IPointerExit
                 descriptionPanel.GetChild(2).gameObject.SetActive(true);
                 descriptionPanel.GetChild(3).gameObject.SetActive(false);
                 Consumable consumable = (Consumable)stuff;
-                descriptionPanel.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text =
-                    consumable.GetAtkRange().ToString();
+                switch(consumable.GetActiveTarget())
+                {
+                    case ActiveTarget.SelfOnly:
+                        descriptionPanel.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = "Self";
+                        break;
+                    case ActiveTarget.OthersOnly:
+                        descriptionPanel.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = 
+                            consumable.GetAtkRange().ToString();
+                        break;
+                    case ActiveTarget.Everything:
+                        descriptionPanel.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = 
+                            consumable.GetAtkRange().ToString()+" or Self";
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
             }
             else
             {
                 descriptionPanel.GetChild(2).gameObject.SetActive(true);
                 descriptionPanel.GetChild(3).gameObject.SetActive(true);
                 Active active = (Active)stuff;
-                descriptionPanel.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text =
-                    active.GetAtkRange().ToString();
+                switch(active.GetActiveTarget())
+                {
+                    case ActiveTarget.SelfOnly:
+                        descriptionPanel.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = "Self";
+                        break;
+                    case ActiveTarget.OthersOnly:
+                        descriptionPanel.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = 
+                            active.GetAtkRange().ToString();
+                        break;
+                    case ActiveTarget.Everything:
+                        descriptionPanel.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = 
+                            active.GetAtkRange().ToString()+" or Self";
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
                 descriptionPanel.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text =
                     active.GetCd().ToString();
             }
