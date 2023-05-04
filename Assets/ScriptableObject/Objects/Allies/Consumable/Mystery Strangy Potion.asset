@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stuffType: Consumable
   logo: {fileID: 21300000, guid: 90b7ae4e288d067489232bbdf5f688d9, type: 3}
-  description: Heal 2, gain 2 armor and inflict a random status.
+  description: Heal 2, gain 2 Armors and inflict a random status
   range: 0
   cd: 0
   clickTarget: 0
