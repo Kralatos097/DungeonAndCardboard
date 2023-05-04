@@ -282,6 +282,58 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
+      propertyPath: SceneToLoad.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
+      propertyPath: SceneToLoad.Array.data[0]
+      value: Dungeon1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
+      propertyPath: SceneToLoad.Array.data[1]
+      value: Dungeon2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
+      propertyPath: SceneToLoad.Array.data[2]
+      value: Dungeon3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
+      propertyPath: SceneToLoad.Array.data[3]
+      value: Dungeon4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
+      propertyPath: SceneToLoad.Array.data[4]
+      value: Dungeon5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
+      propertyPath: SceneToLoad.Array.data[5]
+      value: Dungeon6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
+      propertyPath: SceneToLoad.Array.data[6]
+      value: Dungeon7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
+      propertyPath: SceneToLoad.Array.data[7]
+      value: Dungeon8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
+      propertyPath: SceneToLoad.Array.data[8]
+      value: Dungeon9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
+      propertyPath: SceneToLoad.Array.data[9]
+      value: Dungeon10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
+      propertyPath: SceneToLoad.Array.data[10]
+      value: Dungeon11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
+      propertyPath: SceneToLoad.Array.data[11]
+      value: Dungeon12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[0].Text
       value: 'Let''s start again...
 
