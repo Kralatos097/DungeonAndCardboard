@@ -165,6 +165,15 @@ EditorBuildSettings:
     path: Assets/_MainScenes/S1 Arena/Fight/PaleCopie.unity
     guid: 19b2070d669699a4b9e9799cd1a394e2
   - enabled: 1
+    path: Assets/_MainScenes/S1 Arena/Fight/EntiteVIP.unity
+    guid: de1a83656d05e03479f479589edefba9
+  - enabled: 1
+    path: Assets/_MainScenes/S1 Arena/Fight/TrajectorisationParfaite.unity
+    guid: 56d3cbd972cc5c34795c800b767f712a
+  - enabled: 1
+    path: Assets/_MainScenes/S1 Arena/Fight/VoleurClub.unity
+    guid: 02bcef1d2b0b5b64ab7ec93a6af7ad18
+  - enabled: 1
     path: Assets/_MainScenes/S1 Arena/KingRoom.unity
     guid: a8767045aa12c2345aba6bb80c74c516
   - enabled: 1
