@@ -377,7 +377,7 @@ public class DungeonManager : MonoBehaviour
             //LaunchAmbush();
             _roomEffect = RoomEffect.Loot;
             artworkShown = true;
-            DungeonUiManager.LootAmbushedUi();
+            DungeonUiManager.RestAmbushUi();
             lootEffect = LootEffect.Ambush;
             NegativeLootFX();
         }

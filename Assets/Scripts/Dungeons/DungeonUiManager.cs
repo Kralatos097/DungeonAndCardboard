@@ -31,6 +31,7 @@ public class DungeonUiManager : MonoBehaviour
     [SerializeField] private GameObject treasureStuffPanel;
     [SerializeField] private GameObject fightPanel;
     [SerializeField] private GameObject restPanel;
+    [SerializeField] private GameObject restAmbushPanel;
 
     [Header("StuffSelectionPanel")]
     [SerializeField] private GameObject lootSelectCanvas;
@@ -46,6 +47,7 @@ public class DungeonUiManager : MonoBehaviour
     public static RoomArtworkUi TreasureConsumableUi;
     public static RoomArtworkUi TreasureStuffUi;
     public static RoomArtworkUi RestUi;
+    public static RoomArtworkUi RestAmbushUi;
     public static RoomArtworkUi LootStuffUi;
     public static RoomArtworkUi LootConsumableUi;
     public static RoomArtworkUi LootAmbushedUi;
@@ -93,6 +95,9 @@ public class DungeonUiManager : MonoBehaviour
         RestUi = DisplayRestArtwork;
         RestUi += InChoiceChange;
 
+        RestAmbushUi = DisplayRestAmbushArtwork;
+        RestAmbushUi += InChoiceChange;
+
         TreasureConsumableUi = DisplayTreasureConsuArtwork;
         TreasureConsumableUi += InChoiceChange;
 
@@ -138,6 +143,11 @@ public class DungeonUiManager : MonoBehaviour
         restPanel.SetActive(true);
     }
 
+    private void DisplayRestAmbushArtwork()
+    {
+        restAmbushPanel.SetActive(true);
+    }
+
     private void DisplayBossArtwork()
     {
         bossPanel.SetActive(true);
@@ -173,6 +183,7 @@ public class DungeonUiManager : MonoBehaviour
         lootConsumablePanel.SetActive(false);
         lootNothingPanel.SetActive(false);
         restPanel.SetActive(false);
+        restAmbushPanel.SetActive(false);
         treasureStuffPanel.SetActive(false);
         treasureConsumablePanel.SetActive(false);
     }
