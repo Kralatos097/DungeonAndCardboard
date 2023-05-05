@@ -147,6 +147,24 @@ EditorBuildSettings:
     path: Assets/_MainScenes/S1 Arena/Fight/PlaisirVarie.unity
     guid: e0e278ec5658a2c4798f0106fc7a5954
   - enabled: 1
+    path: Assets/_MainScenes/S1 Arena/Fight/EpoppeTermine.unity
+    guid: ffffd6938474c3a4f8f74859420b7af1
+  - enabled: 1
+    path: Assets/_MainScenes/S1 Arena/Fight/PointNoir.unity
+    guid: 8028b4491d0d06e4488d5f7c82d0aaaa
+  - enabled: 1
+    path: Assets/_MainScenes/S1 Arena/Fight/TiboBall.unity
+    guid: 0e44c5cfed5174b4ca123b9a9dab6dd3
+  - enabled: 1
+    path: Assets/_MainScenes/S1 Arena/Fight/DouaneIneffiquace.unity
+    guid: a7f0c686537976b41874a3d68be69e2f
+  - enabled: 1
+    path: Assets/_MainScenes/S1 Arena/Fight/FormationVictoire.unity
+    guid: 0ad2277fb974ba640ae2a2bf8e2720cb
+  - enabled: 1
+    path: Assets/_MainScenes/S1 Arena/Fight/PaleCopie.unity
+    guid: 19b2070d669699a4b9e9799cd1a394e2
+  - enabled: 1
     path: Assets/_MainScenes/S1 Arena/KingRoom.unity
     guid: a8767045aa12c2345aba6bb80c74c516
   - enabled: 1
