@@ -15,7 +15,7 @@ MonoBehaviour:
   maxHp: 12
   initiative: 3
   movement: 3
-  activeOne: {fileID: 11400000, guid: 7aa849b19fc6012459868f05ef959e02, type: 2}
+  activeOne: {fileID: 11400000, guid: 70f10c6b2a471c44cb41d0e930de6e97, type: 2}
   activeTwo: {fileID: 11400000, guid: 59a8da38df9001b4a919dec7a30fb17c, type: 2}
-  passive: {fileID: 11400000, guid: 3b35a6930cc7b94468d26ee056d0444c, type: 2}
+  passive: {fileID: 11400000, guid: 78404f3d4e3649542bd0362dbf899746, type: 2}
   consumable: {fileID: 11400000, guid: 5d0b93782b624504c976df81823674a5, type: 2}

@@ -250,15 +250,15 @@ public class CombatStat : MonoBehaviour
 
                 GetPoisonFX();
                 if(StatusEffect == effect) StatusValue += value;
-                    else
-                    {
-                        StatusValue = value;
-                        StatusEffect = effect;
-                    }
-                    if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueTaken)
-                    {
-                        passive.Effect(gameObject);
-                    }
+                else
+                {
+                    StatusValue = value;
+                    StatusEffect = effect;
+                }
+                if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueTaken)
+                {
+                    passive.Effect(gameObject);
+                }
                 break;
             case StatusEffect.Stun:
                 if (passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatueTaken)

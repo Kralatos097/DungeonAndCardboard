@@ -322,10 +322,10 @@ public class NPCMove : TacticsMovement
                     process.Enqueue(tile);
 
                     GameObject TGO = tile.GetGameObjectOnTop();
-                    if (TGO != null)
+                    if (TGO != null && TGO.GetComponent<TacticsMovement>() != null)
                     {
                         bool comp = true;
-                        if (target != null)
+                        if (target != null && target.GetComponent<TacticsMovement>() != null)
                         {
                             CombatStat targetCs = target.GetComponent<CombatStat>();
                             CombatStat TgoCs = TGO.GetComponent<CombatStat>();

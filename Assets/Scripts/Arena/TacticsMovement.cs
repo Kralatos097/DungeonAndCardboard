@@ -221,7 +221,7 @@ public class TacticsMovement : MonoBehaviour
 			/*target.y += halfHeight + t.GetComponent<Collider>().bounds.extents.y;*/
 			target.y = transform.position.y;
 
-			if (Vector3.Distance(transform.position, target) >= 0.1f)
+			if (Vector3.Distance(transform.position, target) >= 0.15f)
 			{
 				CalculateHeading(target);
 				SetHorizontalVelocity();
