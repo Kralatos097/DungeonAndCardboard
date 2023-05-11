@@ -227,9 +227,9 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
-  - name: AllieDowned
-    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
-    volume: 1
+  - name: AllieDown
+    clip: {fileID: 8300000, guid: c651a02495e41144e97ae808f596d3cd, type: 3}
+    volume: 0.2
     pitch: 1
     source: {fileID: 0}
   - name: AllieDeath
