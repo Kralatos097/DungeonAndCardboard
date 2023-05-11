@@ -5812,6 +5812,7 @@ MonoBehaviour:
   Overlay: {fileID: 4362586967168972492}
   OverlayS: {fileID: 4362586967104412703}
   OverlayE: {fileID: 4362586968090535683}
+  RoomRenderer: {fileID: 0}
   roomType: 0
   selectable: 0
   emptied: 0
@@ -5823,9 +5824,12 @@ MonoBehaviour:
   bossRoomSprite: {fileID: 21300000, guid: 95680b558e93b294699db57d97bb3a9c, type: 3}
   treasureRoomSprite: {fileID: 21300000, guid: d38883776befac74cbf0bebf6c2e1ab1, type: 3}
   startingRoomSprite: {fileID: 21300000, guid: 35c645a912e999f48bbfe015dbc16adb, type: 3}
-  currentColor: {r: 0, g: 1, b: 0, a: 0.39215687}
-  selectableColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.39215687}
-  walkedIntoColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  nonWalkedRoomSprite: {fileID: 0}
+  oneWaySprite: {fileID: 0}
+  corridorSprite: {fileID: 0}
+  angleSprite: {fileID: 0}
+  threeWaySprite: {fileID: 0}
+  fourWaySprite: {fileID: 0}
 --- !u!4 &4362586967088321218
 Transform:
   m_ObjectHideFlags: 0
@@ -6343,6 +6347,7 @@ MonoBehaviour:
   Overlay: {fileID: 4362586967656510214}
   OverlayS: {fileID: 4362586967694711253}
   OverlayE: {fileID: 4362586968613724873}
+  RoomRenderer: {fileID: 0}
   roomType: 4
   selectable: 0
   emptied: 0
@@ -6354,9 +6359,12 @@ MonoBehaviour:
   bossRoomSprite: {fileID: 21300000, guid: 95680b558e93b294699db57d97bb3a9c, type: 3}
   treasureRoomSprite: {fileID: 21300000, guid: d38883776befac74cbf0bebf6c2e1ab1, type: 3}
   startingRoomSprite: {fileID: 21300000, guid: 35c645a912e999f48bbfe015dbc16adb, type: 3}
-  currentColor: {r: 0, g: 1, b: 0, a: 0.39215687}
-  selectableColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.39215687}
-  walkedIntoColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  nonWalkedRoomSprite: {fileID: 0}
+  oneWaySprite: {fileID: 0}
+  corridorSprite: {fileID: 0}
+  angleSprite: {fileID: 0}
+  threeWaySprite: {fileID: 0}
+  fourWaySprite: {fileID: 0}
 --- !u!4 &4362586967455138822
 Transform:
   m_ObjectHideFlags: 0
@@ -6698,6 +6706,7 @@ MonoBehaviour:
   Overlay: {fileID: 4362586967549628873}
   OverlayS: {fileID: 4362586967528995610}
   OverlayE: {fileID: 4362586968775278598}
+  RoomRenderer: {fileID: 0}
   roomType: 1
   selectable: 0
   emptied: 0
@@ -6709,9 +6718,12 @@ MonoBehaviour:
   bossRoomSprite: {fileID: 21300000, guid: 95680b558e93b294699db57d97bb3a9c, type: 3}
   treasureRoomSprite: {fileID: 21300000, guid: d38883776befac74cbf0bebf6c2e1ab1, type: 3}
   startingRoomSprite: {fileID: 21300000, guid: 35c645a912e999f48bbfe015dbc16adb, type: 3}
-  currentColor: {r: 0, g: 1, b: 0, a: 0.39215687}
-  selectableColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.39215687}
-  walkedIntoColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  nonWalkedRoomSprite: {fileID: 0}
+  oneWaySprite: {fileID: 0}
+  corridorSprite: {fileID: 0}
+  angleSprite: {fileID: 0}
+  threeWaySprite: {fileID: 0}
+  fourWaySprite: {fileID: 0}
 --- !u!212 &4362586967656510214
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7518,6 +7530,7 @@ MonoBehaviour:
   Overlay: {fileID: 4362586968025668125}
   OverlayS: {fileID: 4362586967996641486}
   OverlayE: {fileID: 4362586967103835090}
+  RoomRenderer: {fileID: 0}
   roomType: 0
   selectable: 0
   emptied: 0
@@ -7529,9 +7542,12 @@ MonoBehaviour:
   bossRoomSprite: {fileID: 21300000, guid: 95680b558e93b294699db57d97bb3a9c, type: 3}
   treasureRoomSprite: {fileID: 21300000, guid: d38883776befac74cbf0bebf6c2e1ab1, type: 3}
   startingRoomSprite: {fileID: 21300000, guid: 35c645a912e999f48bbfe015dbc16adb, type: 3}
-  currentColor: {r: 0, g: 1, b: 0, a: 0.39215687}
-  selectableColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.39215687}
-  walkedIntoColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  nonWalkedRoomSprite: {fileID: 0}
+  oneWaySprite: {fileID: 0}
+  corridorSprite: {fileID: 0}
+  angleSprite: {fileID: 0}
+  threeWaySprite: {fileID: 0}
+  fourWaySprite: {fileID: 0}
 --- !u!114 &4362586968267470965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7547,6 +7563,7 @@ MonoBehaviour:
   Overlay: {fileID: 4362586968468950902}
   OverlayS: {fileID: 4362586968489207205}
   OverlayE: {fileID: 4362586967243038393}
+  RoomRenderer: {fileID: 0}
   roomType: 0
   selectable: 0
   emptied: 0
@@ -7558,9 +7575,12 @@ MonoBehaviour:
   bossRoomSprite: {fileID: 21300000, guid: 95680b558e93b294699db57d97bb3a9c, type: 3}
   treasureRoomSprite: {fileID: 21300000, guid: d38883776befac74cbf0bebf6c2e1ab1, type: 3}
   startingRoomSprite: {fileID: 21300000, guid: 35c645a912e999f48bbfe015dbc16adb, type: 3}
-  currentColor: {r: 0, g: 1, b: 0, a: 0.39215687}
-  selectableColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.39215687}
-  walkedIntoColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  nonWalkedRoomSprite: {fileID: 0}
+  oneWaySprite: {fileID: 0}
+  corridorSprite: {fileID: 0}
+  angleSprite: {fileID: 0}
+  threeWaySprite: {fileID: 0}
+  fourWaySprite: {fileID: 0}
 --- !u!4 &4362586968267470966
 Transform:
   m_ObjectHideFlags: 0
@@ -8031,6 +8051,7 @@ MonoBehaviour:
   Overlay: {fileID: 4362586968694679119}
   OverlayS: {fileID: 4362586968665640092}
   OverlayE: {fileID: 4362586967504418688}
+  RoomRenderer: {fileID: 0}
   roomType: 2
   selectable: 0
   emptied: 0
@@ -8042,9 +8063,12 @@ MonoBehaviour:
   bossRoomSprite: {fileID: 21300000, guid: 95680b558e93b294699db57d97bb3a9c, type: 3}
   treasureRoomSprite: {fileID: 21300000, guid: d38883776befac74cbf0bebf6c2e1ab1, type: 3}
   startingRoomSprite: {fileID: 21300000, guid: 35c645a912e999f48bbfe015dbc16adb, type: 3}
-  currentColor: {r: 0, g: 1, b: 0, a: 0.39215687}
-  selectableColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.39215687}
-  walkedIntoColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  nonWalkedRoomSprite: {fileID: 0}
+  oneWaySprite: {fileID: 0}
+  corridorSprite: {fileID: 0}
+  angleSprite: {fileID: 0}
+  threeWaySprite: {fileID: 0}
+  fourWaySprite: {fileID: 0}
 --- !u!1 &4362586968627401038
 GameObject:
   m_ObjectHideFlags: 0
@@ -8554,6 +8578,7 @@ MonoBehaviour:
   Overlay: {fileID: 4362586968923261288}
   OverlayS: {fileID: 4362586968978121659}
   OverlayE: {fileID: 4362586967733000359}
+  RoomRenderer: {fileID: 0}
   roomType: 3
   selectable: 0
   emptied: 0
@@ -8565,9 +8590,12 @@ MonoBehaviour:
   bossRoomSprite: {fileID: 21300000, guid: 95680b558e93b294699db57d97bb3a9c, type: 3}
   treasureRoomSprite: {fileID: 21300000, guid: d38883776befac74cbf0bebf6c2e1ab1, type: 3}
   startingRoomSprite: {fileID: 21300000, guid: 35c645a912e999f48bbfe015dbc16adb, type: 3}
-  currentColor: {r: 0, g: 1, b: 0, a: 0.39215687}
-  selectableColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.39215687}
-  walkedIntoColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  nonWalkedRoomSprite: {fileID: 0}
+  oneWaySprite: {fileID: 0}
+  corridorSprite: {fileID: 0}
+  angleSprite: {fileID: 0}
+  threeWaySprite: {fileID: 0}
+  fourWaySprite: {fileID: 0}
 --- !u!212 &4362586968923261288
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8788,6 +8816,7 @@ MonoBehaviour:
   Overlay: {fileID: 4362586968793720972}
   OverlayS: {fileID: 4362586968839258719}
   OverlayE: {fileID: 4362586967869798723}
+  RoomRenderer: {fileID: 0}
   roomType: 5
   selectable: 0
   emptied: 0
@@ -8799,9 +8828,12 @@ MonoBehaviour:
   bossRoomSprite: {fileID: 21300000, guid: 95680b558e93b294699db57d97bb3a9c, type: 3}
   treasureRoomSprite: {fileID: 21300000, guid: d38883776befac74cbf0bebf6c2e1ab1, type: 3}
   startingRoomSprite: {fileID: 21300000, guid: 35c645a912e999f48bbfe015dbc16adb, type: 3}
-  currentColor: {r: 0, g: 1, b: 0, a: 0.39215687}
-  selectableColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.39215687}
-  walkedIntoColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  nonWalkedRoomSprite: {fileID: 0}
+  oneWaySprite: {fileID: 0}
+  corridorSprite: {fileID: 0}
+  angleSprite: {fileID: 0}
+  threeWaySprite: {fileID: 0}
+  fourWaySprite: {fileID: 0}
 --- !u!23 &4362586968995786080
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15227,6 +15259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0053d01daba30a4a99ef3addc28eb88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  restAmbushBaseValue: 20
   bossScene: BossFight
   warriorCard: {fileID: 11400000, guid: 287459fea8edc334ea7857cdd46ee0bf, type: 2}
   thiefCard: {fileID: 11400000, guid: f11278d1bce38214289b7b109317e023, type: 2}
