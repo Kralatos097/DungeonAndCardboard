@@ -194,7 +194,7 @@ public class TurnManager : MonoBehaviour
 
                 if (pass)
                 {
-                    if(!ArePlayersAlive() && !AreEnemyAlive())
+                    if(!ArePlayersAlive() || !AreEnemyAlive())
                     {
                         EndCombat(ArePlayersAlive());
                     }
