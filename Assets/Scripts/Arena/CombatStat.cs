@@ -324,6 +324,7 @@ public class CombatStat : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException(nameof(effect), effect, null);
         }
+        Debug.Log("status : "+ StatusEffect + " - " + statusValue);
     }
 
     public void EndTurnFreeze(int value)

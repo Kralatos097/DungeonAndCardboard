@@ -240,20 +240,20 @@ public class Active : Stuff
             case 0:
                 break;
             case 1:
+                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Burn, activeEffect.value);
                 passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
                     passive.Effect(target);
                 }
-                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Burn, activeEffect.value);
                 break;
             case 2:
-                 passive = user.GetComponent<TacticsMovement>().GetPassive();
+                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Burn, activeEffect.value*2);
+                passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
                     passive.Effect(target, true);
                 }
-                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Burn, activeEffect.value*2);
                 break;
         }
     }
@@ -266,20 +266,20 @@ public class Active : Stuff
             case 0:
                 break;
             case 1:
+                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Freeze, activeEffect.value);
                 passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
                     passive.Effect(target);
                 }
-                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Freeze, activeEffect.value);
                 break;
             case 2:
+                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Freeze, activeEffect.value*2);
                 passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
                     passive.Effect(target, true);
                 }
-                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Freeze, activeEffect.value*2);
                 break;
         }
     }
@@ -292,20 +292,20 @@ public class Active : Stuff
             case 0:
                 break;
             case 1:
+                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Poison, activeEffect.value);
                 passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
                     passive.Effect(target);
                 }
-                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Poison, activeEffect.value);
                 break;
             case 2:
+                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Poison, activeEffect.value*2);
                 passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
                     passive.Effect(target, true);
                 }
-                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Poison, activeEffect.value*2);
                 break;
         }
     }
@@ -318,20 +318,20 @@ public class Active : Stuff
             case 0:
                 break;
             case 1:
+                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Stun, activeEffect.value);
                 passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
                     passive.Effect(target);
                 }
-                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Stun, activeEffect.value);
                 break;
             case 2:
+                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Stun, activeEffect.value*2);
                 passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
                     passive.Effect(target, true);
                 }
-                target.GetComponent<CombatStat>().ChangeStatus(StatusEffect.Stun, activeEffect.value*2);
                 break;
         }
     }

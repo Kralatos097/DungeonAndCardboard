@@ -736,7 +736,6 @@ public class NPCMove : TacticsMovement
         
         if(_alreadyMoved) //Attack après avoir bougé si un Player est dans la range
         {
-            Debug.Log(target +"\n"+ _targetDistance +" - "+ atkRange);
             if(target != null && _targetDistance <= atkRange)
             {
                 attacking = true;
