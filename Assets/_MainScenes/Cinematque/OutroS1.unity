@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -321,27 +321,27 @@ PrefabInstance:
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[2].LeftSprite
       value: 
-      objectReference: {fileID: 21300000, guid: fef9a927ee96f3447899ca5693b72e77, type: 3}
+      objectReference: {fileID: 21300000, guid: 4ec4280dca3a12d4198021c42e923ca9, type: 3}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[3].LeftSprite
       value: 
-      objectReference: {fileID: 21300000, guid: e6000309bde74cc47afb249cf6e3e81a, type: 3}
+      objectReference: {fileID: 21300000, guid: 2033c804d6078514b984082115fe865e, type: 3}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[4].LeftSprite
       value: 
-      objectReference: {fileID: 21300000, guid: e6000309bde74cc47afb249cf6e3e81a, type: 3}
+      objectReference: {fileID: 21300000, guid: c7e906afeaefcb74d946a19a8add1894, type: 3}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[5].LeftSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1e22a8cee2a7a564b8ac90c1130420dc, type: 3}
+      objectReference: {fileID: 21300000, guid: 3769b7a65cef71d4da436e62f8f94fc5, type: 3}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[0].RightSprite
       value: 
-      objectReference: {fileID: 21300000, guid: b37ad9800063efb45a88ac620fa3851c, type: 3}
+      objectReference: {fileID: 21300000, guid: c773710655085044eb2be88661684f40, type: 3}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[1].RightSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 420f4db2b22eebd4db5cdd4ce7ff3eb4, type: 3}
+      objectReference: {fileID: 21300000, guid: 9bcec7eff436e5a4bb6b298d55f11c00, type: 3}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[2].RightSprite
       value: 
