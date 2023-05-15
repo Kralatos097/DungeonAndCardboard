@@ -5243,7 +5243,7 @@ MonoBehaviour:
   TitleScreen: {fileID: 637844256}
   Session0Display: {fileID: 1920019772}
   Session1Display: {fileID: 695536585}
-  timeToIntro: 25
+  timeToIntro: 60
   AsSessionDisplay: 0
   IsInMenu: 0
 --- !u!114 &1082306312
