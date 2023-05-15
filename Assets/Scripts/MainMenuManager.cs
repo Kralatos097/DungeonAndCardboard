@@ -11,6 +11,7 @@ public class MainMenuManager : MonoBehaviour
     [Scene][SerializeField] private string Credit;
     [Header("Animators")]
     [SerializeField] private Animator TransitionCam;
+    [SerializeField] private Animator TableFlip;
     [Header("GameObjects")]
     [SerializeField] private GameObject QuitQuestion;
     [SerializeField] private GameObject Settings;
@@ -134,9 +135,8 @@ public class MainMenuManager : MonoBehaviour
     //Quit le jeu
     public void TableFlipBeforeQuit()
     {
-        QuitTheGame();
-        //TableFlip.SetTrigger("TableFlip");
-        //Invoke("QuitTheGame",0.5f);
+        TableFlip.SetTrigger("TableFlip");
+        Invoke("QuitTheGame",0.5f);
     }
     public void QuitTheGame()
     {
