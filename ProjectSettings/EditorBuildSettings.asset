@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/_MainScenes/Cinematque/IntroJeu.unity
+    path: Assets/_MainScenes/Cinematique/IntroJeu.unity
     guid: 7906db7b941be804ebc81e3cbc273665
   - enabled: 1
     path: Assets/_MainScenes/MainMenu.unity
     guid: cd4f62d06c2042545a6ab735ef75c6cd
   - enabled: 1
-    path: Assets/_MainScenes/Cinematque/IntroS1.unity
+    path: Assets/_MainScenes/Cinematique/IntroS1.unity
     guid: ec5401cc652db2a41bbeefba55c905de
   - enabled: 1
     path: Assets/_ScenesTibo/JuryTestDungeon.unity
@@ -180,10 +180,10 @@ EditorBuildSettings:
     path: Assets/_MainScenes/S1 Arena/KingRoom.unity
     guid: a8767045aa12c2345aba6bb80c74c516
   - enabled: 1
-    path: Assets/_MainScenes/Cinematque/OutroS1.unity
+    path: Assets/_MainScenes/Cinematique/OutroS1.unity
     guid: 82690ff47135a4b4289738b71a7d135f
   - enabled: 1
-    path: Assets/_MainScenes/Cinematque/IntroS0.unity
+    path: Assets/_MainScenes/Cinematique/IntroS0.unity
     guid: 6e08724f89f664446a3f535e94925aa8
   - enabled: 1
     path: Assets/_MainScenes/S0 Dungeons/Tuto Dungeons.unity
@@ -195,7 +195,7 @@ EditorBuildSettings:
     path: Assets/_MainScenes/S0 Arena/TutoBoss.unity
     guid: d0047f00752026443a74057990fd3191
   - enabled: 1
-    path: Assets/_MainScenes/Cinematque/OutroS0.unity
+    path: Assets/_MainScenes/Cinematique/OutroS0.unity
     guid: 23220a83451e1e64a99ba7dff4c0839a
   - enabled: 1
     path: Assets/_MainScenes/EndSession.unity
