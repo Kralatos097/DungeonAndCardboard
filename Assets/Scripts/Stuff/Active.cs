@@ -111,7 +111,7 @@ public class Active : Stuff
                     ElementaryPouet(user, go, activeEffect, hit);
                     break;
                 case ActiveType.RandomStatusEffect:
-                    RandomStatusEffect(go, activeEffect, hit);
+                    RandomStatusEffect(user, go, activeEffect, hit);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -404,23 +404,23 @@ public class Active : Stuff
         }
     }
     
-    private void RandomStatusEffect(GameObject user, ActiveEffect activeEffect, int hit)
+    private void RandomStatusEffect(GameObject user, GameObject target, ActiveEffect activeEffect, int hit)
     {
         int rand = Random.Range(0, 4);
 
         switch (rand)
         {
             case 0: //Burn
-                Burn(user, user, activeEffect, hit);
+                Burn(user, target, activeEffect, hit);
                 break;
             case 1: //Freeze
-                Freeze(user, user, activeEffect, hit);
+                Freeze(user, target, activeEffect, hit);
                 break;
             case 2: //Poison
-                Poison(user, user, activeEffect, hit);
+                Poison(user, target, activeEffect, hit);
                 break;
             case 3: //Stun
-                Stun(user, user, activeEffect, hit);
+                Stun(user, target, activeEffect, hit);
                 break;
             default:
                 break;
