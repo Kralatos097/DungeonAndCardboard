@@ -74,7 +74,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonUp(0) && !_actionSelectorShown && !EventSystem.current.IsPointerOverGameObject() && TacticsMovement.PlayersTurn)
+        if (Input.GetMouseButtonUp(0) && !_actionSelectorShown && !EventSystem.current.IsPointerOverGameObject() && TacticsMovement.PlayersTurn && TurnManager.CombatStarted)
         {
             ShowActionSelector();
         }
