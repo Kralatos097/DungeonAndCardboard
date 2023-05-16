@@ -155,6 +155,7 @@ public class NPCMove : TacticsMovement
                         if (TGO.CompareTag("Player"))
                         {
                             target = TGO;
+                            Debug.Log(target);
                             _targetDistance = tile.distance;
                             return;
                         }
@@ -322,10 +323,10 @@ public class NPCMove : TacticsMovement
                     process.Enqueue(tile);
 
                     GameObject TGO = tile.GetGameObjectOnTop();
-                    if (TGO != null && TGO.GetComponent<TacticsMovement>() != null)
+                    if (TGO != null && TGO.GetComponent<NPCMove>() != null)
                     {
                         bool comp = true;
-                        if (target != null && target.GetComponent<TacticsMovement>() != null)
+                        if (target != null && target.GetComponent<NPCMove>() != null)
                         {
                             CombatStat targetCs = target.GetComponent<CombatStat>();
                             CombatStat TgoCs = TGO.GetComponent<CombatStat>();
@@ -335,7 +336,7 @@ public class NPCMove : TacticsMovement
                             }
                         }
                         
-                        if (TGO.CompareTag("Enemy") && comp)
+                        if(comp)
                         {
                             target = TGO;
                             _targetDistance = tile.distance;
@@ -374,10 +375,10 @@ public class NPCMove : TacticsMovement
                     process.Enqueue(tile);
 
                     GameObject TGO = tile.GetGameObjectOnTop();
-                    if (TGO != null)
+                    if (TGO != null && target.GetComponent<NPCMove>() != null)
                     {
                         bool comp = true;
-                        if (target != null)
+                        if (target != null && target.GetComponent<NPCMove>() != null)
                         {
                             CombatStat targetCs = target.GetComponent<CombatStat>();
                             CombatStat TgoCs = TGO.GetComponent<CombatStat>();
@@ -387,7 +388,7 @@ public class NPCMove : TacticsMovement
                             }
                         }
                         
-                        if (TGO.CompareTag("Enemy") && comp)
+                        if (comp)
                         {
                             target = TGO;
                             _targetDistance = tile.distance;
@@ -601,22 +602,52 @@ public class NPCMove : TacticsMovement
 
     private int GetTravelDist(ArenaTile arenaTile)
     {
-        int d = 0;
+        int ret = 0;
         if (arenaTile.parent == null) return 100;
         
         while(arenaTile != _currentTile)
         {
-            d++;
+            ret++;
             arenaTile = arenaTile.parent;
         }
 
-        return d;
+        return ret;
     }
 
     protected int GetDistToTarget(ArenaTile arenaTile)
     {
         int ret = 0;
+        ComputeAdjacencyListAtk();
+        SetCurrentTile();
 
+        Queue<ArenaTile> process = new Queue<ArenaTile>();
+        
+        process.Enqueue(_currentTile);
+        _currentTile.visited = true;
+
+        while (process.Count > 0)
+        {
+            ArenaTile t = process.Dequeue();
+            
+            _selectableTiles.Add(t);
+
+            foreach (ArenaTile tile in t.adjacencyList)
+            {
+                if (!tile.visited)
+                {
+                    tile.parent = t;
+                    tile.visited = true;
+                    tile.distance = 1 + t.distance;
+                    process.Enqueue(tile);
+
+                    GameObject TGO = tile.GetGameObjectOnTop();
+                    if (TGO != null && TGO == target)
+                    {
+                        return tile.distance;
+                    }
+                }
+            }
+        }
         
         
         return ret;
@@ -687,7 +718,6 @@ public class NPCMove : TacticsMovement
                 {
                     move = _tempMove;
                 }
-                Debug.Log(move);
                 
                 animator.SetBool("IsGrounded", false);
             
@@ -913,6 +943,7 @@ public class NPCMove : TacticsMovement
             
             RemoveSelectableTile();
             firstTimePass = true;
+            Debug.Log(target);
         }
         
         bool isAttacking = AttackAI(); //lance les attaques
@@ -1007,6 +1038,7 @@ public class NPCMove : TacticsMovement
         {
             if (target != null)
             {
+                Debug.Log(target);
                 if (atkRange > 1)
                 {
                     if (_targetDistance <= atkRange)
@@ -1037,9 +1069,12 @@ public class NPCMove : TacticsMovement
 
     protected override void EndOfMovement()
     {
-        /*_targetDistance -= _tileMoved;*/
+        _currentTile = GetCurrentTile();
+        /*_targetDistance -= _tileMoved;
         FindNearestTarget();
-        _targetDistance = target.GetComponent<TacticsMovement>().GetCurrentTile().distance;
+        _targetDistance = target.GetComponent<TacticsMovement>().GetCurrentTile().distance;*/
+        _targetDistance = GetTravelDist(target.GetComponent<TacticsMovement>().GetCurrentTile());
+        Debug.Log(_targetDistance);
         
         _alreadyMoved = true;
 

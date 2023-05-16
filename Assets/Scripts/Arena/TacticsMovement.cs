@@ -452,6 +452,7 @@ public class TacticsMovement : MonoBehaviour
 			if (t == targetTile)
 			{
 				ArenaTile crateTile = GetFirstCrateOnPath(t);
+				Debug.Log(target);
 				target = crateTile.GetGameObjectOnTop();
 				_targetDistance = crateTile.distance;
 				ActualTargetTile = FindEndTile(crateTile);
@@ -526,6 +527,7 @@ public class TacticsMovement : MonoBehaviour
 
 				if(ActualTargetTile.GetGameObjectOnTop() != null && ActualTargetTile.GetGameObjectOnTop().CompareTag("Player"))
 				{
+					Debug.Log(target);
 				    target = ActualTargetTile.GetGameObjectOnTop();
 				    _targetDistance = ActualTargetTile.distance;
 				}
