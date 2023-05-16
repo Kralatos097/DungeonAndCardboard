@@ -155,7 +155,6 @@ public class NPCMove : TacticsMovement
                         if (TGO.CompareTag("Player"))
                         {
                             target = TGO;
-                            Debug.Log(target);
                             _targetDistance = tile.distance;
                             return;
                         }
@@ -943,7 +942,6 @@ public class NPCMove : TacticsMovement
             
             RemoveSelectableTile();
             firstTimePass = true;
-            Debug.Log(target);
         }
         
         bool isAttacking = AttackAI(); //lance les attaques
@@ -1074,7 +1072,6 @@ public class NPCMove : TacticsMovement
         FindNearestTarget();
         _targetDistance = target.GetComponent<TacticsMovement>().GetCurrentTile().distance;*/
         _targetDistance = GetTravelDist(target.GetComponent<TacticsMovement>().GetCurrentTile());
-        Debug.Log(_targetDistance);
         
         _alreadyMoved = true;
 
