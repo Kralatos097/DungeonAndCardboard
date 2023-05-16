@@ -390,39 +390,42 @@ public class DungeonManager : MonoBehaviour
     protected virtual void LaunchTreasure()
     {
         artworkShown = true;
-        //Stuff newStuff;
-        int rand = Random.Range(0, 5);
+
         PositiveLootFX();
-        if(rand == 0)
+        if(CurrentTile.roomType == RoomType.FirstRoom)
         {
-            DungeonUiManager.TreasureConsumableUi();
-            /*newStuff = PickConsumable();*/
-            treasureEffect = TreasureEffect.Consumable;
+            DungeonUiManager.TreasureStuffUi();
+            treasureEffect = TreasureEffect.Stuff;
         }
         else
         {
-            DungeonUiManager.TreasureStuffUi();
-            /*newStuff = PickStuff();*/
-            treasureEffect = TreasureEffect.Stuff;
+            int rand = Random.Range(0, 5);
+            if (rand == 0)
+            {
+                DungeonUiManager.TreasureConsumableUi();
+                treasureEffect = TreasureEffect.Consumable;
+            }
+            else
+            {
+                DungeonUiManager.TreasureStuffUi();
+                treasureEffect = TreasureEffect.Stuff;
+            }
         }
     }
     
     protected virtual void LaunchFightLoot()
     {
         artworkShown = true;
-        //Stuff newStuff;
         int rand = Random.Range(0, 5);
         PositiveLootFX();
         if(rand <= 2)
         {
             DungeonUiManager.TreasureConsumableUi();
-            //newStuff = PickConsumable();
             treasureEffect = TreasureEffect.Consumable;
         }
         else
         {
             DungeonUiManager.TreasureStuffUi();
-            //newStuff = PickStuff();
             treasureEffect = TreasureEffect.Stuff;
         }
     }

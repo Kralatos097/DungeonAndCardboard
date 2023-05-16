@@ -244,7 +244,6 @@ public class Active : Stuff
                 passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
-                    Debug.Log("ggg");
                     passive.Effect(target);
                 }
                 break;
@@ -253,7 +252,6 @@ public class Active : Stuff
                 passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
-                    Debug.Log("ggg");
                     passive.Effect(target, true);
                 }
                 break;
@@ -272,7 +270,6 @@ public class Active : Stuff
                 passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
-                    Debug.Log("ggg");
                     passive.Effect(target);
                 }
                 break;
@@ -281,7 +278,6 @@ public class Active : Stuff
                 passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
-                    Debug.Log("ggg");
                     passive.Effect(target, true);
                 }
                 break;
@@ -300,7 +296,6 @@ public class Active : Stuff
                 passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
-                    Debug.Log("ggg");
                     passive.Effect(target);
                 }
                 break;
@@ -309,7 +304,6 @@ public class Active : Stuff
                 passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
-                    Debug.Log("ggg");
                     passive.Effect(target, true);
                 }
                 break;
@@ -328,7 +322,6 @@ public class Active : Stuff
                 passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
-                    Debug.Log("ggg");
                     passive.Effect(target);
                 }
                 break;
@@ -337,7 +330,6 @@ public class Active : Stuff
                 passive = user.GetComponent<TacticsMovement>().GetPassive();
                 if(passive != null && passive.GetPassiveTrigger() == PassiveTrigger.OnStatusGiven)
                 {
-                    Debug.Log("ggg");
                     passive.Effect(target, true);
                 }
                 break;
