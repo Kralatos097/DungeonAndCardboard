@@ -374,7 +374,7 @@ public class NPCMove : TacticsMovement
                     process.Enqueue(tile);
 
                     GameObject TGO = tile.GetGameObjectOnTop();
-                    if (TGO != null && target.GetComponent<NPCMove>() != null)
+                    if (TGO != null && TGO.GetComponent<NPCMove>() != null)
                     {
                         bool comp = true;
                         if (target != null && target.GetComponent<NPCMove>() != null)
@@ -505,7 +505,6 @@ public class NPCMove : TacticsMovement
     
     private bool CalculatePathWoCrate()
     {
-        Debug.Log(target);
         if (target == null) return false;
         ArenaTile targetTile = GetTargetTile(target);
         return FindPathWoCrate(targetTile);
@@ -1036,7 +1035,6 @@ public class NPCMove : TacticsMovement
         {
             if (target != null)
             {
-                Debug.Log(target);
                 if (atkRange > 1)
                 {
                     if (_targetDistance <= atkRange)
@@ -1071,7 +1069,7 @@ public class NPCMove : TacticsMovement
         /*_targetDistance -= _tileMoved;
         FindNearestTarget();
         _targetDistance = target.GetComponent<TacticsMovement>().GetCurrentTile().distance;*/
-        _targetDistance = GetTravelDist(target.GetComponent<TacticsMovement>().GetCurrentTile());
+        _targetDistance = GetDistToTarget(target.GetComponent<TacticsMovement>().GetCurrentTile());
         
         _alreadyMoved = true;
 
