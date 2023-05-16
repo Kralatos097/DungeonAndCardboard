@@ -87,14 +87,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WizardPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 2866687278255427386, guid: 3fee4182a797f1d4e9ce8f07679ef922, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 1551d39bd954b224da601c686118c05a, type: 3}
-    - target: {fileID: 2866687278272630100, guid: 3fee4182a797f1d4e9ce8f07679ef922, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 676b26befd8c0854980307f67ffe3bb1, type: 3}
     - target: {fileID: 2866687279345344546, guid: 3fee4182a797f1d4e9ce8f07679ef922, type: 3}
       propertyPath: m_Sprite
       value: 

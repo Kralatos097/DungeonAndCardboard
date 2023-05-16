@@ -239,6 +239,8 @@ public class TurnManager : MonoBehaviour
         while(!turnOrder.Peek().gameObject.GetComponent<CombatStat>().isAlive)
         {
             TacticsMovement deadUnit = turnOrder.Dequeue();
+            if(deadUnit.CompareTag("Player"))
+                deadUnit.GetComponent<PlayerMovement>().SetUnitInfo();
             Destroy(deadUnit.gameObject);
             ret = true;
         }
