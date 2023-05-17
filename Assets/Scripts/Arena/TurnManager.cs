@@ -154,10 +154,13 @@ public class TurnManager : MonoBehaviour
     {
         foreach (PlayerMovement movement in _playerList)
         {
-            PlayerMovement playerMovement = movement.gameObject.GetComponent<PlayerMovement>();
-            if(playerMovement != null)
+            if (movement != null)
             {
-                playerMovement.SetUnitInfo();
+                PlayerMovement playerMovement = movement.gameObject.GetComponent<PlayerMovement>();
+                if (playerMovement != null)
+                {
+                    playerMovement.SetUnitInfo();
+                }
             }
         }
     }
