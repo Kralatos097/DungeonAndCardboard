@@ -41,6 +41,13 @@ public class CrateCombatState : CombatStat
 
     protected override void UnitDeath()
     {
+        CrateDeathFx();
         Destroy(gameObject);
+    }
+
+    private void CrateDeathFx()
+    {
+        FindObjectOfType<AudioManager>().RandomPitch("CrateDeath");
+        FindObjectOfType<FXManager>().PlayWoParent("CrateDestroyed", transform);
     }
 }

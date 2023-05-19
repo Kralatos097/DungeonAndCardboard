@@ -555,7 +555,7 @@ public class CombatStat : MonoBehaviour
     private void AllieDownFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("AllieDown");
-        FindObjectOfType<FXManager>().Play("Dead", transform);
+        FindObjectOfType<FXManager>().Play("Down", transform);
     }
 
     private void AllieDeathFX()
@@ -567,7 +567,7 @@ public class CombatStat : MonoBehaviour
     private void EnemyDeathFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("EnemyDeath");
-        FindObjectOfType<FXManager>().Play("Dead", transform);
+        FindObjectOfType<FXManager>().Play("Down", transform);
     }
 
     private void ImmunFx()
