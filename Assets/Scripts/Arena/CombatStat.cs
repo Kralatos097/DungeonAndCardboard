@@ -43,11 +43,10 @@ public class CombatStat : MonoBehaviour
 
             if(!isAlive)
             {
-                transform.GetChild(0).gameObject.SetActive(false);
-                transform.position = new Vector3(-100, -100, -100);
-                
                 if(!isUp) //empeche aux effets de ce lancer au début de la scene
                     AllieDeathFX();
+                transform.GetChild(0).gameObject.SetActive(false);
+                transform.position = new Vector3(-100, -100, -100);
             }
         }
     }
@@ -62,8 +61,8 @@ public class CombatStat : MonoBehaviour
             {
                 if (_currHp <= 0)
                 {
-                    MaxHp-=1;
                     TakeDamageFX();
+                    MaxHp-=1;
                     return;
                 }
                 if (holyShield)
@@ -179,9 +178,9 @@ public class CombatStat : MonoBehaviour
         }
         else
         {
+            EnemyDeathFX();
             transform.GetChild(0).gameObject.SetActive(false);
             transform.position = new Vector3(-100, -100, -100);
-            EnemyDeathFX();
             isAlive = false;
         }
     }
@@ -561,13 +560,13 @@ public class CombatStat : MonoBehaviour
     private void AllieDeathFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("AllieDeath");
-        FindObjectOfType<FXManager>().Play("Dead", transform);
+        FindObjectOfType<FXManager>().PlayWoParent("Dead", transform);
     }
 
     private void EnemyDeathFX()
     {
         FindObjectOfType<AudioManager>().RandomPitch("EnemyDeath");
-        FindObjectOfType<FXManager>().Play("Down", transform);
+        FindObjectOfType<FXManager>().PlayWoParent("Down", transform);
     }
 
     private void ImmunFx()
