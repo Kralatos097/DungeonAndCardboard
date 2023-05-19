@@ -2819,6 +2819,114 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[39].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f5d9417f80bedf142b1fb001cc3b81e4, type: 3}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[39].name
+      value: Immun
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[40].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f5d9417f80bedf142b1fb001cc3b81e4, type: 3}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[40].name
+      value: Immun
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[41].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f5d9417f80bedf142b1fb001cc3b81e4, type: 3}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[41].name
+      value: Immun
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[42].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f5d9417f80bedf142b1fb001cc3b81e4, type: 3}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[42].name
+      value: Immun
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[43].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f5d9417f80bedf142b1fb001cc3b81e4, type: 3}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[43].name
+      value: Immun
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[44].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f5d9417f80bedf142b1fb001cc3b81e4, type: 3}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[44].name
+      value: Immun
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[45].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f5d9417f80bedf142b1fb001cc3b81e4, type: 3}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[45].name
+      value: Immun
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[46].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f5d9417f80bedf142b1fb001cc3b81e4, type: 3}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[46].name
+      value: Immun
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[47].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f5d9417f80bedf142b1fb001cc3b81e4, type: 3}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[47].name
+      value: Immun
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[39].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[40].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[41].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[42].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[43].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[44].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[45].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[46].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743040489013127288, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
+      propertyPath: sfx.Array.data[47].volume
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f6a6ff281916dc4eb8c4f0c26579215, type: 3}
 --- !u!1 &1388683498
