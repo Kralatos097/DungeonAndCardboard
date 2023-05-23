@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/_MainScenes/Cinematique/IntroS1.unity
     guid: ec5401cc652db2a41bbeefba55c905de
   - enabled: 1
-    path: Assets/_ScenesTibo/JuryTestDungeon.unity
+    path: Assets/_MainScenes/ForJury/JuryTestDungeon.unity
     guid: a83cc3cb329406f409fc43a6162de8e5
   - enabled: 1
     path: Assets/_MainScenes/S1 Dungeons/Dungeon1.unity
