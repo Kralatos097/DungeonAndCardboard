@@ -292,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[1].Text
-      value: 'Great! We''ve defeated the Gobelin King! '
+      value: 'Great! We''ve defeated the gobelin king! '
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[2].Text

@@ -122,16 +122,6 @@ MonoBehaviour:
     volume: 0.7
     pitch: 1
     source: {fileID: 0}
-  - name: StepArena
-    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
-    volume: 0
-    pitch: 1
-    source: {fileID: 0}
-  - name: UiClic
-    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
-    volume: 0
-    pitch: 1
-    source: {fileID: 0}
   - name: RangeAction
     clip: {fileID: 8300000, guid: 0b6ad0cf1d018c84fbd023afd5a816b5, type: 3}
     volume: 1
@@ -145,16 +135,6 @@ MonoBehaviour:
   - name: SelfAction
     clip: {fileID: 8300000, guid: 0b6ad0cf1d018c84fbd023afd5a816b5, type: 3}
     volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: EnemyDamaged
-    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
-    volume: 0
-    pitch: 1
-    source: {fileID: 0}
-  - name: AllieDamaged
-    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
-    volume: 0
     pitch: 1
     source: {fileID: 0}
   - name: EnemyHealed
@@ -175,11 +155,6 @@ MonoBehaviour:
   - name: ArmorGained
     clip: {fileID: 8300000, guid: 337c413bbd8ec0741a6854764acbb382, type: 3}
     volume: 0.8
-    pitch: 1
-    source: {fileID: 0}
-  - name: Revive
-    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
-    volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: GetBurn
@@ -252,21 +227,6 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
-  - name: Immune
-    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: GainHolyShield
-    clip: {fileID: 8300000, guid: 7790f1d2202054d42b861592edba2884, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: DamageHolyshield
-    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
   - name: RollDice
     clip: {fileID: 8300000, guid: 98cc30d7e80beb243893541275f523c0, type: 3}
     volume: 1
@@ -294,16 +254,6 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Defeat
     clip: {fileID: 8300000, guid: d3665dd8bb9543843aa2530e71eea63e, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: ArenaTrapDamage
-    clip: {fileID: 8300000, guid: 2a51d9dda97f1de488a320829f842e7e, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: ArenaTrapActivate
-    clip: {fileID: 8300000, guid: eb708fa3465cd3743bee279b368d5ff7, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
@@ -347,7 +297,6 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
-  voice: []
   fadeDuration: 2
 --- !u!114 &5566258208821927673
 MonoBehaviour:
@@ -400,6 +349,10 @@ MonoBehaviour:
     particule: {fileID: 7420029356290824026, guid: b2fd26a5e6187894d97f0a65c1a8540a, type: 3}
   - name: Immun
     particule: {fileID: 3837366542517516125, guid: bceccaba928cc8c49aa756b8ca29bd01, type: 3}
+  - name: Down
+    particule: {fileID: 8121310307268486910, guid: 9c8fd80a90ec73f44a9025b023c1273c, type: 3}
+  - name: CrateDestroyed
+    particule: {fileID: 5004236575802911133, guid: 054f5cfb347c4d14392bc1ad305f0449, type: 3}
 --- !u!81 &2263537129894144590
 AudioListener:
   m_ObjectHideFlags: 0

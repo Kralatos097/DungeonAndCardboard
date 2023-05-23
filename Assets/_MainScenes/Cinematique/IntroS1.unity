@@ -366,7 +366,7 @@ PrefabInstance:
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[7].Text
       value: You have heard, that the princess Princess has been kidnapped by a group
-        of Goblins.
+        of goblins.
       objectReference: {fileID: 0}
     - target: {fileID: 8473584522837488730, guid: 763e44d8cc8de3848a87c5aa9509a4e8, type: 3}
       propertyPath: dialogue.Array.data[8].Text

@@ -18,9 +18,6 @@ public class AudioManager : MonoBehaviour
     
     [Header("Liste de Son")]
     public SFX[] sfx;
-    
-    [Header("Liste de Voix")]
-    public Voice[] voice;
 
     private static AudioManager instance;
     
@@ -61,13 +58,6 @@ public class AudioManager : MonoBehaviour
         
         _sfxSource = gameObject.AddComponent<AudioSource>();
         _sfxSource.volume = volumeSfx;
-        
-        foreach (Voice s in voice)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-            s.source.volume = s.volume*volumeVoice;
-        }
     }
 
     private void Update()
